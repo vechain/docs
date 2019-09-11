@@ -35,6 +35,7 @@
       -  [Report Issue](https://github.com/XJWX89/doc/blob/master/Sync/Report%20Issue.md)
 - Tools
   - [Connex](https://github.com/vechain/connex) : The standard interface to connect DApp with VeChain and user
+  - [Thor-devkit](https://github.com/vechain/thor-devkit.js) : Typescript library to aid DApp development 
   - Integrated Development Environments (IDEs)
     - [VIDE](https://vechainstore.com/ide) : Browser-Only Solidity IDE and Runtime Environment
     - [Remix](https://remix.ethereum.org/) : Web-based IDE with built in static analysis, and a test blockchain virtual machine.
