@@ -2,18 +2,18 @@
      - Basic Guide
         * [Intro](https://github.com/XJWX89/doc/blob/master/Thor/intro.md)
         * [Two-token Design](https://github.com/XJWX89/doc/blob/master/Thor/two-token%20design.md)
-        * [Block](https://github.com/XJWX89/doc/blob/master/Thor/Block.md)
-        * [Proof Of Authority](https://github.com/XJWX89/doc/blob/master/Thor/Proof%20of%20Authority.md)
+        * [Block](https://github.com/XJWX89/doc/blob/master/Thor/block.md)
+        * [Proof Of Authority](https://github.com/XJWX89/doc/blob/master/Thor/proof%20of%20authority.md)
         * [Transaction Model](https://github.com/XJWX89/doc/blob/master/Thor/transaction.md)
     - [Installation](https://github.com/vechain/thor#installation)
     - [Running thor](https://github.com/vechain/thor#running-thor)
     - [Docker](https://github.com/vechain/thor#docker)
-    - [Custom Network](https://github.com/XJWX89/doc/blob/master/Thor/Custom%20network.md)
+    - [Custom Network](https://github.com/XJWX89/doc/blob/master/Thor/custom%20network.md)
     - [RESTful API](https://github.com/vechain/thor#api)
 
 - Fee Delegation
-  - [Comparison](https://github.com/XJWX89/doc/blob/master/Fee%20Delegation/Fee%20delegation%20Comparison.md)
-  - [Multi Party Payment](https://github.com/XJWX89/doc/blob/master/Thor/Prototype(MPP).md)
+  - [Comparison](https://github.com/XJWX89/doc/blob/master/Fee%20Delegation/fee%20delegation%20comparison.md)
+  - [Multi Party Payment](https://github.com/XJWX89/doc/blob/master/Thor/prototype(MPP).md)
   - Designated Fee Delegation 
   
 - Connex
@@ -25,14 +25,14 @@
    -  Intro
    -  Download & Install
       - [Source Code](https://github.com/vechain/thor-sync.electron)
-      - [Application](https://github.com/XJWX89/doc/blob/master/Sync/Download%20%26%20Install.md)
+      - [Application](https://github.com/XJWX89/doc/blob/master/Sync/download%20%26%20install.md)
    -  User Guide
-      -  [Wallet](https://github.com/XJWX89/doc/blob/master/Sync/Wallet.md)
-      -  [Browse DApp & Web](https://github.com/XJWX89/doc/blob/master/Sync/Browse%20DApp%26Web.md)
-      -  [Interact with DApps](https://github.com/XJWX89/doc/blob/master/Sync/Intereact%20with%20DApps.md)
-      -  [Activities](https://github.com/XJWX89/doc/blob/master/Sync/Activities.md)
-      -  [Setting](https://github.com/XJWX89/doc/blob/master/Sync/Settings.md)
-      -  [Report Issue](https://github.com/XJWX89/doc/blob/master/Sync/Report%20Issue.md)
+      -  [Wallet](https://github.com/XJWX89/doc/blob/master/Sync/wallet.md)
+      -  [Browse DApp & Web](https://github.com/XJWX89/doc/blob/master/Sync/browse%20dapp%26web.md)
+      -  [Interact with DApps](https://github.com/XJWX89/doc/blob/master/Sync/interact%20with%20dapps.md)
+      -  [Activities](https://github.com/XJWX89/doc/blob/master/Sync/activities.md)
+      -  [Setting](https://github.com/XJWX89/doc/blob/master/Sync/settings.md)
+      -  [Report Issue](https://github.com/XJWX89/doc/blob/master/Sync/report%20issue.md)
 - Tools
   - [Connex](https://github.com/vechain/connex) : The standard interface to connect DApp with VeChain and user
   - [Thor-devkit](https://github.com/vechain/thor-devkit.js) : Typescript library to aid DApp development 
@@ -55,8 +55,8 @@
     - [Veforge Explorer](https://explore.veforge.com/)  : VeForge Explore is the VeChain block explorer. Explore and find VeChain block, account, transaction, and token transfer information. 
   
 - FAQ
-  - [Thor FAQ](https://github.com/XJWX89/doc/blob/master/Thor/FAQ.md)
-  - [Sync FAQ](https://github.com/XJWX89/doc/blob/master/Sync/FAQ.md)
+  - [Thor FAQ](https://github.com/XJWX89/doc/blob/master/Thor/faq.md)
+  - [Sync FAQ](https://github.com/XJWX89/doc/blob/master/Sync/faq.md)
 - Demo Projects 
   - [Buy me a coffee](https://github.com/vechain/buy-me-a-coffee) : A demo allows your supporter to support your work by donating VET
   
