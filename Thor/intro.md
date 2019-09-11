@@ -10,9 +10,11 @@ The VeChainThor Blockchain is designed to tackle the above problems.  It is not 
 
 * White paper: [English](https://cdn.vechain.com/vechainthor_development_plan_and_whitepaper_en_v1.0.pdf), [Chinese](https://cdn.vechain.com/vechainthor_development_plan_and_whitepaper_cn_v1.0.pdf)
 
-* Developer Community: [Official VeChain Gitter](https://gitter.im/vechain/thor), [VeChain Developer Discord](https://discordapp.com/invite/HHvXvUX)
+* Developer Community: [Official VeChain Gitter](https://gitter.im/vechain/thor), [VeChain Developer Discord](https://discordapp.com/invite/HHvXvUX),[VeChain Dev Community Telegram](https://t.me/VeChainDevCommunity)
 
-* Blockchain Explorers: [VeForge Explore by Totient Labs](https://explore.veforge.com), [Insights](https://insight.vecha.in)
+* Blockchain Explorers:  [Insights](https://insight.vecha.in),[VeForge Explore by Totient Labs](https://explore.veforge.com)
+
+* Telegram bot : [VeChain_bot🤖️](t.me/VeChainCore_bot) 
 
 **VeChainThor Code is provided by VeChain Foundation https://www.vechain.org/**
 
