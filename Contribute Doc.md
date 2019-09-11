@@ -4,7 +4,7 @@ Thanks you so much for considering to help out with the documentation! We welcom
 
 Please fork, fix, commit and send a pull request for the maintainers to review and merge into the main code base.
 
-## Forking Thor
+## Forking doc
 When you "Fork" the project, GitHub will make a copy of the project that is entirely yours; it lives in your namespace, and you can push to it.
 
 ## Getting ready for a pull request

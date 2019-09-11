@@ -1,4 +1,4 @@
-#Intro 
+# Intro 
 
 The VeChain is a public blockchain that is designed for mass adoption of blockchain technology by enterprise users of all sizes. VeChainThor is intended to serve as a foundation for a sustainable and scalable enterprise blockchain ecosystem, supported in part by our novel governance and economic models and unique protocol enhancements.
 

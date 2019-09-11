@@ -1,41 +1,45 @@
-- Blockchain
+- Thor
      - Basic Guide
-        * Intro
-        * Bi-token
-        * Block
-        * Proof Of Authority
-        * Transaction Model
+        * [Intro](https://github.com/XJWX89/doc/blob/master/Thor/intro.md)
+        * [Two-token Design](https://github.com/XJWX89/doc/blob/master/Thor/two-token%20design.md)
+        * [Block](https://github.com/XJWX89/doc/blob/master/Thor/Block.md)
+        * [Proof Of Authority](https://github.com/XJWX89/doc/blob/master/Thor/Proof%20of%20Authority.md)
+        * [Transaction Model](https://github.com/XJWX89/doc/blob/master/Thor/transaction.md)
     - [Installation](https://github.com/vechain/thor#installation)
     - [Running thor](https://github.com/vechain/thor#running-thor)
     - [Docker](https://github.com/vechain/thor#docker)
-    - Custom Network
+    - [Custom Network](https://github.com/XJWX89/doc/blob/master/Thor/Custom%20network.md)
     - [RESTful API](https://github.com/vechain/thor#api)
 
 - Fee Delegation
-  - Comparison 
-  - Multi Party Payment
+  - [Comparison](https://github.com/XJWX89/doc/blob/master/Fee%20Delegation/Fee%20delegation%20Comparison.md)
+  - [Multi Party Payment](https://github.com/XJWX89/doc/blob/master/Thor/Prototype(MPP).md)
   - Designated Fee Delegation 
   
 - Connex
-  - Intro
-  - Compatible Client 
-  - Get Started 
-  - API Reference
+  - [Intro](https://github.com/XJWX89/doc/blob/master/Connex/connex_intro.md)
+  - [Compatible Client](https://github.com/XJWX89/doc/blob/master/Connex/compatible%20client.md)
+  - [API Reference](https://github.com/XJWX89/doc/blob/master/Connex/api.md)
+  - [Type](https://github.com/XJWX89/doc/blob/master/Connex/type.md)
 -  Sync
    -  Intro
-   -  Download 
+   -  Download & Install
+      - [Source Code](https://github.com/vechain/thor-sync.electron)
+      - [Application](https://github.com/XJWX89/doc/blob/master/Sync/Download%20%26%20Install.md)
    -  User Guide
+      -  [Wallet](https://github.com/XJWX89/doc/blob/master/Sync/Wallet.md)
+      -  [Browse DApp & Web](https://github.com/XJWX89/doc/blob/master/Sync/Browse%20DApp%26Web.md)
+      -  [Interact with DApps](https://github.com/XJWX89/doc/blob/master/Sync/Intereact%20with%20DApps.md)
+      -  [Activities](https://github.com/XJWX89/doc/blob/master/Sync/Activities.md)
+      -  [Setting](https://github.com/XJWX89/doc/blob/master/Sync/Settings.md)
+      -  [Report Issue](https://github.com/XJWX89/doc/blob/master/Sync/Report%20Issue.md)
 - Tools
-  - Connex
-     - [connex-framework](https://github.com/vechain/connex-framework)
-     - [connex.driver](https://github.com/vechain/connex.driver)
-     - [connex.driver-nodejs](https://github.com/vechain/connex.driver-nodejs)
+  - [Connex](https://github.com/vechain/connex) : The standard interface to connect DApp with VeChain and user
   - Integrated Development Environments (IDEs)
     - [VIDE](https://vechainstore.com/ide) : Browser-Only Solidity IDE and Runtime Environment
     - [Remix](https://remix.ethereum.org/) : Web-based IDE with built in static analysis, and a test blockchain virtual machine.
   - Smart Contract Language :
     - [Solidity](https://github.com/ethereum/solidity/) :  The most popular language on Ethereum, inspired by C++, Python and Javascript
-  
   - [Inspector](https://inspector.vecha.in/#/contracts) : A tool that allows you to deploy and interact with the contract.
   - [Picasso](https://github.com/vechain/picasso#vanilla-js) : General purpose deterministic identity icon library in svg format, mostly for vechain thor addresses.
   - [B32](https://github.com/vechain/b32) : Signature collection of smart contract method & event 
@@ -50,6 +54,8 @@
     - [Veforge Explorer](https://explore.veforge.com/)  : VeForge Explore is the VeChain block explorer. Explore and find VeChain block, account, transaction, and token transfer information. 
   
 - FAQ
+  - [Thor FAQ](https://github.com/XJWX89/doc/blob/master/Thor/FAQ.md)
+  - [Sync FAQ](https://github.com/XJWX89/doc/blob/master/Sync/FAQ.md)
 - Demo Projects 
   - [Buy me a coffee](https://github.com/vechain/buy-me-a-coffee) : A demo allows your supporter to support your work by donating VET
   
@@ -62,9 +68,9 @@
   - [My-tokens](https://tokens.vecha.in/) : A tools allows you to transfer tokens
 
 - Tutorial
-  - Forcible Transaction Dependency
-  - Designated Fee Delegation
+  - [Forcible Transaction Dependency](https://github.com/XJWX89/doc/blob/master/Tutorials/Forcible%20Transaction%20Dependency.md)
+  - [Designated Fee Delegation](https://github.com/XJWX89/doc/blob/master/Tutorials/Designated%20Fee%20Delegation.md)
 - Additional Resources
-- Contribution 
+- [Contribution](https://github.com/XJWX89/doc/blob/master/Contribute%20Doc.md)
 
 
