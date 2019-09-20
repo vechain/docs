@@ -1,4 +1,4 @@
-Proof of Authority 
+# Proof of Authority 
 
 One of the biggest decisions when designing a public blockchain system is about designing the consensus algorithm. The protocol not only dictates how blockchain participants agree on the blockchain grows but embodies the governance model imposed upon the system. 
 

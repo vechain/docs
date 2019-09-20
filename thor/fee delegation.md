@@ -1,4 +1,25 @@
-# Prototype
+# Fee Delegation
+
+## Summary
+
+### Multi-Party Payment (Prototype)
+
+Multi-Party Payment(MPP) was designed from the point of view of a DApp owner who controls a bunch of contracts running on chain.Moreover, MPP requires writing data on chain.
+
+### Designated Gas Payer (VIP191)
+
+Designated Gas Payer is aimed to supplement MPP to provide more flexibility for TX fee delegation on VeChainThor. In particular, it allows a TX sender to seek for an arbitrary party, not necessarily the TX recipient, who is willing to pay for the TX.
+
+### Comparison 
+Compared with MPP, Designated Gas Payer(VIP-191) gives control back to TX senders to activate the protocol. Moreover, it does not introduce any overhead cost. However, it requires the TX sender and gas-payer to be both online to complete the TX while MPP does not. In terms of transparency, MPP is the better option since the gas-payer will have to explicitly put his/her intension to fund TXs from a particular account on chain.
+
+|  | Common To | Backend | User list Storage  | Native Fature | Flexibility |
+| --- | --- | --- | --- | --- | --- |
+| Multi-Party Payment | ✓ | X  | BlockChain | ✓ | Configuration for all user |
+| Designated Gas Payer | X  | ✓ | Backend | ✓ | Configuration for individuals  |
+
+
+## Prototype
 One of the major obstacles for ordinary people, or even enterprises, to adopt a public blockchain is the uncertainty and complexity in dealing with crypto assets. On one hand, users have to face the high price volatility when acquiring crypto from the market; on the other hand, they need to understand related concepts and get familiar with various tools to be able to use and manage their crypto assets. 
 
 Can we find a way around the above-mentioned difficulties? For the existing blockchain networks such as Bitcoin and Ethereum, the answer is most likely negative. This is due to the fact that for those systems transaction fee has to be paid by whom sends the transaction and sending transactions is the way we interact with a public blockchain.
@@ -190,3 +211,48 @@ Return:
 
 * `address`: address of the current active *Sponsor* of `_self`. 
 
+## Designated Gas Payer
+VIP191 is an upgrade proposed by Totient that adds generalized native fee delegation to the VeChain blockchain. This innovative feature allows anyone to use a decentralized application regardless of their knowledge of blockchain technology by removing the toughest barriers for adoption.
+
+MPP was designed from the point of view of a dapp owner who controls a bunch of contracts running on chain. It is the sole responsibility of the owner to set up MPP and the protocol can only affect TXs sent to those contracts.
+
+Moreover, since MPP requires writing data on chain and therefore, causes certain overhead cost, it is more cost-effective to use the protocol for a relatively stable relationship between a user and the dapp, rather than some temporary arrangement.
+
+VIP-191 is aimed to supplement MPP to provide more flexibility for TX fee delegation on VeChainThor. In particular, it allows a TX sender to seek for an arbitrary party, not necessarily the TX recipient, who is willing to pay for the TX.
+
+### How Designated Gas Payer works
+The protocol works quite simple actually. It requires both the TX sender and the party who wants to pay for the TX fee to put their digital signatures in the TX. The sender also need to turn on the VIP-191 feature (which will be discussed later) to inform the system that this is a VIP-191 enabled TX. Let's call the party the Gas-Payer to be consistent with the naming in the source code. Once the TX is accepted and executed, the TX fee will be deducted from the gas-payer's VeThor balance.
+
+There have been two major changes made to implement VIP-191:
+1. Extending the TX model by adding Delegator signature
+2. Adding Field Fee Delegated Flag for deciding the actual gas-payer for a VIP-191 enabled TX.
+
+### TX Model Extension
+Field `Reserved` in the TX body structure has been re-defined to be of type `reserved` as shown below:
+
+```
+type reserved struct {
+	Features Features
+	Unused   []rlp.RawValue
+}
+``` 
+
+Within the structure, we define field `Features` as 32-bit unsigned integer. We can think of it as a bit map. Each bit marks the status (1 for on and 0 for off) of a particular feature. For VIP-191, the least significant bit is used.
+
+Recall that VIP-191 requires two valid signatures to be included in the TX. In practice, the TX sender's signature is concatenated by the gas-payer's signature and assigned to field `Signature` as usual. Moreover, the protocol requires the gas-payer to sign the TXID which is a unique identifier of the TX.
+
+### Gas-Payer-Deciding Logic
+The gas-payer-deciding logic brought by VIP-191 is added in function `BuyGas` in the Go source file `THORDIR/runtime/resolved_tx.go`. I copy-paste the actual code below for your convenience. 
+
+```
+if r.Delegator != nil {
+	if energy.Sub(*r.Delegator, prepaid) {
+		return baseGasPrice, gasPrice, *r.Delegator, func(rgas uint64) { doReturnGas(rgas) }, nil
+	}
+	return nil, nil, thor.Address{}, nil, errors.New("insufficient energy")
+}
+```
+
+It can be seen that the system first checks whether there is a designated gas-payer (`r.Delegator`). If there is one, it will try to deduct the initial cost of the TX from the gas-payer's VeThor balance. If the balance is too low, the system will stop processing the TX and return an error. Otherwise, it will mark the gas-payer in the runtime context associated with the TX and pass on the context to the code that executes individual clauses. 
+
+Interested readers are encouraged to have a look at the[ proposal ](https://github.com/vechain/VIPs/blob/master/vips/VIP-191.md)for full details.
