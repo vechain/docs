@@ -1,38 +1,38 @@
 - Thor
      - Basic Guide
-        * [Intro](https://github.com/XJWX89/doc/blob/master/Thor/intro.md)
-        * [Two-token Design](https://github.com/XJWX89/doc/blob/master/Thor/two-token%20design.md)
-        * [Block](https://github.com/XJWX89/doc/blob/master/Thor/block.md)
-        * [Proof Of Authority](https://github.com/XJWX89/doc/blob/master/Thor/proof%20of%20authority.md)
-        * [Transaction Model](https://github.com/XJWX89/doc/blob/master/Thor/transaction.md)
-    - [Installation](https://github.com/vechain/thor#installation)
-    - [Running thor](https://github.com/vechain/thor#running-thor)
-    - [Docker](https://github.com/vechain/thor#docker)
-    - [Custom Network](https://github.com/XJWX89/doc/blob/master/Thor/custom%20network.md)
-    - [RESTful API](https://github.com/vechain/thor#api)
+        * Intro
+        * Two-token Design]
+        * Block
+        * Proof Of Authority
+        * Transaction Model
+    - Installation
+    - Running thor
+    - Docker
+    - Custom Network
+    - RESTful API
 
 - Fee Delegation
-  - [Comparison](https://github.com/XJWX89/doc/blob/master/Fee%20Delegation/fee%20delegation%20comparison.md)
-  - [Multi Party Payment](https://github.com/XJWX89/doc/blob/master/Thor/prototype(MPP).md)
+  - Comparison
+  - Multi Party Payment
   - Designated Fee Delegation 
   
 - Connex
-  - [Intro](https://github.com/XJWX89/doc/blob/master/Connex/connex_intro.md)
-  - [Compatible Client](https://github.com/XJWX89/doc/blob/master/Connex/compatible%20client.md)
-  - [API Reference](https://github.com/XJWX89/doc/blob/master/Connex/api.md)
-  - [Type](https://github.com/XJWX89/doc/blob/master/Connex/type.md)
+  - Intro
+  - Compatible Client
+  - API Reference
+  - Type
 -  Sync
    -  Intro
    -  Download & Install
-      - [Source Code](https://github.com/vechain/thor-sync.electron)
-      - [Application](https://github.com/XJWX89/doc/blob/master/Sync/download%20%26%20install.md)
+      - Source Code
+      - Application
    -  User Guide
-      -  [Wallet](https://github.com/XJWX89/doc/blob/master/Sync/wallet.md)
-      -  [Browse DApp & Web](https://github.com/XJWX89/doc/blob/master/Sync/browse%20dapp%26web.md)
-      -  [Interact with DApps](https://github.com/XJWX89/doc/blob/master/Sync/interact%20with%20dapps.md)
-      -  [Activities](https://github.com/XJWX89/doc/blob/master/Sync/activities.md)
-      -  [Setting](https://github.com/XJWX89/doc/blob/master/Sync/settings.md)
-      -  [Report Issue](https://github.com/XJWX89/doc/blob/master/Sync/report%20issue.md)
+      -  Wallet
+      -  Browse DApp & Web
+      -  Interact with DApps
+      -  Activities
+      -  Setting
+      -  Report Issue
 - Tools
   - [Connex](https://github.com/vechain/connex) : The standard interface to connect DApp with VeChain and user
   - [Thor-devkit](https://github.com/vechain/thor-devkit.js) : Typescript library to aid DApp development 

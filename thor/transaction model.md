@@ -54,7 +54,7 @@ Suppose Alice has signed a transaction that sends 10 VET to Bob and Bob wants to
 
 For any two transactions, as long as they had a field in <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20%5COmega-%5C%7Bsig%5C%7D" height = "14px" align=center /> with different values, their transaction IDs would be different. Moreover, we can always adjust the *Nonce* field to result in a new ID. In contrary to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they could be sent off at the same time and would be processed by VeChainThor independently.
 
-## Clause 
+## Clauses 
 
 Clause((Multi-Task Transaction)) allows a single transaction to carry out multiple tasks. To do that, we introduce the `Clause` structure to represent a single task and allow multiple tasks defined in one transaction. 
 
@@ -88,22 +88,24 @@ The multi-task mechanism has two interesting characteristics:
 
 The multi-task mechanism provides us a secure and efficient way to handle, for instance, tasks such as fund distribution, token airdrop, mass product registration, etc. Moreover, due to the fact that the tasks are processed sequentially, it can be used to conduct a multi-step process. 
 
-## DependsOn
-
- `DependsOn` stores the ID of the transaction on which the current transaction depends. In other words, the current transaction cannot be processed without the success of the transaction referred by `DependsOn`. Here by “success”, we mean that the referred transaction has been executed without state reversion.
-
- ## BlockRef
-
- `BlockRef` stores the reference to a particular block whose next block is the earliest block the current transaction can be included. In particular, the first four bytes of `BlockRef` contains the block height, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center />, while the second four bytes can be used to prove that the referred block is known before the transaction is assembled. If that is the case, the value of `BlockRef` should match the first eight bytes of the ID of the block with height <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center />. 
-
-## Expiration
- `Expiration` stores a number that can be used, together with `BlockRef`, to specify when the transaction expires. Specifically, the sum of `Expiration` and the first four bytes of `BlockRef` defines the height of the last block that the transaction can be included.
-
-### Transaction Dependency
+## Transaction Dependency
 
 `DependsOn` allows us to systematically define an order for a sequence of transactions and such an order is guaranteed by the rules hard-coded as part of the consensus of VeChainTor. Moreover, the system requires the prior transaction depended on by the current transaction to be truly executed, adding another useful layer of security on the dependency.
 
 `BlockRef` and `Expiration` allows us to set the life cycle of a transaction that has not been included in a block. The former defines the starting point and the latter its active period. With such a handful feature, we would no longer be troubled by the situation that a transaction was stuck for hours or even days waiting to be processed and we could not do anything about it. The inclusion of two fields would make transactions safer since it prevents them from being hijacked and later re-used to cause problems.
+
+### DependsOn
+
+ `DependsOn` stores the ID of the transaction on which the current transaction depends. In other words, the current transaction cannot be processed without the success of the transaction referred by `DependsOn`. Here by “success”, we mean that the referred transaction has been executed without state reversion.
+
+ ### BlockRef
+
+`BlockRef` stores the reference to a particular block whose next block is the earliest block the current transaction can be included. In particular, the first four bytes of `BlockRef` contains the block height, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center />, while the second four bytes can be used to prove that the referred block is known before the transaction is assembled. If that is the case, the value of `BlockRef` should match the first eight bytes of the ID of the block with height <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center />. 
+
+## Expiration
+ `Expiration` stores a number that can be used, together with `BlockRef`, to specify when the transaction expires. Specifically, the sum of `Expiration` and the first four bytes of `BlockRef` defines the height of the last block that the transaction can be included.
+
+
 
 ## Reserved
 The structure is defined in Golang as follows:

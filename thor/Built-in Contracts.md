@@ -1,4 +1,4 @@
-There are six smart contracts deployed in VeChainThor's genesis block. Their source code can be found [here](https://github.com/vechain/thor/tree/master/builtin/gen). We describe briefly what they do as follows:
+There are six smart contracts deployed in VeChainThor's genesis block.  source code can be found [here](https://github.com/vechain/thor/tree/master/builtin/gen). 
 
 * `authority.sol` 
 
@@ -18,7 +18,7 @@ There are six smart contracts deployed in VeChainThor's genesis block. Their sou
  
 * `params.sol` 
 
- defines functions to get and set the governance parameters of VeChainThor. Note that only the built-in "Executor" contract is allowed to set new values for the parameters. You can find the list of the governance parameters in [`params.go`](https://github.com/vechain/thor/blob/master/thor/params.go).
+ defines functions to get and set the governance parameters of VeChainThor. Note that only the built-in "Executor" contract is allowed to set new values for the parameters. You can find the list of the governance parameters in [params.go](https://github.com/vechain/thor/blob/master/thor/params.go).
  
 * `prototype.sol`
 

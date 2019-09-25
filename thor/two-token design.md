@@ -30,7 +30,3 @@ Velocity <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20v
 | Precision | 18 decimal places |
 | Supply | VTHO is the energy or the cost of carrying on the payment and smart contract transactions on the VeChainThor blockchain. VTHO is generated from VET in each block over time in a linear manner. (0.00000005VTHO is generated per VET per block)  |
 | Consumption | 70% of the transaction fee paid in VTHO in each block is burned and the remaining 30% is rewarded to the Authority Masternode which produces the block |
-
-### How to get VET and VTHO?
-
-You can find the markets with VET and/or VTHO available on [CoinMarketCap](https://coinmarketcap.com/currencies/vechain/#markets), among which [OceanEx](https://oceanex.pro) is a crypto exchange focusing on the VeChain ecosystem and provides liquid markets for VET, VTHO and VIP180 tokens on VeChainThor blockchain.

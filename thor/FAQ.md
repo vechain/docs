@@ -16,7 +16,7 @@ The precision of both `VET` and `VTHO` is 10^18 Wei. VTHO is generated from stak
 
 ## Are the failed transactions going to be recorded on the chain? Is the transaction gas going to be deducted?
 
-When you send tokens, interact with a contract, send `VET`/`VTHO`, or do anything else on the blockchain, you must pay for computation. That payment is calculated in Gas and gas is paid in VTHO. Regardless of whether your transaction succeeds or fails. Even if it fails, the proposer(authority node) must validate and execute your transaction (compute) and therefore you must pay for that computation just like you would pay for a successful transaction.
+When you send tokens, interact with a contract, send `VET`/`VTHO`, or do anything else on the blockchain, you must pay for computation. That payment is calculated in Gas and the gas is paid in VTHO. Regardless of whether your transaction succeeds or fails. Even if it fails, the proposer(authority node) must validate and execute your transaction (compute) , therefore, you must pay for that computation just like you would pay for a successful transaction.
 
 ## How does the token swap from ERC20 VeChain token to VET work?
 •The ticker symbol for the VeChainThor Mainnet token will changed to `VET`.

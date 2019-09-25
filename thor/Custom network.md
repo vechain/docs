@@ -7,9 +7,7 @@ To start your own custom network, you need to manually configure the genesis fil
 1. Make sure the network has at least **two** nodes running as a authority master node
 2. Thor version ≥ [v1.0.7](https://github.com/vechain/thor/releases/tag/v1.0.7)
 
-### Before You Start
-
-Build your custom network requires understanding the mechanism of blockchain. Make sure you go through [thor wiki](https://github.com/vechain/thor/wiki) especially the article about [Builtin Contract](https://github.com/vechain/thor/wiki/Builtin-Contract) and [Proof of Authority](https://github.com/vechain/thor/wiki/Proof-of-Authority). This will help you understanding the next steps.
+> Build your custom network requires understanding the mechanism of blockchain. Make sure you go through [Builtin Contract](#built-in\contracts) and [Proof of Authority](#proof\of\authority). This will help you understanding the next steps.
 
 
 ## Configure Your Genesis File

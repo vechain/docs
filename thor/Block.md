@@ -30,7 +30,7 @@ type headerBody struct {
 type Transactions []*Transaction
 ```
 
-where `ParentID` is the ID of the parent block, `Beneficiary` is the address assigned by the block generator to receive reward (in VTHO), and `TotalScore` is the accumulated witness number of the chain branch headed by the block. We will describe what the score means when describing the [Proof of Authority consensus algorithm](https://doc.vechainworld.io/docs/proof-of-authority).
+where `ParentID` is the ID of the parent block, `Beneficiary` is the address assigned by the block generator to receive reward (in VTHO), and `TotalScore` is the accumulated witness number of the chain branch headed by the block. We will describe what the score means when describing the [Proof of Authority consensus algorithm](#proof\of\authority).
 
 Let <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20%5CGamma" height = "14px" align=center /> denote `headerBody`. The block ID (`thor.Bytes32`) can be computed as:
 
