@@ -33,8 +33,6 @@ Fields within the transaction `body`,  <img src="https://latex.codecogs.com/svg.
 * `Gas` – maximum amount of gas allowed to pay for the transaction;
 * `DependsOn` – ID of the transaction on which the current transaction depends;
 * `Nonce` – number set by user;
-* `Reserved` - Reserved field for backward compatibility. It MUST be set empty for now otherwise the transaction will be considered invalid.
-
 * `Reserved` - *reserved* Object contains two fields: `Features` and `Unused`. 
   * `Feature` as 32-bit unsigned integer and default set as `0`.For Designated Gas Payer(VIP191) must be set as `1`
   
