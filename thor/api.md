@@ -13,22 +13,16 @@ RESTful API to access VeChain Thor Network
 ## Accounts
 Access to account objects
 
-### /accounts/{address}
+### **GET** /accounts/{address}
 
-#### GET
-##### Summary:
+#### Summary:
 
-Retrieve account detail
-
-##### Description:
-
-includes `balance`, `energy` and `hasCode`. If the account with `hasCode` is *true* then ,it is a contract.
+Retrieve account detail includes `balance`, `energy` and `hasCode`. If the account with `hasCode` is *true* then ,it is a contract.
 
 Historical account detail can be queried by specifying `revision` query string.
 
-
  
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
@@ -36,7 +30,7 @@ Historical account detail can be queried by specifying `revision` query string.
 |revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 
 
-##### Responses
+#### Responses
 
 - curl
 
@@ -54,7 +48,7 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 
 ```
 {
@@ -67,25 +61,20 @@ Model : [Account](#account)
 
 ---
 
-### /accounts/*
+### **POST** /accounts/*
 
-#### POST
-##### Summary:
+#### Summary:
 
-Execute a batch of codes
-
-##### Description:
-
-to simulate execution of a transaction.
+Execute a batch of codes to simulate execution of a transaction.
 
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 
-##### Request body
+#### Request body
 | Name | Type  | Description |
 | ---- | ----------- | -------- |  
 | clauses | [ [Clause](#clause) ] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data` to enable a single transaction to carry multiple tasks issued by the transaction sender | 
@@ -96,7 +85,7 @@ to simulate execution of a transaction.
 | gasPayer | string | gas payer(for extension contract) | 
 | expiration | integer (uint32) | tx expiration(for extension contract) | 
 | blockRef | string | block reference(for extension contract) | 
-##### Responses
+#### Responses
 - Curl
 
 ```
@@ -113,7 +102,7 @@ https://sync-testnet.vechain.org/accounts/*?revision=100
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 [
   {
@@ -144,26 +133,21 @@ Model : [BathchCallData](#BatchCallData)
 
 ---
 
-### /accounts/{address}/code
+### **GET** /accounts/{address}/code
 
-#### GET
-##### Summary:
+#### Summary:
 
-Retrieve account code
-
-##### Description:
-
-if any. Here the code is runtime bytecodes.
+Retrieve account code if any. Here the code is runtime bytecodes.
 
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |address|string|Yes|address of account|0x5034aa590125b64023a0262112b98d72e3c8e40e|
 |revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 
-##### Responses
+#### Responses
 - Curl
 
 ```
@@ -181,7 +165,7 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "code": "0x"
@@ -191,19 +175,13 @@ Model : [Code](#code)
 
 ---
 
-### /accounts/{address}/storage/{key}
+### **GET** /accounts/{address}/storage/{key}
 
-#### GET
-##### Summary:
+#### Summary:
 
-Retrieve account storage value
+Retrieve account storage value for given key.
 
-##### Description:
-
-for given key.
-
-
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
@@ -211,7 +189,7 @@ for given key.
 |key|string|Yes|the key(position) to access account storage|0x0000000000000000000000000000000000000000000000000000000000000001|
 |revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 
-##### Responses
+#### Responses
 - Curl
 
 ```
@@ -229,7 +207,7 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -242,19 +220,14 @@ Model : [Storage](#storage)
 ## Transaction
 Access to transactions
 
-### /transactions/{id}
+### **GET** /transactions/{id}
 
-#### GET
-##### Summary:
+#### Summary:
 
-Retrieve transaction
-
-##### Description:
-
-by ID.
+Retrieve transaction by ID.
 
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
@@ -262,7 +235,7 @@ by ID.
 |raw|boolean|Optional|whether retrieve a raw transaction| `ture` or `false`. false is assumed if omitted|
 |head|string|Optional|ID of head block. best block is assumed if omitted|
 
-##### Responses
+#### Responses
 
 - Curl
 
@@ -280,7 +253,7 @@ https://sync-testnet.vechain.org/transactions/0xf8e1a0e057ab9c7f665d167627b29f57
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "id": "0xf8e1a0e057ab9c7f665d167627b29f5756db5b3aaeb98a32541c54d2b19028b9",
@@ -312,32 +285,26 @@ Relate model : [TxOrRawTxWithMEta](#txOrRawTxWithMEta) / [TxWithMeta](#txWithMet
 
 ---
 
-### /transactions/{id}/receipt
+### **GET** /transactions/{id}/receipt
 
-#### GET
-##### Summary:
+#### Summary:
 
-Retrieve transaction receipt
+Retrieve transaction receipt by ID.
 
-##### Description:
-
-by ID.
-
-
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |id|string|Yes|ID of transaction | 0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477|
 |head|string|Optional|ID of head block. best block is assumed if omitted|
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "gasUsed": 21000,
@@ -367,29 +334,25 @@ by ID.
   ]
 }
 ```
-Relate Model : [Receipt](#receipt) / [ReceiptMeta](# receiptMeta)
+Relate Model : [Receipt](#receipt) / [ReceiptMeta](#receiptMeta)
 
 ---
 
-### /transactions
+### **POST** /transactions
 
-#### POST
-##### Summary:
+#### Summary:
 
-Use this method to commit transaction
+Use this method to commit transaction in raw.
 
-##### Description:
 
-in raw.
-
-##### Request body
+#### Request body
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400|
 
 Model : [RawTX](#rawTx)
 
-##### Responses
+#### Responses
 - Curl
 
 ```
@@ -406,38 +369,33 @@ https://sync-testnet.vechain.org/transactions
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "id": "0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8"
 }
 ```
-model : [TXID](#txID)
+model : [TxID](#txID)
 
 ---
 
 ## Block
 Access to blocks
 
-### /blocks/{revision}
+### **GET** /blocks/{revision}
 
-#### GET
-##### Summary:
+#### Summary:
 
-Retrieve block
-
-##### Description:
-
-by ID or number, or 'best' for latest block.
+Retrieve block by ID or number, or 'best' for latest block.
 
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |revision|string|Optional|block ID or number, or 'best' stands for latest block|`best` (latest block )<br> `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 
-##### Responses
+#### Responses
 - Curl
 
 ```
@@ -454,7 +412,7 @@ https://sync-testnet.vechain.org/blocks/best
 | ---- | ----------- |
 | 200 | OK |
 
-### Return
+### Response Body
 
 ```
 {
@@ -484,18 +442,14 @@ Model : [Block](#block)
 ## Logs
 Access to event & transfer logs
 
-### /logs/event
+### **POST** /logs/event
 
-#### POST
-##### Summary:
+#### Summary:
 
-Filter event logs
+Filter event logs Event logs are produced by `OP_LOG` in EVM.
 
-##### Description:
 
-Event logs are produced by `OP_LOG` in EVM.
-
-##### Request body
+#### Request body
 ```
 {
   "range": {
@@ -519,8 +473,8 @@ Event logs are produced by `OP_LOG` in EVM.
 ```
 Relate Model : [EventFilter](#eventFilter) / [FilterRange](#filterRange) / [FilterOptions](#filterOptions) / [EventCriteria](#eventCriteria)
 
-##### Responses
--Curl
+#### Responses
+- Curl
 
 ```
 curl -X POST "https://sync-testnet.vechain.org/logs/event" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"range\":{\"unit\":\"block\",\"from\":0,\"to\":100000},\"options\":{\"offset\":0,\"limit\":10},\"criteriaSet\":[{\"address\":\"0x0000000000000000000000000000456E65726779\",\"topic0\":\"0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef\",\"topic1\":\"0x0000000000000000000000005034aa590125b64023a0262112b98d72e3c8e40e\"}],\"order\":\"asc\"}"
@@ -537,7 +491,7 @@ https://sync-testnet.vechain.org/logs/event
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 [
   {
@@ -560,18 +514,14 @@ https://sync-testnet.vechain.org/logs/event
 
 ---
 
-### /logs/transfer
+### **POST** /logs/transfer
 
-#### POST
-##### Summary:
 
-Filter transfer logs
+#### Summary:
 
-##### Description:
+Filter transfer logs which  are recorded on VET transferring.
 
-Transfer logs are recorded on VET transferring.
-
-##### Request body
+#### Request body
 
 ```
 {
@@ -594,7 +544,7 @@ Transfer logs are recorded on VET transferring.
   "order": "asc"
 }
 ```
-##### Responses
+#### Responses
 - Curl
 
 ```
@@ -611,7 +561,7 @@ https://sync-testnet.vechain.org/logs/transfer
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 
 ```
 [
@@ -637,14 +587,13 @@ https://sync-testnet.vechain.org/logs/transfer
 Access to node status info
 
 
-### /node/network/peers
+### **GET** /node/network/peers
 
-#### GET
-##### Summary:
+#### Summary:
 
 Retrieve connected peers
 
-##### Responses
+#### Responses
 
 - Curl
 
@@ -652,7 +601,7 @@ Retrieve connected peers
 curl -X GET "https://sync-testnet.vechain.org/node/network/peers" -H "accept: application/json"
 ```
 
--Request URL
+- Request URL
 
 ```
 https://sync-testnet.vechain.org/node/network/peers
@@ -662,7 +611,7 @@ https://sync-testnet.vechain.org/node/network/peers
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 [
   {
@@ -693,26 +642,25 @@ https://sync-testnet.vechain.org/node/network/peers
 
 ## Subscriptions
 subscribe interested subject
-### /subscriptions/block
+### **GET** /subscriptions/block
 
-#### GET
-##### Summary:
+#### Summary:
 
 (Websocket) Subscribe new blocks
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |pos|string|Optional|a saved block ID for resuming the subscription. best block ID is assumed if omitted.||
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 
 ```
 {
@@ -739,19 +687,13 @@ subscribe interested subject
 
 ---
 
-### /subscriptions/event
+### **GET** /subscriptions/event
 
-#### GET
-##### Summary:
+#### Summary:
 
-(Websocket) Subscribe new events
+(Websocket) Subscribe new events which satisfy criteria in query.
 
-##### Description:
-
-which satisfy criteria in query.
-
-
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
@@ -764,13 +706,13 @@ which satisfy criteria in query.
 |t4|string|Optinal|topic4 of event||
 
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 
 ```
 {
@@ -793,19 +735,14 @@ which satisfy criteria in query.
 
 ---
 
-### /subscriptions/transfer
+### **GET** /subscriptions/transfer
 
-#### GET
-##### Summary:
+#### Summary:
 
-(Websocket) Subscribe new transfers
-
-##### Description:
-
-which satisfy criteria in query.
+(Websocket) Subscribe new transfers which satisfy criteria in query.
 
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
@@ -815,13 +752,13 @@ which satisfy criteria in query.
 |recipient|string| Optional | address of token recipient|
 
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body 
+#### Response Body 
 
 ```
 {
@@ -843,31 +780,26 @@ which satisfy criteria in query.
 ---
 
 
-### /subscriptions/beat
+### **GET** /subscriptions/beat
 
-#### GET
-##### Summary:
+#### Summary:
 
-(Websocket) Subscribe block chain's beats
-
-##### Description:
-
-which contain summary of new blocks, and bloom filters that composited with affected addresses.
+(Websocket) Subscribe block chain's beats which contain summary of new blocks, and bloom filters that composited with affected addresses.
 
 
-##### Parameters
+#### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |pos|string|Optional|a saved block ID for resuming the subscription. best block ID is assumed if omitted.||
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "number": 325324,
@@ -886,17 +818,11 @@ which contain summary of new blocks, and bloom filters that composited with affe
 ## Debug
 Debug utilities 
 
-### /debug/tracers
+### **POST** /debug/tracers
 
-#### POST
-##### Summary:
+#### Summary:
 
-Create a tracer
-
-##### Description:
-
-for a clause
-
+Create a tracer for a clause
 
 ### Request body
 ```
@@ -907,24 +833,20 @@ for a clause
 ```
 Model : [TracerOptionTracerOption](#tracerOptionTracerOption)
 
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-### /debug/storage-range
+### **POST** /debug/storage-range
 
-#### POST
-##### Summary:
+#### Summary:
 
-Retrieve storage range
+Retrieve storage range of the account with given address
 
-##### Description:
 
-of the account with given address
-
-##### Request body 
+#### Request body 
 ```
 {
   "address": "0xa4627036e2095eb71c2341054daa63577c062498",
@@ -934,13 +856,13 @@ of the account with given address
 }
 ```
 Model : [StorageRangeOption](#storageRangeOption)
-##### Responses
+#### Responses
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | OK |
 
-##### Response Body
+#### Response Body
 ```
 {
   "nextKey": null,
