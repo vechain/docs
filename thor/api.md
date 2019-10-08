@@ -27,7 +27,7 @@ Historical account detail can be queried by specifying `revision` query string.
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |address|string|Yes|address of account|0x5034aa590125b64023a0262112b98d72e3c8e40e|
-|revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
+|revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d` (block#3877527 ID)|
 
 
 #### Responses
@@ -35,13 +35,13 @@ Historical account detail can be queried by specifying `revision` query string.
 - curl
 
 ```
-curl -X GET "https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8e40e?revision=0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0" -H "accept: application/json"
+curl -X GET "https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8e40e?revision=0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d" -H "accept: application/json"
 ```
 
 - request url
 
 ```
-https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8e40e?revision=0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0
+https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8e40e?revision=0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d
 ```
 
 | Code | Description |
@@ -52,8 +52,8 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 
 ```
 {
-  "balance": "0x47ff1f90327aa0f8e",
-  "energy": "0xcf624158d591398",
+  "balance": "0x1e1fb2aca578373db2",
+  "energy": "0x45dc094003ac610617eb81",
   "hasCode": false
 }
 ```
@@ -231,22 +231,23 @@ Retrieve transaction by ID.
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
-|id|string|Yes|ID of transaction | 0x9bcc6526a76ae560244f698805cc001977246cb92c2b4f1e2b7a204e445409ea|
+|id|string|Yes|ID of transaction | 0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a|
 |raw|boolean|Optional|whether retrieve a raw transaction| `ture` or `false`. false is assumed if omitted|
-|head|string|Optional|ID of head block. best block is assumed if omitted|
+|id|string|Yes|ID of transaction | 0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477|
+|head|string|Optional|ID of head block. best block is assumed if omitted|0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d|
 
 #### Responses
 
 - Curl
 
 ```
-curl -X GET "https://sync-testnet.vechain.org/transactions/0xf8e1a0e057ab9c7f665d167627b29f5756db5b3aaeb98a32541c54d2b19028b9" -H "accept: application/json"
+curl -X GET "https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a" -H "accept: application/json"
 ```
 
 - Request URL
 
 ```
-https://sync-testnet.vechain.org/transactions/0xf8e1a0e057ab9c7f665d167627b29f5756db5b3aaeb98a32541c54d2b19028b9
+https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a
 ```
 
 | Code | Description |
@@ -256,28 +257,33 @@ https://sync-testnet.vechain.org/transactions/0xf8e1a0e057ab9c7f665d167627b29f57
 #### Response Body
 ```
 {
-  "id": "0xf8e1a0e057ab9c7f665d167627b29f5756db5b3aaeb98a32541c54d2b19028b9",
-  "chainTag": 74,
-  "blockRef": "0x003b2b999902fdcf",
-  "expiration": 720,
+  "id": "0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a",
+  "chainTag": 39,
+  "blockRef": "0x003dc6957dcea347",
+  "expiration": 32,
   "clauses": [
     {
-      "to": "0xa4adafaef9ec07bc4dc6de146934c7119341ee25",
-      "value": "0x1dce4824910d4803400",
+      "to": "0xf2e7617c45c42967fde0514b5aa6bba56e3e11dd",
+      "value": "0x1b1ae4d6e2ef500000",
       "data": "0x"
+    },
+    {
+      "to": "0x0000000000000000000000000000456e65726779",
+      "value": "0x0",
+      "data": "0xa9059cbb000000000000000000000000f2e7617c45c42967fde0514b5aa6bba56e3e11dd00000000000000000000000000000000000000000000010f0cf064dd59200000"
     }
   ],
-  "gasPriceCoef": 0,
-  "gas": 21000,
-  "origin": "0xa398474bfc83cc41db0e1297349b7045e7cc1a0e",
+  "gasPriceCoef": 255,
+  "gas": 100000,
+  "origin": "0x4f6fc409e152d33843cf4982d414c1dd0879277e",
   "delegator": null,
-  "nonce": "0x8d1b974334638799",
+  "nonce": "0xf2ed7cd2567c6dd4",
   "dependsOn": null,
-  "size": 131,
+  "size": 225,
   "meta": {
-    "blockID": "0x003b2b9bbb360eb7e1ad935ea59eae86bb918c0de96c2554b4cbec2e2cfa321e",
-    "blockNumber": 3877787,
-    "blockTimestamp": 1569208190
+    "blockID": "0x003dc696cfdf49b068b8e5c0b31f0c8a1d604ca1def69f5505f6e05db882f9d0",
+    "blockNumber": 4048534,
+    "blockTimestamp": 1570514180
   }
 }
 ```
@@ -296,9 +302,20 @@ Retrieve transaction receipt by ID.
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |id|string|Yes|ID of transaction | 0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477|
-|head|string|Optional|ID of head block. best block is assumed if omitted|
+|head|string|Optional|ID of head block. best block is assumed if omitted|0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d|
 
 #### Responses
+
+- Curl
+```
+curl -X GET "https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a/receipt" -H "accept: application/json"
+```
+
+- Request URL
+```
+https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a/receipt
+```
+
 
 | Code | Description |
 | ---- | ----------- |
@@ -307,17 +324,17 @@ Retrieve transaction receipt by ID.
 #### Response Body
 ```
 {
-  "gasUsed": 21000,
-  "gasPayer": "0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d",
-  "paid": "0x1236efcbcbb340000",
-  "reward": "0x576e189f04f60000",
+  "gasUsed": 52646,
+  "gasPayer": "0x4f6fc409e152d33843cf4982d414c1dd0879277e",
+  "paid": "0x5b53854239a6e0000",
+  "reward": "0x1b65db2d77b210000",
   "reverted": false,
   "meta": {
-    "blockID": "0x0004f6cc88bb4626a92907718e82f255b8fa511453a78e8797eb8cea3393b215",
-    "blockNumber": 325324,
-    "blockTimestamp": 1533267900,
-    "txID": "0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477",
-    "txOrigin": "0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d"
+    "blockID": "0x003dc696cfdf49b068b8e5c0b31f0c8a1d604ca1def69f5505f6e05db882f9d0",
+    "blockNumber": 4048534,
+    "blockTimestamp": 1570514180,
+    "txID": "0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a",
+    "txOrigin": "0x4f6fc409e152d33843cf4982d414c1dd0879277e"
   },
   "outputs": [
     {
@@ -325,11 +342,26 @@ Retrieve transaction receipt by ID.
       "events": [],
       "transfers": [
         {
-          "sender": "0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d",
-          "recipient": "0x5034aa590125b64023a0262112b98d72e3c8e40e",
-          "amount": "0x47fdb3c3f456c0000"
+          "sender": "0x4f6fc409e152d33843cf4982d414c1dd0879277e",
+          "recipient": "0xf2e7617c45c42967fde0514b5aa6bba56e3e11dd",
+          "amount": "0x1b1ae4d6e2ef500000"
         }
       ]
+    },
+    {
+      "contractAddress": null,
+      "events": [
+        {
+          "address": "0x0000000000000000000000000000456e65726779",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000004f6fc409e152d33843cf4982d414c1dd0879277e",
+            "0x000000000000000000000000f2e7617c45c42967fde0514b5aa6bba56e3e11dd"
+          ],
+          "data": "0x00000000000000000000000000000000000000000000010f0cf064dd59200000"
+        }
+      ],
+      "transfers": []
     }
   ]
 }
@@ -831,7 +863,7 @@ Create a tracer for a clause
   "target": "0x000dabb4d6f0a80ad7ad7cd0e07a1f20b546db0730d869d5ccb0dd2a16e7595b/0/0"
 }
 ```
-Model : [TracerOptionTracerOption](#tracerOptionTracerOption)
+Model : [TracerOption](#tracerOption)
 
 #### Responses
 
@@ -1228,7 +1260,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 |name|string|name of tracer. Empty name stands for default struct logger tracer.|4byte, bigram, call, evmdis, noop, opcount, prestate, trigram, unigram |
 |target|string|the unified path of target to be traced. Currently, only clause is supported. Format: `blockID`/ (`txIndex` or `txId`)/ `clauseIndex`|0x000dabb4d6f0a80ad7ad7cd0e07a1f20b546db0730d869d5ccb0dd2a16e7595b|
 
-## storageRangOption
+## storageRangeOption
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | address | string | address of account  | 0xa4627036e2095eb71c2341054daa63577c062498 |
