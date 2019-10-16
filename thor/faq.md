@@ -1,5 +1,3 @@
-# Thor FAQ
-
 ## Consensus
 VeChainThor adopts the PoA (Proof-of-Authority) consensus protocol, instead of neither PoW (Proof-of-Work) nor PoS (Proof-of-Stake). Members in the whitelist requiring KYC (know-your-customer) identity verification are in charge of and responsible for the operation of the blockchain network. Concerning the safety issue, we leverage DPRP protocol to mess up the order of packer who pack the block, making sure the sequence of order of packers varies each time when packing the block. 
 
@@ -62,4 +60,4 @@ Intrinsic gas = txGas + clauses.type + dataGas
 In VeChain Thor clauses allows a single transaction to carry out multiple tasks. Therefore, it needs to execute all the clauses cost in the transaction. 
 
 **Formula for total transaction gas**<br>
-![totalTransactionGas](./Images/totalTransactionGas.svg)
+![totalTransactionGas](https://raw.githubusercontent.com/wiki/vechain/thor/Images/totalTransactionGas.svg?sanitize=true)

@@ -15,6 +15,8 @@ Velocity <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20v
 
 # Tokens
 
+## VET
+
 | VET | |
 | --- | --- |
 | Type | Native Coin |

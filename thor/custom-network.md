@@ -2,7 +2,7 @@
 
 To start your own custom network, you need to manually configure the genesis file. Once you finished the setup, it allows you to connect to your own network rather than connect to official network(mainnet/testnet)
 
-### Requirement：
+## Requirement：
 
 1. Make sure the network has at least **two** nodes running as a authority master node
 2. Thor version ≥ [v1.0.7](https://github.com/vechain/thor/releases/tag/v1.0.7)
@@ -24,7 +24,7 @@ You can find an example genesis file [by this link](https://github.com/vechain/t
 + `params`: Governance parameters.
 + `executor`: Executor params for on-chain governance, setting approvers means using vechain builtin executor, omit means an external address.
 
-#### Authority
+### Authority
 
 For setting the authority node, you need to get your authority node's master address first, simply running the following command
 
@@ -34,7 +34,7 @@ thor master-key
 
 The master address will be shown. `Endorsor Address` is the endorser's address for authority node, you need to ensure the `Endorsor Address`  reach the minimum amount of `proposerEndorsement`. You can adjust the minimum endorsement amount of VET by changing `proposerEndorsement”`. `Identity` is an identifier of the authority node.
 
-#### Params
+### Params
 
 - `rewardRatio`: Reward ratio for block proposer.
 - `baseGasPrice`: Base gas price in `wei`.

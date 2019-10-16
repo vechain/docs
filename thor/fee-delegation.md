@@ -19,7 +19,7 @@ Compared with MPP, Designated Gas Payer(VIP-191) gives control back to TX sender
 | Designated Gas Payer | X  | ✓ | Backend | ✓ | Configuration for individuals  |
 
 
-## Prototype
+## Multi-Party Payment (Prototype)
 One of the major obstacles for ordinary people, or even enterprises, to adopt a public blockchain is the uncertainty and complexity in dealing with crypto assets. On one hand, users have to face the high price volatility when acquiring crypto from the market; on the other hand, they need to understand related concepts and get familiar with various tools to be able to use and manage their crypto assets. 
 
 Can we find a way around the above-mentioned difficulties? For the existing blockchain networks such as Bitcoin and Ethereum, the answer is most likely negative. This is due to the fact that for those systems transaction fee has to be paid by whom sends the transaction and sending transactions is the way we interact with a public blockchain.

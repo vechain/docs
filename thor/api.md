@@ -38,7 +38,7 @@ Historical account detail can be queried by specifying `revision` query string.
 curl -X GET "https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8e40e?revision=0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d" -H "accept: application/json"
 ```
 
-- request url
+- Request url
 
 ```
 https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8e40e?revision=0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d
@@ -75,6 +75,8 @@ Execute a batch of codes to simulate execution of a transaction.
 |revision|string|Optional|can be block number or id (best block is assumed if omitted).| `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 
 #### Request body
+> all fields are required 
+
 | Name | Type  | Description |
 | ---- | ----------- | -------- |  
 | clauses | [ [Clause](#clause) ] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data` to enable a single transaction to carry multiple tasks issued by the transaction sender | 
@@ -92,7 +94,7 @@ Execute a batch of codes to simulate execution of a transaction.
 curl -X POST "https://sync-testnet.vechain.org/accounts/*?revision=100" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"clauses\":[{\"to\":\"0x5034aa590125b64023a0262112b98d72e3c8e40e\",\"value\":\"0xde0b6b3a7640000\",\"data\":\"0x5665436861696e2054686f72\"}],\"gas\":50000,\"gasPrice\":\"1000000000000000\",\"caller\":\"0x7567d83b7b8d80addcb281a71d54fc7b3364ffed\",\"provedWork\":\"1000\",\"gasPayer\":\"0xd3ae78222beadb038203be21ed5ce7c9b1bff602\",\"expiration\":1000,\"blockRef\":\"0x00000000851caf3c\"}"
 ```
 
-- request URL
+- Request URL
 
 ```
 https://sync-testnet.vechain.org/accounts/*?revision=100
@@ -995,7 +997,7 @@ event or transfer log meta info
 |chainTag|	integer(uint8)| last byte of genesis block ID|39|
 |blockRef|string|8 bytes prefix of some block ID|0x0004f6cb730dbd90|
 |expiration|integer(uint32)|expiration relative to blockRef,in unit block|720|
-|clauses|[ [Clause](#clause) ]|an array of *Clause* objects each of which contains fields `To`, `Value` and `Data` ||
+|clauses|[ [Clause](#clause) ]|an array of *Clause* objects each of which contains fields `To`, `Value` and `Data` |see more in [Clause](#clause)|
 |gasPriceCoef|integer(uint8)|coefficient used to calculate the final gas price|0|
 |gas|integer(uint64)|max amount of gas can be consumed to execute this transaction|21000|
 |DependsOn|string*byte32)|ID of the transaction on which the current transaction depends on. can be null.|null|
@@ -1010,7 +1012,7 @@ event or transfer log meta info
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400 |
-| meta | { [TxMeta](#TxMeta) } | transaction meta info |  |
+| meta | { [TxMeta](#txMeta) } | transaction meta info | see more in [TxMeta](#txmeta) |
 
 ## event
 | Name | Type  | Description |  Example |
@@ -1041,8 +1043,8 @@ event or transfer log meta info
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |contractAddress|string|deployed contract address, if the corresponding clause is a contract deployment clause|null|
-|events|[event](#event)|event output|
-|transfers|[transfer](#transfer)|transfer output||
+|events|[event](#event)|event output|see more in [event](#event) |
+|transfers|[transfer](#transfer)|transfer output|see more in [transfer](#transfer)|
 
 ## callData
 | Name | Type  | Description |  Example |
@@ -1057,8 +1059,8 @@ event or transfer log meta info
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | data | string | the output data | 0x103556a73c10e38ffe2fc4aa50fc9d46ad0148f07e26417e117bd1ece9d948b5 |
-| events | [ [Event](#event) ] | event output | |
-| transfers | [ [Transfer](#transfer) ] | transfer output | |
+| events | [ [Event](#event) ] | event output |see more in [Event](#event) |
+| transfers | [ [Transfer](#transfer) ] | transfer output | see more in [Transfer](#transfer)|
 | gasUsed | integer (uint64) | gas used during execution | 21000 |
 | reverted | boolean | whether the execution is reverted or not| false |
 | vmError | string | error message will return when the execution is true  | insufficient balance for transfer |
@@ -1219,7 +1221,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | duration | integer | 28 | 
 
 ## txOrRawTxWithMeta
-> Return [txWithMeta](#txWithMeta) or [rawTxWithMeta](#rawTxWithMeta) depends on the query scenario
+> Return [txWithMeta](#txWithMeta) or [rawTxWithMeta](#rawTxWithMeta) depends on the query type
 
 ### txWithMeta
 | Name | Type  | Description | Example|
