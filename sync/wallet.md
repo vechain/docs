@@ -1,6 +1,6 @@
 ## Create  Wallet
 1. On your computer, open Sync
-2. At top right, click <img src="Images/wallets.png" width = "16px" height = "16px" align=center /> , it will direct to wallet app
+2. At top right, click <img src="~@public/image/sync/wallets.png" width = "16px" height = "16px" align=center /> , it will direct to wallet app
 3. At the top, click **New** 
 4. Fill in fields to create your wallet 
 5. Write down the mnemonic words
@@ -13,7 +13,7 @@ Reference Article :
 
 ## Import Wallet 
 1. On your computer, open Sync
-2. At top right, click <img src="Images/wallets.png" width = "16px" height = "16px" align=center /> , it will direct to wallet app
+2. At top right, click <img src="~@public/image/sync/wallets.png" width = "16px" height = "16px" align=center /> , it will direct to wallet app
 3. At the top, click **Import** 
 4. Select a method to import(Only keystore need to enter the keystore password)
 5. Once the information verified, you can fill in fields to import your wallet 
@@ -24,7 +24,7 @@ The mnemonic words/keystore stores all the information that is needed at any poi
 
 ### Export Keystore
 1. On your computer, open Sync
-2. At top right, click <img src="Images/wallets.png" width = "16px" height = "16px" align=center />  , it will direct to wallet app
+2. At top right, click <img src="~@public/image/sync/wallets.png" width = "16px" height = "16px" align=center />  , it will direct to wallet app
 3. Click the wallet you which needs to export the key store
 4. Click **Backup**
 5. Enter the wallet password to continue process 
@@ -33,7 +33,7 @@ The mnemonic words/keystore stores all the information that is needed at any poi
 ### Reset Password 
 You can change your wallet's name and password after wallet's password verified. 
 1. On your computer, open Sync
-2. At top right, click <img src="Images/wallets.png" width = "16px" height = "16px" align=center />  , it will direct to wallet app
+2. At top right, click <img src="~@public/image/sync/wallets.png" width = "16px" height = "16px" align=center />  , it will direct to wallet app
 3. Click the wallet you which needs to change the password
 4. Click **Reset Password**
 5. Enter the wallet password to continue process
@@ -41,7 +41,7 @@ You can change your wallet's name and password after wallet's password verified.
 
 ### Wallet Recovery
 1. On your computer, open Sync
-2. At top right, click <img src="Images/wallets.png" width = "16px" height = "16px" align=center /> , it will direct to wallet app
+2. At top right, click <img src="~@public/image/sync/wallets.png" width = "16px" height = "16px" align=center /> , it will direct to wallet app
 3. At the top, click **Import** 
 4. Select a method to import(Only keystore need to enter the keystore password)
 5. Once the information verified, you can fill in fields to import your wallet 
@@ -49,23 +49,23 @@ You can change your wallet's name and password after wallet's password verified.
 > If the wallet already existed, please checked the box to reset the wallet 
 
 ## Wallet Activity
-![activity](Images/wallet-detail-activity.png)
+![activity](~@public/image/sync/wallet-detail-activity.png)
 
 ### Transaction
 - Date : Show the date which you signed the transaction.
 - Status : There are 4 status of a transaction
-    1. **Sending** <img src="Images/sending.png"  height = "20px" align=center />
-  : After signing a transaction , sync will send the signed transaction to node. if the transaction can not be send , you can click  <img src="Images/retry.png"  height = "20px" align=center /> to resend. 
-    2. **Confirming** <img src="Images/confirming.png"  height = "20px" align=center /> : The transaction is confirming. stage.
-    3. **Confirmed** <img src="Images/confirmed.png"  height = "20px" align=center /> : The transaction is confirmed.
-    4. **Dropped** <img src="Images/error.png"  height = "20px" align=center />  :  The transaction is expired, can not be resend. 
+    1. **Sending** <img src="~@public/image/sync/sending.png"  height = "20px" align=center />
+  : After signing a transaction , sync will send the signed transaction to node. if the transaction can not be send , you can click  <img src="~@public/image/sync/retry.png"  height = "20px" align=center /> to resend. 
+    2. **Confirming** <img src="~@public/image/sync/confirming.png"  height = "20px" align=center /> : The transaction is confirming. stage.
+    3. **Confirmed** <img src="~@public/image/sync/confirmed.png"  height = "20px" align=center /> : The transaction is confirmed.
+    4. **Dropped** <img src="~@public/image/sync/error.png"  height = "20px" align=center />  :  The transaction is expired, can not be resend. 
 - Type: Transfer / Call / Create
 - Link : Application URL.
 - Action : Reveal transaction in insight.
 
 ### Certificate
 - Date : Show the date which you signed the transaction.
-- status : Always <img src="Images/confirmed.png"  height = "20px" align=center /> (Only signed certificate will be record.)
+- status : Always <img src="~@public/image/sync/confirmed.png"  height = "20px" align=center /> (Only signed certificate will be record.)
 - Type : Identification / Agreement 
 - Link : Application URL.
 - Action : Show the signed content.

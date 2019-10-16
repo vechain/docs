@@ -1,0 +1,22 @@
+{
+  "name": "thor-doc",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "docs:dev": "vuepress dev .",
+    "docs:build": "vuepress build ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vechain/doc.git"
+  },
+  "author": "jack.wu",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vechain/doc/issues"
+  },
+  "homepagse": "https://github.com/vechain/doc#readme",
+  "devDependencies": {
+    "vuepress": "^1.2.0"
+  }
+}
