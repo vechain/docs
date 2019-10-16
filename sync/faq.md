@@ -47,5 +47,5 @@ On other hands, the certificate of agreement is a certificate that you agree to 
 3. Click "**Inspect Element**"
 
 ### Web Content
-1. At upper right, Click <img src="Images/menu.png"  height = "20px" align=center />
+1. At upper right, Click <img src="~@public/image/sync/menu.png"  height = "20px" align=center />
 2. Click"**Toggle Developer Tools**"

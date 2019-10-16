@@ -17,7 +17,7 @@ On the left side, it shows the transaction summary; number of clauses; the descr
 ## Signing a Certificate
 The certificate is a message signing based mechanism which can easily provide your identification or you to agree to your terms or agreements to the DApp.
 
-1. Check the type of certificate(<img src="Images/cer-identification.png"  height = "20px" align=center /> / <img src="Images/cer-agreement.png"  height = "20px" align=center />)
+1. Check the type of certificate(<img src="~@public/image/sync/cer-identification.png"  height = "20px" align=center /> / <img src="~@public/image/sync/cer-agreement.png"  height = "20px" align=center />)
 2. Review the content 
 3. Choose a wallet to sign the certificate
 4. Input wallet's password
