@@ -2,7 +2,6 @@
   "name": "thor-doc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "docs:dev": "vuepress dev .",
     "docs:build": "vuepress build ."
