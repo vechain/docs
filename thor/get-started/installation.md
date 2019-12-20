@@ -8,7 +8,7 @@ Thor requires `Go` 1.12+ and `C` compiler to build. To install `Go`, follow this
 
 Clone the Thor [repo](https://github.com/vechain/thor):
 
-```
+```bash
 git clone https://github.com/vechain/thor.git
 cd thor
 ```
@@ -16,7 +16,7 @@ cd thor
 ### Dependency management
 
 Simply run:
-```
+```bash
 make dep
 ```
 
@@ -26,13 +26,13 @@ If you keep getting network error, it is suggested to use [Go Module Proxy](http
 
 To build the main app `thor`, just run
 
-```
+```bash
 make
 ```
 
 or build the full suite:
 
-```
+```bash
 make all
 ```
 
@@ -42,19 +42,19 @@ If no error reported, all built executable binaries will appear in folder *bin*.
 
 Connect to VeChain's mainnet:
 
-```
+```bash
 bin/thor --network main
 ```
 
 
 Connect to VeChain's testnet:
 
-```
+```bash
 bin/thor --network test
 ```
 
 or startup a custom network
-```
+```bash
 bin/thor --network <custom-net-genesis.json>
 ```
 example genesis config file can be found at [genesis/example.json](https://raw.githubusercontent.com/vechain/thor/master/genesis/example.json).
@@ -62,7 +62,7 @@ example genesis config file can be found at [genesis/example.json](https://raw.g
 
 To find out usages of all command line options:
 
-```
+```bash
 bin/thor -h
 ```
 
@@ -92,7 +92,7 @@ bin/thor -h
 
 - `solo`                client runs in solo mode for test & dev
 
-```
+```bash
 bin/thor solo --on-demand               # create new block when there is pending transaction
 bin/thor solo --persist                 # save blockchain data to disk(default to memory)
 bin/thor solo --persist --on-demand     # two options can work together
@@ -100,7 +100,7 @@ bin/thor solo --persist --on-demand     # two options can work together
 
 - `master-key`          master key management
 
-```
+```bash
 # print the master address
 bin/thor master-key
 
@@ -116,7 +116,7 @@ cat keystore.json | bin/thor master-key --import
 
 Docker is one quick way for running a vechain node:
 
-```
+```bash
 docker run -d\
   -v {path-to-your-data-directory}/.org.vechain.thor:/root/.org.vechain.thor\
   -p 127.0.0.1:8669:8669 -p 11235:11235 -p 11235:11235/udp\

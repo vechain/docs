@@ -107,7 +107,7 @@ The multi-task mechanism provides us a secure and efficient way to handle, for i
 
 ## Reserved
 The structure is defined in Golang as follows:
-```
+```go
 type reserved struct {
 	Features Features
 	Unused   []rlp.RawValue
