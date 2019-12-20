@@ -9,7 +9,7 @@ The default interval of block generation is `10` seconds, but the concrete times
 It is possible to generate orphan block and it is suggested to verify the fork situation every `12` block interval. 
 
 ## Dual token precision 
-The precision of both `VET` and `VTHO` is 10^18 Wei. VTHO is generated from staking the VET and it is consumed for payments and smart contract execution on the VeChainThor blockchain
+The precision of both `VET` and `VTHO` is $10^{18}$ Wei. VTHO is generated from staking the VET and it is consumed for payments and smart contract execution on the VeChainThor blockchain
 
 
 ## Are the failed transactions going to be recorded on the chain? Is the transaction gas going to be deducted?
@@ -21,17 +21,6 @@ When you send tokens, interact with a contract, send `VET`/`VTHO`, or do anythin
 
 •Token swap ratio is 1:100. One ERC20 VeChain token will be split to 100 VETs on the VeChainThor Mainnet.
 
-
-## Transaction fee calculation
-
-The calculation equation is:
-`VTHO = (1 + gasPriceCoef/255) * baseGasPrice`
-
-The VET transfer fee is 21000gas. If gasPriceCoef = 0, the used of `VTHO = (1 + 0/255) * 1e15 * 21000 / 1e18 = 21 VTHO`
-
-The priority of a transaction in transaction pool can be raised by adjusting gasPriceCoef. For example, if gasPriceCoef =128, used `VTHO = (1 + 128/255) * 1e15 * 21000 / 1e18 = 31.5 VTHO`
-
->**Always subject to the actual network parameter**
 
 ## Where can I find the contract address which I just deployed?
 Once contract successfully deployed, the contract address can be found in **transaction receipt**. 
@@ -47,9 +36,9 @@ The generation speed of VTHO is **0.000432** per VET per Day
 ## What is intrinsic gas ?
 The intrinsic gas for a transaction is the amount of the transaction used before any code runs. in other words, it's a constant "transaction fee" plus a fee for every byte of data supplied with the transaction.The gas in the transaction needs to be **greater than or equal** to the intrinsic gas used by the transaction. 
 
-```
-Intrinsic gas = txGas + clauses.type + dataGas
-```
+
+$$Intrinsic gas = txGas + clauses.type + dataGas$$
+
 - txGas = 5,000
 -  Clauses type:
     1. Normal transaction : 16,000
@@ -60,4 +49,4 @@ Intrinsic gas = txGas + clauses.type + dataGas
 In VeChain Thor clauses allows a single transaction to carry out multiple tasks. Therefore, it needs to execute all the clauses cost in the transaction. 
 
 **Formula for total transaction gas**<br>
-![totalTransactionGas](https://raw.githubusercontent.com/wiki/vechain/thor/Images/totalTransactionGas.svg?sanitize=true)
+$$totalTransactionGas = txGas + \sum_{n}^{i} Clauses[i] *(typeGas +dataGas+vmGas)$$

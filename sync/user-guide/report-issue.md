@@ -1,3 +1,5 @@
+# Report Issue
+
 When you've found an issue in sync, here's how to report an issue. Thanks a ton for helping make Sync better!
 
 ## Issue Tracker on GitHub 
@@ -9,4 +11,4 @@ When you've found an issue in sync, here's how to report an issue. Thanks a ton 
 6. Filled-in the issue template 
 7. Click  **Submit new issue**
    
->You can find the Sync version in [here](https://github.com/vechain/thor-sync.electron/wiki/Settings#sync-version)
+>You can find the Sync version in [here](/sync/settings/#sync-version)

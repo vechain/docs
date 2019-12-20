@@ -1,10 +1,9 @@
-# Thorest
+---
+sidebarDepth: 2
+---
+# Thorest API <Badge text="1.2.0" type="tip"/>
 RESTful API to access VeChain Thor Network
 
-[Project Home](https://github.com/vechain/thor)
-
-
-## Version: 1.2.0
 
 **License:** [LGPL 3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html)
 
@@ -131,7 +130,7 @@ https://sync-testnet.vechain.org/accounts/*?revision=100
   }
 ]
 ```
-Model : [BathchCallData](#BatchCallData)
+Model : [batchCallData](#batchcalldata)
 
 ---
 
@@ -289,7 +288,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
   }
 }
 ```
-Relate model : [TxOrRawTxWithMEta](#txOrRawTxWithMEta) / [TxWithMeta](#txWithMeta) / [RawTxWithMeta](#rawTxWithMeta)
+Relate model : [TxOrRawTxWithMEta](#txorrawtxwithmeta) / [TxWithMeta](#txwithmeta) / [RawTxWithMeta](#rawtxwithmeta)
 
 ---
 
@@ -368,7 +367,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
   ]
 }
 ```
-Relate Model : [Receipt](#receipt) / [ReceiptMeta](#receiptMeta)
+Relate Model : [Receipt](#receipt) / [ReceiptMeta](#receiptmeta)
 
 ---
 
@@ -384,7 +383,7 @@ Use this method to commit transaction in raw.
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400|
 
-Model : [RawTX](#rawTx)
+Model : [RawTX](#rawtx)
 
 #### Responses
 - Curl
@@ -409,11 +408,11 @@ https://sync-testnet.vechain.org/transactions
   "id": "0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8"
 }
 ```
-model : [TxID](#txID)
+model : [TxID](#txid)
 
 ---
 
-## Block
+## Blocks
 Access to blocks
 
 ### **GET** /blocks/{revision}
@@ -446,7 +445,7 @@ https://sync-testnet.vechain.org/blocks/best
 | ---- | ----------- |
 | 200 | OK |
 
-### Response Body
+#### Response Body
 
 ```
 {
@@ -505,7 +504,7 @@ Filter event logs Event logs are produced by `OP_LOG` in EVM.
   "order": "asc"
 }
 ```
-Relate Model : [EventFilter](#eventFilter) / [FilterRange](#filterRange) / [FilterOptions](#filterOptions) / [EventCriteria](#eventCriteria)
+Relate Model : [EventFilter](#eventfilter) / [FilterRange](#filterrange) / [FilterOptions](#filteroptions) / [EventCriteria](#eventcriteria)
 
 #### Responses
 - Curl
@@ -858,14 +857,14 @@ Debug utilities
 
 Create a tracer for a clause
 
-### Request body
+#### Request body
 ```
 {
   "name": "",
   "target": "0x000dabb4d6f0a80ad7ad7cd0e07a1f20b546db0730d869d5ccb0dd2a16e7595b/0/0"
 }
 ```
-Model : [TracerOption](#tracerOption)
+Model : [TracerOption](#traceroption)
 
 #### Responses
 
@@ -889,7 +888,7 @@ Retrieve storage range of the account with given address
   "target": "0x000edefb448685f9c72fc2b946980ef51d8d208bbaa4d3fdcf0c57d4847aca2e/0/0"
 }
 ```
-Model : [StorageRangeOption](#storageRangeOption)
+Model : [StorageRangeOption](#storagerangeoption)
 #### Responses
 
 | Code | Description |
@@ -908,7 +907,7 @@ Model : [StorageRangeOption](#storageRangeOption)
   }
 }
 ```
-Model : [StorageRange](#storageRange)
+Model : [StorageRange](#storagerange)
 
 ---
 
@@ -1012,7 +1011,7 @@ event or transfer log meta info
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400 |
-| meta | { [TxMeta](#txMeta) } | transaction meta info | see more in [TxMeta](#txmeta) |
+| meta | { [TxMeta](#txmeta) } | transaction meta info | see more in [TxMeta](#txmeta) |
 
 ## event
 | Name | Type  | Description |  Example |
@@ -1037,7 +1036,7 @@ event or transfer log meta info
 | reward | string | hex form of amount of reward | 0x576e189f04f60000 |
 | reverted | boolean | true means the transaction was reverted | false |
 |ouput | array | include event output data and transfer ouput data |see more in [outputs](#output) |
-| meta | [receiptMeta](#receiptMeta) | includes `blockID`,`blockNumber`,`blockTimestamp`,`txID` and `txOrigin` | |
+| meta | [receiptMeta](#receiptmeta) | includes `blockID`,`blockNumber`,`blockTimestamp`,`txID` and `txOrigin` | |
 
 ## output
 | Name | Type  | Description |  Example |
@@ -1081,7 +1080,7 @@ event or transfer log meta info
 
 | Name | Type  | Description | 
 | ---- | ----------- | -------- |
-|batchCallResult|[callResult](#callResult)|return batch call result 
+|batchCallResult|[callResult](#callresult)|return batch call result 
 
 ## filterOptions
 pass these parameters if you need filtered results paged. e.g. 
@@ -1146,9 +1145,9 @@ matches events whose `topic0` equals `0xddf252ad1be2c89b69c2b068fc378daa952ba7f1
 ## eventFilterLegacy
 | Name | Type  | 
 | ---- | ----------- | 
-| range | [FilterRange](#filterRange) |
-| options | [FilterOptions](#filterOptions) | 
-| topicSets | [ [TopicSetLegacy](#topicSetLegacy) ] | 
+| range | [FilterRange](#filterrange) |
+| options | [FilterOptions](#filteroptions) | 
+| topicSets | [ [TopicSetLegacy](#topicsetlegacy) ] | 
 
 ## addressSetLegacy
 | Name | Type  | Example|
@@ -1160,9 +1159,9 @@ matches events whose `topic0` equals `0xddf252ad1be2c89b69c2b068fc378daa952ba7f1
 ## transferFilterLegacy
 | Name | Type  | 
 | ---- | ----------- | 
-| range | [FilterRange](#filterRange) | 
-| options | [FilterOptions](#filterOptions) |  
-| addressSets | [ [AddressSetLegacy](#addressSetLegacy) ] |  |
+| range | [FilterRange](#filterrange) | 
+| options | [FilterOptions](#filteroptions) |  
+| addressSets | [ [AddressSetLegacy](#addresssetlegacy) ] |  |
 
 ## eventCriteria
 criteria to filter out event. All fields are joined with `and` operator. `null` field are ignored. e.g. 
@@ -1188,9 +1187,9 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 ## eventFilter
 | Name | Type  | Description | 
 | ---- | ----------- | -------- | 
-| range | [FilterRange](#filterRange) | Defines the filter range  | 
-| options | [FilterOptions](#filterOptions) | Define the filter option  | 
-| criteriaSet | [ [EventCriteria](#eventCriteria) ] | Set criteria to filter | 
+| range | [FilterRange](#filterrange) | Defines the filter range  | 
+| options | [FilterOptions](#filteroptions) | Define the filter option  | 
+| criteriaSet | [ [EventCriteria](#eventcriteria) ] | Set criteria to filter | 
 | order | string | order of filters, defaults to `asc` (`asc` or `desc`)  |
 
 ## transferCriteria
@@ -1221,7 +1220,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | duration | integer | 28 | 
 
 ## txOrRawTxWithMeta
-> Return [txWithMeta](#txWithMeta) or [rawTxWithMeta](#rawTxWithMeta) depends on the query type
+> Return [txWithMeta](#txwithmeta) or [rawTxWithMeta](#rawtxwithmeta) depends on the query type
 
 ### txWithMeta
 | Name | Type  | Description | Example|
@@ -1238,13 +1237,13 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | origin | string | the one who signed the transaction | 0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d |
 | delegator | string | the delegator who paid the gas fee | null |
 | size | integer(uint32) | byte size of the transaction that is RLP encoded | 130 |
-| meta | {[TxMeta](#txMeta)} | transaction meta info | |
+| meta | {[TxMeta](#txmeta)} | transaction meta info | |
 
 ### rawTxWithMeta
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | raw | string | hex form of encoded transaction | 0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400 |
-| meta | {[TxMeta](#txMeta)} |transaction meta info  | |
+| meta | {[TxMeta](#txmeta)} |transaction meta info  | |
 
 ## txid
 | Name | Type  | Description | Example|

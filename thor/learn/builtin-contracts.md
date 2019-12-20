@@ -1,9 +1,6 @@
-There are six smart contracts deployed in VeChainThor's genesis block.  source code can be found [here](https://github.com/vechain/thor/tree/master/builtin/gen). 
+# Built-in Contract
 
-
-# Built-in COntract
-
-> Examples of how to use the built-in contracts can be found [here](https://github.com/vechain/thor-builtins).
+Examples of how to use the built-in contracts can be found [here](https://github.com/vechain/thor-builtins).
 
 
 ## authority.sol
@@ -24,8 +21,9 @@ There are six smart contracts deployed in VeChainThor's genesis block.  source c
 
 [extension-v2.sol](https://github.com/vechain/thor/blob/master/builtin/gen/extension-v2.sol) extends EVM functions. it gives an opportunity for the developer to get information of the current transaction and any history block within the range of genesis to best block. The information obtained based on block number includes blockID, blockTotalScore, blockTime and blockSigner . The developer can also get the current transaction information, including  txGasPayer, txProvedWork, txID, txBlockRef and txExpiration.  
 
-> Before implement the VIP-191 , [extension.sol](https://github.com/vechain/thor/blob/master/builtin/gen/extension.sol) is the main contract 
-
+::: tip Note
+Before implement the VIP-191 , [extension.sol](https://github.com/vechain/thor/blob/master/builtin/gen/extension.sol) is the main contract 
+:::
 
 
 

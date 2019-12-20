@@ -1,5 +1,4 @@
 # Introduction 
-
 The VeChainThor is a public blockchain that is designed for mass adoption of blockchain technology by enterprise users of all sizes. VeChainThor is intended to serve as a foundation for a sustainable and scalable enterprise blockchain ecosystem, supported in part by our novel governance and economic models and unique protocol enhancements.
 
 Ethereum has represented the state-of-the-art in public blockchains since 2014. Some of Ethereum’s important innovations included the introduction of an account model that can store information other than balance information; the concept of a smart contract that allows blockchain to describe more complicated objects and activities in the real world; and the consensus-based computations and the invention of the Ethereum Virtual Machine (EVM) that enables smart contracts accordingly.
@@ -8,8 +7,8 @@ Despite being a major technological milestone, Ethereum has proven to be unsuita
 
 The VeChainThor Blockchain is designed to tackle the above problems.  It is not built from scratch; it expands upon some of the essential building blocks of Ethereum (e.g., the account model, the EVM, the modified Patricia tree, and the RLP encoding method) and provides innovative technical solutions that are powered by our novel governance and economic models, which, we believe, will push forward broader blockchain adoption and the creation of new business ecosystems with more efficiency and trust. VeChainThor is packed with technical features that are tailormade for the actual needs of enterprises, individuals, and developers. 
 
-## Features
-### Meta-transaction Features
+
+## Meta-transaction Features
 Meta-transaction features native to VeChain Thor blockchain’s core protocol, such as multi-party payment, multi-task transaction, controllable transaction lifecycle, transaction dependency, make the development more user-friendly for enterprise adoption.
 
 * Controllable Transaction Lifecycle - With BlockRef and Expiration transaction fields, users can set the time when transaction is processed or expired if not being included in a block
@@ -17,20 +16,20 @@ Meta-transaction features native to VeChain Thor blockchain’s core protocol, s
 * Multi-party payment (MPP) – Flexible transaction fee delegation schemes enable a freemium model within a decentralized application to onboard users without friction
 * Transaction Dependency – Set dependencies to ensure the execution order meets the business need, transactions that specify a dependency will not be executed until the required transaction is processed.
 
-### Proof of Authority (PoA)
+## Proof of Authority (PoA)
 Authority Masternode Operators, with the aligned interest in the development of VeChain ecosystem, maintain the VeChainThor protocol according to the Foundation's governance policy. PoA addresses enterprise' common concerns of inefficient upgrade and waste of energy.
 
 * Low computation power required to achieve the network security and consensus integrity
 * Controlled via the built-in smart contract, hard forks can be avoided in case authority mastemodes fail to upgrade
 * All Authority Masternode Operator identities are strictly verified by the Foundation
 
-### Governance
+## Governance
 The balance between decentralization and centralization ensures efficiency and transparency. Community-elected Steering Committee, as the governing body of the ecosystem, facilitates decision making and execution supported by the on-chain governance mechanism.
 
 * Role-based voting reduces the uncertainty in the platform’s technical and organizational development
 * On-chain governance mechanism which is divided into three phases - propose, approve, and execute, is designed to support the governance model
 
-### Economic Model
+## Economic Model
 The unique dual-token system (VET+VTHO) significantly helps separate the cost of using blockchain from market speculation. Due to the correlation with the blockchain resource utilization, the cost is more predictable with the monitoring of the VTHO supply and demand. In addition, Foundation's governance mechanism further stabilizes the cost.
 
 * VTHO generation from any address holding VET at the predetermined velocity of 5x10^-8 per VET per block (10s)

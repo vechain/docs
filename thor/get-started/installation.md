@@ -1,12 +1,12 @@
-## Installation
+# Install
 
-### Requirements
+## Requirements
 
 Thor requires `Go` 1.12+ and `C` compiler to build. To install `Go`, follow this [link](https://golang.org/doc/install). 
 
-### Getting the source
+## Getting the source
 
-Clone the Thor repo:
+Clone the Thor [repo](https://github.com/vechain/thor):
 
 ```
 git clone https://github.com/vechain/thor.git
@@ -57,7 +57,7 @@ or startup a custom network
 ```
 bin/thor --network <custom-net-genesis.json>
 ```
-exmaple genesis config file can be found at [genesis/example.json](https://raw.githubusercontent.com/vechain/thor/master/genesis/example.json).
+example genesis config file can be found at [genesis/example.json](https://raw.githubusercontent.com/vechain/thor/master/genesis/example.json).
 
 
 To find out usages of all command line options:
@@ -65,6 +65,7 @@ To find out usages of all command line options:
 ```
 bin/thor -h
 ```
+
 
 - `--network value`             the network to join (main|test) or path to genesis file
 - `--data-dir value`            directory for block-chain databases
@@ -75,16 +76,17 @@ bin/thor -h
 - `--api-cors value`            comma separated list of domains from which to accept cross origin requests to API
 - `--api-timeout value`         API request timeout value in milliseconds (default: 10000)
 - `--api-call-gas-limit value`  limit contract call gas (default: 50000000)
-- `--api-backtrace-limit value` limit the distance between 'position' and best block for subscriptions APIs (default: 1000)
+- `--api-backtrace-limit value` limit the distance between `position` and best block for subscriptions APIs (default: 1000)
 - `--verbosity value`           log verbosity (0-9) (default: 3)
 - `--max-peers value`           maximum number of P2P network peers (P2P network disabled if set to 0) (default: 25)
 - `--p2p-port value`            P2P network listening port (default: 11235)
-- `--nat value`                 port mapping mechanism (any|none|upnp|pmp|extip:<IP>) (default: "none")
+- `--nat value`                 port mapping mechanism (any|none|upnp|pmp|extip:\<IP>\) (default: "none")
 - `--bootnode value`            comma separated list of bootnode IDs
 - `--skip-logs`                 skip writing event|transfer logs (/logs API will be disabled)
 - `--pprof`                     turn on go-pprof
 - `--help, -h`                  show help
 - `--version, -v`               print the version
+
 
 ### Sub-commands
 

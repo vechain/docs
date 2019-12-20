@@ -1,5 +1,5 @@
 # Transaction Model
-
+## Model
 VeChainThor adopts a new transaction model to tackle some of the fundamental problems that hinder a broader use of blockchain at the moment. The model is defined in Golang as:
 
 ```go
@@ -23,7 +23,7 @@ type body struct {
 }
 ```
  
-Fields within the transaction `body`,  <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20%5COmega" height = "14px" align=center />, are defined as:
+Fields within the transaction `body`, $\Omega$, are defined as:
 
 * `ChainTag` – last byte of the genesis block ID which is used to identify a blockchain to prevent the cross-chain replay attack;
 * `BlockRef` - reference to a specific block;
@@ -38,23 +38,23 @@ Fields within the transaction `body`,  <img src="https://latex.codecogs.com/svg.
   
   * `Unused` : an array of reserved field for backward compatibility,it **MUST** be set empty as empty array for now otherwise the transaction will be considered invalid.
 
-* `Signature` - transaction signature, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20sig%3Dsign%5CBig%28hash%5Cbig%28rlp%28%5COmega-%5C%7Bsig%5C%7D%29%5Cbig%29%2C%5C%2Csk%5CBig%29" align=center />,where <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20sk" height = "14px" align=center /> is the transaction sender's private key.
+* `Signature` - transaction signature, $sig=sign\Big(hash\big(rlp(\Omega-\{sig\})\big),\,sk\Big)$,where $sk$ is the transaction sender's private key.
 
 ## Transaction ID
 
 Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, `TxID`, can be calculated as:
 
-![image-1](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20TxID%3Dhash%5Cbig%28hash%28%5COmega-%5C%7Bsig%5C%7D%29%2C%5Ctextrm%7Bsigner_address%7D%5Cbig%29)
+$$TxID=hash(hash(\Omega - \{sig\}),signer\_address)$$
 
 When validating a given transaction, VeChainThor computes its `TxID` and checks whether it has been used before. 
 
 Suppose Alice has signed a transaction that sends 10 VET to Bob and Bob wants to re-use the transaction to get 10 VET from Alice. Obviously, this is not going to work for Bob. Since the two transactions have exactly the same ID, the one broadcast by Bob would be rejected due to the existence of the transaction ID. 
 
-For any two transactions, as long as they had a field in <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20%5COmega-%5C%7Bsig%5C%7D" height = "14px" align=center /> with different values, their transaction IDs would be different. Moreover, we can always adjust the *Nonce* field to result in a new ID. In contrary to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they could be sent off at the same time and would be processed by VeChainThor independently.
+For any two transactions, as long as they had a field in $\Omega-\{sig\}$ with different values, their transaction IDs would be different. Moreover, we can always adjust the *Nonce* field to result in a new ID. In contrary to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they could be sent off at the same time and would be processed by VeChainThor independently.
 
 ## Clauses 
 
-Clause((Multi-Task Transaction)) allows a single transaction to carry out multiple tasks. To do that, we introduce the `Clause` structure to represent a single task and allow multiple tasks defined in one transaction. 
+Clause(Multi-Task Transaction) allows a single transaction to carry out multiple tasks. To do that, we introduce the `Clause` structure to represent a single task and allow multiple tasks defined in one transaction. 
 
 The structure is defined in Golang as follows:
 
@@ -98,7 +98,7 @@ The multi-task mechanism provides us a secure and efficient way to handle, for i
 
  ### BlockRef
 
-`BlockRef` stores the reference to a particular block whose next block is the earliest block the current transaction can be included. In particular, the first four bytes of `BlockRef` contains the block height, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center />, while the second four bytes can be used to prove that the referred block is known before the transaction is assembled. If that is the case, the value of `BlockRef` should match the first eight bytes of the ID of the block with height <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center />. 
+`BlockRef` stores the reference to a particular block whose next block is the earliest block the current transaction can be included. In particular, the first four bytes of `BlockRef` contains the block height, $h$, while the second four bytes can be used to prove that the referred block is known before the transaction is assembled. If that is the case, the value of `BlockRef` should match the first eight bytes of the ID of the block with height $h$. 
 
 ## Expiration
  `Expiration` stores a number that can be used, together with `BlockRef`, to specify when the transaction expires. Specifically, the sum of `Expiration` and the first four bytes of `BlockRef` defines the height of the last block that the transaction can be included.

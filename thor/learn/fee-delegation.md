@@ -13,7 +13,7 @@ Designated Gas Payer is aimed to supplement MPP to provide more flexibility for 
 ### Comparison 
 Compared with MPP, Designated Gas Payer(VIP-191) gives control back to TX senders to activate the protocol. Moreover, it does not introduce any overhead cost. However, it requires the TX sender and gas-payer to be both online to complete the TX while MPP does not. In terms of transparency, MPP is the better option since the gas-payer will have to explicitly put his/her intension to fund TXs from a particular account on chain.
 
-|  | Common To | Backend | User list Storage  | Native Fature | Flexibility |
+|  | Common To | Backend | User list Storage  | Native Feature | Flexibility |
 | --- | --- | --- | --- | --- | --- |
 | Multi-Party Payment | ✓ | X  | BlockChain | ✓ | Configuration for all user |
 | Designated Gas Payer | X  | ✓ | Backend | ✓ | Configuration for individuals  |
@@ -34,7 +34,7 @@ Let us first define the terminology to be used to describe MPP as follows:
 * *User* - VeChainTor allows any account to register other accounts as its users and conditionally pay for the cost of the transactions sent them;
 * *Credit* - available VHTO for paying for transaction cost for a particular user of a particular account. 
 
-![mpp](https://github.com/vechain/thor-wiki/blob/master/Images/MPP_text.png)
+![mpp](~@public/images/thor/mpp.png)
 
 The above figure shows the decision-making flow within MPP. When it comes to the question of who should pay for a transaction, VeChainThor first checks the usership and sponsorship associated with the *Sender* and *Recipient*. It then tries to deduct the transaction fee from the corresponding account. For instance, if both the usership and sponsorship are in place, the system will first try to deduct the transaction fee from the *Sponsor*’s balance; if it fails, then from the *Recipient*'s balance; and if it fails again, from the *Sender*’s balance. 
 
@@ -53,11 +53,11 @@ type creditPlan struct {
 
 where `RecoveryRate` is the amount of VTHO (in wei) accumulated per block to pay for transactions for each user and `Credit` the maximum amount of VTHO (in Wei) that can be accumulated.
 
-When the system checks whether an account's user has a sufficient amount of credit to pay for the transaction, it calculates the available credit <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20c" height = "14px" align=center /> as:
+When the system checks whether an account's user has a sufficient amount of credit to pay for the transaction, it calculates the available credit $C$ as:
 
-![image-10](https://latex.codecogs.com/svg.latex?c%20%3D%20%5Cmin%7B%5Cbig%28C%2CC-c_%7B%5Ctextrm%7Bused%7D%7D&plus;r%5Ccdot%5Cmax%7B%280%2C%20h-h_0%29%7D%5Cbig%29%7D)
+$$c = \min{\big(C,C-c_{\textrm{used}}+r\cdot\max{(0, h-h_0)}\big)}$$
 
-where <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20C" height = "14px" align=center /> denotes `Credit`, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20r" height = "14px" align=center /> `RecoverRate`, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h" height = "14px" align=center /> the current block height, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Clarge%20h_0" height = "14px" align=center /> the block height when the user uses credit last time and <img src="https://latex.codecogs.com/svg.latex?u_%7B%5Ctextrm%7Bused%7D%7D" height = "14px" align=center /> the amount of credit consumed after the user's last transaction is paid by the account. Note that <img src="https://latex.codecogs.com/svg.latex?C-c_%7B%5Ctextrm%7Bused%7D%7D" height = "14px" align=center /> is the remaining credit  after the last transaction is paid.
+where $C$ denotes `Credit`, $r$ `RecoverRate`, $h$ the current block height, $h_0$ the block height when the user uses credit last time and $u_{\textrm{used}}$ the amount of credit consumed after the user's last transaction is paid by the account. Note that $C-c_{\textrm{used}}$ is the remaining credit  after the last transaction is paid.
 
 ### Master Account
 
@@ -211,7 +211,7 @@ Return:
 
 * `address`: address of the current active *Sponsor* of `_self`. 
 
-## Designated Gas Payer
+## Designated Gas Payer (VIP191)
 VIP191 is an upgrade proposed by Totient that adds generalized native fee delegation to the VeChain blockchain. This innovative feature allows anyone to use a decentralized application regardless of their knowledge of blockchain technology by removing the toughest barriers for adoption.
 
 MPP was designed from the point of view of a dapp owner who controls a bunch of contracts running on chain. It is the sole responsibility of the owner to set up MPP and the protocol can only affect TXs sent to those contracts.

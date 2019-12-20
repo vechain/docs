@@ -18,5 +18,8 @@
   "homepagse": "https://github.com/vechain/doc#readme",
   "devDependencies": {
     "vuepress": "^1.2.0"
+  },
+  "dependencies": {
+    "vuepress-plugin-mathjax": "^1.2.8"
   }
 }
