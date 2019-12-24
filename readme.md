@@ -1,10 +1,10 @@
 ---
 home: true
 metaTitle : Core doc
-heroimages : ~public/images/display-images.png
+heroimages : public/images/thor/mpp.png
 heroText: Core doc
 tagline: Official documentation
-actionText: Learn now  →
+actionText: Get Started  →
 actionLink: /thor/learn/introduction
 features:
 - title: Thor

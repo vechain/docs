@@ -1,5 +1,13 @@
 const path = require('path')
 module.exports = {
+    title: "CoreDocs",
+    description: 'Description of the site',
+    head: [
+      ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png"}],
+      ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/favicons/favicon-32x32.png"}],
+      ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/favicons/favicon-16x16.png"}],
+      ['link', { rel: "shortcut icon", href: "/assets/favicons/favicon.ico"}],
+    ],
     configureWebpack: {
         resolve: {
             alias: {
@@ -8,6 +16,8 @@ module.exports = {
         }
     },
     themeConfig: {
+      logo: 'public/images/thor/mpp.png',
+      smoothScroll: true,
         nav: [
           { text: 'Thor', items:[
           { text: 'Learn', link: '/thor/learn/introduction'},
