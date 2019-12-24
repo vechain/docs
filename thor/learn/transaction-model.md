@@ -1,6 +1,6 @@
 # Transaction Model
 ## Model
-VeChainThor adopts a new transaction model to tackle some of the fundamental problems that hinder a broader use of blockchain at the moment. The model is defined in Golang as:
+VeChainThor adopts a new transaction model to tackle some of the fundamental problems that hinder a broader use of blockchain at the moment. You can find [transaction model](https://github.com/vechain/thor/blob/master/tx/transaction.go) in Golang as:
 
 ```go
 // transaction.go

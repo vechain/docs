@@ -230,7 +230,7 @@ There have been two major changes made to implement VIP-191:
 ### TX Model Extension
 Field `Reserved` in the TX body structure has been re-defined to be of type `reserved` as shown below:
 
-```
+```go
 type reserved struct {
 	Features Features
 	Unused   []rlp.RawValue
@@ -242,9 +242,9 @@ Within the structure, we define field `Features` as 32-bit unsigned integer. We 
 Recall that VIP-191 requires two valid signatures to be included in the TX. In practice, the TX sender's signature is concatenated by the gas-payer's signature and assigned to field `Signature` as usual. Moreover, the protocol requires the gas-payer to sign the TXID which is a unique identifier of the TX.
 
 ### Gas-Payer-Deciding Logic
-The gas-payer-deciding logic brought by VIP-191 is added in function `BuyGas` in the Go source file `THORDIR/runtime/resolved_tx.go`. I copy-paste the actual code below for your convenience. 
+The gas-payer-deciding logic brought by VIP-191 is added in function `BuyGas` in the Go source file `THORDIR/runtime/resolved_tx.go`. 
 
-```
+```go
 if r.Delegator != nil {
 	if energy.Sub(*r.Delegator, prepaid) {
 		return baseGasPrice, gasPrice, *r.Delegator, func(rgas uint64) { doReturnGas(rgas) }, nil

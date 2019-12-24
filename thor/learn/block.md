@@ -3,6 +3,8 @@
 VeChainThor defines a [block](https://github.com/vechain/thor/blob/master/block/block.go) in Golang as:
 
 ```go
+// block.go
+
 type Block struct {
 	header *Header
 	txs    tx.Transactions
