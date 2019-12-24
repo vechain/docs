@@ -32,8 +32,6 @@
 7. At the left of the address bar,clock on the network, 
 8. Choose the network and node you would like to connect
     
-
-    
 ### Edit  Custom Node's Name
     
 1. At top right, click  <img src="~@public/images/sync/menu.png" width = "16px" height = "16px" align=center />
