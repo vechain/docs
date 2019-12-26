@@ -15,7 +15,7 @@ connex.version
 
 ### Get Genesis Block Info
 
-Returns [`Thor.Block`](#thorblock)
+Returns [`Thor.Block`](#thor-block)
 
 ``` javascript
 console.log(connex.thor.genesis)
@@ -40,7 +40,7 @@ console.log(connex.thor.genesis)
 
 ### Get Blockchain Status
 
-Returns [`Thor.Status`](#thorstatus)
+Returns [Thor.Status](#thor-status)
 
 ``` javascript
 console.log(connex.thor.status)
@@ -62,9 +62,11 @@ console.log(connex.thor.status)
 
 Returns `Thor.Ticker`
 
-+ `next` - [`(): Promise<Thor.Status['head']>`](#thorstatus): Call `next` will create a promise that resolves with the summary of head block when there is a new block added
++ `next` - [(): Promise<Thor.Status['head']>](#thor-status): Call `next` will create a promise that resolves with the summary of head block when there is a new block added
 
-?> Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `next` returns `Promise<void>`
+:::tip Note
+Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `next` returns `Promise<void>`
+:::
 
 ``` javascript
 const ticker = connex.thor.ticker()
@@ -72,7 +74,7 @@ ticker.next().then((head)=>{
     console.log(head)
 })
 
-// A few seconds after
+// After a few seconds
 > {
     "id": "0x00379f79ce016975dab2aa6ee21669b6ad4f4aa3fbb1ef1dfb151c52e13a8437",
     "number": 3645305,
@@ -107,7 +109,7 @@ Returns `AccountVisitor`
 
 #### Get Account Detail
 
-Returns [`Promise<Thor.Account>`](#thoraccount)
+Returns [Promise<Thor.Account>](#thor-account)
 
 ``` javascript
 const acc = connex.thor.account('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed')
@@ -175,7 +177,7 @@ Returns `Thor.Method`
 + `gas` - `(gas: string):this`: Set maximum gas allowed for call 
 + `gasPrice` - `(gp: string)`: Set gas price for call in wei
 + `call`: Simulate calling the method to obtain the output without altering the contract state
-+ `asClause`: Pack arguments and setted value into clause
++ `asClause`: Pack arguments and set value into clause
 
 ##### Simulate a Contract Call
 
@@ -183,7 +185,7 @@ Returns `Thor.Method`
 
 + `...arguments` - `Array<any>`: Arguments defined in method ABI
 
-Returns [`Promise<Thor.VMOutput>`](#thorvmoutput)
+Returns [Promise<Thor.VMOutput>](#thor-vm-output)
 
 ``` javascript
 // Simulate get name from a VIP-180 compatible contract
@@ -259,13 +261,14 @@ convertForEnergyMethod.call('10000000000000000').then(output=>{
 
 ##### Caching a Contract Call
 
-> There are only two hard things in Computer Science: **cache invalidation** and **naming things**. 
->
->  -- Phil Karlton
+:::tip Quote
+There are only two hard things in Computer Science: **cache invalidation** and **naming things**. 
 
+-- Phil Karlton
+:::
 Caching method calls would help developers to speed up their applications. Addresses are ideal to be the conditions of the cache invalidation because they are building states in smart contracts. We recommend developers use this caching mechanism carefully since it is primitive. 
 
-!> We assume developers know the best of what they are doing.
+
 
 `cache` - `(ties: string[]): this`: Turn on caching for the method and set the condition of cache invalidation.
 
@@ -325,7 +328,7 @@ vetBalanceMethod.call('0xD015D91B42BEd5FeaF242082b11B83B431abBf4f').then(output=
 
 + `...arguments` - `Array<any>`: Arguments defined in method ABI
 
-Returns [`Thor.Clause`](#thorclause)
+Returns [Thor.Clause](#thor-clause)
 
 ``` javascript
 // Pack a clause that perform the VIP-180 transfer 1 wei token from Alex to Bob
@@ -371,8 +374,8 @@ Given the ABI of a contract, we can create a `Thor.Event` object that will be ab
 
 Returns `Thor.Event`
 
-+ `asCriteria`: Pack indexed arguments into criteria for future use, see [`Thor.Filter`](#filter)
-+ `filter`: Create an event filter, only accept indexed arguments, see [`Thor.Filter`](#filter)
++ `asCriteria`: Pack indexed arguments into criteria for future use, see [Thor.Filter](#filter)
++ `filter`: Create an event filter, only accept indexed arguments, see [Thor.Filter](#filter)
 
 ##### Pack into Criteria
 
@@ -406,7 +409,7 @@ console.log(criteria)
 
 + `indexed` - `Array<object>`: Array of filter conditions of indexed arguments, the items in the array will be combined by `OR` operator to filter the events: e.g. [{"ConA": "A"}, {"ConB": "B", "ConC": "C"}] is '`ConA=A` OR (`ConB=B` AND `ConC=C`)'
 
-Returns [`Thor.Filter`](#filter)
+Returns [Thor.Filter](#filter)
 
 ``` javascript
 // Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
@@ -434,7 +437,7 @@ Returns `Thor.BlockVisitor`
 
 #### Get Block Detail
 
-Returns [`Promise<Thor.Block>`](#thorblock)
+Returns [Promise<Thor.Block>](#thor-block)
 
 ``` javascript
 const blk=connex.thor.block(0)
@@ -475,7 +478,7 @@ Returns `Thor.TransactionVisitor`
 
 #### Get Transaction Detail
 
-Returns [`Thor.Transaction`](#thortransaction)
+Returns [Thor.Transaction](#thor-transaction)
 
 ``` javascript
 const transaction=connex.thor.transaction('0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851')
@@ -511,7 +514,7 @@ transaction.get().then(tx=>{
 
 #### Get Transaction Receipt
 
-Returns [`Thor.Receipt`](#thorreceipt)
+Returns [Thor.Receipt](#thor-receipt)
 
 ``` javascript
 const transaction=connex.thor.transaction('0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851')
@@ -631,7 +634,7 @@ filter.criteria([
 + `offset` - `Number`: Start cursor in the result 
 + `limit` - `Number`: Constrain the number of result returned
 
-Returns [`Promise<Array<Thor.Filter.Result>>`](#thorfilterresult)
+Returns [Promise<Array<Thor.Filter.Result>>](#thor-filter-result)
 
 ``` javascript
 // Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
@@ -722,9 +725,9 @@ Returns `Thor.Explainer`
 
 **Parameters**
 
-- `Clauses`  - [`Array<Thor.Clause>`](#thorclause)
+- `Clauses`  - [Array<Thor.Clause>](#thor-clause)
 
-Returns [`Promise<Array<Thor.VMOutput>>`](#thorvmoutput)
+Returns [Promise<Array<Thor.VMOutput>>](#thor-vm-output)
 
 ``` javascript
 const explainer=connex.thor.explain()
@@ -795,7 +798,9 @@ Owned checks if the provided address is owned by the vendor(user).
 
 Returns `Promise<boolean>`
 
-!> Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `owned` returns `boolean`, be caution about this breaking change.
+:::tip Note
+Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `owned` returns `boolean`, be caution about this breaking change.
+:::
 
 ``` javascript
 connex.vendor.owned('0x0000000000000000000000000000000000000001').then(owned =>{ 
@@ -819,7 +824,7 @@ Returns `Thor.Vendor.SigningService`: `Thor.Vendor.TXSigningService` or `Thor.Ve
 
 + `signer` - `(addr: string): this`: Enforces the specified address to sign the transaction
 + `gas` - `(gas: number): this`: Enforces the specified number as the maximum gas that can be consumed for the transaction
-+ `dependsOn` - `(txid: string): this`: Set another txid as dependency ([Reference](https://github.com/vechain/thor/wiki/Transaction-Model#other-new-features))
++ `dependsOn` - `(txid: string): this`: Set another txid as dependency ([Reference](/thor/learn/transaction-model.md#dependson))
 + `link` - `(url: string): this`: Set the link to reveal transaction-related information, the link will be used for connex to assemble a `callback url` by replacing the placeholder `{txid}` by `Transaction ID`
 + `comment` - `(text: string): this`: Set the comment for the transaction that will be revealed to the user
 + `request`: Send the request
@@ -831,9 +836,9 @@ Returns `Thor.Vendor.SigningService`: `Thor.Vendor.TXSigningService` or `Thor.Ve
 + `msg` - `Array<TxMessage>`
 
 `TxMessage`:
-+ `to`:  Same as [`Thor.Clause.To`](#thorclause)
-+ `value`:  Same as [`Thor.Clause.Value`](#thorclause)
-+ `data`:  Same as [`Thor.Clause.Data`](#thorclause)
++ `to`:  Same as [`Thor.Clause.To`](#thor-clause)
++ `value`:  Same as [`Thor.Clause.Value`](#thor-clause)
++ `data`:  Same as [`Thor.Clause.Data`](#thor-clause)
 + `comment` - `string(optional)`: Comment to the clause
 
 Returns `Promise<Thor.Vendor.SigningService.TXResponse>`:
@@ -952,8 +957,8 @@ signingService.request({
 ```
 
 
-# Type 
-## Thor.Status
+## Type 
+### Thor.Status
 
 + `progress` - `number`: A number [0-1] indicates the syncing progress of the currently connected node
 + `head`: Summarized block info that indicates the head block of the currently connected node
@@ -962,7 +967,7 @@ signingService.request({
     + `timestamp` - `number`: Unix timestamp of the block
     + `parentID` - `string`: ID of the parent block (bytes32)
 
-## Thor.Block
+### Thor.Block
 
 + `id` - `string`: Identifier of the block (bytes32)
 + `number` - `number`: Number of block
@@ -978,71 +983,71 @@ signingService.request({
 + `transactions` - `Array<string>`: Array of transaction IDs
 + `isTrunk` - `bool`: Whether the block is in trunk
 
-## Thor.Account
+### Thor.Account
 
 + `balance` - `string`: Account balance in hex string
 + `energy` - `string`: Account energy in hex string
 + `hasCode` - `bool`: Whether the account is a smart contract
 
-## Thor.Transaction
+### Thor.Transaction
 
 + `id` - `string`: Identifier of the transaction
 + `chainTag` - `number`: Last byte of genesis block ID
 + `blockRef` - `string`: The BlockRef (an eight-byte array string) includes two parts: the first four bytes contains the block height (number) and the rest four bytes is part of the referred block’s ID. If the referred block is future block, blockNumber + "00000000" should be added
 + `expiration` - `number` : Expiration relative to blockRef (in unit block)
-+ `clauses` - [`Array<Thor.Clause>`](#thorclause)
++ `clauses` - [Array<Thor.Clause>](#thor-clause)
 + `gasPriceCoef` - `number`: Coefficient used to calculate the final gas price
 + `gas`  - `number`: Maximum of gas can be consumed to execute this transaction
 origin
 + `nonce` - `string`: Transaction nonce
 + `dependsOn` - `string|null`: ID of the transaction which the current transaction depends (bytes32)
 + `size` - `number`: Byte size of the transaction that is RLP encoded
-+ `meta` - [`Thor.Transaction.Meta`](#thortransaction.meta)
++ `meta` - [Thor.Transaction.Meta](#thor-transaction-meta)
 
-## Thor.Clause
+### Thor.Clause
 
 + `to` - `string|null`: The destination address of the message, null for a contract-creation transaction
 + `value`- `string|number`: The value, with a unit of `wei`, transferred through the transaction. Specifically, it plays the role of endowment when the transaction is contract-creation type
 + `data` - `string`: Either the [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract or the initialization code of a contract-creation transaction
 
-## Thor.Transaction.Meta
+### Thor.Transaction.Meta
 
 + `blockID` - `string`: Block identifier of transaction
 + `blockNumber` - `number`: Block number of transaction
 + `blockTimestamp` - `number`: Block unix timestamp of transaction
 
-## Thor.Receipt
+### Thor.Receipt
 
 + `gasUsed` - `number`: Actual gas used of block
 + `gasPayer` - `string`: Address of account who paid used gas
 + `paid` - `string`: Hex form of amount of paid energy
 + `reward` - `string`: Hex form of amount of reward
 + `reverted` - `boolean`: true means the transaction was reverted
-+ `outputs` - [`Array<Thor.Receipt.Output>`](#thorreceiptoutput): Clause's corresponding outputs
-+ `meta` - [`Thor.Log.Meta`](#thorlogmeta)
++ `outputs` - [Array<Thor.Receipt.Output>](#thor-receipt-output): Clause's corresponding outputs
++ `meta` - [Thor.Log.Meta](#thor-log-meta)
 
-## Thor.Receipt.Output
+### Thor.Receipt.Output
 
 + `contractAddress` - `string`: Deployed contract address, if the corresponding clause is a contract deployment clause
-+ `events` - [`Array<Thor.Log.Event>`](#thorlogevent): Event log objects produced during clause execution
-+ `transfers` - [`Array<Thor.Log.Transfer>`](#thorlogtransfer) Transfer log produced during clause execution
++ `events` - [Array<Thor.Log.Event>](#thor-log-event): Event log objects produced during clause execution
++ `transfers` - [Array<Thor.Log.Transfer>](#thor-log-transfer) Transfer log produced during clause execution
 
-## Thor.Log.Event
+### Thor.Log.Event
 
 + `address` - `string`: The address of contract which produces the event (bytes20)
 + `topics` - `Array<string>`: an array with max 5 32 Byte topics, topic 1-4 contains indexed parameters of the log
 + `data` - `string`: The data containing non-indexed log parameter
-+ `meta`  - [`Thor.Log.Meta`](#thorlog.meta)
-+ `decoded`  - [`Thor.Decoded(optional)`](#thordecoded): Decoded event log based on the event ABI
++ `meta`  - [Thor.Log.Meta](#thor-log-meta)
++ `decoded`  - [Thor.Decoded(optional)](#thor-decoded): Decoded event log based on the event ABI
 
-## Thor.Log.Transfer
+### Thor.Log.Transfer
 
 + `sender` - `string`: Address that sends vet.
 + `recipient` - `string`: Address that receives vet.
 + `amount` - `string`: Amount of vet in `wei`.
-+ `meta`  - [`Thor.Log.Meta`](#thorlogmeta)
++ `meta`  - [Thor.Log.Meta](#thor-log-meta)
 
-## Thor.Log.Meta
+### Thor.Log.Meta
 
 + `blockID` - `string`: Block identifier of log
 + `blockNumber` - `number`: Block number of log
@@ -1050,21 +1055,21 @@ origin
 + `txID` - `string`: Transaction identifier of the log
 + `txOrigin` - `string`: Transaction signer the log
 
-## Thor.VMOutput
+### Thor.VMOutput
 
 + `data` - `string`: The returned data of the operation(hex string), e.g. a smart contract function returned value
 + `vmError` - `string`: VM error that occurred during the execution
 + `reverted` - `boolean`: Indicated whether the execution is reverted by the VM
-+ `events` - [`Array<Thor.Log.Event>`](#thorlogevent): Event logs that produced during the execution
-+ `transfer` - [`Array<Thor.Log.Transfer`](#thorlogtransfer): Transfer logs that produced during the execution
-+ `decoded`  - [`Thor.Decoded(optional)`](#thordecoded): Decoded returned data based on the method ABI
++ `events` - [Array<Thor.Log.Event>](#thor-log-event): Event logs that produced during the execution
++ `transfer` - [Array<Thor.Log.Transfer>](#thor-log-transfer): Transfer logs that produced during the execution
++ `decoded`  - [Thor.Decoded(optional)](#thor-decoded): Decoded returned data based on the method ABI
 
-## Thor.Filter.Result
+### Thor.Filter.Result
 
-+ `Thor.Filter.Event.Result` - [`Thor.Log.Event`](#thorlogevent)
-+ `Thor.Filter.Transfer.Result` - [`Thor.Log.Transfer`](#thorlogtransfer)
++ `Thor.Filter.Event.Result` - [Thor.Log.Event](#thor-log-event)
++ `Thor.Filter.Transfer.Result` - [Thor.Log.Transfer](#thor-log-transfer)
 
-## Thor.Decoded
+### Thor.Decoded
 
 `Decoded` is a mixed object that produced by `ABI.decode` with the ABI definition of `EVENT` or `METHOD`. Decoded will be present only at the ABI definition is provided.
 

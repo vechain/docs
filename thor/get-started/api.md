@@ -1,5 +1,5 @@
 ---
-sidebarDepth: 2
+sidebarDepth: 3
 ---
 # Thorest API <Badge text="1.2.0" type="tip"/>
 RESTful API to access VeChain Thor Network
@@ -49,14 +49,14 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 
 #### Response Body
 
-```
+``` json
 {
   "balance": "0x1e1fb2aca578373db2",
   "energy": "0x45dc094003ac610617eb81",
   "hasCode": false
 }
 ```
-Model : [Account](#account)
+Relate Model : [Account](#account)
 
 ---
 
@@ -104,7 +104,7 @@ https://sync-testnet.vechain.org/accounts/*?revision=100
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 [
   {
     "data": "0x103556a73c10e38ffe2fc4aa50fc9d46ad0148f07e26417e117bd1ece9d948b5",
@@ -130,7 +130,7 @@ https://sync-testnet.vechain.org/accounts/*?revision=100
   }
 ]
 ```
-Model : [batchCallData](#batchcalldata)
+Relate Model : [batchCallData](#batchcalldata)
 
 ---
 
@@ -167,12 +167,12 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
   "code": "0x"
 }
 ```
-Model : [Code](#code)
+Relate Model : [Code](#code)
 
 ---
 
@@ -209,12 +209,12 @@ https://sync-testnet.vechain.org/accounts/0x5034aa590125b64023a0262112b98d72e3c8
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
   "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
 }
 ```
-Model : [Storage](#storage)
+Relate Model : [Storage](#storage)
 
 ---
 
@@ -256,7 +256,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
   "id": "0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a",
   "chainTag": 39,
@@ -288,7 +288,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
   }
 }
 ```
-Relate model : [TxOrRawTxWithMEta](#txorrawtxwithmeta) / [TxWithMeta](#txwithmeta) / [RawTxWithMeta](#rawtxwithmeta)
+Relate Models : [TxOrRawTxWithMEta](#txorrawtxwithmeta) / [TxWithMeta](#txwithmeta) / [RawTxWithMeta](#rawtxwithmeta)
 
 ---
 
@@ -323,7 +323,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
   "gasUsed": 52646,
   "gasPayer": "0x4f6fc409e152d33843cf4982d414c1dd0879277e",
@@ -367,7 +367,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
   ]
 }
 ```
-Relate Model : [Receipt](#receipt) / [ReceiptMeta](#receiptmeta)
+Relate Models : [Receipt](#receipt) / [ReceiptMeta](#receiptmeta)
 
 ---
 
@@ -383,13 +383,13 @@ Use this method to commit transaction in raw.
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400|
 
-Model : [RawTX](#rawtx)
+Relate Model : [RawTX](#rawtx)
 
 #### Responses
 - Curl
 
 ```
-curl -X POST "https://sync-testnet.vechain.org/transactions" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"raw\":\"0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400\"}"
+curl -X POST "https://sync-testnet.vechain.org/transactions" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"raw\":\"0xf87c278743b11e180ba16912dfde94f2e7617c45c42967fde0514b5aa6bba56e3e11dd872386f26fc1000080808252088088dd0e2a8c3986a7c5c0b841b610b19940246633b63b4f8cb8abdf10ea4086e5649cbf3554829ad4458f12a717b0840bcab1d30f83148a001d8cffab11fea7ac4a21b02ee00e6a0479d03f0401\"}"
 ```
 
 - Request URL
@@ -403,12 +403,12 @@ https://sync-testnet.vechain.org/transactions
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
-  "id": "0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8"
+  "id": "0x605f10b7fea015db47c21bcc4d85578a621e88b1e8442644c8765b93439a6069"
 }
 ```
-model : [TxID](#txid)
+Relate Model : [TxID](#txid)
 
 ---
 
@@ -447,7 +447,7 @@ https://sync-testnet.vechain.org/blocks/best
 
 #### Response Body
 
-```
+``` json
 {
   "number": 3878004,
   "id": "0x003b2c74a253110c393313d692164b7a4e098bf0e3afdb0654a3146a219016c9",
@@ -468,7 +468,7 @@ https://sync-testnet.vechain.org/blocks/best
 }
 ```
 
-Model : [Block](#block)
+Relate Model : [Block](#block)
 
 ---
 
@@ -483,7 +483,7 @@ Filter event logs Event logs are produced by `OP_LOG` in EVM.
 
 
 #### Request body
-```
+``` json
 {
   "range": {
     "unit": "block",
@@ -504,7 +504,7 @@ Filter event logs Event logs are produced by `OP_LOG` in EVM.
   "order": "asc"
 }
 ```
-Relate Model : [EventFilter](#eventfilter) / [FilterRange](#filterrange) / [FilterOptions](#filteroptions) / [EventCriteria](#eventcriteria)
+Relate Models : [EventFilter](#eventfilter) / [FilterRange](#filterrange) / [FilterOptions](#filteroptions) / [EventCriteria](#eventcriteria)
 
 #### Responses
 - Curl
@@ -525,23 +525,45 @@ https://sync-testnet.vechain.org/logs/event
 | 200 | OK |
 
 #### Response Body
-```
-[
-  {
-    "address": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
-    "topics": [
-      "0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8"
-    ],
-    "data": "0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8",
-    "meta": {
-      "blockID": "0x0004f6cc88bb4626a92907718e82f255b8fa511453a78e8797eb8cea3393b215",
-      "blockNumber": 325324,
-      "blockTimestamp": 1533267900,
-      "txID": "0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477",
-      "txOrigin": "0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d",
-      "clauseIndex": 0
-    }
-  }
+``` json
+[ 
+   { 
+      "address":"0x0000000000000000000000000000456e65726779",
+      "topics":[ 
+         "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+         "0x0000000000000000000000005034aa590125b64023a0262112b98d72e3c8e40e",
+         "0x0000000000000000000000005034aa590125b64023a0262112b98d72e3c8e40e"
+      ],
+      "data":"0x00000000000000000000000000000000000000000000124bc0ddd92e55fff280",
+      "meta":{ 
+         "blockID":"0x000060716a6decc7127d221e8a53cd7b33992db6236490f79d47585f9ae7ca14",
+         "blockNumber":24689,
+         "blockTimestamp":1530261290,
+         "txID":"0x0ee8df3a9de6787ec0848ea8951ed8899bb053b6b4af167228dd7c0c012f5346",
+         "txOrigin":"0x5034aa590125b64023a0262112b98d72e3c8e40e",
+         "clauseIndex":0
+      }
+   },
+   { 
+      ........
+   },   
+   { 
+      "address":"0x0000000000000000000000000000456e65726779",
+      "topics":[ 
+         "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+         "0x0000000000000000000000005034aa590125b64023a0262112b98d72e3c8e40e",
+         "0x000000000000000000000000ebdb7c7bd6b46e9611101057e5b98a89697d38a7"
+      ],
+      "data":"0x00000000000000000000000000000000000000000000180863c9a3f1c3a40000",
+      "meta":{ 
+         "blockID":"0x000089c7b155093311a0ab543f46f2f52f83ca87cbfb04c26507ad134f25f6d2",
+         "blockNumber":35271,
+         "blockTimestamp":1530367110,
+         "txID":"0x7234d0e34abe1e7e612fcd3aae108087ef5d85707333afecfa24b5ad31a7a4aa",
+         "txOrigin":"0x5034aa590125b64023a0262112b98d72e3c8e40e",
+         "clauseIndex":1
+      }
+   }
 ]
 ```
 
@@ -556,7 +578,7 @@ Filter transfer logs which  are recorded on VET transferring.
 
 #### Request body
 
-```
+``` json
 {
   "range": {
     "unit": "block",
@@ -596,7 +618,7 @@ https://sync-testnet.vechain.org/logs/transfer
 
 #### Response Body
 
-```
+``` json
 [
   {
     "sender": "0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d",
@@ -645,7 +667,7 @@ https://sync-testnet.vechain.org/node/network/peers
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 [
   {
     "name": "thor/v1.1.3-48c1764-dev/linux/go1.11.5",
@@ -695,7 +717,7 @@ subscribe interested subject
 
 #### Response Body
 
-```
+``` json
 {
   "number": 325324,
   "id": "0x0004f6cc88bb4626a92907718e82f255b8fa511453a78e8797eb8cea3393b215",
@@ -747,7 +769,7 @@ subscribe interested subject
 
 #### Response Body
 
-```
+``` json
 {
   "address": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
   "topics": [
@@ -793,7 +815,7 @@ subscribe interested subject
 
 #### Response Body 
 
-```
+``` json
 {
   "sender": "0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d",
   "recipient": "0x5034aa590125b64023a0262112b98d72e3c8e40e",
@@ -833,14 +855,14 @@ subscribe interested subject
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
   "number": 325324,
   "id": "0x0004f6cc88bb4626a92907718e82f255b8fa511453a78e8797eb8cea3393b215",
   "parentID": "0x0004f6cb730dbd90fed09d165bfdf33cc0eed47ec068938f6ee7b7c12a4ea98d",
   "timestamp": 1533267900,
   "txsFeatures": 0,
-  "bloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "bloom": "0x000208001010800200c011000000020002040040008000100........02044020000000008000021000000000",
   "k": 3,
   "obsolete": true
 }
@@ -858,13 +880,13 @@ Debug utilities
 Create a tracer for a clause
 
 #### Request body
-```
+``` json
 {
   "name": "",
   "target": "0x000dabb4d6f0a80ad7ad7cd0e07a1f20b546db0730d869d5ccb0dd2a16e7595b/0/0"
 }
 ```
-Model : [TracerOption](#traceroption)
+Relate Model : [TracerOption](#traceroption)
 
 #### Responses
 
@@ -880,7 +902,7 @@ Retrieve storage range of the account with given address
 
 
 #### Request body 
-```
+``` json
 {
   "address": "0xa4627036e2095eb71c2341054daa63577c062498",
   "keyStart": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -888,7 +910,7 @@ Retrieve storage range of the account with given address
   "target": "0x000edefb448685f9c72fc2b946980ef51d8d208bbaa4d3fdcf0c57d4847aca2e/0/0"
 }
 ```
-Model : [StorageRangeOption](#storagerangeoption)
+Relate Model : [StorageRangeOption](#storagerangeoption)
 #### Responses
 
 | Code | Description |
@@ -896,7 +918,7 @@ Model : [StorageRangeOption](#storagerangeoption)
 | 200 | OK |
 
 #### Response Body
-```
+``` json
 {
   "nextKey": null,
   "storage": {
@@ -907,12 +929,13 @@ Model : [StorageRangeOption](#storagerangeoption)
   }
 }
 ```
-Model : [StorageRange](#storagerange)
+Relate Model : [StorageRange](#storagerange)
 
 ---
 
-# Models
-## account
+## Models
+
+### account
 
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
@@ -920,17 +943,17 @@ Model : [StorageRange](#storagerange)
 |energy|string|energy in unit WEI, presented with hex string|0x47ff1f90327aa0f8e|
 |hasCode|boolean|whether the account has code|false|
 
-## code
+### code
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |code|string| Runtime bytecodes|0x6060604052600080fd00a165627a7a72305820c23d3ae2dc86ad130561a2829d87c7cb8435365492bd1548eb7e7fc0f3632be90029|
 
-## storage
+### storage
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |value|string|account storage value|0x0000000000000000000000000000000000000000000000000000000000000001|
 
-## txMeta
+### txMeta
 transaction meta info
 
 | Name | Type  | Description |  Example |
@@ -939,7 +962,7 @@ transaction meta info
 |blockNumber|integer(uint32)|block number (height)|325324|
 |blockTimestamp|integer(uint64)|block unix timestamp|1533267900|
 
-## receiptMeta
+### receiptMeta
 tx receipt meta info
 
 | Name | Type  | Description |  Example |
@@ -950,7 +973,7 @@ tx receipt meta info
 |txID|string|transaction identifier|0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477|
 |txOrigin|string|transaction origin(signer)|0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d|
 
-## logMeta
+### logMeta
 event or transfer log meta info
 
 | Name | Type  | Description |  Example |
@@ -962,7 +985,7 @@ event or transfer log meta info
 |txOrigin|string|transaction origin(signer)|0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d|
 |clauseIndex|integer(uint32)|index of clause which generates this log|0
 
-## block
+### block
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |number|integer(uint32)|block number (height)|325324|
@@ -983,14 +1006,14 @@ event or transfer log meta info
 |isTrunk|boolean|whether the block is on the trunk| `true` or `false`. if it is `false`, the block is uncle block |
 
 
-## clause
+### clause
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |to|string|recipient of clause, null for contract deployment (bytes32)|0x5034aa590125b64023a0262112b98d72e3c8e40e|
 |value|string|hex form of token to be transferred|0x47fdb3c3f456c0000|
 |data|string|input data(bytes)|0x|
 
-## txBody
+### txBody
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |chainTag|	integer(uint8)| last byte of genesis block ID|39|
@@ -1002,32 +1025,32 @@ event or transfer log meta info
 |DependsOn|string*byte32)|ID of the transaction on which the current transaction depends on. can be null.|null|
 |nonce|string|random nonce|0x29c257e36ea6e72a|
 
-## rawTX
+### rawTX
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400|
 
-## rawTxWithMeta
+### rawTxWithMeta
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | raw | string | hex form of encoded transaction |0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400 |
 | meta | { [TxMeta](#txmeta) } | transaction meta info | see more in [TxMeta](#txmeta) |
 
-## event
+### event
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | address | string | the address of contract which produces the event (bytes20) | 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed|
 | topics | [ string ] |  | [0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8]|
 | data | string |  |0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8 |
 
-# transfer
+### transfer
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | sender | string | address that sends tokens | 0xdb4027477b2a8fe4c83c6dafe7f86678bb1b8a8d |
 | recipient | string | address that receives tokens | 0x5034aa590125b64023a0262112b98d72e3c8e40e |
 | amount | string | amount of tokens | 0x47fdb3c3f456c0000 |
 
-## receipt
+### receipt
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | gasUsed | integer (uint64) | gas used during execution  | 21000 |
@@ -1038,14 +1061,14 @@ event or transfer log meta info
 |ouput | array | include event output data and transfer ouput data |see more in [outputs](#output) |
 | meta | [receiptMeta](#receiptmeta) | includes `blockID`,`blockNumber`,`blockTimestamp`,`txID` and `txOrigin` | |
 
-## output
+### output
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 |contractAddress|string|deployed contract address, if the corresponding clause is a contract deployment clause|null|
 |events|[event](#event)|event output|see more in [event](#event) |
 |transfers|[transfer](#transfer)|transfer output|see more in [transfer](#transfer)|
 
-## callData
+### callData
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | value | string | amount of token to be transferred | |
@@ -1054,7 +1077,7 @@ event or transfer log meta info
 | gasPrice | string | absolute gas price | |
 | caller | string | caller address (msg.sender) | |
 
-## callResult
+### callResult
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | data | string | the output data | 0x103556a73c10e38ffe2fc4aa50fc9d46ad0148f07e26417e117bd1ece9d948b5 |
@@ -1064,7 +1087,7 @@ event or transfer log meta info
 | reverted | boolean | whether the execution is reverted or not| false |
 | vmError | string | error message will return when the execution is true  | insufficient balance for transfer |
 
-## batchCallData
+### batchCallData
 | Name | Type  | Description |
 | ---- | ----------- | -------- |  
 | clauses | [ [Clause](#clause) ] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data` to enable a single transaction to carry multiple tasks issued by the transaction sender | 
@@ -1076,16 +1099,16 @@ event or transfer log meta info
 | expiration | integer (uint32) | tx expiration(for extension contract) | 
 | blockRef | string | block reference(for extension contract) | 
 
-## batchCallResult
+### batchCallResult
 
 | Name | Type  | Description | 
 | ---- | ----------- | -------- |
 |batchCallResult|[callResult](#callresult)|return batch call result 
 
-## filterOptions
+### filterOptions
 pass these parameters if you need filtered results paged. e.g. 
 
-```
+``` json
 {
   "options": {
     "offset": 0,
@@ -1101,10 +1124,10 @@ pass options `null` if you don't need to demand paging.
 | offset | integer | offset in matched record set  | 0 |
 | limit | integer | limit of records to output  | 10 |
 
-## filterRange
+### filterRange
 defines the range to filter in. e.g.
 
-```
+``` json
 {
   "range": {
     "unit": "block",
@@ -1123,10 +1146,10 @@ refers to the range from block 10 to block 1000.
 | from | integer (uint64) | indicating the start point | 0 |
 | to | integer (uint64) | indicating the end point  | 1000 |
 
-## topicSetLegacy
+### topicSetLegacy
 a set of topics joined with `and` operator. `null` topics are ignored. e.g. 
 
-```
+``` json
 {
   "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
   "topic1": null
@@ -1142,31 +1165,31 @@ matches events whose `topic0` equals `0xddf252ad1be2c89b69c2b068fc378daa952ba7f1
 | topic3 | string |  
 | topic4 | string |  
 
-## eventFilterLegacy
+### eventFilterLegacy
 | Name | Type  | 
 | ---- | ----------- | 
 | range | [FilterRange](#filterrange) |
 | options | [FilterOptions](#filteroptions) | 
 | topicSets | [ [TopicSetLegacy](#topicsetlegacy) ] | 
 
-## addressSetLegacy
+### addressSetLegacy
 | Name | Type  | Example|
 | ---- | ----------- |  ----------- | 
 | txOrigin | string | 0xe59d475abe695c7f67a8a2321f33a856b0b4c71d| 
 | sender | string | 0xe59d475abe695c7f67a8a2321f33a856b0b4c71d|
 | recipient | string |  0x7567d83b7b8d80addcb281a71d54fc7b3364ffed|
 
-## transferFilterLegacy
+### transferFilterLegacy
 | Name | Type  | 
 | ---- | ----------- | 
 | range | [FilterRange](#filterrange) | 
 | options | [FilterOptions](#filteroptions) |  
 | addressSets | [ [AddressSetLegacy](#addresssetlegacy) ] |  |
 
-## eventCriteria
+### eventCriteria
 criteria to filter out event. All fields are joined with `and` operator. `null` field are ignored. e.g. 
 
-```
+``` json
 {
   "address": "0x0000000000000000000000000000456E65726779",
   "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
@@ -1184,7 +1207,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | topic3 | string |  | 
 | topic4 | string |  | 
 
-## eventFilter
+### eventFilter
 | Name | Type  | Description | 
 | ---- | ----------- | -------- | 
 | range | [FilterRange](#filterrange) | Defines the filter range  | 
@@ -1192,7 +1215,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | criteriaSet | [ [EventCriteria](#eventcriteria) ] | Set criteria to filter | 
 | order | string | order of filters, defaults to `asc` (`asc` or `desc`)  |
 
-## transferCriteria
+### transferCriteria
 | Name | Type  | Example | 
 | ---- | ----------- | -------- | 
 | txOrigin | string | 0xe59d475abe695c7f67a8a2321f33a856b0b4c71d | 
@@ -1200,7 +1223,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | recipient | string | 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed | 
 
 
-## transferFilter
+### transferFilter
 | Name | Type  | Description | 
 | ---- | ----------- | -------- | 
 | range | [FilterRange](#filterrange) | Defines the filter range |
@@ -1208,7 +1231,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | criteriaSet | [ [TransferCriteria](#transfercriteria) ] | Set criteria to filter | 
 | order | string | order of filters, defaults to `asc` (`asc` or `desc`) | 
 
-## peerStats
+### peerStats
 | Name | Type  | Example | 
 | ---- | ----------- | -------- | 
 | name | string | thor/v1.0.0-6680b98-dev/linux/go1.10.3 |
@@ -1219,7 +1242,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | inbound | boolean | false | 
 | duration | integer | 28 | 
 
-## txOrRawTxWithMeta
+### txOrRawTxWithMeta
 > Return [txWithMeta](#txwithmeta) or [rawTxWithMeta](#rawtxwithmeta) depends on the query type
 
 ### txWithMeta
@@ -1239,29 +1262,29 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | size | integer(uint32) | byte size of the transaction that is RLP encoded | 130 |
 | meta | {[TxMeta](#txmeta)} | transaction meta info | |
 
-### rawTxWithMeta
+#### rawTxWithMeta
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | raw | string | hex form of encoded transaction | 0xf86981ba800adad994000000000000000000000000000000000000746f82271080018252088001c0b8414792c9439594098323900e6470742cd877ec9f9906bca05510e421f3b013ed221324e77ca10d3466b32b1800c72e12719b213f1d4c370305399dd27af962626400 |
 | meta | {[TxMeta](#txmeta)} |transaction meta info  | |
 
-## txid
+### txid
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | id | string | identifier of the transaction | 0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477 |
 
-## obsolete
+### obsolete
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | obsolete | boolean | indicates whether the block containing this data become branch block  | false |
 
-## tracerOption
+### tracerOption
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 |name|string|name of tracer. Empty name stands for default struct logger tracer.|4byte, bigram, call, evmdis, noop, opcount, prestate, trigram, unigram |
 |target|string|the unified path of target to be traced. Currently, only clause is supported. Format: `blockID`/ (`txIndex` or `txId`)/ `clauseIndex`|0x000dabb4d6f0a80ad7ad7cd0e07a1f20b546db0730d869d5ccb0dd2a16e7595b|
 
-## storageRangeOption
+### storageRangeOption
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | address | string | address of account  | 0xa4627036e2095eb71c2341054daa63577c062498 |
@@ -1269,13 +1292,13 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | maxResult | number |  | 10 |
 | target | string |  | 0x000edefb448685f9c72fc2b946980ef51d8d208bbaa4d3fdcf0c57d4847aca2e | 
 
-## storageRange
+### storageRange
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | nextKey | string |  | null |
 | storage | object |  | |
 
-## beat
+### beat
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | number | integer (uint32) | block number (height) | 325324 |
