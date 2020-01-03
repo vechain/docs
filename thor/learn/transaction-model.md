@@ -36,7 +36,7 @@ Fields within the transaction `body`, $\Omega$, are defined as:
 * `Reserved` - *reserved* Object contains two fields: `Features` and `Unused`. 
   * `Feature` as 32-bit unsigned integer and default set as `0`.For Designated Gas Payer(VIP191) must be set as `1`
   
-  * `Unused` : an array of reserved field for backward compatibility,it **MUST** be set empty as empty array for now otherwise the transaction will be considered invalid.
+  * `Unused` : an array of reserved field for backward compatibility,it **MUST** be set to empty array for now otherwise the transaction will be considered invalid.
 
 * `Signature` - transaction signature, $sig=sign\Big(hash\big(rlp(\Omega-\{sig\})\big),\,sk\Big)$,where $sk$ is the transaction sender's private key.
 
@@ -115,4 +115,4 @@ type reserved struct {
 ``` 
  * `Feature` as 32-bit unsigned integer and default set as `0`.For Designated Gas Payer(VIP191) must be set as `1`
   
-  * `Unused` : an array of reserved field for backward compatibility,it **MUST** be set empty as empty array for now otherwise the transaction will be considered invalid.
+ * `Unused` : an array of reserved field for backward compatibility,it **MUST** be set empty as empty array for now otherwise the transaction will be considered invalid.

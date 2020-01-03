@@ -30,9 +30,9 @@ The balance between decentralization and centralization ensures efficiency and t
 * On-chain governance mechanism which is divided into three phases - propose, approve, and execute, is designed to support the governance model
 
 ## Economic Model
-The unique dual-token system (VET+VTHO) significantly helps separate the cost of using blockchain from market speculation. Due to the correlation with the blockchain resource utilization, the cost is more predictable with the monitoring of the VTHO supply and demand. In addition, Foundation's governance mechanism further stabilizes the cost.
+The unique two token system (VET+VTHO) significantly helps separate the cost of using blockchain from market speculation. Due to the correlation with the blockchain resource utilization, the cost is more predictable with the monitoring of the VTHO supply and demand. In addition, Foundation's governance mechanism further stabilizes the cost.
 
-* VTHO generation from any address holding VET at the predetermined velocity of 5x10^-8 per VET per block (10s)
+* VTHO generation from any address holding VET at the predetermined velocity of $5*10^{-8}$ per VET per block (10s)
 * 70% of VTHO paid in each transaction is destroyed and the rest is awarded to the Authority Masternode Operator
 * Adjustment to variables (e.g. gas price, velocity) can be made to maintain the equilibrium of VTHO demand and supply
 

@@ -5,4 +5,4 @@
 ## Mobile
 - VeChainThor Mobile Wallet ([iOS](https://apps.apple.com/us/app/id1397679485)
 / [Android](https://cdn.vechain.com/vechainthorwallet/client/VeChainThorWallet.apk)) : VeChainThor Wallet is a light mobile wallet app. We aim to provide users with a powerful, secure, simple, fully functional portal of the VeChainThor blockchain.
-- Sync Mobile 
+- Sync Mobile [beta](https://testflight.apple.com/join/UepoMMnP) 

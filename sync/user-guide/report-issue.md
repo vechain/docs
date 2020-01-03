@@ -11,4 +11,4 @@ When you've found an issue in sync, here's how to report an issue. Thanks a ton 
 6. Filled-in the issue template 
 7. Click  **Submit new issue**
    
->You can find the Sync version in [here](/sync/settings/#sync-version)
+>You can find the Sync version in [here](/sync/user-guide/settings/#sync-version)

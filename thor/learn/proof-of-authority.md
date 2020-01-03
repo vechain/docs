@@ -22,11 +22,11 @@ When discussing a consensus algorithm, we must answer the following questions:
 
 ## When
 
-VeChainThor schedules a new block to be generated once every $\Delta$ seconds. We set $\Delta=10$, which is based on our estimation of the usage of VeChainThor.  Let $t_0$ be the timestamp of the genesis block. The timestamp of the block with height $h>0$ and   $t_h$ ,must satisfy $_h=t_0+m\Delta$ where $m\in \mathbb{N}^+$ and $>=h$. 
+VeChainThor schedules a new block to be generated once every $\Delta$ seconds. We set $\Delta=10$, which is based on our estimation of the usage of VeChainThor.  Let $t_0$ be the timestamp of the genesis block. The timestamp of the block with height $h>0$ and $t_h$ ,must satisfy $_h=t_0+m\Delta$ where $m\in \mathbb{N}^+$ and $>=h$. 
 
 ## Who
 
-PoA allows every available AM to have an equal opportunity to be selected to produce blocks. To do that, we introduce a deterministic pseudo-random process (DPRP) and the “active/inactive” AM status to decide whether a particular AM  $a$ is legitimate for producing a block$(h,t)$ with height $h$(`uint32`) and timestamp $t$(`uint64`). Here $t$ must satisfy $(t-t_0)mod\Delta=0$. We first define the DPRP to generate a pseudo-random number $\gamma (h,t)$ as:
+PoA allows every available AM to have an equal opportunity to be selected to produce blocks. To do that, we introduce a Deterministic Pseudo-Random Process (DPRP) and the “active/inactive” AM status to decide whether a particular AM  $a$ is legitimate for producing a block$(h,t)$ with height $h$(`uint32`) and timestamp $t$(`uint64`). Here $t$ must satisfy $(t-t_0)mod\Delta=0$. We first define the DPRP to generate a pseudo-random number $\gamma (h,t)$ as:
 
 $$\gamma (h,t) = DPRP (h,t) = hash(h \circ t)$$
 

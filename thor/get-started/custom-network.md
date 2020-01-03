@@ -13,7 +13,7 @@ Build your custom network requires understanding the mechanism of blockchain. Ma
 
 ## Configure Your Genesis File
 
-You can find an example genesis file [by this link](https://github.com/vechain/thor/blob/master/genesis/example.json)
+You can find an example genesis file [here](https://github.com/vechain/thor/blob/master/genesis/example.json)
 
 ### Genesis Description Object
 

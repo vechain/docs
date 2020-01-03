@@ -126,3 +126,16 @@ docker run -d\
 Do not forget to add the `--api-addr 0.0.0.0:8669` flag if you want other containers and/or hosts to have access to the RESTful API. `Thor`binds to `localhost` by default and it will not accept requests outside the container itself without the flag.
 
 The [Dockerfile](https://raw.githubusercontent.com/vechain/thor/master/Dockerfile) is designed to build the last release of the source code and will publish docker images to [dockerhub](https://hub.docker.com/r/vechain/thor/) by release, feel free to fork and build Dockerfile for your own purpose.
+
+## Public Nodes
+public nodes are available for development and testing. The URLs are as follows:
+
+- Mainnet: 
+  
+  [https://vethor-node.vechain.com/doc/swagger-ui/](https://vethor-node.vechain.com/doc/swagger-ui/)
+
+- Testnet: 
+  
+  [https://vethor-node-test.vechaindev.com/doc/swagger-ui/](https://vethor-node-test.vechaindev.com/doc/swagger-ui/)
+
+You can just open it in the browser and a swagger page will appear, which will easily help you interact with VeChainThor blockchain. Please note that the public nodes are not designed for the production environment, and VeChain Foundation does not guarantee the reliability and availability.
