@@ -1,7 +1,7 @@
 ---
 home: true
+heroImage : logo.png
 metaTitle : Core doc
-heroimages : public/images/thor/mpp.png
 heroText: Core doc
 tagline: Official documentation
 actionText: Get Started  →
