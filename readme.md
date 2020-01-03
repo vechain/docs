@@ -1,10 +1,10 @@
 ---
 home: true
 heroImage : logo.png
-metaTitle : CoreDocs
+metaTitle : VeChain CoreDocs
 heroText: CoreDocs
-tagline: Official documentations
-footer: Licensed under the GNU Lesser General Public License v3.0 | VeChain Foundation 2019-Present
+tagline: Official Documentation
+footer: LGPL 3.0 licensed | VeChain Foundation 2020-Present
 ---
 <div class="features">
   <div class="feature">

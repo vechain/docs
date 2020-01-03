@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  title: "CoreDocs",
-  description: 'Description of the site',
+  title: "VeChain CoreDocs",
+  description: 'Official Core Documentation',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
