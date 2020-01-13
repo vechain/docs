@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  title: "VeChain CoreDocs",
-  description: 'Official Core Documentation',
+  title: "VeChain Docs",
+  description: 'Everything you need to know about VeChainThor',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -78,8 +78,9 @@ module.exports = {
         'report-issue'
       ]
     },
-        repo: 'xjwx89/doc',//edit page config 
-        docsBranch: 'draft',
+        repo: 'vechain',
+        docsRepo:'vechain/docs',//TODO
+        docsBranch: 'master',//TODO
         editLinks: true,
   },
   plugins: [
@@ -91,7 +92,7 @@ module.exports = {
     ]
     ['@vuepress/pwa', {
       serviceWorker: true,
-      updatePopup: true
+      updatePopup: true,
     }
     ]
   ]
