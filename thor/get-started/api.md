@@ -1155,7 +1155,7 @@ a set of topics joined with `and` operator. `null` topics are ignored. e.g.
   "topic1": null
 }
 ```
-matches events whose `topic0` equals `0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef`.
+matches events whose `topic0` equals `0xddf252ad1be2c89b…523b3ef`.
 
 | Name | Type  | 
 | ---- | ----------- | 
@@ -1195,7 +1195,7 @@ criteria to filter out event. All fields are joined with `and` operator. `null` 
   "topic0": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
 }
 ```
-matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with `topic0` equals `0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef`.
+matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with `topic0` equals `0xddf252ad1be2c89b…523b3ef`.
 
 
 | Name | Type  | Description | 

@@ -12,7 +12,7 @@
 - [My-tokens](https://tokens.vecha.in/) - A tools allows you to transfer tokens
 
 ## Public Services
-- [Testnet faucet](https://faucet.vecha.in/) - Claim test tokens 
+- [Testnet faucet](https://faucet.vecha.in/) - Provides VET and VTHO on testnet freely. It is designed to help developers test applications as well as provide users an alternative to experience dApps on the VeChainThor blockchain
 
 - [App-hub](https://github.com/vechain/app-hub) - a platform that allow you to submit your awesome app and discovery by people around the world.
   
