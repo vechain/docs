@@ -18,10 +18,7 @@
   "homepagse": "https://github.com/vechain/doc#readme",
   "devDependencies": {
     "@vuepress/plugin-pwa": "^1.2.0",
-    "vuepress": "^1.2.0"
-  },
-  "dependencies": {
+    "vuepress": "^1.2.0",
     "vuepress-plugin-mathjax": "^1.2.8"
   }
 }
-
