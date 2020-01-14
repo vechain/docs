@@ -1,7 +1,7 @@
 {
   "name": "thor-doc",
   "version": "1.0.0",
-  "description": "",
+  "description": "VeChain Official documentation. Everything you need to know about VeChainThor",
   "scripts": {
     "docs:dev": "vuepress dev .",
     "docs:build": "vuepress build ."
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/vechain/doc.git"
   },
-  "author": "jack.wu",
+  "author": "VeChain Dev",
   "license": "LGPL-3.0",
   "bugs": {
     "url": "https://github.com/vechain/doc/issues"
@@ -24,3 +24,4 @@
     "vuepress-plugin-mathjax": "^1.2.8"
   }
 }
+

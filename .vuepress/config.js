@@ -21,7 +21,7 @@ module.exports = {
     }
   },
   themeConfig: {
-    logo: 'logo.png',
+    logo: '/logo.png',
     smoothScroll: true,
     lastUpdated: 'Last Updated',
     nav: [
@@ -40,7 +40,7 @@ module.exports = {
         ]
       },
       {
-      text: 'Links', items: [
+      text: 'Resources', items: [
       { text: 'Explorer', link: 'https://explore.vechain.org' },
       { text: 'App-hub', link: 'https://apps.vechain.org/' }
       ]
@@ -89,7 +89,7 @@ module.exports = {
       {
         target: 'svg'
       },
-    ]
+    ],
     ['@vuepress/pwa', {
       serviceWorker: true,
       updatePopup: true,
