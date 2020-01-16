@@ -23,7 +23,7 @@ More : [Import from Ledger](/sync/user-guide/import-ledger)
 
 ## Wallet Security 
 ### Keep Your Wallet Safe
-The mnemonic words/keystore stores all the information that is needed at any point in time to recover your wallet. The mnemonic words/keystore should be stored in a secure place. It ensures you have had a back-up in a scenario where your computer breaks down or becomes unusable due to any reason. In such cases, all you need is your mnemonic phrase/keystore to recover your wallet.
+The mnemonic words/keystore stores all the information that is needed at any point in time to recover your wallet. The mnemonic words/keystore should be stored in a secure place. It ensures you have had a back-up in a scenario where your computer breaks down or becomes unusable due to any reason. In such cases, all you need is your mnemonic words/keystore to recover your wallet.
 
 ### Export Keystore
 1. On your computer, open Sync
@@ -31,7 +31,7 @@ The mnemonic words/keystore stores all the information that is needed at any poi
 3. Click the wallet you which needs to export the key store
 4. Click **Backup**
 5. Enter the wallet password to continue process 
-6. Copy the key store or export to the custom path
+6. Copy the keystore or export it to the custom path
 
 ### Reset Password 
 You can change your wallet's name and password after wallet's password verified. 
@@ -58,17 +58,17 @@ You can change your wallet's name and password after wallet's password verified.
 - Date : Show the date which you signed the transaction.
 - Status : There are 4 status of a transaction
     1. **Sending** <img src="~@public/images/sync/sending.png"  height = "20px" align=center />
-  : After signing a transaction , sync will send the signed transaction to node. if the transaction can not be send , you can click  <img src="~@public/images/sync/retry.png"  height = "20px" align=center /> to resend. 
-    2. **Confirming** <img src="~@public/images/sync/confirming.png"  height = "20px" align=center /> : The transaction is confirming. stage.
+  : After signing a transaction , sync will send the signed transaction to node. If the transaction can not be sent , you can click  <img src="~@public/images/sync/retry.png"  height = "20px" align=center /> to resend. 
+    2. **Confirming** <img src="~@public/images/sync/confirming.png"  height = "20px" align=center /> : The transaction is confirming.
     3. **Confirmed** <img src="~@public/images/sync/confirmed.png"  height = "20px" align=center /> : The transaction is confirmed.
     4. **Dropped** <img src="~@public/images/sync/error.png"  height = "20px" align=center />  :  The transaction is expired, can not be resend. 
-- Type: Transfer / Call / Create
+- Category: Transfer / Call / Create
 - Link : Application URL.
 - Action : Reveal transaction in insight.
 
 ### Certificate
 - Date : Show the date which you signed the transaction.
 - status : Always <img src="~@public/images/sync/confirmed.png"  height = "20px" align=center /> (Only signed certificate will be record.)
-- Type : Identification / Agreement 
+- Category : Identification / Agreement 
 - Link : Application URL.
 - Action : Show the signed content.
