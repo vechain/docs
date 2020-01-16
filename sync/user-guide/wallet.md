@@ -23,7 +23,8 @@ More : [Import from Ledger](/sync/user-guide/import-ledger)
 
 ## Wallet Security 
 ### Keep Your Wallet Safe
-The mnemonic words/keystore stores all the information that is needed at any point in time to recover your wallet. The mnemonic words/keystore should be stored in a secure place. It ensures you have had a back-up in a scenario where your computer breaks down or becomes unusable due to any reason. In such cases, all you need is your mnemonic words/keystore to recover your wallet.
+The mnemonic words / keystore stores all the information that is needed at any point in time to recover your wallet. The mnemonic words /keystore should be stored in a secure place. It ensures you have had a back-up in a scenario where your computer breaks down or becomes unusable due to any reason. In such cases, all you need is your mnemonic words / keystore to recover your wallet.
+
 
 ### Export Keystore
 1. On your computer, open Sync

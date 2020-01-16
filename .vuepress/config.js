@@ -11,7 +11,8 @@ module.exports = {
     ['link', { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon-152x152.png' }],
     ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
     ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    ['meta', { name:'keywords', content:'vechain, documentation, docs, thor, connex, sync, official'}]
   ],
   configureWebpack: {
     resolve: {
@@ -24,6 +25,11 @@ module.exports = {
     logo: '/logo.png',
     smoothScroll: true,
     lastUpdated: 'Last Updated',
+    activeHeaderLinks: false,
+    algolia: {
+      apiKey: '1cf3bcfcda8c87948b832b6aff064e7f',
+      indexName: 'vechain'
+    },
     nav: [
       {
         text: 'Thor', items: [
@@ -82,6 +88,7 @@ module.exports = {
         docsRepo:'vechain/docs',//TODO
         docsBranch: 'master',//TODO
         editLinks: true,
+        
   },
   plugins: [
     [
