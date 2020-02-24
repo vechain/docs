@@ -84,6 +84,7 @@ bin/thor -h
 - `--bootnode value`            comma separated list of bootnode IDs
 - `--skip-logs`                 skip writing event|transfer logs (/logs API will be disabled)
 - `--pprof`                     turn on go-pprof
+- `--disable-pruner`            disable state pruner to keep all history
 - `--help, -h`                  show help
 - `--version, -v`               print the version
 
@@ -114,18 +115,63 @@ cat keystore.json | bin/thor master-key --import
 
 ## Docker
 
-Docker is one quick way for running a vechain node:
 
-```bash
-docker run -d\
-  -v {path-to-your-data-directory}/.org.vechain.thor:/root/.org.vechain.thor\
-  -p 127.0.0.1:8669:8669 -p 11235:11235 -p 11235:11235/udp\
-  --name thor-node vechain/thor --network test
+**This method needs running all commands by docker with the data directory mapped to the container.**
+
+
+### Pull image
+
+```sh
+docker pull vechain/thor
 ```
 
-Do not forget to add the `--api-addr 0.0.0.0:8669` flag if you want other containers and/or hosts to have access to the RESTful API. `Thor`binds to `localhost` by default and it will not accept requests outside the container itself without the flag.
+### Export Master Key
 
-The [Dockerfile](https://raw.githubusercontent.com/vechain/thor/master/Dockerfile) is designed to build the last release of the source code and will publish docker images to [dockerhub](https://hub.docker.com/r/vechain/thor/) by release, feel free to fork and build Dockerfile for your own purpose.
+First, start an interactive shell by docker:
+
+```sh
+docker run -it --rm\
+-v {path-to-your-data-directory}:/root/.org.vechain.thor\
+--entrypoint /bin/sh vechain/thor
+```
+
+Then export master key in the shell:
+
+```sh
+thor master-key --export > /root/.org.vechain.thor/keystore.json
+```
+
+Enter your password and check the generated file, then exit.
+
+
+### Import Master Key
+
+```sh
+docker run -it --rm\
+-v {path-to-your-data-directory}:/root/.org.vechain.thor\
+vechain/thor master-key --import
+```
+
+Follow the instruction by the program, input the `KeyStore` and also the password.
+
+### Check Master Key
+
+```sh
+docker run -it --rm\
+-v {path-to-your-data-directory}:/root/.org.vechain.thor\
+vechain/thor master-key
+```
+
+This command will print the Master Key.
+
+### Start the Authority Masternode
+
+```sh
+docker run -d\
+-v {path-to-your-data-directory}:/root/.org.vechain.thor\
+-p 127.0.0.1:8669:8669 -p 11235:11235 -p 11235:11235/udp\
+--name thor-node vechain/thor --network main --skip-logs
+```
 
 ## Public Nodes
 public nodes are available for development and testing. The URLs are as follows:
