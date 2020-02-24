@@ -30,28 +30,7 @@ module.exports = {
       apiKey: '1cf3bcfcda8c87948b832b6aff064e7f',
       indexName: 'vechain'
     },
-    nav: [
-      {
-        text: 'Thor', items: [
-          { text: 'Learn', link: '/thor/learn/introduction' },
-          { text: 'Get Started', link: '/thor/get-started/installation' }
-        ]
-      },
-      { text: 'Connex', link: '/connex/connex-intro' },
-      {
-        text: 'Sync', items: [
-          { text: 'Download', link: '/sync/download-and-install' },
-          { text: 'User Guide', link: '/sync/user-guide/wallet' },
-          { text: 'FAQ', link: '/sync/faq' },
-        ]
-      },
-      {
-      text: 'Resources', items: [
-      { text: 'Explorer', link: 'https://explore.vechain.org' },
-      { text: 'App-hub', link: 'https://apps.vechain.org/' }
-      ]
-    }
-    ],
+    nav: require('./nav/en'),
     sidebar: {
       '/thor/learn/': [
         'introduction',
