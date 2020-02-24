@@ -98,10 +98,6 @@ module.exports = [
             {
                 text: 'App-hub',
                 link: 'https://apps.vechain.org/'
-            },
-            {
-                text: 'Tutorial',
-                link: '/tutorials/index.html'
             }
         ]
     },
