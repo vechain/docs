@@ -24,6 +24,7 @@ module.exports = {
   themeConfig: {
     logo: '/logo.png',
     smoothScroll: true,
+    docsDir: 'docs',
     lastUpdated: 'Last Updated',
     activeHeaderLinks: false,
     algolia: {
