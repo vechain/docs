@@ -23,6 +23,7 @@ module.exports = {
   },
   themeConfig: {
     logo: '/logo.png',
+    sidebarDepth:0,
     smoothScroll: true,
     lastUpdated: 'Last Updated',
     activeHeaderLinks: false,
@@ -33,7 +34,7 @@ module.exports = {
     nav: require('./nav/en'),
     sidebar: {
       '/thor/learn/': [
-        'introduction',
+        'intro',
         'two-token-design',
         'proof-of-authority',
         'builtin-contracts',
@@ -48,21 +49,34 @@ module.exports = {
         'api'
       ],
       '/connex/': [
-        'connex-intro',
-        'compatible-client',
-        'demos-and-service',
-        'api'
+        'intro',
+        'api',
+        'demos-and-service'
       ],
       '/sync/user-guide/': [
-        'wallet',
+        '',
         'import-ledger',
         'browse-dapp-and-web',
         'interact-with-dapps',
         'activities',
         'settings',
         'report-issue'
-      ]
-    },
+      ],
+      '/tutorials/':[
+        ['','Submit Your Article'],
+      {
+        title: 'Articles',
+        collapsable: false,
+        children: [
+        'designated-fee-delegation',
+        'forcible-transaction-dependency',
+        'how-to-integrate-VIP-191-1',
+        'how-to-integrate-VIP-191-2',
+        'how-to-integrate-VIP-191-3'
+        ]
+      }
+    ]
+  },
         repo: 'vechain',
         docsRepo:'vechain/docs',//TODO
         docsBranch: 'master',//TODO
