@@ -9,7 +9,7 @@ module.exports = [
                 items: [
                     {
                         text: 'Intro',
-                        link: '/thor/learn/introduction.html'
+                        link: '/thor/learn/intro.html'
                     }
                 ]
             },
@@ -37,24 +37,24 @@ module.exports = [
         ariaLabel: 'Connex',
         items: [
             {
-                text: 'Learn',
-                items: [
-                    {
-                        text: 'Intro',
-                        link: '/connex/connex-intro.html'
-                    }
-                ]
-            },
-            {
                 text: 'Get Started',
                 items: [
                     {
-                        text: 'Demos and Services',
-                        link: '/connex/demos-and-service.html'
+                        text: 'Intro',
+                        link: '/connex/intro.html'
                     },
                     {
                         text: 'Connex API',
                         link: '/connex/api.html'
+                    }
+                ]
+            },
+            {
+                text: 'Demos',
+                items: [
+                    {
+                        text: 'Demos and Services',
+                        link: '/connex/demos-and-service.html'
                     }
                 ]
             }
@@ -78,7 +78,7 @@ module.exports = [
                 items: [
                     {
                         text: 'User Guide',
-                        link: '/sync/user-guide/wallet.html'
+                        link: '/sync/user-guide/'
                     },
                     {
                         text: 'FAQ',
@@ -87,6 +87,10 @@ module.exports = [
                 ]
             }
         ]
+    },
+    {
+        text:'Tutorials',
+        link: '/tutorials/'
     },
     {
         text: 'Resources',

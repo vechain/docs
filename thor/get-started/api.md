@@ -1,5 +1,5 @@
 ---
-sidebarDepth: 3
+sidebarDepth: 2
 ---
 # Thorest API <Badge text="1.3.0" type="tip"/>
 RESTful API to access VeChain Thor Network
