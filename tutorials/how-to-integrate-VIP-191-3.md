@@ -1,4 +1,13 @@
-
+---
+title: How to Integrate VIP-191 (III)
+date: 2020-03-05
+description: This is the last part of the tutorial. It mainly explains the sponsor’s initiative to inspect the transaction and sign his signature on it. We will use the express.js library to build a framework to receive transmission and return the result.
+author: abyteahead
+sidebar: auto
+tags:
+    - VIP191
+    - Connex
+---
 # How to Integrate VIP-191 (III)
 
 This is the last part of the tutorial.

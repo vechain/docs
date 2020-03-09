@@ -1,3 +1,10 @@
+---
+title: Transaction Dependency 
+date: 2020-03-06
+description: VeChainThor provides a safety mechanism that allows users to force a TX to depend on the success of another TX.
+tags:
+    - Thor
+---
 # Transaction Dependency 
 VeChainThor provides a safety mechanism that allows users to force a TX to depend on the success of another TX. In other words, if this feature is turned on, the system will check the status of the TX the current TX depends on. Only if the status says successful, then the current TX will be accepted for processing by the system.
 Here by successful, we mean two things:
