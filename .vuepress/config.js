@@ -61,21 +61,7 @@ module.exports = {
         'activities',
         'settings',
         'report-issue'
-      ],
-      '/tutorials/':[
-        ['','Submit Your Article'],
-      {
-        title: 'Articles',
-        collapsable: false,
-        children: [
-        'designated-fee-delegation',
-        'forcible-transaction-dependency',
-        'how-to-integrate-VIP-191-1',
-        'how-to-integrate-VIP-191-2',
-        'how-to-integrate-VIP-191-3'
-        ]
-      }
-    ]
+      ]
   },
         repo: 'vechain',
         docsRepo:'vechain/docs',//TODO

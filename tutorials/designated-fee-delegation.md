@@ -1,3 +1,9 @@
+---
+title: Designated Fee Delegation
+date: 2020-03-06
+description: The TX-fee-delegation mechanism (both VIP-191 and MPP) on VeChainThor.
+sidebar: auto
+---
 # Designated Fee Delegation 
 
 The TX-fee-delegation mechanism (both VIP-191 and MPP) on VeChainThor. The demo is built using tools [connex-framework](https://github.com/vechain/connex-framework) and [connex.driver-nodejs](https://github.com/vechain/connex.driver-nodejs) that implement the [Connex](https://github.com/vechain/connex) interface in a NodeJS environment. 
