@@ -7,6 +7,8 @@ sidebar: auto
 tags:
     - VIP191
     - Connex
+prev: /tutorials/how-to-integrate-VIP-191-2
+next: false
 ---
 # How to Integrate VIP-191 (III)
 
@@ -134,11 +136,3 @@ As we can see from the above picture, the 26.64 VTHO is paid not by the user, bu
 Due to the length of the article, this VIP-191 tutorial doesn’t show the full source code from the user’s side and the sponsor’s side. I have included a workable sample of [user.js](https://gist.github.com/laalaguer/1a7d9f9e0993c83ffcc84b766c3498ae) and [sponsor.js](https://gist.github.com/laalaguer/cbedc4591a13e5ef6b7e14eb1d1bcaf3) on the Github for you to run.
 
 I hope you like this trilogy of tutorials on VIP-191 of VeChain. As always, may the force be with you!
-
-## Continue Reading:
-
-* [How to Integrate VIP-191 (I) — Intro](https://medium.com/@abyteahead/how-to-integrate-vip-191-i-f50971bb89eb)
-
-* [How to integrate VIP-191 (II) — User’s side](https://medium.com/@abyteahead/how-to-integrate-vip-191-ii-1b4e32d7960d)
-
-* [How to integrate VIP-191 (III) — Sponsor’s side](https://medium.com/@abyteahead/how-to-integrate-vip-191-iii-f08e9b66e457)

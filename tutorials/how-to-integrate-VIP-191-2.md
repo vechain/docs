@@ -7,6 +7,8 @@ sidebar: auto
 tags:
     - VIP191
     - Connex
+prev: /tutorials/how-to-integrate-VIP-191-1
+next: /tutorials/how-to-integrate-VIP-191-3
 ---
 # How to Integrate VIP-191 (II)
 
@@ -179,11 +181,3 @@ If you have followed the above steps faithfully, then the job on the user’s si
 * Combine the user signature with the sponsor’s signature.
 
 * Assemble the final transaction and post to the VeChain network.
-
-## Continue Reading:
-
-* [How to Integrate VIP-191 (I) — Intro](https://medium.com/@abyteahead/how-to-integrate-vip-191-i-f50971bb89eb)
-
-* [How to integrate VIP-191 (II) — User’s side](https://medium.com/@abyteahead/how-to-integrate-vip-191-ii-1b4e32d7960d)
-
-* [How to integrate VIP-191 (III) — Sponsor’s side](https://medium.com/@abyteahead/how-to-integrate-vip-191-iii-f08e9b66e457)

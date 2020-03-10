@@ -16,19 +16,21 @@ When you "Fork" the [docs project](https://github.com/vechain/docs), GitHub will
 2. Add following contents in your article
 
 :::tip
-The contents must be the first thing in the Markdown file and must take the form of valid YAML set between triple-dashed lines. Here is a basic example:
+The contents must be the first thing in the Markdown file and must take the form of valid YAML set between triple-dashed lines and all fields are required . Here is a basic example:
 :::
 
 ```YAML
 ---
-title: Article Title  //required 
+title: Article Title  
 date: 2020-03-06 //YYYY-MM-DD
-description: short description 
+description: short description //desc showing on tutorial index page
 author: VeChain
-sidebar: true // if you want to disabled the sidebar , you can set to false
+sidebar: true //set false to disable ,or you can set auto
 tags: 
     - Thor
     - Connex 
+prev: /tutorials/article-name  //external link is not allow 
+next: false  // set false to disable 
 ---
 ```
 

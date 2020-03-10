@@ -52,9 +52,9 @@
     padding: 5px;
     border-radius: 7px;
     font-size: small;
-    background: #2E9AFE;
+    background: #f3f5f7;
     margin-right: 5px;
-    color: white;
+    color: #666;
     font-weight: 400;
   }
 
