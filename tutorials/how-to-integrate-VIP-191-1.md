@@ -7,6 +7,8 @@ sidebar: auto
 tags:
     - VIP191
     - Connex
+prev: false
+next: /tutorials/how-to-integrate-VIP-191-2
 ---
 # How to Integrate VIP-191 (I)
 
@@ -82,12 +84,3 @@ Just as the picture below has depicted, once the transaction is forged, the user
 Thanks for reading this article.
 
 After solving the problem of “why and how”, I will set up a small example to show off how to integrate the VIP-191 to your dApp workflow. Keep reading!
-
-## Continue Reading:
-
-* [How to Integrate VIP-191 (I) — Intro](https://medium.com/@abyteahead/how-to-integrate-vip-191-i-f50971bb89eb)
-
-* [How to integrate VIP-191 (II) — User’s side](https://medium.com/@abyteahead/how-to-integrate-vip-191-ii-1b4e32d7960d)
-
-* [How to integrate VIP-191 (III) — Sponsor’s side](https://medium.com/@abyteahead/how-to-integrate-vip-191-iii-f08e9b66e457)
-
