@@ -1,6 +1,6 @@
 ---
 title: How to Integrate VIP-191 (II)
-date: 2020-03-05
+date: 2020-03-04
 description: From the previous episode, we have learned the basic “terminologies” of VeChain VIP-191 fee delegation. To summarize, the process can be simply described as below
 author: abyteahead
 sidebar: auto
