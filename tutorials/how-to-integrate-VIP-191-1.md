@@ -1,6 +1,6 @@
 ---
 title: How to Integrate VIP-191 (I)
-date: 2020-03-05
+date: 2020-03-03
 description: VIP-191 is a fee delegation proposal that gets realized on VeChain that enables the end-user to use blockchain without paying native tokens/cryptocurrencies. The fee is paid by a sponsor.
 author: abyteahead
 sidebar: auto
