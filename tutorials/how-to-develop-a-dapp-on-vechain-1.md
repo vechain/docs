@@ -90,13 +90,13 @@ Great, now you know what does a DApp do and where the data is coming from, let u
 
 VeChain published **Connex.js** to substitute **Web3.js** in Ethereum. It is a huge step from Web3 and I am glad to use it in my first VeChain project:
 
-* [**Sync](https://env.vechain.org)**: Web browser of VeChain apps.
+* [**Sync**](https://env.vechain.org): Web browser of VeChain apps.
 
-* [**Connex.js](https://www.npmjs.com/package/@vechain/connex)**: Standard Javascript library that helps to communicate with VeChain, ***included*** in Sync.
+* [**Connex.js**](https://www.npmjs.com/package/@vechain/connex): Standard Javascript library that helps to communicate with VeChain, ***included*** in Sync.
 
 ## Token Transfer: A Simple DApp in Javascript
 
-Starting from the next article, we will start to build a demo DApp named as “Token Transfer”. We will use an existing smart contract on VeChain as the data source**. **And I will help you to familiar with the environment**:**
+Starting from the next article, we will start to build a demo DApp named as “Token Transfer”. We will use an existing smart contract on VeChain as the data source**. **And I will help you to familiar with the environment** :*
 
 1. How to read data from a VeChain blockchain smart contract.
 
