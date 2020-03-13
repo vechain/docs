@@ -885,7 +885,8 @@ sidebarDepth: 1
 
 <details>
 <summary>Show ABI</summary>
-```
+
+```json
 [
     {
         "constant": false,
