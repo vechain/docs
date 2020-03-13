@@ -63,7 +63,7 @@ module.exports = {
         'report-issue'
       ]
   },
-        repo: 'vechain',
+        repo: 'vechain/docs',
         docsRepo:'vechain/docs',//TODO
         docsBranch: 'master',//TODO
         editLinks: true,
