@@ -102,6 +102,10 @@ module.exports = [
             {
                 text: 'App-hub',
                 link: 'https://apps.vechain.org/'
+            },
+            {
+                text: 'Miscellaneous',
+                link: '/others/'
             }
         ]
     },
