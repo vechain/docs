@@ -5,6 +5,15 @@ sidebarDepth: 1
 ---
 # Miscellaneous
 
+## Network Identifier
+
+| Name | Genesis ID | Chain Tag |
+| - | - | - |
+| Main Net | 0x00000000851caf3cfdb6e899cf5958bfb1ac3413d346d43539627e6be7ec1b4a | 0x4a |
+| Test Net | 0x000000000b2bce3c70bc649a02749e8687721b09ed2e15997f466536b20bb127 | 0x27 |
+
+*Chain tag is the last byte of the genesis block ID*
+
 ## authority.sol
 **Address** :0x0000000000000000000000417574686f72697479
 
@@ -1404,11 +1413,6 @@ sidebarDepth: 1
 - **Precision** : 18 decimal places
 - **Generation** : 0.00000005 VTHO is generated per VET per block
 - **Consumption** : 70% of the transaction fee paid in VTHO in each block is burned and the remaining 30% is rewarded to the Authority Masternode which produces the block
-
-## ChainTag
-Last byte of the genesis block ID 
-- **Mainnet** : **0x4a**
-- **Testnet** : **0x27**
 
 ## Token list
 - Mainnet : 
