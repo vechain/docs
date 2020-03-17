@@ -14,7 +14,7 @@ Check out docs at https://docs.vechain.org/.
 
 The public blockchain that derives its value from activities created by members within the ecosystem solving real world economic problem.
 
-- Basic Knowledge : [Intro](https://docs.vechain.org/thor/learn/introduction.html)
+- Basic Knowledge : [Intro](https://docs.vechain.org/thor/learn/intro.html)
 
 - Get Started : [Install](https://docs.vechain.org/thor/get-started/installation.html)
 
@@ -24,7 +24,7 @@ The public blockchain that derives its value from activities created by members 
 
 Standard interface to connect VeChain apps with VeChain blockchain and user.
 
-- Get Started : [Intro](https://docs.vechain.org/connex/connex-intro.html)
+- Get Started : [Intro](https://docs.vechain.org/connex/intro.html)
 
 - Connex API: [View](https://docs.vechain.org/connex/api.html)
 
