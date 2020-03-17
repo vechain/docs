@@ -342,7 +342,7 @@ export default {
 }
 </script>
 ```
-> # Note: you can always use ticker() instead of setTimeout() to recursively query the balance of your account. 😉
+>  Note: you can always use ticker() instead of setTimeout() to recursively query the balance of your account. 😉
 
 Secondly, we add the function of sending VTHO token transactions to the button, so we can get alert whenever it succeeds or fails.
 
