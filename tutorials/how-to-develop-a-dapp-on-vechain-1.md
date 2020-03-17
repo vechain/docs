@@ -71,7 +71,7 @@ Simple. It looks like a web app, except we have one add-on: Blockchain.
 * Server: Serves code fragments or static assets like images.
 
 * Blockchain: **Partial replacement** of database, stores/processes critical user data.
-> # A public blockchain is a openly readable, slow, expensive database running by a network consists of hundreds of nodes.
+>  A public blockchain is a openly readable, slow, expensive database running by a network consists of hundreds of nodes.
 
 ***DApp*** also has several characteristics in common:
 
@@ -86,7 +86,7 @@ Great, now you know what does a DApp do and where the data is coming from, let u
 ## Write a DApp: Sync and Connex
 
 ![Sync: Browser of VeChain apps.](https://cdn-images-1.medium.com/max/4256/1*rbq_5MkZBujA3qDGsvsvWw.png)*Sync: Browser of VeChain apps.*
-> # ***DApp*** shall both know how to communicate with traditional server backend as well as read/write from a blockchain network. **Connex.js** helps with the blockchain part, makes the developer life easier.
+>  ***DApp*** shall both know how to communicate with traditional server backend as well as read/write from a blockchain network. **Connex.js** helps with the blockchain part, makes the developer life easier.
 
 VeChain published **Connex.js** to substitute **Web3.js** in Ethereum. It is a huge step from Web3 and I am glad to use it in my first VeChain project:
 

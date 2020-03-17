@@ -56,10 +56,10 @@ Great, now click on the upper-right “**wallets**” icon, if you are on test n
 ![](https://cdn-images-1.medium.com/max/6400/1*etIhDSEXvDyHw1FpSY-vqA.jpeg)
 
 ![Create a new wallet for our testing](https://cdn-images-1.medium.com/max/6400/1*UOXWEwByxWJPIOaLlkwq5A.jpeg)*Create a new wallet for our testing*
-> # You can also import your existing wallet of Ethereum into Sync, as well as using a third party generator to create a wallet, like [**VeChain Address Generator](https://laalaguer.github.io/VeChain-Address/) on github.**
+>  You can also import your existing wallet of Ethereum into Sync, as well as using a third party generator to create a wallet, like [**VeChain Address Generator](https://laalaguer.github.io/VeChain-Address/) on github.**
 
 Follow the instructions on Sync now I have a wallet with a public address, it currently contains 0 VET and 0 VTHO：
-> # 0xa7a609b928c4eac077d0e5640f3fa650746c4fcf
+>  0xa7a609b928c4eac077d0e5640f3fa650746c4fcf
 
 ### Fuel the wallet with VTHO
 
