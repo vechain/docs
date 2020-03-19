@@ -1341,6 +1341,7 @@ refers to the range from block 10 to block 1000.
 ::: slot transferCriteria
 <details>
 <summary>TransferCriteria</summary>
+
 | Name | Type  | Example | 
 | ---- | ----------- | -------- | 
 | txOrigin | string | 0xe59d475abe695c7f67a8a2321f33a856b0b4c71d | 
