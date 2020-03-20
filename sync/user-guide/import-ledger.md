@@ -1,4 +1,4 @@
-# Import wallet from Ledger
+# Ledger Device
 ## Requirements
 - [You've initialized your device](https://support.ledger.com/hc/en-us/articles/360000613793)
 - [Device firmware is up to date](https://support.ledger.com/hc/en-us/articles/360002731113)
@@ -32,7 +32,6 @@ Connect and unlock your Ledger Nano S.
 If all the steps cant solved the issue, Please contact [Ledger Support](https://support.ledger.com/hc/requests/new).
 :::
 
-
 ### Error:0x6d00
 
 Ledger device: INS_NOT_SUPPORTED (0x6d00).
@@ -51,7 +50,6 @@ Ledger device: INCORRECT_DATA (0x6a80).
 - In VeChain App Setting ,set **Multi-clause** to **Yes**
 :::
 
-
 ### Error: Connection issues
 
 Sync :Unable to connect your device, please retry 
@@ -64,4 +62,3 @@ Sync :Unable to connect your device, please retry
 - Restart your computer.
 - Try another computer.
 :::
-
