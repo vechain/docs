@@ -3,7 +3,7 @@
 - [You've initialized your device](https://support.ledger.com/hc/en-us/articles/360000613793)
 - [Device firmware is up to date](https://support.ledger.com/hc/en-us/articles/360002731113)
 - [Ledger live is ready to use](https://support.ledger.com/hc/en-us/articles/360006395233)
-- [VeChain Application is latest version](https://support.ledger.com/hc/en-us/articles/360006523674)
+- [VeChain Application is latest version(≥1.0.4)](https://support.ledger.com/hc/en-us/articles/360006523674)
 - [Sync is latest version (≥1.2.0)](https://env.vechain.org/)
 
 ## Install VeChain Ledger app 
@@ -27,4 +27,41 @@ Connect and unlock your Ledger Nano S.
 4. Click the remove on the middle top
 5. Input the wallet name and then click remove
 
+## Solve Error
+:::tip tip
+If all the steps cant solved the issue, Please contact [Ledger Support](https://support.ledger.com/hc/requests/new).
+:::
+
+
+### Error:0x6d00
+
+Ledger device: INS_NOT_SUPPORTED (0x6d00).
+
+::: details Solve this error message by:
+- Ensuring your device runs the latest firmware version.
+- Reinstalling the apps on your device so you run the latest versions. Uninstalling apps does not affect your crypto assets, that are secured on the blockchain.
+:::
+
+### Error:0x6a80
+
+Ledger device: INCORRECT_DATA (0x6a80).
+
+::: details Solve this error message by:
+- In VeChain App Setting ,set **Contract data** to **Yes**
+- In VeChain App Setting ,set **Multi-clause** to **Yes**
+:::
+
+
+### Error: Connection issues
+
+Sync :Unable to connect your device, please retry 
+
+::: details  Solve this error message by:
+- Close other applications (Ledger apps, crypto wallets, Geth, Parity, Mist, Bitcoin Core, etc).
+- Turn OFF VPN and anti-virus temporarily. If that works, make sure to whitelist Ledger Live. 
+- Change the USB cable if possible. Try removing any dongles or docks you're using. 
+- Try different USB ports.
+- Restart your computer.
+- Try another computer.
+:::
 
