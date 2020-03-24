@@ -1,17 +1,32 @@
 # Transaction Calculation
-## Transaction Gas Calculation
+## Intrinsic Gas Calculation
+The intrinsic gas for a transaction is the amount of the transaction used before any code runs. in other words, it's a constant "transaction fee" plus a fee for every byte of data supplied with the transaction.The gas in the transaction needs to be **greater than or equal to** the intrinsic gas used by the transaction.
+
+$$g_{\textrm{intrinsic}} = g_{\textrm{0}} + g_{\textrm{type}} + g_{\textrm{data}}$$
+
+- $g_{\textrm{0}}$ is the constant transaction fee 5,000
+- There are two types of $g_{\textrm{type}}$
+  - Regular transaction : 16,000
+  - Contract creation : 48,000
+- $g_{\textrm{data}} = 4 * n_{z} + 68 * n_{nz}$ 
+  - $n_{nz}$ is the number of bytes **equal to zero** within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}$ the number of bytes **not equal to zero**
+
+## Total Transaction Gas Calculation
+VeChainThor clauses allows a single transaction to carry out multiple tasks. Therefore, it needs to execute all the clauses cost in the transaction.
+
 The total gas, $g_{\textrm{total}}$, required for a transaction can be computed as:
 $$g_{\textrm{total}}=g_0+\sum_i\big(g_{\textrm{type}}^i+g_{\textrm{data}}^i+g_{\textrm{vm}}^i\big)$$
-where 
-$g_0=5,000$
 
-$g_{\textrm{type}}^i=48,000$ if the $i^{\textrm{th}}$ clause is to create a contract or $g_{\textrm{type}}^i=16,000$ 
+- where $g_0=5,000$
 
-otherwise,
-
-$g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$  
-
-where $n_{nz}^i$ is the number of bytes equal to zero within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}^i$ the number of bytes not equal to zero, and $g_{\textrm{data}}^i$ is the gas cost returned by the virtual machine for executing the $i^{\,\textrm{th}}$ clause.
+- There are two types of $g_{\textrm{type}}$
+  - Regular transaction : 16,000
+  - Contract creation : 48,000
+  
+- $g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$ 
+  - $n_{nz}^i$ is the number of bytes **equal to zero** within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}^i$ the number of bytes **not equal to zero**
+  
+- $g_{\textrm{vm}}^i$ is the gas cost returned by the **virtual machine** for executing the $i^{\,\textrm{th}}$ clause.
 
 ## Proof of Work
 VeChainThor allows the transaction-level proof of work and converts the proved work into extra gas price that will be used by the system to generate more reward to the block generator that validates the transaction. In other words, users can utilize their local computational power to make their transactions more likely to be included in a new block.
@@ -50,6 +65,6 @@ $$p^{\textrm{total}}=p^{\textrm{base}}+p^{\textrm{base}}\frac{\phi}{255}$$
 
 and the total price for block generators as 
 $$p^{\textrm{total}}=p^{\textrm{base}}+p^{\textrm{base}}\frac{\phi}{255}+\Delta p$$
-where $\phi$ is the value of field `GasPriceCoef` and $\Delta p$ the extra gas price converted from the proven local computational work. 
+where $\phi$ is the value of field `GasPriceCoef`(is the bounded interval between **0-255**) and $\Delta p$ the extra gas price converted from the proven local computational work. 
 
 It can be seen that the gas price used to calculate the transaction cost depends solely on the input gas-price coefficient while the reward for packing the transaction into a block varies due to the transaction-level proof-of-work mechanism.
