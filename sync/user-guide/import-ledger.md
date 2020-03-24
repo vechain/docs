@@ -27,38 +27,27 @@ Connect and unlock your Ledger Nano S.
 4. Click the remove on the middle top
 5. Input the wallet name and then click remove
 
-## Solve Error
-:::tip tip
+## Troubleshooting
+:::tip 
 If all the steps cant solved the issue, Please contact [Ledger Support](https://support.ledger.com/hc/requests/new).
 :::
 
-### Error:0x6d00
+1. **Ledger device: INS_NOT_SUPPORTED (0x6d00).**
+ 
+   - Ensuring your device runs the latest firmware version.
+   - Reinstalling the apps on your device so you run the latest versions. Uninstalling apps does not affect your crypto assets, that are secured on the blockchain.
 
-Ledger device: INS_NOT_SUPPORTED (0x6d00).
+2. **Ledger device: INCORRECT_DATA (0x6a80).**
 
-::: details Solve this error message by:
-- Ensuring your device runs the latest firmware version.
-- Reinstalling the apps on your device so you run the latest versions. Uninstalling apps does not affect your crypto assets, that are secured on the blockchain.
-:::
+   - In VeChain App Setting ,set **Contract data** to **Yes**
+   - In VeChain App Setting ,set **Multi-clause** to **Yes**
 
-### Error:0x6a80
+3. **Sync :Unable to connect your device, please retry.**
 
-Ledger device: INCORRECT_DATA (0x6a80).
+   - Close other applications (Ledger apps, crypto wallets, Geth, Parity, Mist, Bitcoin Core, etc).
+   - Turn OFF VPN and anti-virus temporarily. If that works, make sure to whitelist Ledger Live. 
+   - Change the USB cable if possible. Try removing any dongles or docks you're using. 
+   - Try different USB ports.
+   - Restart your computer.
+   - Try another computer.
 
-::: details Solve this error message by:
-- In VeChain App Setting ,set **Contract data** to **Yes**
-- In VeChain App Setting ,set **Multi-clause** to **Yes**
-:::
-
-### Error: Connection issues
-
-Sync :Unable to connect your device, please retry 
-
-::: details  Solve this error message by:
-- Close other applications (Ledger apps, crypto wallets, Geth, Parity, Mist, Bitcoin Core, etc).
-- Turn OFF VPN and anti-virus temporarily. If that works, make sure to whitelist Ledger Live. 
-- Change the USB cable if possible. Try removing any dongles or docks you're using. 
-- Try different USB ports.
-- Restart your computer.
-- Try another computer.
-:::
