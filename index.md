@@ -3,7 +3,6 @@ home: true
 heroImage : logo.png
 metaTitle : VeChain Documentation
 heroText: Welcome to VeChain Docs
-footer: LGPL 3.0 licensed | VeChain Foundation 2020-Present
 ---
 <div class="features">
   <div class="feature">
@@ -22,3 +21,4 @@ footer: LGPL 3.0 licensed | VeChain Foundation 2020-Present
     <a href=/sync/download-and-install.html>Download Now</a>
   </div>
 </div>
+<div class="footer">LGPL 3.0 licensed | <a href="https://vechain.org">VeChain Foundation</a> 2020-Present</div>
