@@ -9,12 +9,12 @@ footer: LGPL 3.0 licensed | VeChain Foundation 2020-Present
   <div class="feature">
     <h2>Thor</h2>
     <p>The public blockchain that derives its value from activities created by members within the ecosystem solving real world economic problem.</p>
-    <a href=/thor/learn/intro.html>Learn More</a>
+    <a href=/thor/learn/>Learn More</a>
   </div>
   <div class="feature">
     <h2>Connex</h2>
     <p>Standard interface to connect VeChain apps with VeChain blockchain and user.</p>
-     <a href=/connex/intro.html>Get Started</a>
+     <a href=/connex/>Get Started</a>
   </div>
   <div class="feature">
     <h2>Sync</h2>
