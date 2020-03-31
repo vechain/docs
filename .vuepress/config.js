@@ -34,7 +34,7 @@ module.exports = {
     nav: require('./nav/en'),
     sidebar: {
       '/thor/learn/': [
-        'intro',
+        '',
         'two-token-design',
         'proof-of-authority',
         'builtin-contracts',
@@ -49,7 +49,7 @@ module.exports = {
         'api'
       ],
       '/connex/': [
-        'intro',
+        '',
         'api',
         'demos-and-service'
       ],

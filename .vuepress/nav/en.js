@@ -9,7 +9,7 @@ module.exports = [
                 items: [
                     {
                         text: 'Intro',
-                        link: '/thor/learn/intro.html'
+                        link: '/thor/learn/'
                     }
                 ]
             },
@@ -41,7 +41,7 @@ module.exports = [
                 items: [
                     {
                         text: 'Intro',
-                        link: '/connex/intro.html'
+                        link: '/connex/'
                     },
                     {
                         text: 'Connex API',
