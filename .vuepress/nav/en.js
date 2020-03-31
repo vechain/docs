@@ -1,35 +1,21 @@
 module.exports = [
     {
-
+       
         text: 'Thor',
         ariaLabel: 'Thor',
         items: [
             {
                 text: 'Learn',
-                items: [
-                    {
-                        text: 'Intro',
-                        link: '/thor/learn/'
-                    }
-                ]
+                link: '/thor/learn/'
             },
             {
                 text: 'Get Started',
-                items: [
-                    {
-                        text: 'Install',
-                        link: '/thor/get-started/installation.html'
-                    },
-                    {
-                        text: 'Custom Network',
-                        link: '/thor/get-started/custom-network.html'
-                    },
-                    {
-                        text: 'Thorest API',
-                        link: '/thor/get-started/api.html'
-                    }
-                ]
-            }
+                link: '/thor/get-started/installation'
+            },
+            {
+                text: 'Thorest API',
+                link: '/thor/get-started/api'
+            },
         ]
     },
     {
@@ -37,28 +23,18 @@ module.exports = [
         ariaLabel: 'Connex',
         items: [
             {
-                text: 'Get Started',
-                items: [
-                    {
-                        text: 'Intro',
-                        link: '/connex/'
-                    },
-                    {
-                        text: 'Connex API',
-                        link: '/connex/api.html'
-                    }
-                ]
+                text: 'Demos & Services',
+                link: '/connex/demos-and-service.html'
             },
             {
-                text: 'Demos',
-                items: [
-                    {
-                        text: 'Demos and Services',
-                        link: '/connex/demos-and-service.html'
-                    }
-                ]
+                text: 'Get Started',
+                link: '/connex/index.html'
+            },
+            {
+                text: 'Connex API',
+                link: '/connex/api.html' 
             }
-        ] 
+        ]
     },
     {
         text: 'Sync', 
@@ -66,25 +42,15 @@ module.exports = [
         items: [
             {
                 text: 'Download',
-                items: [
-                    {
-                        text: 'Desktop',
-                        link: '/sync/download-and-install.html'
-                    }
-                ]
+                link: '/sync/download-and-install.html' 
             },
             {
-                text: 'Get Started',
-                items: [
-                    {
-                        text: 'User Guide',
-                        link: '/sync/user-guide/'
-                    },
-                    {
-                        text: 'FAQ',
-                        link: '/sync/faq.html'
-                    }
-                ]
+                text: 'User Guide',
+                link: '/sync/user-guide/' 
+            },
+            {
+                text: 'FAQ',
+                link: '/sync/faq' 
             }
         ]
     },
