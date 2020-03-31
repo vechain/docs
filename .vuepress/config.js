@@ -60,7 +60,8 @@ module.exports = {
         'interact-with-dapps',
         'activities',
         'settings',
-        'report-issue'
+        'report-issue',
+        'contribute'
       ]
   },
         repo: 'vechain/docs',
