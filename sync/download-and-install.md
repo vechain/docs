@@ -1,4 +1,4 @@
-# Download and install
+# Download & Install
 
 ## System Requirement 
 To use Sync, your system will need:

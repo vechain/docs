@@ -33,36 +33,13 @@ module.exports = {
     },
     nav: require('./nav/en'),
     sidebar: {
-      '/thor/learn/': [
+      '/thor/':getThorSidebar('Learn','Get Started','Thorest API'),
+      '/connex/': [
+        'demos-and-service',
         '',
-        'two-token-design',
-        'proof-of-authority',
-        'builtin-contracts',
-        'block',
-        'transaction-model',
-        'transaction-calculation',
-        'fee-delegation'
-      ],
-      '/thor/get-started/': [
-        'installation',
-        'custom-network',
         'api'
       ],
-      '/connex/': [
-        '',
-        'api',
-        'demos-and-service'
-      ],
-      '/sync/user-guide/': [
-        '',
-        'import-ledger',
-        'browse-dapp-and-web',
-        'interact-with-dapps',
-        'activities',
-        'settings',
-        'report-issue',
-        'contribute'
-      ]
+      '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ')
   },
         repo: 'vechain/docs',
         docsRepo:'vechain/docs',//TODO
@@ -82,5 +59,64 @@ module.exports = {
       updatePopup: true,
     }
     ]
+  ]
+}
+
+
+function getThorSidebar (sectionA,sectionB, sectionC) {
+  return [
+    {
+      title: sectionA,
+      collapsable: false,
+      children: [
+        'learn/',
+        'learn/two-token-design',
+        'learn/proof-of-authority',
+        'learn/builtin-contracts',
+        'learn/block',
+        'learn/transaction-model',
+        'learn/transaction-calculation',
+        'learn/fee-delegation'
+      ]
+    },
+    {
+      title: sectionB,
+      collapsable: false,
+      children: [
+          'get-started/installation',
+          'get-started/custom-network',
+      ]
+    },
+    {
+      title: sectionC,
+      path: 'get-started/api'
+    }
+  ]
+}
+
+function getSyncSidebar (sectionA,sectionB, sectionC) {
+  return [
+    {
+      title: sectionA,
+      path: 'download-and-install.html'
+    },
+    {
+      title: sectionB,
+      collapsable: false,
+      children: [
+          'user-guide/',
+          'user-guide/import-ledger',
+          'user-guide/browse-dapp-and-web',
+          'user-guide/interact-with-dapps',
+          'user-guide/activities',
+          'user-guide/settings',
+          'user-guide/report-issue',
+          'user-guide/contribute'
+      ]
+    },
+    {
+      title: sectionC,
+      path: 'faq'
+    }
   ]
 }
