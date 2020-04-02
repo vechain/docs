@@ -37,7 +37,8 @@ module.exports = {
       '/connex/': [
         'demos-and-service',
         '',
-        'api'
+        'api',
+        'implementation'
       ],
       '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ')
   },

@@ -33,6 +33,10 @@ module.exports = [
             {
                 text: 'Connex API',
                 link: '/connex/api.html' 
+            },
+            {
+                text: 'Implementation',
+                link: '/connex/implementation.html' 
             }
         ]
     },
