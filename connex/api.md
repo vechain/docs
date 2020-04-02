@@ -15,7 +15,7 @@ connex.version
 
 ### Get Genesis Block Info
 
-Returns [`Thor.Block`](#thor-block)
+Returns [Thor.Block](#thor-block)
 
 ``` javascript
 console.log(connex.thor.genesis)
@@ -998,8 +998,7 @@ signingService.request({
 }
 ```
 
-
-## Type 
+## Types
 ### Thor.Status
 
 + `progress` - `number`: A number [0-1] indicates the syncing progress of the currently connected node
@@ -1024,6 +1023,7 @@ signingService.request({
 + `signer` - `string`: Address of who signed the block (bytes20)
 + `transactions` - `Array<string>`: Array of transaction IDs
 + `isTrunk` - `bool`: Whether the block is in trunk
++ `txFeatures` - `number`: Supported tx features bitset
 
 ### Thor.Account
 
