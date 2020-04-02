@@ -1,13 +1,46 @@
 ---
 sidebarDepth: 1
 ---
+# Get Started
 
-# Get Started 
-Connex is the standard interface to connect VeChain apps with VeChain blockchain and user. Connex is a set of well-designed APIs for developers, with injected Connex Object in web applications they can easily build decentralized applications.Before we start, you might need to know some basic knowledge about VeChainThor. it may help you to have a bigger picture to understand the feature and basic knowleage to develope an applicaton 
+Connex is the standard interface to connect VeChain apps with VeChain blockchain and users. Aiming to help developers building decentralized applications.
+[Sync](https://env.vechain.org/#sync) or other connex compatible [clients](https://env.vechain.org/) will expose `connex` API by an injected object on [Window Object](https://developer.mozilla.org/en-US/docs/Glossary/Global_object).
+<p align="center">
+<img src="~@public/images/connex/connex.jpg" alt="Connex Overview">
+</p>
 
-## VeChain App Bootstrapping
+## How To
 
-VeChain apps are usually web apps. On app load, you always need to detect Connex component. If Connex is not available, you may instruct people to setup Connex environment.
+As `Connex` is already attached to the `Window Object`, just use it in your favourite way. Below is a sample of getting network status,
+
+``` javascript
+const el = document.createElement('h1')
+
+const status = connex.thor.status
+el.innerText = 'You are \'connexed\' to vechain, the status is ' + (status.progress === 1 ? 'synced': 'syncing')
+
+document.querySelector('body').append(el)
+```
+
+### TypeScript(Recommended)
+
+This project is the type definition of `Connex` API which can be used to in typescript projects. Install by the following command:
+
+``` bash
+npm install @vechain/connex --save-dev
+```
+
+Place following line in any .ts file of your project
+```typescript
+import '@vechain/connex'
+```
+or
+
+add `@vechain/connex` to `compilerOptions.types`  in `tsconfig.json` then you are good to go!
+
+### Bootstrap Your APP
+
+VeChain apps are usually web apps. On app load, you always need to detect `Connex` component in the environment. If `Connex` is not available, you may instruct users to setup `Connex` environment.
 
 To simplify these steps, simply perform redirection:
 
@@ -26,68 +59,10 @@ if(!window.connex) {
 }
 ```
 
-## Installation
-
-TypeScript(Recommended)
-
-``` bash
-npm install @vechain/connex --save-dev
-```
-
-Add `@vechain/connex` to `compilerOptions.types`  in `tsconfig.json` then you are good to go!
-
-Looking for other options?
-* [connex-framework](https://github.com/vechain/connex-framework) - Connex Framework is a library implements Connex interface. It helps various wallet instances offer consistent Connex interface to VeChain DApps.
-* [connex.driver](https://github.com/vechain/connex.driver) - Defines the interface to drive connex framework
-* [connex.driver-nodejs](https://github.com/vechain/connex.driver-nodejs) - It drives Connex Framework to work in NodeJS environment. Now you can use Connex in NodeJS backend project.
-
-
-### Usage
-
-``` javascript
-const el = document.createElement('h1')
-
-const status = connex.thor.status
-el.innerText = 'You are \'connexed\' to vechain, the status is ' + (status.progress === 1 ? 'synced': 'syncing')
-
-document.querySelector('body').append(el)
-```
-
-
-## Architecture explained
-![connex-architecture](~@public/images/connex/architecture.png)
-
-## Implementation Test
-Implementation test is a `BDD` test for connex client implementation. you can test for @vechain/connex in [here](https://connex-impl-test.vecha.in/)
-
-
-### Requirements
-
-+ [Running thor](/thor/get-started/installation.md#running-thor) under `TestNet`
-+ `Connex.Vendor` needs user to interact (Signing should be complected in 40 seconds or it will fail)
-+ `0x7567d83b7b8d80addcb281a71d54fc7b3364ffed` need to be added to wallet
-
-:::tip note
-You can find `0x7567d83b7b8d80addcb281a71d54fc7b3364ffed` private key under [solo mode](/thor/get-started/installation.md#sub-commands)
-:::
-
-### Project setup
-```bash
-npm install
-```
-
-#### Compiles and hot-reloads for development
-```bash
-npm run serve
-```
-
-#### Compiles and minifies for production
-```bash
-npm run build
-```
-
 ## Compatible Client
+
 ### Desktop
+
 - [Sync](https://github.com/vechain/thor-sync.electron) : The official desktop wallet firstly supports Connex. It provides seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.
 
 ### Mobile
@@ -95,3 +70,9 @@ npm run build
 / [Android](https://cdn.vechain.com/vechainthorwallet/client/VeChainThorWallet.apk)) : VeChainThor Wallet is a light mobile wallet app. We aim to provide users with a powerful, secure, simple, fully functional portal of the VeChainThor blockchain.
 
 - Sync Mobile [beta](https://testflight.apple.com/join/UepoMMnP) : Official mobile wallet fully supports Connex. Provide superior user experience for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.
+
+## Resources
+
++ [Connex Framework](https://github.com/vechain/connex-framework)
++ [Connex Driver In NodeJS](https://github.com/vechain/connex.driver-nodejs)
++ [Connex REPL](https://github.com/vechain/connex-repl)
