@@ -1,7 +1,7 @@
 ---
 sidebarDepth: 2
 ---
-# Thorest API <Badge text="1.3.0" type="tip"/>
+# Thorest API <Badge text="1.3.1" type="tip"/>
 RESTful API to access VeChain Thor Network
 
 
@@ -440,7 +440,7 @@ Access to blocks
 
 #### Summary:
 
-by ID or number, or 'best' for latest block. 
+by ID or number, or 'best' for latest block. If `expanded` query option is true, all transactions along with their receipts will be embedded under `transactions` field instead of ids.
 
 
 #### Parameters
@@ -448,19 +448,26 @@ by ID or number, or 'best' for latest block.
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |revision|string|required|block ID or number, or 'best' stands for latest block|`best` (latest block )<br> `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
+expanded|boolean|optional|whether the returned block is expanded.|`true` or `false`|
 
 #### Responses
 
 - Curl
 
-```
+``` curl
+//expanded = false
 curl -X GET "https://sync-testnet.vechain.org/blocks/best" -H "accept: application/json"
+//expanded = true 
+curl -X GET "https://sync-testnet.vechain.org/blocks/best?expanded=true" -H "accept: application/json"
 ```
 
 - Request URL
 
 ```
+//expanded = false
 https://sync-testnet.vechain.org/blocks/best
+//expanded = true
+https://sync-testnet.vechain.org/blocks/best?expanded=true
 ```
 
 | Code | Description |
@@ -501,6 +508,12 @@ https://sync-testnet.vechain.org/blocks/best
 
 Related Models : 
 <Content slot-key="block"/>
+<Content slot-key="txWithReceipt"/>
+<Content slot-key="clause"/>
+<Content slot-key="output"/>
+<Content slot-key="event"/>
+<Content slot-key="transfer"/>
+
 
 
 ---
@@ -647,7 +660,7 @@ Relate Models :
 #### Responses
 - Curl
 
-```
+``` 
 curl -X POST "https://sync-testnet.vechain.org/logs/transfer" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"range\":{\"unit\":\"block\",\"from\":0,\"to\":100000},\"options\":{\"offset\":0,\"limit\":10},\"criteriaSet\":[{\"txOrigin\":\"0xe59d475abe695c7f67a8a2321f33a856b0b4c71d\",\"sender\":\"0xe59d475abe695c7f67a8a2321f33a856b0b4c71d\",\"recipient\":\"0x7567d83b7b8d80addcb281a71d54fc7b3364ffed\"}],\"order\":\"asc\"}"
 ```
 
@@ -1040,11 +1053,24 @@ Related Model :
 | Name | Type  | Description |  Example |
 | ---- | ----------- | -------- | -------- | 
 | data | string | the output data | 0x103556a73c10e38ffe2fc4aa50fc9d46ad0148f07e26417e117bd1ece9d948b5 |
-| events | [ Event ] | event output |see more in Event |
-| transfers | [ Transfer ] | transfer output | see more in Transfer|
+| events | [Event] | event output |see more in Event |
+| transfers | [Transfer] | transfer output | see more in Transfer|
 | gasUsed | integer (uint64) | gas used during execution | 21000 |
 | reverted | boolean | whether the execution is reverted or not| false |
 | vmError | string | error message will return when the execution is true  | insufficient balance for transfer |
+
+</details>
+:::
+
+::: slot output
+<details>
+<summary>Outputs</summary>
+
+| Name | Type  | Description |  Example |
+| ---- | ----------- | -------- | -------- | 
+|contractAddress|string|deployed contract address, if the corresponding clause is a contract deployment clause|null|
+|events|event|event output|see more in event |
+|transfers|transfer|transfer output|see more in transfer|
 
 </details>
 :::
@@ -1056,7 +1082,7 @@ Related Model :
 | Name | Type  | Description |  Example |
 | ---- | ---------- | -------- | -------- | 
 | address | string | the address of contract which produces the event (bytes20) | 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed|
-| topics | [ string ] |  | [0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8]|
+| topics | [string] |  | [0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8]|
 | data | string |  |0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8 |
 
 </details>
@@ -1099,7 +1125,7 @@ Related Model :
 | chainTag | integer (uint8) | last byte of genesis block ID | 39 |
 | blockRef | string | 8 bytes prefix of some block ID | 0x0004f6cb730dbd90 |
 | expiration | integer (uint32) | expiration relative to blockRef, in unit block | 720 |
-| clauses | [ Clause ] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data`  | |
+| clauses | [Clause] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data`  | |
 | gasPriceCoef | integer (uint8) | coefficient used to calculate the final gas price | 0 |
 | gas | integer (uint64) | max amount of gas can be consumed to execute this transaction | 21000 |
 | dependsOn | string (bytes32) | ID of the transaction on which the current transaction depends on. can be null. | null |
@@ -1234,7 +1260,7 @@ Related Model :
 | chainTag | integer (uint8) | last byte of genesis block ID | 39 |
 | blockRef | string | 8 bytes prefix of some block ID | 0x0004f6cb730dbd90 |
 | expiration | integer (uint32) | expiration relative to blockRef, in unit block | 720 |
-| clauses | [ Clause ] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data`  | |
+| clauses | [Clause] | an array of *Clause* objects each of which contains fields `To`, `Value` and `Data`  | |
 | gasPriceCoef | integer (uint8) | coefficient used to calculate the final gas price | 0 |
 | gas | integer (uint64) | max amount of gas can be consumed to execute this transaction | 21000 |
 | dependsOn | string (bytes32) | ID of the transaction on which the current transaction depends on. can be null. | null |
@@ -1282,7 +1308,7 @@ matches events emitted by `0xe59d475abe695c7f67a8a2321f33a856b0b4c71d` and with 
 | ---- | ----------- | -------- | 
 | range | FilterRange| Defines the filter range  | 
 | options | FilterOptions | Define the filter option  | 
-| criteriaSet | [ EventCriteria ] | Set criteria to filter | 
+| criteriaSet | [EventCriteria] | Set criteria to filter | 
 | order | string | order of filters, defaults to `asc` (`asc` or `desc`)  |
 
 </details>
@@ -1358,7 +1384,7 @@ refers to the range from block 10 to block 1000.
 | ---- | ----------- | -------- | 
 | range | FilterRange | Defines the filter range |
 | options | FilterOptions | Define the filter option |
-| criteriaSet | [ TransferCriteria ] | Set criteria to filter | 
+| criteriaSet | [TransferCriteria] | Set criteria to filter | 
 | order | string | order of filters, defaults to `asc` (`asc` or `desc`) | 
 </details>
 :::
@@ -1427,7 +1453,7 @@ refers to the range from block 10 to block 1000.
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
 | address | string | the address of contract which produces the event (bytes20) | 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed|
-| topics | [ string ] |  | [0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8]|
+| topics | [string] |  | [0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8]|
 | data | string |  |0x4de71f2d588aa8a1ea00fe8312d92966da424d9939a511fc0be81e65fad52af8 |
 | obsolete | boolean | indicates whether the block containing this data become branch block  | false |
 | meta |LogMeta|	event or transfer log meta info||
@@ -1501,4 +1527,3 @@ refers to the range from block 10 to block 1000.
 | storage | object |  | |
 </details>
 :::
-
