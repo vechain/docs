@@ -80,8 +80,18 @@ module.exports = [
         ]
     },
     {
-        text: 'Online Support',
-        link: 'https://t.me/VeChainDevCommunity'
-
+        text: 'Online Support', 
+        ariaLabel: 'Online Support',
+        items: [
+            {
+                text: 'VeChain Official',
+                link: 'https://t.me/vechain_official_english' 
+            },
+            {
+                text: 'Dev Community',
+                link: 'https://t.me/VeChainDevCommunity' 
+            }
+            
+        ]
     }
 ]   
