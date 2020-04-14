@@ -1,7 +1,7 @@
 ---
 sidebarDepth: 2
 ---
-# Thorest API <Badge text="1.3.1" type="tip"/>
+# Thorest API <Badge text="1.3.2" type="tip"/>
 RESTful API to access VeChain Thor Network
 
 
@@ -214,7 +214,7 @@ Access to transactions
 
 #### Summary:
 
-Retrieve transaction by ID.
+by ID. When `pending` is true, a pending tx with null `meta` might be returned.
 
 
 #### Parameters
@@ -222,30 +222,30 @@ Retrieve transaction by ID.
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
 |id|string|Yes|ID of transaction | 0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a|
-|raw|boolean|Optional|whether retrieve a raw transaction| `ture` or `false`. false is assumed if omitted|
+|raw|boolean|Optional|whether retrieve a raw transaction| `true` or `false`. false is assumed if omitted|
 |head|string|Optional|ID of head block. best block is assumed if omitted|0x003dc697f70205861a70fd3e52a24a542613b564bf6d8b7b4149c6b3ee6e015d|
+|pending|boolean|Optional|whether to return tx, even it's pending| `true` or `false`|
 
 #### Responses
 
 - Curl
 
 ```
-// raw = false
-curl -X GET "https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a" -H "accept: application/json"
-
 // raw = true
 curl -X GET "https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a?raw=true" -H "accept: application/json"
 
+// pending = true
+curl -X GET "https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a?pending=true" -H "accept: application/json"
 ```
 
 - Request URL
 
-```
-//raw = false
-https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a
-
-//raw = true
+```curl
+// raw = true
 https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a?raw=true
+
+// pending = true
+https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a?pending=true
 ```
 
 | Code | Description |
@@ -254,7 +254,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
 
 #### Response Body
 ``` json
-// raw = false
+// raw = false ; when pending = true it will return empty meta
 {
   "id": "0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a",
   "chainTag": 39,
@@ -286,7 +286,7 @@ https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc
   }
 }
 
-//raw = true
+//raw = true ; when pending = true it will return empty meta
 {
   "raw": "0xf8df27873dc6957dcea34720f87fe094f2e7617c45c42967fde0514b5aa6bba56e3e11dd891b1ae4d6e2ef50000080f85c940000000000000000000000000000456e6572677980b844a9059cbb000000000000000000000000f2e7617c45c42967fde0514b5aa6bba56e3e11dd00000000000000000000000000000000000000000000010f0cf064dd5920000081ff830186a08088f2ed7cd2567c6dd4c0b841de30c83b6d9200a9e0d0c2c25e4344c1867160057aafff4d4e10bee67d355f4b4222cefa6a70dcd336c48b1dbc42e9ac9bdbfb801416c519dedecd359cdd7b2300",
   "meta": {
