@@ -51,3 +51,5 @@ If all the steps cant solved the issue, Please contact [Ledger Support](https://
    - Restart your computer.
    - Try another computer.
 
+### Mis-transfer the funds to ethereum address
+Please check the [Ledger support-Export your accounts](https://support.ledger.com/hc/en-us/articles/115005297709-Export-your-accounts) instruction .Once the private key / keystore is exported, import to Sync wallet . 
