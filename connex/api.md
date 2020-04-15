@@ -816,11 +816,11 @@ connex.vendor.owned('0x0000000000000000000000000000000000000001').then(owned =>{
 
 + `kind` - `'tx'|'cert'`: Kind of signing service
 
-Returns Connex.Vendor: Connex.Vendor.TXSigningService or Connex.Vendor.CertSigningService
+Returns Connex.Vendor: Connex.Vendor.TxSigningService or Connex.Vendor.CertSigningService
 
 ### Transaction Signing Service
 
-`Connex.Vendor.TXSigningService`:
+`Connex.Vendor.TxSigningService`:
 
 + `signer` - `(addr: string): this`: Enforces the specified address to sign the transaction
 + `gas` - `(gas: number): this`: Enforces the specified number as the maximum gas that can be consumed for the transaction
