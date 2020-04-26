@@ -17,7 +17,7 @@ Velocity $v$  is a constant equal to $5\times10^{-8}$ VTHO per VET per block. In
 | VET | |
 | --- | --- |
 | Type | Native Coin |
-| Precision | 18 decimal places |
+| Precision | 3 decimal places |
 | Total supply | 86,712,634,466  |
 
 ## VeThor Token (VTHO)
@@ -26,6 +26,6 @@ Velocity $v$  is a constant equal to $5\times10^{-8}$ VTHO per VET per block. In
 | --- | --- |
 | Type | [VIP180](https://github.com/vechain/VIPs/blob/master/vips/VIP-180.md)  |
 | Token contract address | 0x0000000000000000000000000000456E65726779 |
-| Precision | 18 decimal places |
+| Precision | 15 decimal places |
 | Supply | VTHO is the energy or the cost of carrying on the payment and smart contract transactions on the VeChainThor blockchain. VTHO is generated from VET in each block over time in a linear manner. (0.00000005VTHO is generated per VET per block)  |
 | Consumption | 70% of the transaction fee paid in VTHO in each block is burned and the remaining 30% is rewarded to the Authority Masternode which produces the block |
