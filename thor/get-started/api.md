@@ -240,7 +240,7 @@ curl -X GET "https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e51
 
 - Request URL
 
-```curl
+```
 // raw = true
 https://sync-testnet.vechain.org/transactions/0xc61b01eae38e5511e5104656f553e1cc350847716cf090f70ff6a0410ac5d85a?raw=true
 
@@ -454,7 +454,7 @@ expanded|boolean|optional|whether the returned block is expanded.|`true` or `fal
 
 - Curl
 
-``` curl
+```
 //expanded = false
 curl -X GET "https://sync-testnet.vechain.org/blocks/best" -H "accept: application/json"
 //expanded = true 
