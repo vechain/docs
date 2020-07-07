@@ -10,7 +10,7 @@
 >Always keep your mnemonic words in safe place. To prevent the mnemonic words get lost,you’d better write more than one copy.
 
 Reference Article :
-[Keep your wallet safe](/sync/user-guide/wallet.md#keep-your-wallet-safe) 
+[Keep your wallet safe](/sync/user-guide/#keep-your-wallet-safe) 
 
 ## Import Wallet
 1. On your computer, open Sync
