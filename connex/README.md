@@ -69,8 +69,6 @@ if(!window.connex) {
 - VeChainThor Mobile Wallet ([iOS](https://apps.apple.com/us/app/id1397679485)
 / [Android](https://cdn.vechain.com/vechainthorwallet/client/VeChainThorWallet.apk)) : VeChainThor Wallet is a light mobile wallet app. We aim to provide users with a powerful, secure, simple, fully functional portal of the VeChainThor blockchain.
 
-- Sync Mobile [beta](https://testflight.apple.com/join/UepoMMnP) : Official mobile wallet fully supports Connex. Provide superior user experience for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.
-
 ## Resources
 
 + [Connex Framework](https://github.com/vechain/connex-framework)
