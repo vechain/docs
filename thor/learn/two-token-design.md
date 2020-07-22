@@ -6,7 +6,7 @@ Let $V$  be the amount of VET, $t$  the amount of time (in terms of the number o
 
 $$E_{\textrm{gen}} = v \cdot V \cdot t$$
 
-where $E_{\textrm{gen}}$ denotes the amount of VTHO generated from holding $V$  VET. On the other hand, for each transaction, given $G$  be the amount of Gas required to process the transaction by the system and$p$  the gas price in VTHO given by the transaction sender, we can calculate the amount of VHTO consumed for the transaction as:
+where $E_{\textrm{gen}}$ denotes the amount of VTHO generated from holding $V$  VET. On the other hand, for each transaction, given $G$  be the amount of Gas required to process the transaction by the system and$p$  the gas price in VTHO given by the transaction sender, we can calculate the amount of VTHO consumed for the transaction as:
 
 $$E_{\textrm{con}} = p\cdot G$$
 
