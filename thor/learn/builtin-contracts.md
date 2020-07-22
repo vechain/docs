@@ -11,7 +11,7 @@ Addresses of contracts on testnet/mainnet can be found [here](/others).
 
 ## energy.sol
  
- [energy.sol](https://github.com/vechain/thor/blob/master/builtin/gen/energy.sol) represents the sub-token in VeChainThor which conforms VIP180(ERC20) standard. The name of token is "VeThor" and 1 THOR equals to 1e18 wei. The main function of VeThor is to pay for the transaction fee. VeThor is generated from VET, so the initial supply of VeThor is zero in the genesis block. The growth rate of VeThor is 5000000000 wei per token(VET) per second, that is to say 1 VET will produce about 0.000432 THOR per day. The miner will charge 30 percent of transaction fee and 70 percent will be burned. So the total supply of VeThor is dynamic.
+ [energy.sol](https://github.com/vechain/thor/blob/master/builtin/gen/energy.sol) represents the sub-token in VeChainThor which conforms VIP180(ERC20) standard. The name of token is "VeThor" and 1 VeThor equals to 1e18 wei. The main function of VeThor is to pay for the transaction fee. VeThor is generated from VET, so the initial supply of VeThor is zero in the genesis block. The growth rate of VeThor is 5000000000 wei per token(VET) per second, that is to say 1 VET will produce about 0.000432 VeThor per day. The miner will charge 30 percent of transaction fee and 70 percent will be burned. So the total supply of VeThor is dynamic.
  
   ## executor.sol
 
