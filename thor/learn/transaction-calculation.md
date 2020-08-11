@@ -9,7 +9,7 @@ $$g_{\textrm{intrinsic}} = g_{\textrm{0}} + g_{\textrm{type}} + g_{\textrm{data}
   - Regular transaction : 16,000
   - Contract creation : 48,000
 - $g_{\textrm{data}} = 4 * n_{z} + 68 * n_{nz}$ 
-  - $n_{nz}$ is the number of bytes **equal to zero** within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}$ the number of bytes **not equal to zero**
+  - $n_{z}$ is the number of bytes **equal to zero** within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}$ the number of bytes **not equal to zero**
 
 ## Total Transaction Gas Calculation
 VeChainThor clauses allows a single transaction to carry out multiple tasks. Therefore, it needs to execute all the clauses cost in the transaction.
@@ -24,7 +24,7 @@ $$g_{\textrm{total}}=g_0+\sum_i\big(g_{\textrm{type}}^i+g_{\textrm{data}}^i+g_{\
   - Contract creation : 48,000
   
 - $g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$ 
-  - $n_{nz}^i$ is the number of bytes **equal to zero** within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}^i$ the number of bytes **not equal to zero**
+  - $n_{z}^i$ is the number of bytes **equal to zero** within the data in the $i^{\,\textrm{th}}$  clause and $n_{nz}^i$ the number of bytes **not equal to zero**
   
 - $g_{\textrm{vm}}^i$ is the gas cost returned by the **virtual machine** for executing the $i^{\,\textrm{th}}$ clause.
 
