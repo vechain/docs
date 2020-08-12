@@ -69,8 +69,10 @@ if(!window.connex) {
 - VeChainThor Mobile Wallet ([iOS](https://apps.apple.com/us/app/id1397679485)
 / [Android](https://cdn.vechain.com/vechainthorwallet/client/VeChainThorWallet.apk)) : VeChainThor Wallet is a light mobile wallet app. We aim to provide users with a powerful, secure, simple, fully functional portal of the VeChainThor blockchain.
 
-## Resources
+## Packages
 
-+ [Connex Framework](https://github.com/vechain/connex-framework)
-+ [Connex Driver In NodeJS](https://github.com/vechain/connex.driver-nodejs)
-+ [Connex REPL](https://github.com/vechain/connex-repl)
+* [Connex](https://github.com/vechain/connex/tree/master/packages/connex) - typescript definitions of Connex interface
+* [Framework](https://github.com/vechain/connex/tree/master/packages/framework) - the library implements Connex interface 
+* [Driver](https://github.com/vechain/connex/tree/master/packages/driver) - the library helps the Framework efficiently access to VeChain node
+* [REPL](https://github.com/vechain/connex/tree/master/packages/repl) - the Connex playground
+* [Loader](https://github.com/vechain/connex/tree/master/packages/loader) - working in progress
