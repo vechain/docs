@@ -783,7 +783,8 @@ explainer.execute([
         "gasUsed": 13326,
         "reverted": false,
         "vmError": ""
- 
+    }
+ ]
 ``` 
 
 ## Connex.Vendor
