@@ -45,7 +45,7 @@ If all the steps cant solved the issue, Please contact [Ledger Support](https://
 3. **Sync :Unable to connect your device, please retry.**
 
    - Close other applications (Ledger apps, crypto wallets, Geth, Parity, Mist, Bitcoin Core, etc).
-   - Turn OFF VPN and anti-virus temporarily. If that works, make sure to whitelist Ledger Live. 
+   - Turn OFF VPN and anti-virus temporarily. If that works, make sure to whitelist Sync. 
    - Change the USB cable if possible. Try removing any dongles or docks you're using. 
    - Try different USB ports.
    - Restart your computer.
