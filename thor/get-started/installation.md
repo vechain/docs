@@ -179,13 +179,16 @@ Public nodes are available for development and testing. The URLs are as follows:
 :::tip Note
 The public nodes are not designed for the production environment, and VeChain Foundation does not guarantee the reliability and availability.
 :::
- 
+
 - Mainnet: 
   
-  [https://vethor-node.vechain.com/](https://vethor-node.vechain.com/)
+  - [https://vethor-node.vechain.com](https://vethor-node.vechain.com/)- *provided by VeChain Foundation*
+  - [https://mainnet.veblocks.net](https://mainnet.veblocks.net)- *provided by VeBlocks*
   
 - Testnet: 
   
-  [https://vethor-node-test.vechaindev.com/](https://vethor-node-test.vechaindev.com/)
+  - [https://vethor-node-test.vechaindev.com](https://vethor-node-test.vechaindev.com/)- *provided by VeChain Foundation*
+  - [https://testnet.veblocks.net](https://testnet.veblocks.net)- *provided by VeBlocks*
 
-[VeBlocks](https://github.com/mirei83/VeChain-PublicNodes) provides access to all VeChain Thor networks via publicly accessible HTTP/HTTPS connections. This is a community project to support all developers and allow them everywhere-access to the blockchain, without the need to have a full node with them.
+
+VeBlocks Public Nodes is a community project to support all developers and allow them everywhere-access to the blockchain, without the need to have a full node with them.For more information please visit [VeBlocks Public Nodes](https://github.com/mirei83/VeChain-PublicNodes) 
