@@ -174,14 +174,18 @@ docker run -d\
 ```
 
 ## Public Nodes
-public nodes are available for development and testing. The URLs are as follows:
+Public nodes are available for development and testing. The URLs are as follows:
 
+:::tip Note
+The public nodes are not designed for the production environment, and VeChain Foundation does not guarantee the reliability and availability.
+:::
+ 
 - Mainnet: 
   
-  [https://vethor-node.vechain.com/doc/swagger-ui/](https://vethor-node.vechain.com/doc/swagger-ui/)
-
+  [https://vethor-node.vechain.com/](https://vethor-node.vechain.com/)
+  
 - Testnet: 
   
-  [https://vethor-node-test.vechaindev.com/doc/swagger-ui/](https://vethor-node-test.vechaindev.com/doc/swagger-ui/)
+  [https://vethor-node-test.vechaindev.com/](https://vethor-node-test.vechaindev.com/)
 
-You can just open it in the browser and a swagger page will appear, which will easily help you interact with VeChainThor blockchain. Please note that the public nodes are not designed for the production environment, and VeChain Foundation does not guarantee the reliability and availability.
+[VeBlocks](https://github.com/mirei83/VeChain-PublicNodes) provides access to all VeChain Thor networks via publicly accessible HTTP/HTTPS connections. This is a community project to support all developers and allow them everywhere-access to the blockchain, without the need to have a full node with them.
