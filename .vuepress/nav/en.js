@@ -10,11 +10,11 @@ module.exports = [
             },
             {
                 text: 'Get Started',
-                link: '/thor/get-started/installation'
+                link: '/thor/get-started/installation.html'
             },
             {
                 text: 'Thorest API',
-                link: '/thor/get-started/api'
+                link: '/thor/get-started/api.html'
             },
         ]
     },
@@ -22,10 +22,6 @@ module.exports = [
         text: 'Connex',
         ariaLabel: 'Connex',
         items: [
-            {
-                text: 'Demos & Services',
-                link: '/connex/demos-and-service.html'
-            },
             {
                 text: 'Get Started',
                 link: '/connex/index.html'
@@ -54,7 +50,7 @@ module.exports = [
             },
             {
                 text: 'FAQ',
-                link: '/sync/faq' 
+                link: '/sync/faq.html' 
             }
         ]
     },
@@ -75,7 +71,11 @@ module.exports = [
             },
             {
                 text: 'Miscellaneous',
-                link: '/others/'
+                link: '/others/miscellaneous.html'
+            },
+            {
+                text: 'Demos & Services',
+                link: '/others/demos-and-services.html'
             }
         ]
     },

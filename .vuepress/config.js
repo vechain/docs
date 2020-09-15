@@ -35,7 +35,6 @@ module.exports = {
     sidebar: {
       '/thor/':getThorSidebar('Learn','Get Started','Thorest API'),
       '/connex/': [
-        'demos-and-service',
         '',
         'api',
         'implementation'
