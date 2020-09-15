@@ -33,4 +33,4 @@ Standard interface to connect VeChain apps with VeChain blockchain and user.
 Designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.
 
 - Download : [Desktop](https://docs.vechain.org/sync/download-and-install.html)
-- User Guide : [View](https://docs.vechain.org/sync/user-guide/wallet.html)
+- User Guide : [View](https://docs.vechain.org/sync/user-guide/)
