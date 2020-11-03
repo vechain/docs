@@ -42,9 +42,10 @@ module.exports = {
       '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ')
   },
         repo: 'vechain/docs',
-        docsRepo:'vechain/docs',//TODO
-        docsBranch: 'master',//TODO
+        docsRepo:'vechain/docs',
+        docsBranch: 'master',
         editLinks: true,
+        editLinkText: 'Help us to improve this page'
         
   },
   plugins: [

@@ -15,39 +15,12 @@
  2.   **Orange** <img src="~@public/images/sync/syncing.png"  height = "16px" align=center />: The node is  syncing 
  3. **Red** <img src="~@public/images/sync/out-of-sync.png"  height = "16px" align=center />:  The node is out of sync 
 
-## Choose the Network and Node 
-### Connect to Built-in Node
+## Connect to a Node
 1. Click on the network ,at left of the address bar(it shown the network MAIN/TEST/SOLO/UNKNOWN)
 ![addressBa](~@public/images/sync/address-bar.png)
+2. Select the node you would like to connect
 
-2. Choose the network and node you would like to connect
-
-### Add  Custom Node 
-1. At top right, click  <img src="~@public/images/sync/menu.png" width = "16px" height = "16px" align=center />
-2. Click **Settings** 
-3. Click **Add Node** on Nodes section
-4. Input the name which can help you to identity the node 
-5. Input the URL with port (ex:http://localhost:8669)
-6. Wait for a sec ,it will automatically identity the network name (MAIN/TEST/SOLO/UNKNOWN) and add the node to the list
-7. At the left of the address bar,clock on the network, 
-8. Choose the network and node you would like to connect
-    
-### Edit  Custom Node's Name
-    
-1. At top right, click  <img src="~@public/images/sync/menu.png" width = "16px" height = "16px" align=center />
-2. Click **Settings** 
-3. Click **Add Node** on Nodes section
-4. Click **EDIT** 
-5. Change the node's name
-6. Click **SAVE**
-    
-### Delete  Custom Node
-    
-1. At top right, click  <img src="~@public/images/sync/menu.png" width = "16px" height = "16px" align=center />
-2. Click **Settings** 
-3. Click  **Add Node** on Nodes section
-4. Click **EDIT** 
-5. Click **DELETE**
+For more information about node management, please visit [here](/sync/user-guide/settings.md#node-management)
 
 ## Go to DApps or Websites
 1. At the top center, input the website/DAppS name or URL in the address bar
