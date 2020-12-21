@@ -2,7 +2,7 @@
 
 Examples of how to use the built-in contracts can be found [here](https://github.com/vechain/thor-builtins).
 
-Addresses of contracts on testnet/mainnet can be found [here](/others).
+Addresses of contracts on testnet/mainnet can be found [here](/others/miscellaneous).
 
 
 ## authority.sol
