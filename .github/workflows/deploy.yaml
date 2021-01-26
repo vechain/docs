@@ -1,0 +1,49 @@
+name: Deploy to GH pages
+
+on:
+  push:
+    branches: [ $default-branch ]
+
+  workflow_dispatch:
+
+jobs:
+  BuildAndDeploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Website
+        run: npm run docs:build
+
+      - name: Deploy Without CNAME
+        if: ${{ github.repository	 != 'vechain/docs' }}
+
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: .vuepress/dist/
+          force_orphan: true
+
+      - name: Deploy With CNAME
+        if: ${{ github.repository	 == 'vechain/docs' }}
+
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: .vuepress/dist/
+          cname: docs.vechain.org
+          force_orphan: true
