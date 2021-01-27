@@ -174,4 +174,4 @@ docker run -d\
 ```
 
 ## Public Nodes
-Please visit [Public Nodes](/others/demos-and-services.md#public-nodes) for more information.
+Please visit [Public Nodes](../../others/demos-and-services.md#public-nodes) for more information.

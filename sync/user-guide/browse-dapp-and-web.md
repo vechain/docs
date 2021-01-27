@@ -4,7 +4,7 @@
 *   **MAIN**  /  **TEST** / **SOLO** / **UNKNOWN**
 
 ::: tip
-- SOLO is [standalone mode](/thor/get-started/installation.md#sub-commands)
+- SOLO is [standalone mode](../../thor/get-started/installation.md#sub-commands)
 
 - UNKNOWN is a network which is not official listed 
 :::
@@ -20,7 +20,7 @@
 ![addressBa](~@public/images/sync/address-bar.png)
 2. Select the node you would like to connect
 
-For more information about node management, please visit [here](/sync/user-guide/settings.md#node-management)
+For more information about node management, please visit [here](./settings.md#node-management)
 
 ## Go to DApps or Websites
 1. At the top center, input the website/DAppS name or URL in the address bar

@@ -10,7 +10,7 @@
 >Always keep your mnemonic words in safe place. To prevent the mnemonic words get lost,you’d better write more than one copy.
 
 Reference Article :
-[Keep your wallet safe](/sync/user-guide/#keep-your-wallet-safe) 
+[Keep your wallet safe](./#keep-your-wallet-safe) 
 
 ## Import Wallet
 1. On your computer, open Sync
@@ -19,7 +19,7 @@ Reference Article :
 4. Select a method to import(Only keystore need to enter the keystore password)
 5. Once the information verified, you can fill in fields to import your wallet 
 
-More : [Import from Ledger](/sync/user-guide/import-ledger)
+More : [Import from Ledger](./import-ledger.md)
 
 ## Wallet Security 
 ### Keep Your Wallet Safe
