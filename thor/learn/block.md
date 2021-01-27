@@ -33,7 +33,7 @@ type headerBody struct {
 type Transactions []*Transaction
 ```
 
-where `ParentID` is the ID of the parent block, `Beneficiary` is the address assigned by the block generator to receive reward (in VTHO), and `TotalScore` is the accumulated witness number of the chain branch headed by the block. We will describe what the score means when describing the [Proof of Authority consensus algorithm](/thor/learn/proof-of-authority).
+where `ParentID` is the ID of the parent block, `Beneficiary` is the address assigned by the block generator to receive reward (in VTHO), and `TotalScore` is the accumulated witness number of the chain branch headed by the block. We will describe what the score means when describing the [Proof of Authority consensus algorithm](./proof-of-authority.md).
 
 Let $\Gamma$ denote `headerBody`. The block ID (`thor.Bytes32`) can be computed as:
 
