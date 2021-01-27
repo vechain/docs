@@ -18,11 +18,11 @@ Recently I have been working on a DApp tool on VeChain. However, I searched a lo
 
 This tutorial splits into 3 parts, the topics are:
 
-* [Intro](/tutorials/how-to-develop-a-dapp-on-vechain-1).
+* [Intro](./how-to-develop-a-dapp-on-vechain-1.md).
 
-* [Setup & Walk Around](/tutorials/how-to-develop-a-dapp-on-vechain-2).
+* [Setup & Walk Around](./how-to-develop-a-dapp-on-vechain-2.md).
 
-* [Components & Coding](/tutorials/how-to-develop-a-dapp-on-vechain-3).
+* [Components & Coding](./how-to-develop-a-dapp-on-vechain-3.md).
 
 Ready? Let us get our hands dirty! 😉
 

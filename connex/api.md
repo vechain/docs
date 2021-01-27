@@ -825,7 +825,7 @@ Returns Connex.Vendor: Connex.Vendor.TxSigningService or Connex.Vendor.CertSigni
 
 + `signer` - `(addr: string): this`: Enforces the specified address to sign the transaction
 + `gas` - `(gas: number): this`: Enforces the specified number as the maximum gas that can be consumed for the transaction
-+ `dependsOn` - `(txid: string): this`: Set another txid as dependency ([Reference](/thor/learn/transaction-model.md#dependson))
++ `dependsOn` - `(txid: string): this`: Set another txid as dependency ([Reference](../thor/learn/transaction-model.md#dependson))
 + `link` - `(url: string): this`: Set the link to reveal transaction-related information, the link will be used for connex to assemble a `callback url` by replacing the placeholder `{txid}` by `Transaction ID`
 + `comment` - `(text: string): this`: Set the comment for the transaction that will be revealed to the user
 + `delegate` - `(handler: function): this`: Enable VIP-191 for this request by setting the delegation handler

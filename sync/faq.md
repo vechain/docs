@@ -2,7 +2,7 @@
 ### Does new sync has a folder store the keystore file  ?
 No, only if user backup(export)  the wallet will generate the keystore file. 
 
-Please check [Export wallet](/sync/user-guide/wallet.md#export-keystore)
+Please check [Export wallet](./user-guide/#export-keystore)
 
 ### How to get test token ?
 You can visit [Faucet](https://faucet.vecha.in/)
@@ -18,9 +18,9 @@ On other hands, the certificate of agreement is a certificate that you agree to 
 
 
 ### How to connect node ?
-1. [Run thor](/thor/get-started/installation.html#running-thor)
+1. [Run thor](../thor/get-started/installation.md#running-thor)
 2. Open Sync
-3. Follow the step to [add custom node](/sync/user-guide/browse-dapp-and-web)
+3. Follow the step to [add custom node](./user-guide/browse-dapp-and-web.md)
 
 ### How to open developer tools?
 #### Main Processor(ONLY Available in Dev Mode)

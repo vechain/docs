@@ -2,7 +2,7 @@
   <div>
      <p class="submitArticle">
     <a
-      href="/tutorials/contribute.html"
+      :href="$withBase('/tutorials/contribute.html')"
       target="_blank"
       rel="noopener noreferrer"
     >

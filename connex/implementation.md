@@ -19,11 +19,11 @@ Implementation test is a `BDD` test for connex client implementation. you can te
 
 ### Requirements
 
-+ [Running thor](/thor/get-started/installation.md#running-thor) under `TestNet`
++ [Running thor](../thor/get-started/installation.md#running-thor) under `TestNet`
 + `Connex.Vendor` needs user to interact (Signing should be complected in 40 seconds or it will fail)
 + `0x7567d83b7b8d80addcb281a71d54fc7b3364ffed` need to be added to wallet
 
 :::tip note
-You can find `0x7567d83b7b8d80addcb281a71d54fc7b3364ffed` private key under [solo mode](/thor/get-started/installation.md#sub-commands)
+You can find `0x7567d83b7b8d80addcb281a71d54fc7b3364ffed` private key under [solo mode](../thor/get-started/installation.md#sub-commands)
 :::
 
