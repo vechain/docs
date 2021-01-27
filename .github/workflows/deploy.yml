@@ -28,11 +28,18 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Set base URL in Env
+        if: ${{ github.repository_owner != 'vechain' }}
+        run: |
+          echo 'BASE<<EOF' >> $GITHUB_ENV
+          echo "$GITHUB_REPOSITORY" | awk -F / '{print "/"$2"/"}' >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+  
       - name: Build Website
         run: npm run docs:build
 
       - name: Deploy Without CNAME
-        if: ${{ github.repository != 'vechain/docs' }}
+        if: ${{ github.repository_owner != 'vechain' }}
 
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -41,7 +48,7 @@ jobs:
           force_orphan: true
 
       - name: Deploy With CNAME
-        if: ${{ github.repository == 'vechain/docs' }}
+        if: ${{ github.repository_owner == 'vechain' }}
 
         uses: peaceiris/actions-gh-pages@v3
         with:

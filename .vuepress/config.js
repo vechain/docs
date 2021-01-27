@@ -1,5 +1,6 @@
 const path = require('path')
 module.exports = {
+  base: !!process.env.BASE ? process.env.BASE : '/',
   title: "VeChain Docs",
   description: 'Everything you need to know about VeChainThor',
   head: [
