@@ -8,11 +8,11 @@
 
 ## Documentation
 
-Check out docs at https://docs.vechain.org/.
+Check out the docs at https://docs.vechain.org/.
 
 ### Thor
 
-The public blockchain that derives its value from activities created by members within the ecosystem solving real world economic problem.
+The public blockchain that derives its value from activities created by members within the ecosystem solving real world economic problems.
 
 - Basic Knowledge : [Intro](https://docs.vechain.org/thor/learn/)
 
@@ -22,7 +22,7 @@ The public blockchain that derives its value from activities created by members 
 
 ### Connex
 
-Standard interface to connect VeChain apps with VeChain blockchain and user.
+Standard interface to connect VeChain apps with the VeChain blockchain and users.
 
 - Get Started : [Intro](https://docs.vechain.org/connex/)
 
@@ -30,7 +30,7 @@ Standard interface to connect VeChain apps with VeChain blockchain and user.
 
 ### Sync
  
-Designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.
+Designed to provide superior user experiences for VeChain Apps and serves as the dApp environment to provide unlimited potential for developers and users.
 
 - Download : [Desktop](https://docs.vechain.org/sync/download-and-install.html)
 - User Guide : [View](https://docs.vechain.org/sync/user-guide/)
