@@ -1,7 +1,7 @@
 ---
 sidebarDepth: 2
 ---
-# Connex API
+# API Specification
 ## Connex.Version
 
 `connex.version` is a read-only property that indicates the implemented `connex` version in the current client. For the differences between versions, you can check the [release note](https://github.com/vechain/connex/releases).

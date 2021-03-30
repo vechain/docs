@@ -1,78 +1,70 @@
 ---
 sidebarDepth: 1
 ---
-# Get Started
+# Connex
 
-Connex is the standard interface to connect VeChain apps with VeChain blockchain and users. Aiming to help developers building decentralized applications.
-[Sync](https://env.vechain.org/#sync) or other connex compatible [clients](https://env.vechain.org/) will expose `connex` API by an injected object on [Window Object](https://developer.mozilla.org/en-US/docs/Glossary/Global_object).
-<p align="center">
-<img src="~@public/images/connex/connex.jpg" alt="Connex Overview">
-</p>
+Connex is the standard interface to connect dApps with VeChain blockchain and users. Aiming to help developers building decentralized applications.
 
-## How To
+## Installation
 
-As `Connex` is already attached to the `Window Object`, just use it in your favourite way. Below is a sample of getting network status,
+### Include in `<script>` tag
 
-``` javascript
-const el = document.createElement('h1')
+Just include the CDN link within a script tag. `Connex` will then be registered as a global variable.
 
-const status = connex.thor.status
-el.innerText = 'You are \'connexed\' to vechain, the status is ' + (status.progress === 1 ? 'synced': 'syncing')
-
-document.querySelector('body').append(el)
+```html
+<!-- install the latest v2 -->
+<script src="https://unpkg.com/@vechain/connex@2" />
 ```
 
-### TypeScript(Recommended)
+### NPM
 
-This project is the type definition of `Connex` API which can be used to in typescript projects. Install by the following command:
+It's recommended when your project is a bit large.
 
-``` bash
-npm install @vechain/connex --save-dev
+``` sh
+npm i @vechain/connex
 ```
 
-Place following line in any .ts file of your project
-```typescript
-import '@vechain/connex'
-```
-or
-
-add `@vechain/connex` to `compilerOptions.types`  in `tsconfig.json` then you are good to go!
-
-### Bootstrap Your APP
-
-VeChain apps are usually web apps. On app load, you always need to detect `Connex` component in the environment. If `Connex` is not available, you may instruct users to setup `Connex` environment.
-
-To simplify these steps, simply perform redirection:
-
-```javascript
-if(!window.connex) {
-    location.href = 'https://env.vechain.org/r/#' + encodeURIComponent(location.href)
-}
+```ts
+import Connex from '@vechain/connex'
 ```
 
-Additionally, network can be specified:
+## Setup
 
-```javascript
-if(!window.connex) {
-    // the app prefers running on test net
-    location.href = 'https://env.vechain.org/r/#/test/' + encodeURIComponent(location.href)
-}
+### Create a Connex object connects to VeChain mainnet
+
+```ts
+const connex = new Connex({
+    node: 'https://mainnet.veblocks.net/', // veblocks public node, use your own if needed
+    network: 'main' // defaults to mainnet, so it can be omitted here
+})
 ```
 
-## Compatible Client
+### Connect to testnet
 
-### Desktop
+```ts
+const connex = new Connex({
+    node: 'https://testnet.veblocks.net/',
+    network: 'test'
+})
+```
 
-- [Sync](https://github.com/vechain/thor-sync.electron) : The official desktop wallet firstly supports Connex. It provides seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.
+### Or connect to a private network
 
-### Mobile
-- VeChainThor Mobile Wallet ([iOS](https://apps.apple.com/us/app/id1397679485)
-/ [Android](https://cdn.vechain.com/vechainthorwallet/client/VeChainThorWallet.apk)) : VeChainThor Wallet is a light mobile wallet app. We aim to provide users with a powerful, secure, simple, fully functional portal of the VeChainThor blockchain.
+```ts
+const connex = new Connex({
+    node: '<the API url of your node>',
+    // the genesis block of your private network
+    network: {
+        id: '0x...',
+        ...
+    }
+})
+```
 
-## Packages
+### Create `Vendor` module only
 
-* [Connex](https://github.com/vechain/connex/tree/master/packages/connex) - typescript definitions of Connex interface
-* [Framework](https://github.com/vechain/connex/tree/master/packages/framework) - the library implements Connex interface 
-* [Driver](https://github.com/vechain/connex/tree/master/packages/driver) - the library helps the Framework efficiently access to VeChain node
-* [REPL](https://github.com/vechain/connex/tree/master/packages/repl) - the Connex playground
-* [Loader](https://github.com/vechain/connex/tree/master/packages/loader) - working in progress
+In some cases, e.g. the classic ['Buy me a coffee'](https://codepen.io/qianbin/pen/YzGBeOB) demo, you don't need the ability to access the blockchain. You can opt-out `Connex.Thor` module, and just create `Connex.Vendor` module.
+
+```ts
+const vendor = new Connex.Vendor('main')
+```
