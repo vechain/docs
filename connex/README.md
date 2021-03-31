@@ -68,3 +68,15 @@ In some cases, e.g. the classic ['Buy me a coffee'](https://codepen.io/qianbin/p
 ```ts
 const vendor = new Connex.Vendor('main')
 ```
+
+## Playground
+ 
+ Package [@vechain/connex-repl](https://www.npmjs.com/package/@vechain/connex-repl) provides a quick way to try out connex interface.
+
+## Source Code
+
++ [connex](https://github.com/vechain/connex/blob/master/packages/connex): The out of the box Connex implementation for browser.
++ [framework](https://github.com/vechain/connex/blob/master/packages/framework): Implements Connex interface.
++ [driver](https://github.com/vechain/connex/blob/master/packages/driver): Implements Connex.Driver interface.
++ [repl](https://github.com/vechain/connex/blob/master/packages/repl): The REPL style command-line playground.
++ [types](https://github.com/vechain/connex/blob/master/packages/types): Connex interface declarations presented in Typescript.
