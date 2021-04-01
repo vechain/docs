@@ -2,14 +2,6 @@
 sidebarDepth: 2
 ---
 # API Specification
-## Connex.Version
-
-`connex.version` is a read-only property that indicates the implemented `connex` version in the current client. For the differences between versions, you can check the [release note](https://github.com/vechain/connex/releases).
-
-``` javascript
-connex.version
-> '0.3.0'
-```
 
 ## Connex.Thor
 
@@ -51,22 +43,20 @@ console.log(connex.thor.status)
         "id": "0x0016611b340204e5bd76a83f70eea4731575309f23a27e11011169c491359b7d",
         "number": 1466651,
         "timestamp": 1544688650,
-        "parentID": "0x0016611a3fc23044b8b4cbb27283b50f04deb4d132dfdd72342770f35206a8ad"
+        "parentID": "0x0016611a3fc23044b8b4cbb27283b50f04deb4d132dfdd72342770f35206a8ad",
+        "txsFeatures": 1,
+        "gasLimit": 16000000
     }
 }
 ```
 
 ### Create a Ticker
 
-`Ticker` is a concept that describes chain increment, when there is a new block added to the chain, tickers will be triggered. This API will create a ticker which has a function that creates a `Promise` that will resolve when a new block is truly added, please be advised that it never rejects.
+`Ticker` is a concept that describes chain increment, when there is a new block added to the chain, ticker will be triggered. This API will create a ticker which has a function that creates a `Promise` that will resolve when a new block is truly added, please be advised that it never rejects.
 
 Returns `Thor.Ticker`
 
 + `next` - [(): Promise<Thor.Status['head']>](#thor-status): Call `next` will create a promise that resolves with the summary of head block when there is a new block added
-
-:::tip Note
-Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `next` returns `Promise<void>`
-:::
 
 ``` javascript
 const ticker = connex.thor.ticker()
@@ -80,7 +70,8 @@ ticker.next().then((head)=>{
     "number": 3645305,
     "parentID": "0x00379f781a0035250669e6f5e5170b8cb384decbbb6a83917f823d920de5eed1",
     "timestamp": 1566874740,
-    "txsFeatures": 1
+    "txsFeatures": 1,
+    "gasLimit": 16000000
 }
 ```
 
@@ -175,9 +166,11 @@ Returns `Thor.Method`
 + `value` - `(val: string|number):this`: Set value for call and as Clause
 + `caller` - `(addr: string):this`: Set caller for call
 + `gas` - `(gas: string):this`: Set maximum gas allowed for call 
-+ `gasPrice` - `(gp: string)`: Set gas price for call in wei
-+ `call`: Simulate calling the method to obtain the output without altering the contract state
-+ `asClause`: Pack arguments and set value into clause
++ `gasPrice` - `(gp: string):this`: Set gas price for call in wei
++ `gasPayer` - `(addr: string):this`: Set gas payer for call
++ `call`: Simulate calling the method to obtain the output without altering the blockchain state
++ `asClause`: Pack arguments and value into a clause
++ `transact`: Pack arguments and value into an [Vendor.TxSigningService](#transaction-signing-service) for committing to the blockchain
 
 ##### Simulate a Contract Call
 
@@ -268,8 +261,6 @@ There are only two hard things in Computer Science: **cache invalidation** and *
 :::
 Caching method calls would help developers to speed up their applications. Addresses are ideal to be the conditions of the cache invalidation because they are building states in smart contracts. We recommend developers use this caching mechanism carefully since it is primitive. 
 
-
-
 `cache` - `(ties: string[]): this`: Turn on caching for the method and set the condition of cache invalidation.
 
 After turning cache on, connex will check everything on the blockchain that can be treated as address(included but not limited to):
@@ -322,6 +313,52 @@ vetBalanceMethod.call('0xD015D91B42BEd5FeaF242082b11B83B431abBf4f').then(output=
 })// This will get the vetVirtualBalance efficiently
 ```
 
+##### Commit to blockchain
+
+**Parameters**
+
++ `...arguments` - `Array<any>`: Arguments defined in method ABI
+
+Returns [Vendor.TxSigningService](#transaction-signing-service)
+
+``` javascript
+// Perform a VIP-180 transfer 1 wei token from Alex to Bob
+// Solidity: function transfer(address _to, uint256 _amount) public returns(bool success)
+const transferABI = {"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
+const transferMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
+
+transferMethod
+    // Bob's address and amount in wei
+    .transact('0xd3ae78222beadb038203be21ed5ce7c9b1bff602', 1)
+    .comment('transfer 1 wei to Alice')
+    .request()
+    .then(result=>{
+        console.log(result)
+    })
+>{
+    "signer": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+    "txId": "0x4e9a7eec33ef6cfff8ff5589211a94070a0284df17c2ead6267f1913169bd340"
+}
+
+// Converts 1 VET to VeThor
+// Solidity: function convertForEnergy(uint256 _minReturn) public payable
+const convertForEnergyABI = {"constant":false,"inputs":[{"name":"_minReturn","type":"uint256"}],"name":"convertForEnergy","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"}
+const convertForEnergyMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(convertForEnergyABI)
+
+convertForEnergyMethod
+    .value('1000000000000000000') // Set value to 1e18
+    .transact('10000000000000000') // minReturn in wei(1e16 wei)
+    .comment('Convert 1 VET to VeThor')
+    .request()
+    .then(result=>{
+        console.log(result)
+    })
+>{
+    "signer": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+    "txId": "0x4e9a7eec33ef6cfff8ff5589211a94070a0284df17c2ead6267f1913169bd340"
+}
+```
+
 ##### Create a Clause for Signing
 
 **Parameters**
@@ -331,37 +368,31 @@ vetBalanceMethod.call('0xD015D91B42BEd5FeaF242082b11B83B431abBf4f').then(output=
 Returns [Thor.Clause](#thor-clause)
 
 ``` javascript
-// Pack a clause that perform the VIP-180 transfer 1 wei token from Alex to Bob
-// Solidity: function transfer(address _to, uint256 _amount) public returns(bool success)
-const transferABI = {"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
-const transferMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
+// Convert 1 VeThor to VET, which needs to perform two action approve VeThor and convertForVET
+const dex = '0xD015D91B42BEd5FeaF242082b11B83B431abBf4f'
+const approveABI = {"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
+const approveMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
+const convertForVetABI= {"constant":false,"inputs":[{"name":"_sellAmount","type":"uint256"},{"name":"_minReturn","type":"uint256"}],"name":"convertForVET","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
+const convertForVetMethod = connex.thor.account(dex).method(convertForVetABI)
 
-// Alice's address and amount in wei
-const clause = transferMethod.asClause('0xd3ae78222beadb038203be21ed5ce7c9b1bff602', 1)
-console.log(clause)
+// approve dex to move my 1e18 wei VeThor
+const c1 = approveMethod.asClause(dex, '1000000000000000000')
+// convert 1e18 wei VeThor to VET, minimum return at 1e16 wei VET
+const c2 = convertForVetMethod.asClause('1000000000000000000', '10000000000000000')
+
+connex.vendor
+    .sign('tx', [c1, c2])
+    .comment('convert 1 VeThor to VET')
+    .request()
+    .then(result=>{
+        console.log(result)
+    })
+
 >{
     "to": "0x0000000000000000000000000000456E65726779",
     "value": "0",
     "data": "0xa9059cb......"
 }
-
-// Pack a clause that convents 1 VET to VeThor
-// Solidity: function convertForEnergy(uint256 _minReturn) public payable
-const convertForEnergyABI = {"constant":false,"inputs":[{"name":"_minReturn","type":"uint256"}],"name":"convertForEnergy","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"}
-const convertForEnergyMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(convertForEnergyABI)
-// Set value, leave other arguments unset
-convertForEnergyMethod
-    .value('1000000000000000000') // 1e18 wei
-
-// minReturn in wei(1e16 wei)
-const clause = convertForEnergyMethod.asClause('10000000000000000')
-console.log(clause)
->{
-    "to": "0x0000000000000000000000000000456E65726779",
-    "value": "1000000000000000000",
-    "data": "0xa9059cb......"
-}
-// Next you can ask vendor to sign your clause or pack more clause then sign them together
 ```
 
 #### Contract Event
@@ -1008,6 +1039,8 @@ signingService.request({
     + `number` - `number`: Number of the block
     + `timestamp` - `number`: Unix timestamp of the block
     + `parentID` - `string`: ID of the parent block (bytes32)
+    + `txFeatures` - `number`: Bitset of supported txs features
+    + `gasLimit` - `number`: Block gaslimit
 
 ### Thor.Block
 
@@ -1024,7 +1057,7 @@ signingService.request({
 + `signer` - `string`: Address of who signed the block (bytes20)
 + `transactions` - `Array<string>`: Array of transaction IDs
 + `isTrunk` - `bool`: Whether the block is in trunk
-+ `txFeatures` - `number`: Supported tx features bitset
++ `txFeatures` - `number`: Bitset of supported txs features
 
 ### Thor.Account
 
