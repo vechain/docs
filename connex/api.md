@@ -178,7 +178,9 @@ Returns `Thor.Method`
 
 + `...arguments` - `Array<any>`: Arguments defined in method ABI
 
-Returns [Promise<Thor.VMOutput>](#thor-vm-output)
+Returns [Promise<VM.Output&WithDecoded>](#vm-output)
+
+*Decoded will be present only the ABI definition is provided*
 
 ``` javascript
 // Simulate get name from a VIP-180 compatible contract
@@ -365,7 +367,7 @@ convertForEnergyMethod
 
 + `...arguments` - `Array<any>`: Arguments defined in method ABI
 
-Returns [Thor.Clause](#thor-clause)
+Returns [VM.Clause](#vm-clause)
 
 ``` javascript
 // Convert 1 VeThor to VET, which needs to perform two action approve VeThor and convertForVET
@@ -454,6 +456,55 @@ const filter = transferEvent.filter([{
     _from: '0x733b7269443c70de16bbf9b0615307884bcc5636'
 }])
 // Next you can call the methods of Thor.Filter
+```
+
+##### Execute the filter
+
+Returns [Promise<Array<Thor.Filter.Result.Log&Decoded>>](#thor-filter-result)
+
+*Decoded will be present only the ABI definition is provided*
+
+```javascript
+// Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
+const transferEventABI = {"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}
+const transferEvent = connex.thor.account('0x0000000000000000000000000000456E65726779').event(transferEventABI)
+
+// Create a filter from eventABI
+const filter = transferEvent.filter([{
+    _to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602'
+}])
+
+// Apply the filter, get the first one
+filter.apply(0, 1).then(logs=>{
+    console.log(logs)
+})
+>[
+    {
+        "address": "0x0000000000000000000000000000456e65726779",
+        "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000007567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "0x00000000000000000000000000f34f4462c0f6a6f5e76fb1b6d63f05a32ed2c6"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "meta": {
+            "blockID": "0x0000813fbe48421dfdc9400f1f4e1d67ce34256538afd1c2149c4047d72c4175",
+            "blockNumber": 33087,
+            "blockTimestamp": 1530345270,
+            "txID": "0x29b0af3ffb8eff4cc48a24ce9a800aaf4d0e92b72dbcf17ce01b14fd01af1290",
+            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "clauseIndex": 0
+        },
+        "decoded": {
+            "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+            "1": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+            "2": "1000000000000000000",
+            "_from": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+            "_to": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+            "_value": "1000000000000000000"
+        }
+    }
+]
 ```
 
 ### Block Visitor
@@ -608,7 +659,9 @@ Returns `Thor.Filter`
 
 + `order` - `(order: 'asc'|'desc'): this`: Set the order for filter
 + `range` - `(range: Thor.Filter.Range): this`: Set the range for the filter 
-+ `apply` - `(offset: number, limit: number): Promise<Thor.Filter.Result`: Apply the filter and get the result
++ `apply` - `(offset: number, limit: number): Promise<Thor.Filter.Result>`: Apply the filter and get the result
+
+[Thor.Filter.Result](#thor-filter-result)
 
 ``` javascript
 connex.thor.filter('event',[
@@ -696,7 +749,8 @@ filter.apply(0, 1).then(logs=>{
             "blockNumber": 33087,
             "blockTimestamp": 1530345270,
             "txID": "0x29b0af3ffb8eff4cc48a24ce9a800aaf4d0e92b72dbcf17ce01b14fd01af1290",
-            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed"
+            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "clauseIndex": 0
         },
         "decoded": {
             "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
@@ -727,7 +781,8 @@ filter.apply(0,1).then(logs=>{
             "blockNumber": 23525,
             "blockTimestamp": 1530249650,
             "txID": "0xd08e959c0ae918ab72d4da162856e7a4556c576b8ae849d09dbd38e5a419e94b",
-            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed"
+            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "clauseIndex": 0
         }
     }
 ] 
@@ -746,13 +801,13 @@ Returns `Thor.Explainer`
 + `cache` - `(hints: string[]): this`: Turn on caching for the explainer and set the condition of cache invalidation, read [more](#caching-a-contract-call).
 + `execute`: execute to get the output
 
-#### Execute
+#### Execute the explainer
 
 **Parameters**
 
-- `Clauses`  - [Array<Thor.Clause>](#thor-clause)
+- `Clauses`  - [Array<VM.Clause>](#vm-clause)
 
-Returns [Promise<Array<Thor.VMOutput>>](#thor-vm-output)
+Returns [Promise<Array<VM.Output>>](#vm-output)
 
 ``` javascript
 const explainer=connex.thor.explain()
@@ -822,9 +877,9 @@ explainer.execute([
 + `msg` - `Array<TxMessage|CertMessage>`: Message to sign
 
 `TxMessage:`
-+ `to`:  Same as [`Thor.Clause.To`](#thor-clause)
-+ `value`:  Same as [`Thor.Clause.Value`](#thor-clause)
-+ `data`:  Same as [`Thor.Clause.Data`](#thor-clause)
++ `to`:  Same as [`VM.Clause.To`](#vm-clause)
++ `value`:  Same as [`VM.Clause.Value`](#vm-clause)
++ `data`:  Same as [`VM.Clause.Data`](#vm-clause)
 + `comment` - `string(optional)`: Comment to the clause
 + `abi` - `object(optional)`: ABI definition of this clause, for User-Agent decoding the data
 
@@ -1022,7 +1077,7 @@ connex.vendor.sign('cert',{
 + `chainTag` - `number`: Last byte of genesis block ID
 + `blockRef` - `string`: The BlockRef (an eight-byte array string) includes two parts: the first four bytes contains the block height (number) and the rest four bytes is part of the referred block’s ID. If the referred block is future block, blockNumber + "00000000" should be added
 + `expiration` - `number` : Expiration relative to blockRef (in unit block)
-+ `clauses` - [Array<Thor.Clause>](#thor-clause)
++ `clauses` - [Array<VM.Clause>](#vm-clause)
 + `gasPriceCoef` - `number`: Coefficient used to calculate the final gas price
 + `gas`  - `number`: Maximum of gas can be consumed to execute this transaction
 origin
@@ -1032,12 +1087,6 @@ origin
 + `dependsOn` - `string|null`: ID of the transaction which the current transaction depends (bytes32)
 + `size` - `number`: Byte size of the transaction that is RLP encoded
 + `meta` - [Thor.Transaction.Meta](#thor-transaction-meta)
-
-### Thor.Clause
-
-+ `to` - `string|null`: The destination address of the message, null for a contract-creation transaction
-+ `value`- `string|number`: The value, with a unit of `wei`, transferred through the transaction. Specifically, it plays the role of endowment when the transaction is contract-creation type
-+ `data` - `string`: Either the [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract or the initialization code of a contract-creation transaction
 
 ### Thor.Transaction.Meta
 
@@ -1053,7 +1102,7 @@ origin
 + `reward` - `string`: Hex form of amount of reward
 + `reverted` - `boolean`: true means the transaction was reverted
 + `outputs` - [Array<Thor.Receipt.Output>](#thor-receipt-output): Clause's corresponding outputs
-+ `meta` - [Thor.Log.Meta](#thor-log-meta)
++ `meta` - [Thor.Receipt.Meta](#thor-receipt-meta)
 
 ### Thor.Receipt.Output
 
@@ -1061,27 +1110,7 @@ origin
 + `events` - [Array<Thor.Log.Event>](#thor-log-event): Event log objects produced during clause execution
 + `transfers` - [Array<Thor.Log.Transfer>](#thor-log-transfer) Transfer log produced during clause execution
 
-### Thor.Filter.Result
-
-+ `Thor.Filter.Event.Result` - [Thor.Log.Event](#thor-log-event)
-+ `Thor.Filter.Transfer.Result` - [Thor.Log.Transfer](#thor-log-transfer)
-
-### Thor.Log.Event
-
-+ `address` - `string`: The address of contract which produces the event (bytes20)
-+ `topics` - `Array<string>`: an array with max 5 32 Byte topics, topic 1-4 contains indexed parameters of the log
-+ `data` - `string`: The data containing non-indexed log parameter
-+ `meta`  - [Thor.Log.Meta](#thor-log-meta)
-+ `decoded`  - [Thor.Decoded(optional)](#thor-decoded): Decoded event log based on the event ABI
-
-### Thor.Log.Transfer
-
-+ `sender` - `string`: Address that sends vet.
-+ `recipient` - `string`: Address that receives vet.
-+ `amount` - `string`: Amount of vet in `wei`.
-+ `meta`  - [Thor.Log.Meta](#thor-log-meta)
-
-### Thor.Log.Meta
+### Thor.Receipt.Meta
 
 + `blockID` - `string`: Block identifier of log
 + `blockNumber` - `number`: Block number of log
@@ -1089,29 +1118,61 @@ origin
 + `txID` - `string`: Transaction identifier of the log
 + `txOrigin` - `string`: Transaction signer the log
 
-### Thor.VMOutput
+### Thor.Filter.Result
+
+Either `Event` - [VM.Event&Thor.Filter.Log.Meta](#vm-event) or `Transfer` - [VM.Transfer&Thor.Filter.Log.Meta](#vm-transfer)
+
+### Thor.Filter.Log.Meta
+
++ `blockID` - `string`: Block identifier of log
++ `blockNumber` - `number`: Block number of log
++ `blockTimestamp` - `number`: Block unix timestamp of log
++ `txID` - `string`: Transaction identifier of the log
++ `txOrigin` - `string`: Transaction signer the log
++ `clauseIndex` - `number`: Clause index of transaction 
+
+### VM.Clause
+
++ `to` - `string|null`: The destination address of the message, null for a contract-creation transaction
++ `value`- `string|number`: The value, with a unit of `wei`, transferred through the transaction. Specifically, it plays the role of endowment when the transaction is contract-creation type
++ `data` - `string`: Either the [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract or the initialization code of a contract-creation transaction
+
+### VM.Output
 
 + `data` - `string`: The returned data of the operation(hex string), e.g. a smart contract function returned value
 + `vmError` - `string`: VM error that occurred during the execution
 + `reverted` - `boolean`: Indicated whether the execution is reverted by the VM
-+ `events` - [Array<Thor.Log.Event>](#thor-log-event): Event logs that produced during the execution
-+ `transfer` - [Array<Thor.Log.Transfer>](#thor-log-transfer): Transfer logs that produced during the execution
-+ `decoded`  - [Thor.Decoded(optional)](#thor-decoded): Decoded returned data based on the method ABI
++ `events` - [Array<VM.Event>](#vm-event): Event logs that produced during the execution
++ `transfer` - [Array<VM.Transfer>](#vm-transfer): Transfer logs that produced during the execution
 
-### Thor.Decoded
+### VM.Event
+
++ `address` - `string`: The address of contract which produces the event (bytes20)
++ `topics` - `Array<string>`: an array with max 5 32 Byte topics, topic 1-4 contains indexed parameters of the log
++ `data` - `string`: The data containing non-indexed log parameter
+
+### VM.Transfer
+
++ `sender` - `string`: Address that sends vet.
++ `recipient` - `string`: Address that receives vet.
++ `amount` - `string`: Amount of vet in `wei`.
+
+### Decoded
 
 `Decoded` is a mixed object that produced by `ABI.decode` with the ABI definition of `EVENT` or `METHOD`. Decoded will be present only at the ABI definition is provided.
 
-+ {index} - `number`: Decoded property by parameter index
-+ {name} - `string`: Decoded property by parameter name if any
++ `{index}` - `number`: Decoded property by parameter index
++ `{name}` - `string`: Decoded property by parameter name if present
 + `revertReason` - `string(optional)`: Reason message when method call reverted. It's usually the second argument of `require` statement in Solidity, and helpful to diagnose contract code.
 
 For example if a method's definition is `function name() public pure returns(string name)` after perform the simulate call `decoded` will be like following: 
 
 ``` javascript
 {
-    "0": "VeThor",
-    "name": "VeThor"
+    "decoded": {
+        "0": "VeThor",
+        "name": "VeThor"
+    }
 }
 ```
 
@@ -1121,11 +1182,13 @@ Another example if an event's definition is `event Transfer(address indexed _fro
 
 ``` javascript
 {
-    "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
-    "1": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
-    "2": "1000000000000000000",
-    "_from": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
-    "_to": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
-    "_value": "1000000000000000000"
+    "decoded": {
+        "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+        "1": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+        "2": "1000000000000000000",
+        "_from": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+        "_to": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+        "_value": "1000000000000000000"
+    }
 }
 ```
