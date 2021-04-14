@@ -28,6 +28,7 @@ module.exports = {
     smoothScroll: true,
     lastUpdated: 'Last Updated',
     activeHeaderLinks: false,
+    searchPlaceholder: 'Search keyword',
     algolia: {
       apiKey: '1cf3bcfcda8c87948b832b6aff064e7f',
       indexName: 'vechain'
@@ -35,18 +36,16 @@ module.exports = {
     nav: require('./nav/en'),
     sidebar: {
       '/thor/':getThorSidebar('Learn','Get Started','Thorest API'),
-      '/connex/': [
-        '',
-        'api',
-      ],
-      '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ')
-  },
-        repo: 'vechain/docs',
-        docsRepo:'vechain/docs',
-        docsBranch: 'master',
-        editLinks: true,
-        editLinkText: 'Help us to improve this page'
-        
+      '/connex/': ['','api'],
+      '/sync2/':getSync2Sidebar('Get Sync2','User Guide'),
+      '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ'),
+      '/others/': ['','demos-and-service']
+    },
+  repo: 'vechain/docs',
+  docsRepo:'vechain/docs',
+  docsBranch: 'master',
+  editLinks: true,
+  editLinkText: 'Help us to improve this page' 
   },
   plugins: [
     [
@@ -94,7 +93,7 @@ function getThorSidebar (sectionA,sectionB, sectionC) {
     }
   ]
 }
-
+//Sync Desktop
 function getSyncSidebar (sectionA,sectionB, sectionC) {
   return [
     {
@@ -118,6 +117,27 @@ function getSyncSidebar (sectionA,sectionB, sectionC) {
     {
       title: sectionC,
       path: 'faq'
+    }
+  ]
+}
+//Sync2
+function getSync2Sidebar (sectionA,sectionB) {
+  return [
+    {
+      title: sectionA,
+      path: 'get-started'
+    },
+    
+    {
+      title: sectionB,
+      collapsable: false,
+      children: [
+          'user-guide/',
+          'user-guide/wallet',
+          'user-guide/signing',
+          'user-guide/activities',
+          'user-guide/settings'
+      ]
     }
   ]
 }
