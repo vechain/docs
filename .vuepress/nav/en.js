@@ -36,17 +36,33 @@ module.exports = [
         text: 'Sync', 
         ariaLabel: 'Sync',
         items: [
-            {
-                text: 'Download',
-                link: '/sync/download-and-install.html' 
+            {text:"Sync2",
+            items: [
+                {
+                    text : 'Get Sync2',
+                    link : '/sync2/get-started.html'
+                },
+                {
+                    text: 'User Guide',
+                    link: '/sync2/user-guide/' 
+                },
+            ]
             },
-            {
-                text: 'User Guide',
-                link: '/sync/user-guide/' 
-            },
-            {
-                text: 'FAQ',
-                link: '/sync/faq.html' 
+            {text:"Sync",
+            items: [
+                {
+                    text: 'Download',
+                    link: '/sync/download-and-install.html' 
+                },
+                {
+                    text: 'User Guide',
+                    link: '/sync/user-guide/' 
+                },
+                {
+                    text: 'FAQ',
+                    link: '/sync/faq' 
+                }
+                ]
             }
         ]
     },
@@ -90,4 +106,4 @@ module.exports = [
             
         ]
     }
-]   
+]  

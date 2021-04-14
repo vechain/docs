@@ -16,9 +16,9 @@ heroText: Welcome to VeChain Docs
      <a :href="$withBase('/connex')">Get Started</a>
   </div>
   <div class="feature">
-    <h2>Sync</h2>
-    <p>Designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users.</p>
-    <a :href="$withBase('/sync/download-and-install')">Download Now</a>
+    <h2>Sync2</h2>
+    <p>Latest VeChain wallet designed to work with all mainstream web browsers , desktop and mobile device.</p>
+    <a :href="$withBase('/sync2/get-started')">Try Now</a>
   </div>
 </div>
 <div class="footer">LGPL 3.0 licensed | <a href="https://vechain.org">VeChain Foundation</a> 2020-Present</div>
