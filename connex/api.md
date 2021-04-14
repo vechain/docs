@@ -1,15 +1,7 @@
 ---
 sidebarDepth: 2
 ---
-# Connex API
-## Connex.Version
-
-`connex.version` is a read-only property that indicates the implemented `connex` version in the current client. For the differences between versions, you can check the [release note](https://github.com/vechain/connex/releases).
-
-``` javascript
-connex.version
-> '0.3.0'
-```
+# API Specification
 
 ## Connex.Thor
 
@@ -17,7 +9,7 @@ connex.version
 
 Returns [Thor.Block](#thor-block)
 
-``` javascript
+``` typescript
 console.log(connex.thor.genesis)
 
 >{
@@ -42,7 +34,7 @@ console.log(connex.thor.genesis)
 
 Returns [Thor.Status](#thor-status)
 
-``` javascript
+``` typescript
 console.log(connex.thor.status)
 
 >{
@@ -51,24 +43,22 @@ console.log(connex.thor.status)
         "id": "0x0016611b340204e5bd76a83f70eea4731575309f23a27e11011169c491359b7d",
         "number": 1466651,
         "timestamp": 1544688650,
-        "parentID": "0x0016611a3fc23044b8b4cbb27283b50f04deb4d132dfdd72342770f35206a8ad"
+        "parentID": "0x0016611a3fc23044b8b4cbb27283b50f04deb4d132dfdd72342770f35206a8ad",
+        "txsFeatures": 1,
+        "gasLimit": 16000000
     }
 }
 ```
 
 ### Create a Ticker
 
-`Ticker` is a concept that describes chain increment, when there is a new block added to the chain, tickers will be triggered. This API will create a ticker which has a function that creates a `Promise` that will resolve when a new block is truly added, please be advised that it never rejects.
+`Ticker` is a concept that describes chain increment, when there is a new block added to the chain, ticker will be triggered. This API will create a ticker which has a function that creates a `Promise` that will resolve when a new block is truly added, please be advised that it never rejects.
 
 Returns `Thor.Ticker`
 
 + `next` - [(): Promise<Thor.Status['head']>](#thor-status): Call `next` will create a promise that resolves with the summary of head block when there is a new block added
 
-:::tip Note
-Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `next` returns `Promise<void>`
-:::
-
-``` javascript
+``` typescript
 const ticker = connex.thor.ticker()
 ticker.next().then((head)=>{
     console.log(head)
@@ -80,7 +70,8 @@ ticker.next().then((head)=>{
     "number": 3645305,
     "parentID": "0x00379f781a0035250669e6f5e5170b8cb384decbbb6a83917f823d920de5eed1",
     "timestamp": 1566874740,
-    "txsFeatures": 1
+    "txsFeatures": 1,
+    "gasLimit": 16000000
 }
 ```
 
@@ -90,7 +81,7 @@ Account visitor is a bunch of APIs to get account details and interact with acco
 
 #### Create an Account Visitor
 
-``` javascript
+``` typescript
 const acc = connex.thor.account('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed')
 ```
 
@@ -111,7 +102,7 @@ Returns `AccountVisitor`
 
 Returns [Promise<Thor.Account>](#thor-account)
 
-``` javascript
+``` typescript
 const acc = connex.thor.account('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed')
 acc.get().then(accInfo=>{
     console.log(accInfo)
@@ -130,7 +121,7 @@ Returns `Promise<Thor.Code>`
 
 + `code` - `string`: Contract code of an account
 
-``` javascript
+``` typescript
 const acc = connex.thor.account('0x0000000000000000000000000000456E65726779')
 acc.getCode().then(code=>{
     console.log(code)
@@ -151,7 +142,7 @@ Returns `Promise<Thor.Storage>`
 
 + `value` - `string`: The value to the key in account storage
 
-``` javascript
+``` typescript
 const acc = connex.thor.account('0x0000000000000000000000000000456E65726779')
 acc.getStorage('0x0000000000000000000000000000000000000000000000000000000000000001').then(storage=>{
     console.log(storage)
@@ -166,6 +157,13 @@ acc.getStorage('0x00000000000000000000000000000000000000000000000000000000000000
 
 Given the ABI of a contract, a `Thor.Method` object can be created to simulate a contract all without altering the contract state as well as pack a method with arguments to a clause that is ready to be signed.
 
+``` typescript
+const nameABI = {"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"}
+
+const acc = connex.thor.account('0x0000000000000000000000000000456E65726779')
+const method = acc.method(nameABI)
+```
+
 **Parameters**
 
 + `abi` - `object`: ABI definition of a contract method
@@ -175,19 +173,27 @@ Returns `Thor.Method`
 + `value` - `(val: string|number):this`: Set value for call and as Clause
 + `caller` - `(addr: string):this`: Set caller for call
 + `gas` - `(gas: string):this`: Set maximum gas allowed for call 
-+ `gasPrice` - `(gp: string)`: Set gas price for call in wei
-+ `call`: Simulate calling the method to obtain the output without altering the contract state
-+ `asClause`: Pack arguments and set value into clause
++ `gasPrice` - `(gp: string):this`: Set gas price for call in wei
++ `gasPayer` - `(addr: string):this`: Set gas payer for call
++ `call`: Simulate calling the method to obtain the output without altering the blockchain state
++ `asClause`: Pack arguments and value into a clause
++ `transact`: Pack arguments and value into an [Vendor.TxSigningService](#transaction-signing-service) for committing to the blockchain
 
 ##### Simulate a Contract Call
+
+``` typescript
+Method.call(...arguments: Array<any>): Promise<VM.Output&Decoded>
+```
 
 **Parameters**
 
 + `...arguments` - `Array<any>`: Arguments defined in method ABI
 
-Returns [Promise<Thor.VMOutput>](#thor-vm-output)
+Returns [Promise<VM.Output&Decoded>](#vm-output)
 
-``` javascript
+*Decoded will be present only the ABI definition is provided*
+
+``` typescript
 // Simulate get name from a VIP-180 compatible contract
 // Solidity: function name() public pure returns(string)
 const nameABI = {"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"}
@@ -268,9 +274,13 @@ There are only two hard things in Computer Science: **cache invalidation** and *
 :::
 Caching method calls would help developers to speed up their applications. Addresses are ideal to be the conditions of the cache invalidation because they are building states in smart contracts. We recommend developers use this caching mechanism carefully since it is primitive. 
 
+``` typescript
+Method.cache(hints: Array<string>): this
+``` 
 
+**Parameters**
 
-`cache` - `(ties: string[]): this`: Turn on caching for the method and set the condition of cache invalidation.
++ `hints` - `Array<string>`: Turn on caching for the method and set the condition of cache invalidation.
 
 After turning cache on, connex will check everything on the blockchain that can be treated as address(included but not limited to):
 
@@ -279,14 +289,14 @@ After turning cache on, connex will check everything on the blockchain that can 
 + `Transaction.Signer`
 + `Receipt.GasPayer`
 + `Receipt.Output.Event.Address`
-+ `Receipt.Output.Event.ContractAddress`
++ `Receipt.Output.Event.ContractAddress` 
 + `Receipt.Output.Event.Topics`
 + `Receipt.Output.Transfer.Sender`
 + `Receipt.Output.Transfer.Recipient`
 
 Once any address in the set is observed by connex, the cache would be expired.
 
-``` javascript
+``` typescript
 // Caching for method name, return value should never expire
 // Solidity: function name() public pure returns(string)
 const nameABI = {"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"}
@@ -322,51 +332,106 @@ vetBalanceMethod.call('0xD015D91B42BEd5FeaF242082b11B83B431abBf4f').then(output=
 })// This will get the vetVirtualBalance efficiently
 ```
 
-##### Create a Clause for Signing
+##### Commit to blockchain
+
+``` typescript
+Method.transact(...arguments: Array<any>): Vendor.TxSigningService
+```
 
 **Parameters**
 
 + `...arguments` - `Array<any>`: Arguments defined in method ABI
 
-Returns [Thor.Clause](#thor-clause)
+Returns [Vendor.TxSigningService](#transaction-signing-service)
 
-``` javascript
-// Pack a clause that perform the VIP-180 transfer 1 wei token from Alex to Bob
+``` typescript
+// Perform a VIP-180 transfer 1 wei token from Alex to Bob
 // Solidity: function transfer(address _to, uint256 _amount) public returns(bool success)
 const transferABI = {"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
 const transferMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
 
-// Alice's address and amount in wei
-const clause = transferMethod.asClause('0xd3ae78222beadb038203be21ed5ce7c9b1bff602', 1)
-console.log(clause)
+transferMethod
+    // Bob's address and amount in wei
+    .transact('0xd3ae78222beadb038203be21ed5ce7c9b1bff602', 1)
+    .comment('transfer 1 wei to Alice')
+    .request()
+    .then(result=>{
+        console.log(result)
+    })
+>{
+    "signer": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+    "txId": "0x4e9a7eec33ef6cfff8ff5589211a94070a0284df17c2ead6267f1913169bd340"
+}
+
+// Converts 1 VET to VeThor
+// Solidity: function convertForEnergy(uint256 _minReturn) public payable
+const convertForEnergyABI = {"constant":false,"inputs":[{"name":"_minReturn","type":"uint256"}],"name":"convertForEnergy","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"}
+const convertForEnergyMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(convertForEnergyABI)
+
+convertForEnergyMethod
+    .value('1000000000000000000') // Set value to 1e18
+    .transact('10000000000000000') // minReturn in wei(1e16 wei)
+    .comment('Convert 1 VET to VeThor')
+    .request()
+    .then(result=>{
+        console.log(result)
+    })
+>{
+    "signer": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+    "txId": "0x4e9a7eec33ef6cfff8ff5589211a94070a0284df17c2ead6267f1913169bd340"
+}
+```
+
+##### Create a Clause for Signing
+
+``` typescript
+Method.asClause(...arguments: Array<any>): VM.Clause
+```
+
+**Parameters**
+
++ `...arguments` - `Array<any>`: Arguments defined in method ABI
+
+Returns [VM.Clause](#vm-clause)
+
+``` typescript
+// Convert 1 VeThor to VET, which needs to perform two action approve VeThor and convertForVET
+const dex = '0xD015D91B42BEd5FeaF242082b11B83B431abBf4f'
+const approveABI = {"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
+const approveMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
+const convertForVetABI= {"constant":false,"inputs":[{"name":"_sellAmount","type":"uint256"},{"name":"_minReturn","type":"uint256"}],"name":"convertForVET","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
+const convertForVetMethod = connex.thor.account(dex).method(convertForVetABI)
+
+// approve dex to move my 1e18 wei VeThor
+const c1 = approveMethod.asClause(dex, '1000000000000000000')
+// convert 1e18 wei VeThor to VET, minimum return at 1e16 wei VET
+const c2 = convertForVetMethod.asClause('1000000000000000000', '10000000000000000')
+
+connex.vendor
+    .sign('tx', [c1, c2])
+    .comment('convert 1 VeThor to VET')
+    .request()
+    .then(result=>{
+        console.log(result)
+    })
+
 >{
     "to": "0x0000000000000000000000000000456E65726779",
     "value": "0",
     "data": "0xa9059cb......"
 }
-
-// Pack a clause that convents 1 VET to VeThor
-// Solidity: function convertForEnergy(uint256 _minReturn) public payable
-const convertForEnergyABI = {"constant":false,"inputs":[{"name":"_minReturn","type":"uint256"}],"name":"convertForEnergy","outputs":[{"name":"","type":"uint256"}],"payable":true,"stateMutability":"payable","type":"function"}
-const convertForEnergyMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(convertForEnergyABI)
-// Set value, leave other arguments unset
-convertForEnergyMethod
-    .value('1000000000000000000') // 1e18 wei
-
-// minReturn in wei(1e16 wei)
-const clause = convertForEnergyMethod.asClause('10000000000000000')
-console.log(clause)
->{
-    "to": "0x0000000000000000000000000000456E65726779",
-    "value": "1000000000000000000",
-    "data": "0xa9059cb......"
-}
-// Next you can ask vendor to sign your clause or pack more clause then sign them together
 ```
 
 #### Contract Event
 
 Given the ABI of a contract, we can create a `Thor.Event` object that will be able to filter contracts events with arguments or pack the arguments to criteria for assembling combined filters.
+
+``` typescript
+const transferEventABI = {"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}
+const acc = connex.thor.account('0x0000000000000000000000000000456E65726779')
+
+const event = acc.event(transferEventABI)
+```
 
 **Parameters**
 
@@ -379,13 +444,17 @@ Returns `Thor.Event`
 
 ##### Pack into Criteria
 
+``` typescript
+Event.asCriteria(indexed: object): Thor.Filter.Criteria
+```
+
 **Parameters**
 
 + `indexed` - `object`: Indexed arguments defined in event ABI that needs to be filtered, the items in the object will be combined with `AND` operator: e.g. {"ConA": "A", "ConB": "B"} is '`ConA=A` AND `ConB=B`'
 
-Returns `Thor.Criteria`
+Returns `Thor.Filter.Criteria`
 
-``` javascript
+``` typescript
 // Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
 const transferEventABI = {"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}
 const transferEvent = connex.thor.account('0x0000000000000000000000000000456E65726779').event(transferEventABI)
@@ -403,7 +472,11 @@ console.log(criteria)
 // Next you can combine different criteria together and put them into filter
 ```
 
-#### Create a filter
+##### Create a filter
+
+``` typescript
+Event.filter(indexed: object): Thor.Filter
+```
 
 **Parameters**
 
@@ -411,7 +484,7 @@ console.log(criteria)
 
 Returns [Thor.Filter](#filter)
 
-``` javascript
+``` typescript
 // Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
 const transferEventABI = {"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}
 const transferEvent = connex.thor.account('0x0000000000000000000000000000456E65726779').event(transferEventABI)
@@ -425,7 +498,64 @@ const filter = transferEvent.filter([{
 // Next you can call the methods of Thor.Filter
 ```
 
+##### Execute the filter
+
+``` typescript
+Filter.apply(offset:number, limit: number): Promise<Array<Thor.Filter.Result.Log&Decoded>>
+```
+
+Returns [Promise<Array<Thor.Filter.Result.Log&Decoded>>](#thor-filter-result)
+
+*Decoded will be present only the ABI definition is provided*
+
+```typescript
+// Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
+const transferEventABI = {"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}
+const transferEvent = connex.thor.account('0x0000000000000000000000000000456E65726779').event(transferEventABI)
+
+// Create a filter from eventABI
+const filter = transferEvent.filter([{
+    _to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602'
+}])
+
+// Apply the filter, get the first one
+filter.apply(0, 1).then(logs=>{
+    console.log(logs)
+})
+>[
+    {
+        "address": "0x0000000000000000000000000000456e65726779",
+        "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000007567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "0x00000000000000000000000000f34f4462c0f6a6f5e76fb1b6d63f05a32ed2c6"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+        "meta": {
+            "blockID": "0x0000813fbe48421dfdc9400f1f4e1d67ce34256538afd1c2149c4047d72c4175",
+            "blockNumber": 33087,
+            "blockTimestamp": 1530345270,
+            "txID": "0x29b0af3ffb8eff4cc48a24ce9a800aaf4d0e92b72dbcf17ce01b14fd01af1290",
+            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "clauseIndex": 0
+        },
+        "decoded": {
+            "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+            "1": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+            "2": "1000000000000000000",
+            "_from": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+            "_to": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+            "_value": "1000000000000000000"
+        }
+    }
+]
+```
+
 ### Block Visitor
+
+``` typescript
+const blk = connex.thor.block(0)
+```
 
 **Parameters**
 
@@ -439,7 +569,7 @@ Returns `Thor.BlockVisitor`
 
 Returns [Promise<Thor.Block>](#thor-block)
 
-``` javascript
+``` typescript
 const blk=connex.thor.block(0)
 
 blk.get().then(block=>{
@@ -466,6 +596,10 @@ blk.get().then(block=>{
 
 ### Transaction Visitor
 
+``` typescript
+const tx = connex.thor.transaction('0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851')
+```
+
 **Parameters**
 
 + `id` - `string`: Transaction ID to be visited (As long as the revision is set, it can't be changed again)
@@ -480,7 +614,7 @@ Returns `Thor.TransactionVisitor`
 
 Returns [Thor.Transaction](#thor-transaction)
 
-``` javascript
+``` typescript
 const transaction=connex.thor.transaction('0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851')
 
 transaction.get().then(tx=>{
@@ -514,9 +648,15 @@ transaction.get().then(tx=>{
 
 #### Get Transaction Receipt
 
+
+``` typescript
+const tx = connex.thor.transaction('0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851')
+const receipt = await tx.getReceipt()
+```
+
 Returns [Thor.Receipt](#thor-receipt)
 
-``` javascript
+``` typescript
 const transaction=connex.thor.transaction('0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851')
 
 transaction.getReceipt().then(tx=>{
@@ -549,68 +689,44 @@ transaction.getReceipt().then(tx=>{
 
 Filter event and transfer logs on the blockchain. Filter often works with `Connex.Thor.Account`, either creates a filter from an event or packs criteria and then assembles several criteria and sets to a filter. But also there is a way of creating a filter and assembling criteria as per your need then apply it.
 
+``` typescript
+const f = connex.thor.filter(kind: 'event'|'transfer', criteria: Array<Thor.Filter.Criteria>)
+```
+
 **Parameters**
 
 + `kind` - `'event'|'transfer'`: Kind of filter
++ `criteria` - `Array<Thor.Filter.Criteria>`: Criteria set for the filter, either array of `Event.Criteria` or an array of `Transfer.Criteria`, items in the criteria array will be combined by `OR` operator to filter the events: e.g. [{"ConA": "A"}, {"ConB": "B", "ConC": "C"}] is '`ConA=A` OR (`ConB=B` AND `ConC=C`)'
 
-Returns `Thor.Filter`
-
-+ `order` - `(order: 'asc'|'desc'): this`: Set the order for filter
-+ `range` - `(range: Thor.Filter.Range): this`: Set the range for the filter 
-+ `criteria` - `(set: Array<Thor.Filter.Criteria>): this`: Set criteria set for the filter
-+ `apply` - `(offset: number, limit: number): Promise<Thor.Filter.Result`: Apply the filter and get the result
-
-#### Filter range
-
-**Parameters**
-
-`Thor.Filter.Range`:
-
-+ `unit` - `'block'|'time'`: Range unit, can be filtered by block number or timestamp in second
-+ `from` - `Number`: Filter start point in unit
-+ `to` - `Number`: Filter stop point in unit
-
-Returns `this`
-
-``` javascript
-const filter =  connex.thor.filter('transfer')
-
-// Set the filter range as block 0 to block 100
-filter.range({
-    unit: 'block',
-    from: 0,
-    to: 100
-})
-// Next you can set other options or perform apply, complete demo code will be provided below
-```
-
-#### Filter criteria
+`Thor.Filter.Criteria`:
 
 Filters support two different types of log: `event` and `transfer` so there are two types of `Thor.Filter.Criteria`.
 
-`Thor.Filter.Event.Criteria`:
+`Thor.Filter.Event.Criteria:`
 
-+ `address` - `string(optional)`: An address to get logs from particular account
++ `address` - `string(optional)`: The address to get logs from
 + `topic0` - `string(optional)`: Topic0 to match
 + `topic1` - `string(optional)`: Topic1 to match
 + `topic2` - `string(optional)`: Topic2 to match
 + `topic3` - `string(optional)`: Topic3 to match
 + `topic4` - `string(optional)`: Topic4 to match
 
-`Thor.Filter.Transfer.Criteria`:
+`Thor.Filter.Transfer.Criteria:`
 
 + `txOrigin` - `string(optional)`: Signer address of tx 
-+ `sender` - `string(optional)`: Vet sender address
-+ `recipient` - `string(optional)`: Vet recipient address
++ `sender` - `string(optional)`: VET sender address
++ `recipient` - `string(optional)`: VET recipient address
 
-**Parameters**
+Returns `Thor.Filter`
 
-+ `set` - `Array<Thor.Filter.Criteria>`: Criteria set for the filter, either array of `Event.Criteria` or an array of `Transfer.Criteria`,items in the criteria array will be combined by `OR` operator to filter the events: e.g. [{"ConA": "A"}, {"ConB": "B", "ConC": "C"}] is '`ConA=A` OR (`ConB=B` AND `ConC=C`)'
++ `order` - `(order: 'asc'|'desc'): this`: Set the order for filter
++ `range` - `(range: Thor.Filter.Range): this`: Set the range for the filter 
++ `apply` - `(offset: number, limit: number): Promise<Thor.Filter.Result>`: Apply the filter and get the result
 
-``` javascript
-const filter=connex.thor.filter('event')
+[Thor.Filter.Result](#thor-filter-result)
 
-filter.criteria([
+``` typescript
+connex.thor.filter('event',[
     // Matches VIP-180 Transfer from '0xd3ae78222beadb038203be21ed5ce7c9b1bff602'
     {
         "address": "0x0000000000000000000000000000456E65726779",
@@ -624,10 +740,34 @@ filter.criteria([
         "topic2": "0x0000000000000000000000007567d83b7b8d80addcb281a71d54fc7b3364ffed"
     }
 ])
-// Next you can set other options or call apply to executes the filter
+// Next you can set other options or executes the filter
 ```
 
-#### Apply
+#### Set filter range
+
+**Parameters**
+
+`Thor.Filter.Range:`
+
++ `unit` - `'block'|'time'`: Range unit, can be filtered by block number or timestamp in second
++ `from` - `Number`: Start point in unit
++ `to` - `Number`: Stop point in unit
+
+Returns `this`
+
+``` typescript
+const filter =  connex.thor.filter('transfer')
+
+// Set the filter range as block 0 to block 100
+filter.range({
+    unit: 'block',
+    from: 0,
+    to: 100
+})
+// Next you can set other options or executes the filter
+```
+
+#### Execute the filter
 
 **Parameters**
 
@@ -636,13 +776,13 @@ filter.criteria([
 
 Returns [Promise<Array<Thor.Filter.Result>>](#thor-filter-result)
 
-``` javascript
+``` typescript
 // Solidity: event Transfer(address indexed _from, address indexed _to, uint256 _value)
 const transferEventABI = {"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"}
 const transferEvent = connex.thor.account('0x0000000000000000000000000000456E65726779').event(transferEventABI)
 
 // Create a filter from eventABI
-filter=transferEvent.filter([{
+const filter = transferEvent.filter([{
     _to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602'
 }])
 // Set filter options
@@ -650,8 +790,8 @@ filter
     .order('desc') // Work from the last event
     .range({
         unit: 'block',
-        from: '10000',
-        to: '40000'
+        from: 10000,
+        to: 40000
     }) // Set the range
 // Apply the filter, get the first one
 filter.apply(0, 1).then(logs=>{
@@ -671,7 +811,8 @@ filter.apply(0, 1).then(logs=>{
             "blockNumber": 33087,
             "blockTimestamp": 1530345270,
             "txID": "0x29b0af3ffb8eff4cc48a24ce9a800aaf4d0e92b72dbcf17ce01b14fd01af1290",
-            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed"
+            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "clauseIndex": 0
         },
         "decoded": {
             "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
@@ -685,9 +826,7 @@ filter.apply(0, 1).then(logs=>{
 ]
 
 // Filter the transfer log that from 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed
-const filter=connex.thor.filter('transfer')
-
-filter.criteria([{
+const filter = connex.thor.filter('transfer', [{
     sender: '0x7567d83b7b8d80addcb281a71d54fc7b3364ffed'
 }])
 
@@ -704,7 +843,8 @@ filter.apply(0,1).then(logs=>{
             "blockNumber": 23525,
             "blockTimestamp": 1530249650,
             "txID": "0xd08e959c0ae918ab72d4da162856e7a4556c576b8ae849d09dbd38e5a419e94b",
-            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed"
+            "txOrigin": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+            "clauseIndex": 0
         }
     }
 ] 
@@ -712,24 +852,30 @@ filter.apply(0,1).then(logs=>{
 
 ### Explainer
 
-Explainer gets what would be produced after blockchain executes a tx.
+Explainer gets what would be produced after blockchain executes a tx, without committing to the blockchain.
+
+``` typescript
+const exp = connex.thor.explain()
+``` 
 
 Returns `Thor.Explainer`
 
 + `caller` - `(addr: string): this`: Set caller
 + `gas` - `(gas: number): this`: Set max allowed gas 
 + `gasPrice` - `(gp: string): this`: Set gas price in hex string
-+ `execute`: execute the explainer
++ `gasPayer` - `(addr: string):this`: Set gas payer
++ `cache` - `(hints: string[]): this`: Turn on caching for the explainer and set the condition of cache invalidation, read [more](#caching-a-contract-call).
++ `execute`: execute to get the output
 
-#### Execute
+#### Execute the explainer
 
 **Parameters**
 
-- `Clauses`  - [Array<Thor.Clause>](#thor-clause)
+- `Clauses`  - [Array<VM.Clause>](#vm-clause)
 
-Returns [Promise<Array<Thor.VMOutput>>](#thor-vm-output)
+Returns [Promise<Array<VM.Output>>](#vm-output)
 
-``` javascript
+``` typescript
 const explainer=connex.thor.explain()
 explainer
     .gas(200000) // Set maximum gas
@@ -789,47 +935,44 @@ explainer.execute([
 
 ## Connex.Vendor
 
-### Owned
-
-Owned checks if the provided address is owned by the vendor(user).
-
-**Parameters**
-
-+ `addr` - `string`: Address to check
-
-Returns `Promise<boolean>`
-
-:::tip Note
-Before [1.4.0](https://github.com/vechain/connex/releases/tag/v1.4.0), `owned` returns `boolean`, be caution about this breaking change.
-:::
-
-``` javascript
-connex.vendor.owned('0x0000000000000000000000000000000000000001').then(owned =>{ 
-    console.log(owned)
-})
->false 
-```
-
 ### Acquire a Signing Service
 
+``` typescript
+Vendor.sign(kind: 'tx'|'cert', msg: Array<TxMessage|CertMessage>): TxSigningService|CertSigningService
+```
 
 **Parameters**
 
 + `kind` - `'tx'|'cert'`: Kind of signing service
++ `msg` - `Array<TxMessage|CertMessage>`: Message to sign
 
-Returns Connex.Vendor: Connex.Vendor.TxSigningService or Connex.Vendor.CertSigningService
+`TxMessage:`
++ `to`:  Same as [`VM.Clause.To`](#vm-clause)
++ `value`:  Same as [`VM.Clause.Value`](#vm-clause)
++ `data`:  Same as [`VM.Clause.Data`](#vm-clause)
++ `comment` - `string(optional)`: Comment to the clause
++ `abi` - `object(optional)`: ABI definition of this clause, for User-Agent decoding the data
+
+`CertMessage:`
++ `purpose` - `'identification' | 'agreement'`:  Purpose of the request, `identification` means request the user to sign a random message to get the address and `agreement` means ask user to sign the agreement for using the VeChain apps
++ `payload`:
+    + `type` - `'text'`: Payload type,only `text` is supported
+    + `content` - `string`: Content of of the request
+
+Returns `Connex.Vendor.TxSigningService` or `Connex.Vendor.CertSigningService`
 
 ### Transaction Signing Service
 
-`Connex.Vendor.TxSigningService`:
+`Connex.Vendor.TxSigningService:`
 
 + `signer` - `(addr: string): this`: Enforces the specified address to sign the transaction
 + `gas` - `(gas: number): this`: Enforces the specified number as the maximum gas that can be consumed for the transaction
 + `dependsOn` - `(txid: string): this`: Set another txid as dependency ([Reference](../thor/learn/transaction-model.md#dependson))
 + `link` - `(url: string): this`: Set the link to reveal transaction-related information, the link will be used for connex to assemble a `callback url` by replacing the placeholder `{txid}` by `Transaction ID`
 + `comment` - `(text: string): this`: Set the comment for the transaction that will be revealed to the user
-+ `delegate` - `(handler: function): this`: Enable VIP-191 for this request by setting the delegation handler
-+ `request`: Send the request
++ `delegate` - `(url: string, signer: string): this`: Enable VIP-191 by setting the url and the fee payer's address. Wallets(Sync2) will request fee payer's signature with the url and required parameters, read [this](https://github.com/vechain/VIPs/blob/master/vips/VIP-201.md#explicit-grant-flow) to get the detail about building a VIP-191 service
++ `accepted` - `(cb: ()=>void): this`: Register a callback function which will be fired once user's wallet accepted the request
++ `request`: Perform the request
 
 #### Perform Transaction Signing Request
 
@@ -837,33 +980,18 @@ Returns Connex.Vendor: Connex.Vendor.TxSigningService or Connex.Vendor.CertSigni
 
 + `msg` - `Array<TxMessage>`
 
-`TxMessage`:
-+ `to`:  Same as [`Thor.Clause.To`](#thor-clause)
-+ `value`:  Same as [`Thor.Clause.Value`](#thor-clause)
-+ `data`:  Same as [`Thor.Clause.Data`](#thor-clause)
-+ `comment` - `string(optional)`: Comment to the clause
-+ `abi` - `object(optional)`: ABI definition of this clause, for User-Agent decoding the data
-
-Returns `Promise<Connex.Vendor.TXResponse>`:
+Returns `Promise<Connex.Vendor.TXResponse>:`
 + `txid` - `string`: Transaction identifier
 + `signer` - `string`: Signer address
 
-``` javascript
-const signingService = connex.vendor.sign('tx')
-
-signingService
-    .signer('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed') // Enforce signer
-    .gas(200000) // Set maximum gas
-    .link('https://connex.vecha.in/{txid}') // User will be back to the app by the url https://connex.vecha.in/0xffff....
-    .comment('Donate 100 VET and 1000 VeThor to the author of connex')
-
+``` typescript
 // Prepare energy transfer clause
 const transferABI = {"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
 const transferMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
 // Connex author's address and amount in wei
 const energyClause = transferMethod.asClause('0xd3ae78222beadb038203be21ed5ce7c9b1bff602', '1000000000000000000000')
 
-signingService.request([
+connex.vendor.sign('tx', [
     {
         to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602',
         value: '100000000000000000000',
@@ -874,7 +1002,12 @@ signingService.request([
         comment: 'Transfer 1000 VeThor',
         ...energyClause
     }
-]).then(result=>{
+])
+.signer('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed') // Enforce signer
+.gas(200000) // Set maximum gas
+.link('https://connex.vecha.in/{txid}') // User will be back to the app by the url https://connex.vecha.in/0xffff....
+.comment('Donate 100 VET and 1000 VeThor to the author of connex')
+.then(result=>{
     console.log(result)
 })
 >{
@@ -885,38 +1018,20 @@ signingService.request([
 
 #### Perform a VIP-191 enabled request
 
-For VIP-191 enabled request, `Delegation Handler` needs to be set to the request. `Delegation Handler` is an asynchronous function which accepts unsigned transaction and intended tx origin as parameter and the signature of delegator required to be the returned value.
+``` typescript
+const service =  'https://pay-tx-fee-for-you.vecha.in/requests'
+const payer = '0x733b7269443c70de16bbf9b0615307884bcc5636'
 
-`Connex.Vendor.DelegationHandler`:
-
-**Parameters**
-
-`unsignedTx`:
-+ `raw` - `string`: RLP-encoded unsigned tx in hex
-+ `origin` - `string`: The address going to sign the tx
-
-Returns `Promise<{ signature:string }>`
-
-``` javascript
-const signingService = connex.vendor.sign('tx')
-
-const delegationHandler = async ( unsignedTx )=>{
-    ...
-    const sig = await requestDelegatorSignatureFromRemote(unsignedTx.raw, unsignedTx.origin)
-    return { signature: sig }
-}
-
-signingService
-    .delegate(delegationHandler)
-    .request([{
-            to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602',
-            value: '100000000000000000000',
-            data: '0x',
-            comment: 'Transfer 100 VET'
-        }
-    ]).then(result=>{
-        console.log(result)
-    })
+connex.vendor.sign('tx',[{
+    to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602',
+    value: '100000000000000000000',
+    data: '0x',
+    comment: 'Transfer 100 VET'
+}])
+.delegate(url, payer)
+.request().then(result=>{
+    console.log(result)
+})
 >{
     "signer": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
     "txId": "0x4e9a7eec33ef6cfff8ff5589211a94070a0284df17c2ead6267f1913169bd340"
@@ -927,22 +1042,16 @@ signingService
 
 The certificate is a message signing based mechanism which can easily request user's identification(address) or user to agree to your terms or agreements.
 
-`Connex.Vendor.CertSigningService`:
+`Connex.Vendor.CertSigningService:`
 
 + `signer` - `(addr: string): this`: Enforces the specified address to sign the certificate
-+ `link` - `(url: string): this`: Set the link to reveal certificate-related information, the link will be used for connex to assemble a `callback url` by replacing the placeholder `{certid}` by `Certificate ID`
++ `link` - `(url: string): this`: Set the link to reveal certificate-related information, the link will be used for connex to assemble a `callback url` by replacing the placeholder `{certid}` by `Certificate ID`, which is computed by `blake2b256(Certificate.encode(cert))`
++ `accepted` - `(cb: ()=>void): this`: Register a callback function which will be fired once user's wallet accepted the request
 + `request`: Send the request
 
 #### Perform Certificate Signing Request
 
 **Parameters**
-
-`CertMessage`: 
-
-+ `purpose` - `'identification' | 'agreement'`:  Purpose of the request, `identification` means request the user to sign a random message to get the address and `agreement` means ask user to sign the agreement for using the VeChain apps
-+ `payload`:
-    + `type` - `'text'`: Payload type,only `text` is supported
-    + `content` - `string`: Content of of the request
 
 Returns `Promise<Connex.Vendor.CertResponse>`:
 + `annex`:
@@ -951,21 +1060,17 @@ Returns `Promise<Connex.Vendor.CertResponse>`:
     + `signer` - `string`: Signer address
 + `signature` - `string`: Signature
 
-``` javascript
-const signingService = connex.vendor.sign('cert')
-
-signingService
-    .link('https://connex.vecha.in/{certid}') // User will be back to the app by the url https://connex.vecha.in/0xffff....
-
-
-// Generate a random string and request the identification
-signingService.request({
+``` typescript
+connex.vendor.sign('cert',{
     purpose: 'identification',
     payload: {
         type: 'text',
         content: 'random generated string'
     }
-}).then(result=>{
+})
+.link('https://connex.vecha.in/{certid}') // User will be back to the app by the url https://connex.vecha.in/0xffff....
+.request()
+.then(result=>{
     console.log(result)
 })
 
@@ -979,13 +1084,15 @@ signingService.request({
 }
 
 // Ask user to sign the agreement
-signingService.request({
+connex.vendor.sign('cert',{
     purpose: 'agreement',
     payload: {
         type: 'text',
         content: 'agreement'
     }
-}).then(result=>{
+})
+.request()
+.then(result=>{
     console.log(result)
 })
 
@@ -1008,6 +1115,8 @@ signingService.request({
     + `number` - `number`: Number of the block
     + `timestamp` - `number`: Unix timestamp of the block
     + `parentID` - `string`: ID of the parent block (bytes32)
+    + `txFeatures` - `number`: Bitset of supported txs features
+    + `gasLimit` - `number`: Block gaslimit
 
 ### Thor.Block
 
@@ -1024,7 +1133,7 @@ signingService.request({
 + `signer` - `string`: Address of who signed the block (bytes20)
 + `transactions` - `Array<string>`: Array of transaction IDs
 + `isTrunk` - `bool`: Whether the block is in trunk
-+ `txFeatures` - `number`: Supported tx features bitset
++ `txFeatures` - `number`: Bitset of supported txs features
 
 ### Thor.Account
 
@@ -1038,7 +1147,7 @@ signingService.request({
 + `chainTag` - `number`: Last byte of genesis block ID
 + `blockRef` - `string`: The BlockRef (an eight-byte array string) includes two parts: the first four bytes contains the block height (number) and the rest four bytes is part of the referred block’s ID. If the referred block is future block, blockNumber + "00000000" should be added
 + `expiration` - `number` : Expiration relative to blockRef (in unit block)
-+ `clauses` - [Array<Thor.Clause>](#thor-clause)
++ `clauses` - [Array<VM.Clause>](#vm-clause)
 + `gasPriceCoef` - `number`: Coefficient used to calculate the final gas price
 + `gas`  - `number`: Maximum of gas can be consumed to execute this transaction
 origin
@@ -1048,12 +1157,6 @@ origin
 + `dependsOn` - `string|null`: ID of the transaction which the current transaction depends (bytes32)
 + `size` - `number`: Byte size of the transaction that is RLP encoded
 + `meta` - [Thor.Transaction.Meta](#thor-transaction-meta)
-
-### Thor.Clause
-
-+ `to` - `string|null`: The destination address of the message, null for a contract-creation transaction
-+ `value`- `string|number`: The value, with a unit of `wei`, transferred through the transaction. Specifically, it plays the role of endowment when the transaction is contract-creation type
-+ `data` - `string`: Either the [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract or the initialization code of a contract-creation transaction
 
 ### Thor.Transaction.Meta
 
@@ -1069,7 +1172,7 @@ origin
 + `reward` - `string`: Hex form of amount of reward
 + `reverted` - `boolean`: true means the transaction was reverted
 + `outputs` - [Array<Thor.Receipt.Output>](#thor-receipt-output): Clause's corresponding outputs
-+ `meta` - [Thor.Log.Meta](#thor-log-meta)
++ `meta` - [Thor.Receipt.Meta](#thor-receipt-meta)
 
 ### Thor.Receipt.Output
 
@@ -1077,22 +1180,7 @@ origin
 + `events` - [Array<Thor.Log.Event>](#thor-log-event): Event log objects produced during clause execution
 + `transfers` - [Array<Thor.Log.Transfer>](#thor-log-transfer) Transfer log produced during clause execution
 
-### Thor.Log.Event
-
-+ `address` - `string`: The address of contract which produces the event (bytes20)
-+ `topics` - `Array<string>`: an array with max 5 32 Byte topics, topic 1-4 contains indexed parameters of the log
-+ `data` - `string`: The data containing non-indexed log parameter
-+ `meta`  - [Thor.Log.Meta](#thor-log-meta)
-+ `decoded`  - [Thor.Decoded(optional)](#thor-decoded): Decoded event log based on the event ABI
-
-### Thor.Log.Transfer
-
-+ `sender` - `string`: Address that sends vet.
-+ `recipient` - `string`: Address that receives vet.
-+ `amount` - `string`: Amount of vet in `wei`.
-+ `meta`  - [Thor.Log.Meta](#thor-log-meta)
-
-### Thor.Log.Meta
+### Thor.Receipt.Meta
 
 + `blockID` - `string`: Block identifier of log
 + `blockNumber` - `number`: Block number of log
@@ -1100,34 +1188,61 @@ origin
 + `txID` - `string`: Transaction identifier of the log
 + `txOrigin` - `string`: Transaction signer the log
 
-### Thor.VMOutput
+### Thor.Filter.Result
+
+Either `Event` - [VM.Event&Thor.Filter.Log.Meta](#vm-event) or `Transfer` - [VM.Transfer&Thor.Filter.Log.Meta](#vm-transfer)
+
+### Thor.Filter.Log.Meta
+
++ `blockID` - `string`: Block identifier of log
++ `blockNumber` - `number`: Block number of log
++ `blockTimestamp` - `number`: Block unix timestamp of log
++ `txID` - `string`: Transaction identifier of the log
++ `txOrigin` - `string`: Transaction signer the log
++ `clauseIndex` - `number`: Clause index of transaction 
+
+### VM.Clause
+
++ `to` - `string|null`: The destination address of the message, null for a contract-creation transaction
++ `value`- `string|number`: The value, with a unit of `wei`, transferred through the transaction. Specifically, it plays the role of endowment when the transaction is contract-creation type
++ `data` - `string`: Either the [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract or the initialization code of a contract-creation transaction
+
+### VM.Output
 
 + `data` - `string`: The returned data of the operation(hex string), e.g. a smart contract function returned value
 + `vmError` - `string`: VM error that occurred during the execution
 + `reverted` - `boolean`: Indicated whether the execution is reverted by the VM
-+ `events` - [Array<Thor.Log.Event>](#thor-log-event): Event logs that produced during the execution
-+ `transfer` - [Array<Thor.Log.Transfer>](#thor-log-transfer): Transfer logs that produced during the execution
-+ `decoded`  - [Thor.Decoded(optional)](#thor-decoded): Decoded returned data based on the method ABI
++ `events` - [Array<VM.Event>](#vm-event): Event logs that produced during the execution
++ `transfer` - [Array<VM.Transfer>](#vm-transfer): Transfer logs that produced during the execution
 
-### Thor.Filter.Result
+### VM.Event
 
-+ `Thor.Filter.Event.Result` - [Thor.Log.Event](#thor-log-event)
-+ `Thor.Filter.Transfer.Result` - [Thor.Log.Transfer](#thor-log-transfer)
++ `address` - `string`: The address of contract which produces the event (bytes20)
++ `topics` - `Array<string>`: an array with max 5 32 Byte topics, topic 1-4 contains indexed parameters of the log
++ `data` - `string`: The data containing non-indexed log parameter
 
-### Thor.Decoded
+### VM.Transfer
+
++ `sender` - `string`: Address that sends vet.
++ `recipient` - `string`: Address that receives vet.
++ `amount` - `string`: Amount of vet in `wei`.
+
+### Decoded
 
 `Decoded` is a mixed object that produced by `ABI.decode` with the ABI definition of `EVENT` or `METHOD`. Decoded will be present only at the ABI definition is provided.
 
-+ {index} - `number`: Decoded property by parameter index
-+ {name} - `string`: Decoded property by parameter name if any
++ `{index}` - `number`: Decoded property by parameter index
++ `{name}` - `string`: Decoded property by parameter name if present
 + `revertReason` - `string(optional)`: Reason message when method call reverted. It's usually the second argument of `require` statement in Solidity, and helpful to diagnose contract code.
 
 For example if a method's definition is `function name() public pure returns(string name)` after perform the simulate call `decoded` will be like following: 
 
-``` javascript
+``` typescript
 {
-    "0": "VeThor",
-    "name": "VeThor"
+    "decoded": {
+        "0": "VeThor",
+        "name": "VeThor"
+    }
 }
 ```
 
@@ -1135,13 +1250,15 @@ You can access the name by calling `decoded['name']` or `decoded['0']`(Number in
 
 Another example if an event's definition is `event Transfer(address indexed _from, address indexed _to, uint256 _value)` after performing the filter `decoded` will be the following: 
 
-``` javascript
+``` typescript
 {
-    "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
-    "1": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
-    "2": "1000000000000000000",
-    "_from": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
-    "_to": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
-    "_value": "1000000000000000000"
+    "decoded": {
+        "0": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+        "1": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+        "2": "1000000000000000000",
+        "_from": "0x7567D83b7b8d80ADdCb281A71d54Fc7B3364ffed",
+        "_to": "0x00F34f4462c0f6a6f5E76Fb1b6D63F05A32eD2C6",
+        "_value": "1000000000000000000"
+    }
 }
 ```

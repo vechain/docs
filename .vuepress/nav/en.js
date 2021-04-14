@@ -27,12 +27,8 @@ module.exports = [
                 link: '/connex/index.html'
             },
             {
-                text: 'Connex API',
+                text: 'API Specification',
                 link: '/connex/api.html' 
-            },
-            {
-                text: 'Implementation',
-                link: '/connex/implementation.html' 
             }
         ]
     },

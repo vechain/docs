@@ -38,7 +38,6 @@ module.exports = {
       '/connex/': [
         '',
         'api',
-        'implementation'
       ],
       '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ')
   },
