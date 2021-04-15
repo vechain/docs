@@ -4,7 +4,7 @@ sidebarDepth: 2
 # Signing
 
 <p align="center">
-<img height="480" src="~@public/images/sync2/signing.png" >
+<img height="480" src="~@public/images/sync2/signing.png " >
 </p>
 
 ## Content type
