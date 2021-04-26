@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Activities 
 <p align="center">
-<img height="480" src="~@public/images/sync2/activities.png" >
+<img src="~@public/images/sync2/activities.png" >
 </p>
 
 ## Activities status

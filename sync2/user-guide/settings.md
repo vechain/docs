@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Settings
 <p align="center">
-<img height="480" src="~@public/images/sync2/settings.png" >
+<img src="~@public/images/sync2/settings.png" >
 </p>
 
 ## Switch Language

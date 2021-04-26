@@ -45,7 +45,10 @@ module.exports = [
                 {
                     text: 'User Guide',
                     link: '/sync2/user-guide/' 
-                },
+                },{
+                    text: 'FAQ',
+                    link: '/sync2/faq/' 
+                }
             ]
             },
             {text:"Sync",

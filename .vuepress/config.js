@@ -14,7 +14,8 @@ module.exports = {
     ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
     ['meta', { name: 'keywords', content: 'vechain, documentation, docs, thor, connex, sync, official' }],
-    ['meta', {name: 'google-site-verification', content: 'yvT2mNLTy-gN9NFUXxNNJR7zIsWLrEvcWNZg_m91pwA'}]
+    ['meta', {name: 'google-site-verification', content: 'yvT2mNLTy-gN9NFUXxNNJR7zIsWLrEvcWNZg_m91pwA'}],
+    ['meta', {name: "viewport", content: 'width=device-width, initial-scale=1'}]
   ],
   configureWebpack: {
     resolve: {
@@ -38,7 +39,7 @@ module.exports = {
     sidebar: {
       '/thor/':getThorSidebar('Learn','Get Started','Thorest API'),
       '/connex/': ['','api'],
-      '/sync2/':getSync2Sidebar('Get Sync2','User Guide'),
+      '/sync2/':getSync2Sidebar('Get Sync2','User Guide','FAQ'),
       '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ'),
       '/others/': ['','demos-and-service']
     },
@@ -59,6 +60,12 @@ module.exports = {
       serviceWorker: true,
       updatePopup: true,
     }
+    ],
+    [
+      'sitemap',{
+        hostname: 'https://docs.vechain.org',
+        exclude: '/404.html'
+      }
     ]
   ]
 }
@@ -122,7 +129,7 @@ function getSyncSidebar (sectionA,sectionB, sectionC) {
   ]
 }
 //Sync2
-function getSync2Sidebar (sectionA,sectionB) {
+function getSync2Sidebar (sectionA,sectionB,sectionC) {
   return [
     {
       title: sectionA,
@@ -139,6 +146,10 @@ function getSync2Sidebar (sectionA,sectionB) {
           'user-guide/activities',
           'user-guide/settings'
       ]
+    },
+    {
+      title: sectionC,
+      path: 'faq'
     }
   ]
 }
