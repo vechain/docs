@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Wallet
 <p align="center">
-<img height="480" src="~@public/images/sync2/wallet.png" >
+<img src="~@public/images/sync2/wallet.png" >
 </p>
 
 ## Wallet list
@@ -89,7 +89,7 @@ Wallet name is the identifier to help you easily tell the wallet.
 
 ## Address
 <p align="center">
-<img height="480" src="~@public/images/sync2/address.png" >
+<img src="~@public/images/sync2/address.png" >
 </p>
 
 ### Add assets
