@@ -1,3 +1,20 @@
+---
+title : Brazilian Portuguese translation.  
+date : 2021-05-08 // YYYY-MM-DD 
+description : Translation of the file (EM.JS) in the directory “docs/.vuepress/nav/en.js” into Brazilian Portuguese. The file will be named 
+“pt-br.js”  
+autor : Nandofmike 
+sidebar : true 
+tags automáticas : 
+    - Thor 
+    - Connex
+    - Tradução 
+    - Português
+    - Brasil      	 
+prev : docs/.vuepress/nav/ 
+próximo : false 
+---
+
 module.exports = [
     {
        
@@ -5,11 +22,11 @@ module.exports = [
         ariaLabel: 'Thor',
         items: [
             {
-                text: 'Learn',
+                text: 'Aprenda',
                 link: '/thor/learn/'
             },
             {
-                text: 'Get Started',
+                text: 'Iniciar',
                 link: '/thor/get-started/installation.html'
             },
             {
@@ -23,11 +40,11 @@ module.exports = [
         ariaLabel: 'Connex',
         items: [
             {
-                text: 'Get Started',
+                text: 'Iniciar',
                 link: '/connex/index.html'
             },
             {
-                text: 'API Specification',
+                text: 'Especificações do API',
                 link: '/connex/api.html' 
             }
         ]
@@ -39,11 +56,11 @@ module.exports = [
             {text:"Sync2",
             items: [
                 {
-                    text : 'Get Sync2',
+                    text : 'Obter Sync2',
                     link : '/sync2/get-started.html'
                 },
                 {
-                    text: 'User Guide',
+                    text: 'Guia do usuário',
                     link: '/sync2/user-guide/' 
                 },{
                     text: 'FAQ',
@@ -54,11 +71,11 @@ module.exports = [
             {text:"Sync",
             items: [
                 {
-                    text: 'Download',
+                    text: 'Baixar arquivo',
                     link: '/sync/download-and-install.html' 
                 },
                 {
-                    text: 'User Guide',
+                    text: 'Guia do usuário',
                     link: '/sync/user-guide/' 
                 },
                 {
@@ -70,14 +87,14 @@ module.exports = [
         ]
     },
     {
-        text:'Tutorials',
+        text:'Tutoriais',
         link: '/tutorials/'
     },
     {
-        text: 'Resources',
+        text: 'Recursos',
         items: [
             {
-                text: 'Explorer',
+                text: 'Explorer Vechain',
                 link: 'https://explore.vechain.org'
             },
             {
@@ -85,25 +102,25 @@ module.exports = [
                 link: 'https://apps.vechain.org/'
             },
             {
-                text: 'Miscellaneous',
+                text: 'Outros assuntos',
                 link: '/others/miscellaneous.html'
             },
             {
-                text: 'Demos & Services',
+                text: 'Demonstrações & Serviços',
                 link: '/others/demos-and-services.html'
             }
         ]
     },
     {
-        text: 'Online Support', 
+        text: 'Suporte Online', 
         ariaLabel: 'Online Support',
         items: [
             {
-                text: 'VeChain Official',
+                text: 'Grupo Vechain no Telegram',
                 link: 'https://t.me/vechain_official_english' 
             },
             {
-                text: 'Dev Community',
+                text: 'Desenvolvedores Telegram',
                 link: 'https://t.me/VeChainDevCommunity' 
             }
             
