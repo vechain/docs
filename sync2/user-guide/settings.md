@@ -18,6 +18,16 @@ sidebarDepth: 2
 3. Enter your new password
 4. Enter your password again for confirmation  
 
+
+## Biometric Authentication <Badge text="Mobile only" type="tip"/>
+1. Click **Biometric Authentication**
+2. Enter your password
+3. Biometric verification
+
+Following scenario required your biometric authentication 
+1. Wallet action(remove, backup, generate, import)
+2. General(change password,enable biometric authentication)
+3. Signing a Transaction or certificate 
 ## Token List
 1. Click **Tokens**
 2. Choose the token from the token list

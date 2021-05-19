@@ -19,7 +19,11 @@ All the wallets will be shown in <img src="~@public/images/sync2/menu.svg" align
 1. Click upper left <img src="~@public/images/sync2/menu.svg" align=center /> to open wallet list
 2. Click the upper area <img src="~@public/images/sync2/add_circle_outline.svg" align=center />  to new wallet page
 3. Click **Generate**
-4. Enter your password to authorize the generation
+4. Verification 
+   1. Password: Enter your password to authorize the generation
+   2. Biometric authentication: 
+      1. Facial recognition: hold your device in portrait orientation, then glance at it.
+      2. Fingerprint recognition: place your finger on fingerprint scanner
 
 :::tip Note
 **12/24 mnemonic words**

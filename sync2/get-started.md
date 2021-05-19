@@ -26,4 +26,5 @@ System requirements:
 - **Linux** : Ubuntu 14.04 and newer/ Fedora 24 and newer/ Debian 8 and newer
 :::
 ### Mobile
-Work in progress
+- **Android** : Download the latest **apk file** [here](https://github.com/vechain/sync2/releases/latest)
+- **iOS** : work in progress
