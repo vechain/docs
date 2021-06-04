@@ -855,8 +855,15 @@ filter.apply(0,1).then(logs=>{
 Explainer gets what would be produced after blockchain executes a tx, without committing to the blockchain.
 
 ``` typescript
-const exp = connex.thor.explain()
+const exp = connex.thor.explain([{
+    to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602',
+    value: 1,
+    data: '0x'
+}])
 ``` 
+**Parameters**
+
+- `Clauses`  - [Array<VM.Clause>](#vm-clause)
 
 Returns `Thor.Explainer`
 
@@ -869,34 +876,31 @@ Returns `Thor.Explainer`
 
 #### Execute the explainer
 
-**Parameters**
-
-- `Clauses`  - [Array<VM.Clause>](#vm-clause)
-
 Returns [Promise<Array<VM.Output>>](#vm-output)
 
 ``` typescript
-const explainer=connex.thor.explain()
-explainer
-    .gas(200000) // Set maximum gas
-    .caller('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed') // Set caller
-
 // Prepare energy transfer clause
 const transferABI = {"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
 const transferMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
 // Alice's address and amount in wei
 const energyClause = transferMethod.asClause('0xd3ae78222beadb038203be21ed5ce7c9b1bff602', 1)
 
-explainer.execute([
+const exp = connex.thor.explain([
     {
         to: '0xd3ae78222beadb038203be21ed5ce7c9b1bff602',
         value: 1,
         data: '0x'
     },
     energyClause
-]).then(outputs=>{
-    console.log(outputs)
-})
+])
+
+exp
+    .gas(200000) // Set maximum gas
+    .caller('0x7567d83b7b8d80addcb281a71d54fc7b3364ffed') // Set caller
+    .execute()
+    .then(outputs=>{
+        console.log(outputs)
+    })
 >[
     {
         "data": "0x",
