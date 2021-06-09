@@ -1023,7 +1023,7 @@ connex.vendor.sign('tx', [
 #### Perform a VIP-191 enabled request
 
 ``` typescript
-const service =  'https://pay-tx-fee-for-you.vecha.in/requests'
+const service = 'https://pay-tx-fee-for-you.vecha.in/requests'
 const payer = '0x733b7269443c70de16bbf9b0615307884bcc5636'
 
 connex.vendor.sign('tx',[{
@@ -1032,7 +1032,7 @@ connex.vendor.sign('tx',[{
     data: '0x',
     comment: 'Transfer 100 VET'
 }])
-.delegate(url, payer)
+.delegate(service, payer)
 .request().then(result=>{
     console.log(result)
 })
