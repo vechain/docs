@@ -89,8 +89,8 @@ module.exports = [
                 link: '/others/miscellaneous.html'
             },
             {
-                text: 'Demos & Services',
-                link: '/others/demos-and-services.html'
+                text: 'Development Resources',
+                link: '/others/development-resources.html'
             }
         ]
     },
