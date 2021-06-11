@@ -41,7 +41,7 @@ module.exports = {
       '/connex/': ['','api'],
       '/sync2/':getSync2Sidebar('Get Sync2','User Guide','FAQ'),
       '/sync/':getSyncSidebar('Download & Install','User Guide','FAQ'),
-      '/others/': ['','demos-and-service']
+      '/others/': ['','development-resources']
     },
   repo: 'vechain/docs',
   docsRepo:'vechain/docs',

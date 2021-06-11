@@ -38,7 +38,7 @@ Default explorer allows you to search a transaction, block number and address in
 6. Wait for a while ,it will automatically identify the network name (MAIN/TEST/SOLO/UNKNOWN) and add the node to the list
 
 :::tip
-Please visit [Public Nodes](../../others/demos-and-services.md#public-nodes) for more information.
+Please visit [Public Nodes](../../others/development-resources.md#public-nodes) for more information.
 :::
 
 ### Edit Custom Node's Name
