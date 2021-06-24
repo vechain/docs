@@ -17,6 +17,7 @@ next: false
 
 ## Compat Mode
 -   基于 Connex2 的 Dapp 运行在网络环境相同的 Sync1 中。
+```在 compat mode 下 Dapp 与 Sync 的交互方式遵循 Sync1。```
 ## Connex1 与 2 区别概述
 -   Connex1 是内置于 Sync1 中的, 所以基于 Connex1 的 DApp 强依赖于Sync1。需要在Sync1 中运行，这样才能使用 Connex1 的签名服务，且网络环境依赖于 Sync1。
 
@@ -66,6 +67,22 @@ const connex = new Connex({
 
 ```
 
+### 创建 Thor.Filter
+Connex2 Thor.Filter 创建方式变化
+``` diff
+    const type: 'event' | 'transfer'
+    const criteria: Connex.Thor.Criteria<T extends 'event' | 'transfer'>
+
+    // Connex v1
+-   const filter = new connex.thor.filter(type)
+-   filter.criteria(criteria).apply(offset, limit)
+
+    // Connex v2
++   const filter = new connex.thor.filter(type, criteria)
++   filter.apply(offset, limit)
+
+```
+
 ### 创建 SigningService
 Connex2 SigningService 创建方式变化
 
@@ -99,7 +116,7 @@ Connex2 SigningService 创建方式变化
 
 ## Connex2 新增的 api
 
-新增 API 仅在使用 Connex2 且非 Compat mode 时起效
+新增 API 仅在非 Compat mode 时起效
 
 [更多](/connex/api.html)
 
