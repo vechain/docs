@@ -68,6 +68,20 @@ const connex = new Connex({
 
 ```
 
+### Thor.Filter Creation
+``` diff
+    const type: 'event' | 'transfer'
+    const criteria: Connex.Thor.Criteria<T extends 'event' | 'transfer'>
+
+    // Connex v1
+-   const filter = new connex.thor.filter(type)
+-   filter.criteria(criteria).apply(offset, limit)
+
+    // Connex v2
++   const filter = new connex.thor.filter(type, criteria)
++   filter.apply(offset, limit)
+
+```
 ### SigningService Creation
 
 ```diff

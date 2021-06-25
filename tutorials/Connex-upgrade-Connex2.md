@@ -107,7 +107,7 @@ Connex2 SigningService 创建方式变化
 
     // Connex1
 -   const txSigningSvc = new connex.vendor.sign('tx')
-    txSigningSvc.delegate( async (unsigned): Promise<string> => {})
+-   txSigningSvc.delegate( async (unsigned): Promise<string> => {})
 
     // Connex2
 +   const txSigningSvc = new connex.vendor.sign('tx', txMsg)
