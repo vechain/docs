@@ -1,7 +1,7 @@
 ---
 title: Connex1 升级到 Connex2
 date: 2021-06-08
-description: simple codes for upgrading Connex
+description: Code examples for upgrading Connex
 author: Breeze
 sidebar: false
 tags:
@@ -13,17 +13,22 @@ next: false
 
 # Connex1 升级到 Connex2
 
-随着 Sync2 的发布，Connex2 也随之诞生，并作为单独的 npm package 发布，让 DApp 与 Sync2 变得更加独立。
+Connex2 是一个独立的 npm package，让 DApp 与 Sync2 变得更加独立。
+Connex2 随着 Sync2 的上线一同发布。
 
-## Compat Mode
--   基于 Connex2 的 Dapp 运行在网络环境相同的 Sync1 中。
-```在 compat mode 下 Dapp 与 Sync 的交互方式遵循 Sync1。```
 ## Connex1 与 2 区别概述
--   Connex1 是内置于 Sync1 中的, 所以基于 Connex1 的 DApp 强依赖于Sync1。需要在Sync1 中运行，这样才能使用 Connex1 的签名服务，且网络环境依赖于 Sync1。
+-   Connex1 是内置于 Sync1 中的。基于 Connex1 的 DApp 强依赖于Sync1，需要在Sync1 中运行。DApp 使用 Connex1 的签名服务，且网络环境依赖于 Sync1。
 
--   Connex2 是独立的开发包，需要 Dapp 直接引入使用，且自行决定网络环境，非必须在 Sync 中运行。且同时兼容全部 Sync2 和 大部分Sync1 的功能。Dapp 变的更加独立。
+-   Connex2 是独立的开发包，需要 Dapp 直接引入使用，且自行初始化网络环境；Connex2 非必须在 Sync 中运行。
 
-## Connex2 的变更
+## 兼容模式
+
+基于 Connex2 编写的 Dapp 可以在 Sync1 中运行，但有如下的注意事项：
+- 若 DApp 所期待的网络环境（例如初始化为连接主网的Dapp）与Sync1的环境不一致（例如 Sync1 运行于测试网），则 Sync1 环境失效，DApp会启动召唤 Sync2的流程；
+- 若 DApp 所期待的网络环境（例如初始化为连接主网的Dapp）与Sync1的环境一致，则 DApp 运行在兼容模式下(Compat Mode)，大部分API都可正常使用；
+- 兼容模式下，Connex2 独有的 API 将不能启用。
+
+## Connex2 相关变动
 
 ### 安装 Connex2
 - 使用标签引入 Connex2
