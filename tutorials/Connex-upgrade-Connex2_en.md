@@ -1,7 +1,7 @@
 ---
 title: Upgrading Connex1 to Connex2
 date: 2021-06-08
-description: simple codes for upgrading Connex
+description: Code examples for upgrading Dapps
 author: Breeze
 sidebar: false
 tags:
@@ -11,20 +11,24 @@ prev: false
 next: false
 ---
 
-# Upgrading Connex1 to Connex2
+# Upgrading Dependencies from Connex1 to Connex2
 
-Connex2 was born as a js lib with Sync2 published. That's make the Dapp and Sync2 independent.
-
-## Compat Mode
--   Dapp build on Connex2 and running in Sync1 with same network.
+Connex2 is published as a javascript library as Sync2 published. Making the Dapps and Sync2 more independent from each other.
 
 ## Differences between Connex1 and Connex2
--   Connex1 is Sync1's build-in api. The DApps build on Connex1 are dependent on Sync1.
 
--   Connex2 is a JS lib. The Dapp need import, and create the instance. Completely Support Sync2 and almost Sync1.
+-   Connex1 is a build-in api within Sync1. The DApps build on Connex1 are dependent on Sync1.
 
+-   Connex2 is a JS library. The Dapp needs to manually import Connex2 and create the instance of it.
 
-## Connex2 changes
+## Compatible Mode
+
+Dapps primarily built with Connex2 can be run in Sync1, however:
+- If the network requirement is different, eg. main-net Dapp running on test-net environment, it treats Sync1 as a plain browser and tries to launch Sync2.
+- If the network requirement is the same, eg. main-net Dapp running on main-net environment, it runs in compatible mode, and most common apis works.
+- New Connex2 APIs are not avaialbe even in compatible mode, they are available for Connex2 exclusively.
+
+## Connex2 Changes
 
 ### Install Connex2
 - Include in ``` <script> ```tag
@@ -39,7 +43,7 @@ npm i @vechain/connex
 ```
 
 ### Connex Creation
-Connex1 is a build-in property of window in Sync1 with clearly network, but Connex2 is created by assigned network.
+Connex1 is a build-in property of window in Sync1 with network chosen for you, but Connex2 is created by assigned network.
 
 ``` ts
 // connex v2
@@ -99,7 +103,7 @@ const connex = new Connex({
 
 ### TX SigningService.delegate params
 
-[More](/connex/api.html#transaction-signing-service)
+[More Info](/connex/api.html#transaction-signing-service)
 ```diff
     const txMsg: Vendor.TxMessage
 
@@ -112,10 +116,11 @@ const connex = new Connex({
 +   txSigningSvc.delegate(url, signer?)
 ```
 
-## Connex2 new apis
+## New Connex2 APIs
 
-The new apis only worked uncompat mode.
-[More](/connex/api.html)
+The new APIs **only** work in non-compatible mode.
+
+[More Info](/connex/api.html)
 
 ```typescript
 const address: string
