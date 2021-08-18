@@ -17,14 +17,33 @@ The purpose of this version is to allow developers and some users to preview upc
 :::
 
 ### Desktop 
-Download the latest application through [here](https://github.com/vechain/sync2/releases/latest)
 
-:::tip Note
-System requirements:
+:::tip System requirements:
 - **MacOS** : Minimum macOS version supported is macOS 10.10 (Yosemite). Native support for Apple Silicon (arm64) devices.
 - **Windows**: Windows 7 and later are supported, older operating systems are not supported (and do not work).
 - **Linux** : Ubuntu 14.04 and newer/ Fedora 24 and newer/ Debian 8 and newer
 :::
+
+#### Install Sync2 on Windows
+1. [Download the installation file](https://sync.vecha.in/)
+2. If prompted, click **Run** or **Save**.
+3. Open the file called "Sync.exe"
+4. Follow the steps to install
+
+#### Install Sync2 on MacOS
+1. [Download the installation file](https://sync.vecha.in/)
+2. Open the file called "Sync.dmg"
+3. **Drag** Sync to the application folder 
+
+#### Install Sync2 on Linux
+1. [Download the installation file](https://sync.vecha.in/)
+2. [Download AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher/releases) or visit [AppImageLauncher Github](https://github.com/TheAssassin/AppImageLauncher)
+3. Launch **AppImageLauncher**
+4. Wait until the **Ubuntu Software** prompt and click **Install**
+5. After *AppImageLauncher* installation, Right click the **Sync2 AppImage**
+6. Click **Open With AppImageLauncher**
+7. AppImageLauncher will be launched and prompt *first run* configuration, Click **OK** 
+8. After the configuration, Click **Integrate and run**
 ### Mobile
 - **Android** : Download the latest **apk file** [here](https://github.com/vechain/sync2/releases/latest)
 - **iOS** : work in progress
