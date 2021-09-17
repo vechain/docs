@@ -7,7 +7,7 @@ editLink: false
 
 The main advantage and purpose of Sync2 is the massive simplification of dApps and dApp usage. All editions of Sync2, no matter whether the native app built for desktop or mobile or the automatically invoked SPA version, are designed to appear and function pretty much in the same way, therefore providing a consistent and comfortable user experience for users across different OS and devices. 
 
-### build from source code
+### Build from source code
 please visit [project repo](https://github.com/vechain/sync2)
 ### Browser <Badge text="preview" type="warning"/>
 Designed to work with all mainstream web browsers - [Try it now](https://lite.sync.vecha.in/)
