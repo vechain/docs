@@ -66,6 +66,12 @@ module.exports = {
         hostname: 'https://docs.vechain.org',
         exclude: '/404.html'
       }
+    ],
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'G-NHWH5KV2RJ' 
+      }
     ]
   ]
 }
