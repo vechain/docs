@@ -33,7 +33,7 @@ This article is helping you to understand how to use `connex2` to build a Dapp a
    1. Download Sync2 [here](https://sync.vecha.in/)
    2. Launch Sync2
    3. Sync2 - [setup](/sync2/user-guide/)
-   4. Sync2 - [create testnet wallet](/sync2/user-guide/wallet.html#specific-network)
+   4. Sync2 - [create testnet wallet](/sync2/user-guide/wallet.html#custom-network-wallet)
 
 2. Claim testnet token
    - Visit [omg.outofgas.io](https://omg.outofgas.io)- *VIP191 feature/ sign transaction* 

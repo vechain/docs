@@ -8,7 +8,7 @@ editLink: false
 see [Add node](../sync2/user-guide/settings.html#add-node) for more details
 
 ## Custom wallet
-see [Specific network](../sync2/user-guide/wallet.md#specific-network) for more details
+see [custom network wallet](../sync2/user-guide/wallet.md#custom-network-wallet) for more details
 
 ## Signing warning
 Many reasons may cause the transaction failed/reverted. below are some causes: 

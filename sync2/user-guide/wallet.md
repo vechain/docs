@@ -48,13 +48,16 @@ All the wallets will be shown in <img src="~@public/images/sync2/menu.svg" align
 ### Wallet name
 By default, we use "New Wallet" as the name for each new wallet. You can easily change the name by editing the input text field.
 
-### Specific network <badge text="Advance"/>
+### Custom network wallet <badge text="Advance"/>
 1. Click upper left <img src="~@public/images/sync2/menu.svg" align=center /> to open wallet list
 2. Click the upper area <img src="~@public/images/sync2/add_circle_outline.svg" align=center />  to new wallet page
 3. Click upper right <img src="~@public/images/sync2/more_horiz.svg" align=center />
-4. Select the network
-> You can add the custom network via [add node](/sync2/user-guide/settings.md#add-note)
+4. Select the **Test net** or **custom network**
 5. Click **Import** / **Generate** / **Link**
+
+:::tip Note
+Before adding the custom network wallet, you need to [added a node](/sync2/user-guide/settings.md#add-node) beforehand
+:::
 
 ## Backup wallet
 The mnemonic words store all the information that is needed at any point in time to recover your wallet. The mnemonic words should be **stored in a secure place**. It ensures you have had a backup in a scenario where your device breaks down or becomes unusable due to any reason. In such cases, all you need is your mnemonic words to recover the wallet.
