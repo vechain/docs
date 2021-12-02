@@ -72,10 +72,6 @@ module.exports = [
         ]
     },
     {
-        text: 'Tutoriais',
-        link: '/pt/tutorials/'
-    },
-    {
         text: 'Recursos',
         items: [
             {
@@ -93,22 +89,26 @@ module.exports = [
             {
                 text: 'Material Dev',
                 link: '/others/development-resources.html'
-            }
+            },
+            {
+                text: 'Suporte Online',
+                ariaLabel: 'Suporte Online',
+                items: [
+                    {
+                        text: 'VeChain Oficial',
+                        link: 'https://t.me/vechain_official_english'
+                    },
+                    {
+                        text: 'Comunidade Dev',
+                        link: 'https://t.me/VeChainDevCommunity'
+                    }
+
+                ]
+            },
         ]
     },
     {
-        text: 'Suporte Online',
-        ariaLabel: 'Suporte Online',
-        items: [
-            {
-                text: 'VeChain Oficial',
-                link: 'https://t.me/vechain_official_english'
-            },
-            {
-                text: 'Comunidade Dev',
-                link: 'https://t.me/VeChainDevCommunity'
-            }
-
-        ]
-    }
+        text: 'Tutoriais',
+        link: '/pt/tutorials/'
+    },
 ]

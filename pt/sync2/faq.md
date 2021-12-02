@@ -49,11 +49,15 @@ Before the user confirms the transaction/certificate details, Sync2 will automat
    - Restart your computer.
    - Try another computer.
 ### Check status failed
-The reason causes the result check status failed due to the device is not the selected(enforce) address. if you have multiple Ledger devices, please make sure you are connected with the correct device. sometimes update firmware may reset the ledger device. please follow the instructions to restore your device. 
+The error "**checking status failed**" shown during the Ledger connection, it means that the device you are trying to connect **IS NOT** the device that belongs to the wallet you imported. In other words, it's a brand new ledger device you never imported. Please check that your Ledger device is the proper device that belongs to the selected account(imported wallet). The easiest way to identify the issue is [import your ledger device](/sync2/user-guide/wallet.md#link-ledger-device) again and compare the wallet address. 
 
-Ledger support: 
-- [Troubleshoot firmware update](https://support.ledger.com/hc/en-us/articles/360003117594-Troubleshoot-firmware-update)
-- [Restore from recovery phrase](https://support.ledger.com/hc/en-us/articles/360005434914)
+Reset your Ledger device:
+1. Reset your Ledger device by entering three wrong PIN codes.
+2. [Restore from recovery phrase](https://support.ledger.com/hc/en-us/articles/4404382560913-Restore-from-recovery-phrase?support=true)
+
+:::tip Note
+In case you have multiple Ledger hardware wallets set up with different recovery phrases, you should connect the device holding the recovery phrase used to import the account.
+:::
 
 ### Mis-transfer the funds to ethereum address
 Please check the [Ledger support-Export your accounts](https://support.ledger.com/hc/en-us/articles/115005297709-Export-your-accounts) instruction. Once the private key / keystore is exported, import to Sync wallet. 
