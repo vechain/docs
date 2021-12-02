@@ -1,6 +1,6 @@
 module.exports = [
     {
-       
+
         text: 'Thor',
         ariaLabel: 'Thor',
         items: [
@@ -28,50 +28,48 @@ module.exports = [
             },
             {
                 text: 'API Specification',
-                link: '/connex/api.html' 
+                link: '/connex/api.html'
             }
         ]
     },
     {
-        text: 'Sync', 
+        text: 'Sync',
         ariaLabel: 'Sync',
         items: [
-            {text:"Sync2",
-            items: [
-                {
-                    text : 'Get Sync2',
-                    link : '/sync2/get-started.html'
-                },
-                {
-                    text: 'User Guide',
-                    link: '/sync2/user-guide/' 
-                },{
-                    text: 'FAQ',
-                    link: '/sync2/faq/' 
-                }
-            ]
+            {
+                text: "Sync2",
+                items: [
+                    {
+                        text: 'Get Sync2',
+                        link: '/sync2/get-started.html'
+                    },
+                    {
+                        text: 'User Guide',
+                        link: '/sync2/user-guide/'
+                    }, {
+                        text: 'FAQ',
+                        link: '/sync2/faq/'
+                    }
+                ]
             },
-            {text:"Sync",
-            items: [
-                {
-                    text: 'Download',
-                    link: '/sync/download-and-install.html' 
-                },
-                {
-                    text: 'User Guide',
-                    link: '/sync/user-guide/' 
-                },
-                {
-                    text: 'FAQ',
-                    link: '/sync/faq' 
-                }
+            {
+                text: "Sync",
+                items: [
+                    {
+                        text: 'Download',
+                        link: '/sync/download-and-install.html'
+                    },
+                    {
+                        text: 'User Guide',
+                        link: '/sync/user-guide/'
+                    },
+                    {
+                        text: 'FAQ',
+                        link: '/sync/faq'
+                    }
                 ]
             }
         ]
-    },
-    {
-        text:'Tutorials',
-        link: '/tutorials/'
     },
     {
         text: 'Resources',
@@ -91,22 +89,25 @@ module.exports = [
             {
                 text: 'Development Resources',
                 link: '/others/development-resources.html'
+            },
+            {
+                text: 'Online Support',
+                items: [
+                    {
+                        text: 'VeChain Official',
+                        link: 'https://t.me/vechain_official_english'
+                    },
+                    {
+                        text: 'Dev Community',
+                        link: 'https://t.me/VeChainDevCommunity'
+                    }
+
+                ]
             }
         ]
     },
     {
-        text: 'Online Support', 
-        ariaLabel: 'Online Support',
-        items: [
-            {
-                text: 'VeChain Official',
-                link: 'https://t.me/vechain_official_english' 
-            },
-            {
-                text: 'Dev Community',
-                link: 'https://t.me/VeChainDevCommunity' 
-            }
-            
-        ]
+        text: 'Tutorials',
+        link: '/tutorials/'
     }
-]  
+]

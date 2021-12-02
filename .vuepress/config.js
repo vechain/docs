@@ -1,4 +1,5 @@
 const path = require('path')
+const sidebar = require('./sidebar/sidebar')
 module.exports = {
   base: !!process.env.BASE ? process.env.BASE : '/',
   locales: {
@@ -35,82 +36,67 @@ module.exports = {
     }
   },
   themeConfig: {
-    logo: '/logo.png',
-    sidebarDepth: 0,
-    smoothScroll: true,
-    activeHeaderLinks: false,
-
     repo: 'vechain/docs',
     docsRepo: 'vechain/docs',
     docsBranch: 'master',
     editLinks: true,
-    searchPlaceholder: 'Search keyword',
-
-    // specific configuraation for different languages
+    logo: '/logo.png',
+    sidebarDepth: 0,
+    smoothScroll: true,
+    activeHeaderLinks: false,
+    searchPlaceholder: 'Search',
+    algolia: {
+      apiKey: '1cf3bcfcda8c87948b832b6aff064e7f',
+      indexName: 'vechain'
+    },
     locales: {
       '/': {
         // text for the language dropdown
-        selectText: 'Languages',
+        selectText: '🌍',
         // label for this locale in the language dropdown
         label: 'English',
         // Aria Label for locale in the dropdown
         ariaLabel: 'Languages',
         // text for the edit-on-github link
         editLinkText: 'Help us to improve this page',
-        // search placeholder
-        // searchPlaceholder: 'Busca', NOT WORKING
-        // config for Service Worker
+        lastUpdated: 'Last Updated',
         serviceWorker: {
           updatePopup: {
             message: "New content is available.",
             buttonText: "Refresh"
           }
         },
-        // algolia docsearch options for current locale
-        algolia: {
-          apiKey: '1cf3bcfcda8c87948b832b6aff064e7f',
-          indexName: 'vechain'
-        },
         nav: require('./nav/en'),
         sidebar: {
-          '/thor/': getThorSidebar('Learn', 'Get Started', 'Thorest API'),
-          '/connex/': ['', 'api'],
-          '/sync2/': getSync2Sidebar('Get Sync2', 'User Guide', 'FAQ'),
-          '/sync/': getSyncSidebar('Download & Install', 'User Guide', 'FAQ'),
-          '/others/': ['', 'development-resources']
-        },
-        lastUpdated: 'Last Updated'
+          '/thor/': sidebar.getThorSidebar('Learn', 'Get Started', 'Thorest API'),
+          '/connex/': sidebar.getConnexSidebar('Connex', 'API Specification'),
+          '/sync2/': sidebar.getSync2Sidebar('Get Sync2', 'User Guide', 'FAQ'),
+          '/sync/': sidebar.getSyncSidebar('Download & Install', 'User Guide', 'FAQ'),
+          '/others/': sidebar.getOthersSidebar('Miscellaneous', 'development-resources')
+        }
       },
       '/pt/': {
         // text for the language dropdown
-        selectText: 'Idiomas',
+        selectText: '🌍',
         // label for this locale in the language dropdown
         label: 'Português',
         // Aria Label for locale in the dropdown
         ariaLabel: 'Idiomas',
         // text for the edit-on-github link
         editLinkText: 'Nos ajude a melhorar essa página',
-        // search placeholder
-        // searchPlaceholder: 'Busca', NOT WORKING
-        // config for Service Worker
         serviceWorker: {
           updatePopup: {
             message: "Conteúdo novo disponível.",
             buttonText: "Atualizar"
           }
         },
-        // algolia docsearch options for current locale
-        algolia: {
-          apiKey: '1cf3bcfcda8c87948b832b6aff064e7f',
-          indexName: 'vechain_pt'
-        },
         nav: require('./nav/pt'),
         sidebar: {
-          '/pt/thor/': getThorSidebar('Aprenda', 'Primeiros Passos', 'Thorest API'),
-          '/pt/connex/': ['', 'api'],
-          '/pt/sync2/': getSync2Sidebar('Obter Sync2', 'Manual do Usuário', 'Perguntas Frequentes'),
-          '/pt/sync/': getSyncSidebar('Download & Instalação', 'Manual do Usuário', 'Perguntas Frequentes'),
-          '/pt/others/': ['', 'development-resources']
+          '/pt/thor/': sidebar.getThorSidebar('Learn', 'Get Started', 'Thorest API'),
+          '/pt/connex/': sidebar.getConnexSidebar('Connex', 'API Specification'),
+          '/pt/sync2/': sidebar.getSync2Sidebar('Get Sync2', 'User Guide', 'FAQ'),
+          '/pt/sync/': sidebar.getSyncSidebar('Download & Install', 'User Guide', 'FAQ'),
+          '/pt/others/': sidebar.getOthersSidebar('Miscellaneous', 'development-resources')
         },
       }
     },
@@ -139,89 +125,5 @@ module.exports = {
         'ga': 'UA-132391998-6'
       }
     ]
-  ]
-}
-
-
-function getThorSidebar(sectionA, sectionB, sectionC) {
-  return [
-    {
-      title: sectionA,
-      collapsable: false,
-      children: [
-        'learn/',
-        'learn/two-token-design',
-        'learn/proof-of-authority',
-        'learn/builtin-contracts',
-        'learn/block',
-        'learn/transaction-model',
-        'learn/transaction-calculation',
-        'learn/fee-delegation'
-      ]
-    },
-    {
-      title: sectionB,
-      collapsable: false,
-      children: [
-        'get-started/installation',
-        'get-started/custom-network',
-      ]
-    },
-    {
-      title: sectionC,
-      path: 'get-started/api'
-    }
-  ]
-}
-//Sync Desktop
-function getSyncSidebar(sectionA, sectionB, sectionC) {
-  return [
-    {
-      title: sectionA,
-      path: 'download-and-install.html'
-    },
-    {
-      title: sectionB,
-      collapsable: false,
-      children: [
-        'user-guide/',
-        'user-guide/import-ledger',
-        'user-guide/browse-dapp-and-web',
-        'user-guide/interact-with-dapps',
-        'user-guide/activities',
-        'user-guide/settings',
-        'user-guide/report-issue',
-        'user-guide/contribute'
-      ]
-    },
-    {
-      title: sectionC,
-      path: 'faq'
-    }
-  ]
-}
-//Sync2
-function getSync2Sidebar(sectionA, sectionB, sectionC) {
-  return [
-    {
-      title: sectionA,
-      path: 'get-started'
-    },
-
-    {
-      title: sectionB,
-      collapsable: false,
-      children: [
-        'user-guide/',
-        'user-guide/wallet',
-        'user-guide/signing',
-        'user-guide/activities',
-        'user-guide/settings'
-      ]
-    },
-    {
-      title: sectionC,
-      path: 'faq'
-    }
   ]
 }
