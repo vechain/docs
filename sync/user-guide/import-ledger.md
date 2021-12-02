@@ -42,7 +42,7 @@ If all the steps cant solved the issue, Please contact [Ledger Support](https://
    - In VeChain App Setting ,set **Contract data** to **Yes**
    - In VeChain App Setting ,set **Multi-clause** to **Yes**
 
-3. **Sync :Unable to connect your device, please retry.**
+3. **Sync: Unable to connect your device, please retry.**
 
    - Close other applications (Ledger apps, crypto wallets, Geth, Parity, Mist, Bitcoin Core, etc).
    - Turn OFF VPN and anti-virus temporarily. If that works, make sure to whitelist Sync. 
@@ -50,6 +50,19 @@ If all the steps cant solved the issue, Please contact [Ledger Support](https://
    - Try different USB ports.
    - Restart your computer.
    - Try another computer.
+  
+###  Check account info failed 
+The error "**checking account info failed**" shown during the Ledger connection, means that the device you are trying to connect **IS NOT** the device that belongs to the wallet you imported. In other words, it's a brand new Ledger device you never imported. Please check that your Ledger device is the proper device that belongs to the selected account(imported wallet). 
+
+The easiest way to identify the issue is [import your ledger device](#import-ledger-device) again. if it appears two separate wallets then you can reset your device to get your wallet accessible. 
+
+Reset your Ledger device:
+1. Reset your Ledger device by entering three wrong PIN codes.
+2. [Restore from recovery phrase](https://support.ledger.com/hc/en-us/articles/4404382560913-Restore-from-recovery-phrase?support=true)
+  
+:::tip Note
+In case you have multiple Ledger hardware wallets set up with different recovery phrases, you should connect the device holding the recovery phrase used to import the account.
+:::
 
 ### Mis-transfer the funds to ethereum address
 Please check the [Ledger support-Export your accounts](https://support.ledger.com/hc/en-us/articles/115005297709-Export-your-accounts) instruction .Once the private key / keystore is exported, import to Sync wallet . 
