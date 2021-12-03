@@ -29,7 +29,7 @@ module.exports = {
     ],
     '/pt/connex/': [
         ['', 'Connex'],
-        ['api', 'API Specification']
+        ['api', 'Documentação API']
     ],
     '/pt/sync/': [
         {
@@ -78,7 +78,7 @@ module.exports = {
         }
     ],
     '/pt/others/': [
-        ['miscellaneous', 'Miscellaneous'],
-        ['development-resources', 'Development Resources']
+        ['miscellaneous', 'Outros'],
+        ['development-resources', 'Material Dev']
     ]
 }
