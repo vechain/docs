@@ -1,5 +1,5 @@
 const path = require('path')
-const sidebar = require('./sidebar/sidebar')
+
 module.exports = {
   base: !!process.env.BASE ? process.env.BASE : '/',
   locales: {
@@ -67,13 +67,7 @@ module.exports = {
           }
         },
         nav: require('./nav/en'),
-        sidebar: {
-          '/thor/': sidebar.getThorSidebar('Learn', 'Get Started', 'Thorest API'),
-          '/connex/': sidebar.getConnexSidebar('Connex', 'API Specification'),
-          '/sync2/': sidebar.getSync2Sidebar('Get Sync2', 'User Guide', 'FAQ'),
-          '/sync/': sidebar.getSyncSidebar('Download & Install', 'User Guide', 'FAQ'),
-          '/others/': sidebar.getOthersSidebar('Miscellaneous', 'development-resources')
-        }
+        sidebar: require('./sidebar/en')
       },
       '/pt/': {
         // text for the language dropdown
@@ -91,13 +85,7 @@ module.exports = {
           }
         },
         nav: require('./nav/pt'),
-        sidebar: {
-          '/pt/thor/': sidebar.getThorSidebar('Learn', 'Get Started', 'Thorest API'),
-          '/pt/connex/': sidebar.getConnexSidebar('Connex', 'API Specification'),
-          '/pt/sync2/': sidebar.getSync2Sidebar('Get Sync2', 'User Guide', 'FAQ'),
-          '/pt/sync/': sidebar.getSyncSidebar('Download & Install', 'User Guide', 'FAQ'),
-          '/pt/others/': sidebar.getOthersSidebar('Miscellaneous', 'development-resources')
-        },
+        sidebar: require('./sidebar/pt')
       }
     },
   },
