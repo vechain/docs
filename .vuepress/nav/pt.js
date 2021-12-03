@@ -84,11 +84,11 @@ module.exports = [
             },
             {
                 text: 'Outros',
-                link: '/others/miscellaneous.html'
+                link: '/pt/others/miscellaneous.html'
             },
             {
                 text: 'Material Dev',
-                link: '/others/development-resources.html'
+                link: '/pt/others/development-resources.html'
             },
             {
                 text: 'Suporte Online',
