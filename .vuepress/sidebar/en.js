@@ -1,7 +1,7 @@
-const getThorSidebar = (sectionA, sectionB, sectionC) => {
-    return [
+module.exports = {
+    '/thor/': [
         {
-            title: sectionA,
+            title: 'Learn',
             collapsable: false,
             children: [
                 'learn/',
@@ -15,7 +15,7 @@ const getThorSidebar = (sectionA, sectionB, sectionC) => {
             ]
         },
         {
-            title: sectionB,
+            title: 'Get Started',
             collapsable: false,
             children: [
                 'get-started/installation',
@@ -23,21 +23,21 @@ const getThorSidebar = (sectionA, sectionB, sectionC) => {
             ]
         },
         {
-            title: sectionC,
+            title: 'Thorest API',
             path: 'get-started/api'
         }
-    ]
-}
-
-//Sync Desktop
-const getSyncSidebar = (sectionA, sectionB, sectionC) => {
-    return [
+    ],
+    '/connex/': [
+        ['', 'Connex'],
+        ['api', 'API Specification']
+    ],
+    '/sync/': [
         {
-            title: sectionA,
+            title: 'Download & Install',
             path: 'download-and-install.html'
         },
         {
-            title: sectionB,
+            title: 'User Guide',
             collapsable: false,
             children: [
                 'user-guide/',
@@ -51,22 +51,18 @@ const getSyncSidebar = (sectionA, sectionB, sectionC) => {
             ]
         },
         {
-            title: sectionC,
+            title: 'FAQ',
             path: 'faq'
         }
-    ]
-}
-
-//Sync2
-const getSync2Sidebar = (sectionA, sectionB, sectionC) => {
-    return [
+    ],
+    '/sync2/': [
         {
-            title: sectionA,
+            title: 'Get Sync2',
             path: 'get-started'
         },
 
         {
-            title: sectionB,
+            title: 'User Guide',
             collapsable: false,
             children: [
                 'user-guide/',
@@ -77,28 +73,12 @@ const getSync2Sidebar = (sectionA, sectionB, sectionC) => {
             ]
         },
         {
-            title: sectionC,
+            title: 'FAQ',
             path: 'faq'
         }
+    ],
+    '/others/': [
+        ['miscellaneous', 'Miscellaneous'],
+        ['development-resources', 'Development Resources']
     ]
 }
-
-const getConnexSidebar = (sectionA, sectionB) => {
-    return [
-        ['', sectionA],
-        ['api', sectionB]
-    ]
-}
-
-const getOthersSidebar = (sectionA, sectionB) => {
-    return [
-        ['', sectionA],
-        ['development-resources', sectionB]
-    ]
-}
-
-exports.getThorSidebar = getThorSidebar
-exports.getSyncSidebar = getSyncSidebar
-exports.getSync2Sidebar = getSync2Sidebar
-exports.getConnexSidebar = getConnexSidebar
-exports.getOthersSidebar = getOthersSidebar

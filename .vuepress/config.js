@@ -1,5 +1,5 @@
 const path = require('path')
-const sidebar = require('./sidebar/sidebar')
+
 module.exports = {
   base: !!process.env.BASE ? process.env.BASE : '/',
   locales: {
@@ -7,6 +7,11 @@ module.exports = {
       lang: 'en-US', // this will be set as the lang attribute on <html>
       title: 'VeChain Docs',
       description: 'Everything you need to know about VeChainThor'
+    },
+    '/pt/': {
+      lang: 'pt-br',
+      title: 'VeChain Docs',
+      description: 'Tudo que você precisa saber sobre VeChainThor'
     }
   },
   head: [
@@ -62,15 +67,27 @@ module.exports = {
           }
         },
         nav: require('./nav/en'),
-        sidebar: {
-          '/thor/': sidebar.getThorSidebar('Learn', 'Get Started', 'Thorest API'),
-          '/connex/': sidebar.getConnexSidebar('Connex', 'API Specification'),
-          '/sync2/': sidebar.getSync2Sidebar('Get Sync2', 'User Guide', 'FAQ'),
-          '/sync/': sidebar.getSyncSidebar('Download & Install', 'User Guide', 'FAQ'),
-          '/others/': sidebar.getOthersSidebar('Miscellaneous', 'development-resources')
-        }
+        sidebar: require('./sidebar/en')
+      },
+      '/pt/': {
+        // text for the language dropdown
+        selectText: '🌍',
+        // label for this locale in the language dropdown
+        label: 'Português',
+        // Aria Label for locale in the dropdown
+        ariaLabel: 'Idiomas',
+        // text for the edit-on-github link
+        editLinkText: 'Nos ajude a melhorar essa página',
+        serviceWorker: {
+          updatePopup: {
+            message: "Conteúdo novo disponível.",
+            buttonText: "Atualizar"
+          }
+        },
+        nav: require('./nav/pt'),
+        sidebar: require('./sidebar/pt')
       }
-    }
+    },
   },
   plugins: [
     [
