@@ -239,3 +239,62 @@ ref: [connex API - transaction signing service](/connex/api.html#transaction-sig
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+### 6. Estimate the transaction fee
+> GasPriceCoef can be adjust by the user, thus, the result of the transaction fee is the minimum cost of the transaction.
+
+<br>
+<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="result" data-slug-hash="zYENZGE" data-preview="true" data-user="xjwx89" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/xjwx89/pen/zYENZGE">
+  Demo - estimate transaction fee</a> by shaohuaiW (<a href="https://codepen.io/xjwx89">@xjwx89</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<br>
+
+ **Prerequisites**:
+ 1. Need to know the ***Base gas price*** from [params](/others/miscellaneous.md#params-sol) contract
+ 2. According to [transaction calculation](/thor/learn/transaction-calculation.md) 
+      - we need to calculate the ***intrinsic gas***
+      - we need to know the ***vm gasUsed*** (aka. virtual machine execution cost)
+
+#### Step 1: Get base gas price
+<br>
+<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="result" data-slug-hash="RwLKREe" data-preview="true" data-user="xjwx89" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/xjwx89/pen/RwLKREe">
+  Demo- get baseGasPrice</a> by shaohuaiW (<a href="https://codepen.io/xjwx89">@xjwx89</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<br>
+
+#### Step 2: Get intrinsic gas
+<br>
+<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="result" data-slug-hash="QWqdKeq" data-preview="true" data-user="xjwx89" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/xjwx89/pen/QWqdKeq">
+  Demo - get intrinsic gas</a> by shaohuaiW (<a href="https://codepen.io/xjwx89">@xjwx89</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<br>
+
+#### Step 3: Get vm gas used
+<br>
+<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="result" data-slug-hash="GRMrjzp" data-preview="true" data-user="xjwx89" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/xjwx89/pen/GRMrjzp">
+  Demo- get vm gas</a> by shaohuaiW (<a href="https://codepen.io/xjwx89">@xjwx89</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<br>
+
+### 7. Enforce signer
+<br>
+<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="result" data-slug-hash="rNGwvvL" data-preview="true" data-user="xjwx89" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/xjwx89/pen/rNGwvvL">
+  Demo - enforce signer</a> by shaohuaiW (<a href="https://codepen.io/xjwx89">@xjwx89</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<br>
