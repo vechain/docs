@@ -3,13 +3,13 @@ sidebarDepth: 1
 ---
 # Connex
 
-Connex is the standard interface to connect dApps with VeChain blockchain and users. Aiming to help developers building decentralized applications.
+Connex é a interface padrão para conectar dApps com o VeChain blockchain e usuários. Tem como objetivo ajudar programadores a desenvolver aplicações decentralizadas.
 
-## Installation
+## Instalação
 
-### Include in `<script>` tag
+### Incluir `<script>` tag
 
-Just include the CDN link within a script tag. `Connex` will then be registered as a global variable.
+Basta incluir script tag com link do CDN. `Connex` estará então registrada como uma variável global.
 
 ```html
 <!-- install the latest v2 -->
@@ -18,7 +18,7 @@ Just include the CDN link within a script tag. `Connex` will then be registered 
 
 ### NPM
 
-It's recommended when your project is a bit large.
+Recomendado caso seu projeto seja muito grande.
 
 ``` sh
 npm i @vechain/connex
@@ -28,9 +28,9 @@ npm i @vechain/connex
 import Connex from '@vechain/connex'
 ```
 
-## Setup
+## Configuração
 
-### Create a Connex object connects to VeChain mainnet
+### Criando objeto Connex e conectando com VeChain mainnet
 
 ```ts
 const connex = new Connex({
@@ -39,7 +39,7 @@ const connex = new Connex({
 })
 ```
 
-### Connect to testnet
+### Conectando com testnet
 
 ```ts
 const connex = new Connex({
@@ -48,7 +48,7 @@ const connex = new Connex({
 })
 ```
 
-### Or connect to a private network
+### Conectando à uma rede privada
 
 ```ts
 const connex = new Connex({
@@ -61,9 +61,9 @@ const connex = new Connex({
 })
 ```
 
-### Create `Vendor` module only
+### Criando módulo `Vendor`
 
-In some cases, e.g. the classic ['Buy me a coffee'](https://codepen.io/qianbin/pen/YzGBeOB) demo, you don't need the ability to access the blockchain. You can opt-out `Connex.Thor` module, and just create `Connex.Vendor` module.
+Em alguns casos, por exemplo o clássico ['Buy me a coffee'](https://codepen.io/qianbin/pen/YzGBeOB), você não precisa da abilidade de acessar o blockchain. Você pode optar por não utilizar o módulo `Connex.Thor`, e apenas criar o módulo `Connex.Vendor`.
 
 ```ts
 const vendor = new Connex.Vendor('main') // 'main','test' or genesis ID if it's private network
@@ -71,12 +71,12 @@ const vendor = new Connex.Vendor('main') // 'main','test' or genesis ID if it's 
 
 ## Playground
  
- Package [@vechain/connex-repl](https://www.npmjs.com/package/@vechain/connex-repl) provides a quick way to try out connex interface.
+ O pacote [@vechain/connex-repl](https://www.npmjs.com/package/@vechain/connex-repl) contém uma forma rápida de experimentar a interface connex.
 
-## Source Code
+## Código Fonte
 
-+ [connex](https://github.com/vechain/connex/blob/master/packages/connex): The out of the box Connex implementation for browser.
-+ [framework](https://github.com/vechain/connex/blob/master/packages/framework): Implements Connex interface.
-+ [driver](https://github.com/vechain/connex/blob/master/packages/driver): Implements Connex.Driver interface.
-+ [repl](https://github.com/vechain/connex/blob/master/packages/repl): The REPL style command-line playground.
-+ [types](https://github.com/vechain/connex/blob/master/packages/types): Connex interface declarations presented in Typescript.
++ [connex](https://github.com/vechain/connex/blob/master/packages/connex): Implemantação Connex para browsers, pronta pra usar.
++ [framework](https://github.com/vechain/connex/blob/master/packages/framework): Implementação da interface Connex.
++ [driver](https://github.com/vechain/connex/blob/master/packages/driver): Implementação Connex. Interface driver.
++ [repl](https://github.com/vechain/connex/blob/master/packages/repl): Playground linha de comando em estilo REPL.
++ [types](https://github.com/vechain/connex/blob/master/packages/types): Declarações da interface Connex em Typescript.
