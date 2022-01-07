@@ -7,6 +7,8 @@ Connex is the standard interface to connect dApps with VeChain blockchain and us
 
 ## Installation
 
+Installing connex into your web-based applications.
+
 ### Include in `<script>` tag
 
 Just include the CDN link within a script tag. `Connex` will then be registered as a global variable.
@@ -68,6 +70,10 @@ In some cases, e.g. the classic ['Buy me a coffee'](https://codepen.io/qianbin/p
 ```ts
 const vendor = new Connex.Vendor('main') // 'main','test' or genesis ID if it's private network
 ```
+
+## Using in Node.js environment
+
+This package, **@vechain/connex** is designed only working in browser, if you are interested running it in Node.js, try [@vechain/connex-framework](https://github.com/vechain/connex/tree/master/packages/framework).
 
 ## Playground
  
