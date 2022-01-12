@@ -36,7 +36,6 @@ This article is helping you to understand how to use `connex2` to build a Dapp a
    4. Sync2 - [create testnet wallet](/sync2/user-guide/wallet.html#custom-network-wallet)
 
 2. Claim testnet token
-   - Visit [omg.outofgas.io](https://omg.outofgas.io)- *VIP191 feature/ sign transaction* 
    - Visit [Testnet faucet](https://faucet.vecha.in)- *sign certificate*
 
 ## Learn & play
