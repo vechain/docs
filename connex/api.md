@@ -1011,6 +1011,7 @@ connex.vendor.sign('tx', [
 .gas(200000) // Set maximum gas
 .link('https://connex.vecha.in/{txid}') // User will be back to the app by the url https://connex.vecha.in/0xffff....
 .comment('Donate 100 VET and 1000 VeThor to the author of connex')
+.request()
 .then(result=>{
     console.log(result)
 })
