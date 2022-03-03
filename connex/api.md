@@ -872,7 +872,7 @@ Returns `Thor.Explainer`
 + `gasPrice` - `(gp: string): this`: Set gas price in hex string
 + `gasPayer` - `(addr: string):this`: Set gas payer
 + `cache` - `(hints: string[]): this`: Turn on caching for the explainer and set the condition of cache invalidation, read [more](#caching-a-contract-call).
-+ `execute`: execute to get the output
++ `execute` - `(): Promise<Array<VM.Output>>`: execute to get the output
 
 #### Execute the explainer
 
@@ -976,13 +976,9 @@ Returns `Connex.Vendor.TxSigningService` or `Connex.Vendor.CertSigningService`
 + `comment` - `(text: string): this`: Set the comment for the transaction that will be revealed to the user
 + `delegate` - `(url: string, signer: string): this`: Enable VIP-191 by setting the url and the fee payer's address. Wallets(Sync2) will request fee payer's signature with the url and required parameters, read [this](https://github.com/vechain/VIPs/blob/master/vips/VIP-201.md#explicit-grant-flow) to get the detail about building a VIP-191 service
 + `accepted` - `(cb: ()=>void): this`: Register a callback function which will be fired once user's wallet accepted the request
-+ `request`: Perform the request
++ `request` - `(): Promise<Connex.Vendor.TXResponse>`: Perform the request
 
 #### Perform Transaction Signing Request
-
-**Parameters**
-
-+ `msg` - `Array<TxMessage>`
 
 Returns `Promise<Connex.Vendor.TXResponse>:`
 + `txid` - `string`: Transaction identifier
@@ -1052,11 +1048,9 @@ The certificate is a message signing based mechanism which can easily request us
 + `signer` - `(addr: string): this`: Enforces the specified address to sign the certificate
 + `link` - `(url: string): this`: Set the link to reveal certificate-related information, the link will be used for connex to assemble a `callback url` by replacing the placeholder `{certid}` by `Certificate ID`, which is computed by `blake2b256(Certificate.encode(cert))`
 + `accepted` - `(cb: ()=>void): this`: Register a callback function which will be fired once user's wallet accepted the request
-+ `request`: Send the request
++ `request` - `(): Promise<Connex.Vendor.CertResponse>`: Send the request
 
 #### Perform Certificate Signing Request
-
-**Parameters**
 
 Returns `Promise<Connex.Vendor.CertResponse>`:
 + `annex`:
