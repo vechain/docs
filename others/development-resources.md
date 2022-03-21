@@ -6,13 +6,13 @@ sidebar: auto
 
 ## Guide
 
-- [Official tutorials](https://docs.vechain.org/tutorials/)
+- [Tutorials](https://docs.vechain.org/tutorials/) - Tutorial articles that helps you to explore the VeChain step by step.
 
 - [Awesome list](https://github.com/vechain-community/awesome-list)  - Here you find more resources from community and helps to get you started.
 
 - [Useful tips for building a dApp](https://docs.vechain.org/tutorials/Useful-tips-for-building-a-dApp.html) - This article is helping you to understand how to use connex2 to build a Dapp and also how it interacts between the user,application, and Sync2.
 
-- [Miscellaneous](https://docs.vechain.org/others/miscellaneous.html)
+- [Miscellaneous](https://docs.vechain.org/others/miscellaneous.html) - a list that helps you to find built-in contract ABIs, chain tag and more.
 
 
 ## Tools
@@ -30,7 +30,7 @@ sidebar: auto
 
 ## Explorers
 
-- [VeChain Explorer](https://explore.vechain.org)  - VeChain Explorer enables you to explore and search transactions, addresses,  and other activities taking place on the VeChainThor blockchain
+- [VeChain Explorer](https://explore.vechain.org)  - VeChain Explorer enables you to explore and search transactions, addresses, and other activities taking place on the VeChainThor blockchain
 
 - [Insight](https://insight.vecha.in/#/) - A serverless VeChain explorer. It allows you to explore and search for blocks, transactions and accounts.
 
@@ -47,12 +47,11 @@ sidebar: auto
 
 ## Wallets
 
+- Sync2 ([Desktop](https://sync.vecha.in/) / [Android](https://github.com/vechain/sync2#supported-platforms) / [build from source](https://github.com/vechain/sync2#build-from-source)) The next-generation VeChain wallet for all platforms.
 
-- [Sync2](https://sync.vecha.in/) - [Windows, Mac, Linux, Android](https://github.com/vechain/sync2#supported-platforms) 
+- Sync ([Desktop](https://env.vechain.org/#sync)) - Provides seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users. 
 
-- [Sync](https://env.vechain.org/#sync) - Windows, Mac 
-
-- VeChainThor Wallet - [iOS](https://apps.apple.com/us/app/id1397679485), [Android](https://play.google.com/store/apps/details?id=com.vechain.wallet&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) 
+- VeChainThor Wallet ([iOS](https://apps.apple.com/us/app/id1397679485) / [Android](https://play.google.com/store/apps/details?id=com.vechain.wallet&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)) - a light mobile wallet app to provide users with a secure, simple, fully functional portal of the VeChainThor blockchain.
 
 
 ## Public Services
@@ -90,17 +89,14 @@ Public nodes allow you to test all the features without setting up your own node
   - [https://vethor-node-test.vechaindev.com](https://vethor-node-test.vechaindev.com/)- *provided by VeChain Foundation*
   - [VeBlocks Public Nodes](https://github.com/mirei83/VeChain-PublicNodes)- *provided by VeBlocks*
 
-  
-## Online Support
-
-- [VeChain Official](https://t.me/vechain_official_english)
-
-- [Dev Community](https://t.me/VeChainDevCommunity)
-  
-  
 :::tip Note
 1. The public nodes are not designed for the production environment, and VeChain Foundation does not guarantee the reliability and availability.
 
 2. VeBlocks Public Nodes is a community project to support all developers and allow them everywhere-access to the blockchain, without the need to have a full node with them. For more information, please visit [VeBlocks Public Nodes](https://github.com/mirei83/VeChain-PublicNodes) 
 :::
 
+## Online Support
+
+- [VeChain Official](https://t.me/vechain_official_english)
+
+- [Dev Community](https://t.me/VeChainDevCommunity)
