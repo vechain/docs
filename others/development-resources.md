@@ -14,19 +14,13 @@ sidebar: auto
 
 - [Miscellaneous](https://docs.vechain.org/others/miscellaneous.html) - a list that helps you to find built-in contract ABIs, chain tag and more.
 
+## Wallets
 
-## Tools
+- Sync2 ([Desktop](https://sync.vecha.in/) / [Android](https://github.com/vechain/sync2#supported-platforms) / [build from source](https://github.com/vechain/sync2#build-from-source)) The next-generation VeChain wallet for all platforms.
 
-- [Connex](/connex/README.md) - Connex is the standard interface to connect dApps with VeChain blockchain and users. Aiming to help developers building decentralized applications.
+- Sync ([Desktop](https://env.vechain.org/#sync)) - Provides seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users. 
 
-- Thor-devkit([JavaScript](https://github.com/vechain/thor-devkit.js) / [Java](https://github.com/laalaguer/thor-devkit.java) / [Python](https://github.com/vechain/thor-devkit.py) / [C#](https://github.com/vechain/thor-devkit.netcore) ) - SDKs for DApp development
-
-- [Rosetta API](https://github.com/vechain/rosetta) - Rosetta Blockchain Standard Implementation for VeChain.
-
-- [Online IDE](https://libotony.github.io/vide-web/) - a browser-based compiler and IDE that enables users to build contracts with Solidity language and to debug transactions.
-
-- [Inspector](https://inspector.vecha.in/#/contracts) - A tool that allows you to deploy and interact with the contract.
-
+- VeChainThor Wallet ([iOS](https://apps.apple.com/us/app/id1397679485) / [Android](https://play.google.com/store/apps/details?id=com.vechain.wallet&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)) - a light mobile wallet app to provide users with a secure, simple, fully functional portal of the VeChainThor blockchain.
 
 ## Explorers
 
@@ -36,23 +30,25 @@ sidebar: auto
 
 - [VeChainStats](https://vechainstats.com/) -  VeChain Blockchain statistics
 
+## Tools
 
-## Demos
-- [Buy me a coffee](https://github.com/vechain/buy-me-a-coffee) - A demo allows your supporter to support your work by donating VET
-  
-- [Energy Station(Testnet Only)](https://energy.outofgas.io/) - A demo allows you to exchange energy(VeThor) and VET on VeChain Thor blockchain.
-  
-- [My-tokens](https://tokens.vecha.in/) - A demo allows you to transfer tokens
+- [Connex](/connex/README.md) - Connex is the standard interface to connect dApps with VeChain blockchain and users. Aiming to help developers building decentralized applications.
 
+- [web3 providers connex](https://github.com/zzGHzz/web3-providers-connex) - Web3.js provider implemented using Connex.js. It makes possible to use web3.js to interact with the VeChain Thor protocol.
 
-## Wallets
+- Thor-devkit([JavaScript](https://github.com/vechain/thor-devkit.js) / [Java](https://github.com/laalaguer/thor-devkit.java) / [Python](https://github.com/vechain/thor-devkit.py) / [C#](https://github.com/vechain/thor-devkit.netcore) ) - SDKs for DApp development
 
-- Sync2 ([Desktop](https://sync.vecha.in/) / [Android](https://github.com/vechain/sync2#supported-platforms) / [build from source](https://github.com/vechain/sync2#build-from-source)) The next-generation VeChain wallet for all platforms.
+- [Thorify](https://github.com/vechain/thorify) - A web3 adaptor for VeChain Thor RESTful API.
 
-- Sync ([Desktop](https://env.vechain.org/#sync)) - Provides seamless experience for users and developers. Which is designed to provide the superior user experiences for VeChain Apps, and serves as the dApp environment to provide unlimited potential for developers and users. 
+- [thor-requests.py](https://github.com/laalaguer/thor-requests.py) - This library enables you to talk to VeChain blockchain without hassle.
 
-- VeChainThor Wallet ([iOS](https://apps.apple.com/us/app/id1397679485) / [Android](https://play.google.com/store/apps/details?id=com.vechain.wallet&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)) - a light mobile wallet app to provide users with a secure, simple, fully functional portal of the VeChainThor blockchain.
+- [Rosetta API](https://github.com/vechain/rosetta) - Rosetta Blockchain Standard Implementation for VeChain.
 
+- [Online IDE](https://libotony.github.io/vide-web/) - a browser-based compiler and IDE that enables users to build contracts with Solidity language and to debug transactions.
+
+- [Inspector](https://inspector.vecha.in/#/contracts) - A tool that allows you to deploy and interact with the contract.
+
+- [Fee Delegation as a Service (DaaS)](https://github.com/mongelly/stormbreaker-feedelegation-service) - an infrastructure-level module that provides a framework for setting up a fee-delegation service based on the VIP-191 protocol.
 
 ## Public Services
 
@@ -72,9 +68,14 @@ sidebar: auto
 
 - [Picasso](https://github.com/vechain/picasso#vanilla-js) - General purpose deterministic identity icon library in svg format, mostly for VeChain thor addresses.
 
-- [Fee Delegation as a Service (DaaS)](https://github.com/mongelly/stormbreaker-feedelegation-service) - an infrastructure-level module that provides a framework for setting up a fee-delegation service based on the VIP-191 protocol.
 
-- [web3 providers connex](https://github.com/zzGHzz/web3-providers-connex) - Web3.js provider implemented using Connex.js. It makes possible to use web3.js to interact with the VeChain Thor protocol.
+## Demos
+- [Buy me a coffee](https://github.com/vechain/buy-me-a-coffee) - A demo allows your supporter to support your work by donating VET
+  
+- [Energy Station(Testnet Only)](https://energy.outofgas.io/) - A demo allows you to exchange energy(VeThor) and VET on VeChain Thor blockchain.
+  
+- [My-tokens](https://tokens.vecha.in/) - A demo allows you to transfer tokens
+
 
 ## Public Nodes
 Public nodes allow you to test all the features without setting up your own node. Below are the available nodes for development and testing.
