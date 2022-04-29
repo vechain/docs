@@ -50,6 +50,11 @@ sidebar: auto
 
 - [Fee Delegation as a Service (DaaS)](https://github.com/mongelly/stormbreaker-feedelegation-service) - an infrastructure-level module that provides a framework for setting up a fee-delegation service based on the VIP-191 protocol.
 
+- vechain.energy ([Mainnet](https://vechain.energy) / [Testnet](https://testnet.vechain.energy)) - Fee Delegation as a Service for VeChain developers
+
+- [Hardhat VeChain Thor plugin](https://gitlab.com/vechain.energy/common/hardhat-thor) - Hardhat-thor allows to deploy and interact with contracts through hardhat with VeChain
+
+
 ## Public Services
 
 - [Testnet faucet](https://faucet.vecha.in/) - Provides VET and VTHO on testnet freely. It is designed to help developers test applications as well as provide users an alternative to experience dApps on the VeChainThor blockchain
