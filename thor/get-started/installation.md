@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Thor requires `Go` 1.12+ and `C` compiler to build. To install `Go`, follow this [link](https://golang.org/doc/install). 
+Thor requires `Go` 1.13+ and `C` compiler to build. To install `Go`, follow this [link](https://golang.org/doc/install). 
 
 ## Getting the source
 
@@ -12,15 +12,6 @@ Clone the Thor [repo](https://github.com/vechain/thor):
 git clone https://github.com/vechain/thor.git
 cd thor
 ```
-
-### Dependency management
-
-Simply run:
-```bash
-make dep
-```
-
-If you keep getting network error, it is suggested to use [Go Module Proxy](https://golang.org/cmd/go/#hdr-Module_proxy_protocol). [https://proxy.golang.org/](https://proxy.golang.org/) is one option.
 
 ### Building
 
