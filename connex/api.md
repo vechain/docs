@@ -398,7 +398,7 @@ Returns [VM.Clause](#vm-clause)
 // Convert 1 VeThor to VET, which needs to perform two action approve VeThor and convertForVET
 const dex = '0xD015D91B42BEd5FeaF242082b11B83B431abBf4f'
 const approveABI = {"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
-const approveMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(transferABI)
+const approveMethod = connex.thor.account('0x0000000000000000000000000000456E65726779').method(approveABI)
 const convertForVetABI= {"constant":false,"inputs":[{"name":"_sellAmount","type":"uint256"},{"name":"_minReturn","type":"uint256"}],"name":"convertForVET","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"}
 const convertForVetMethod = connex.thor.account(dex).method(convertForVetABI)
 
