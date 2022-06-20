@@ -11,6 +11,7 @@ tags:
 prev: false
 next: false
 ---
+# Intro
 This guide will show every step to running a solo node and connecting it to Sync2. The SOLO node is a sandbox development mode for the VeChain Thor blockchain, that can be started (and is only available) on a single server. It is not publicly accessible and the generated blocks will be lost if the SOLO node is stopped.Sync2 is designed to work with all mainstream web browsers (e.g., Chrome, Safari, MS Edge, Firefox, etc), desktop, and mobile devices.
 
 ## Step 1 : Launch the solo node

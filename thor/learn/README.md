@@ -20,8 +20,8 @@ Meta-transaction features native to VeChain Thor blockchain’s core protocol, s
 Authority Masternode Operators, with the aligned interest in the development of VeChain ecosystem, maintain the VeChainThor protocol according to the Foundation's governance policy. PoA addresses enterprise' common concerns of inefficient upgrade and waste of energy.
 
 * Low computation power required to achieve the network security and consensus integrity
-* Controlled via the built-in smart contract, hard forks can be avoided in case authority mastemodes fail to upgrade
-* All Authority Masternode Operator identities are strictly verified by the Foundation
+* Controlled via the built-in smart contract, hard forks can be avoided in case Authority Masternodes fail to upgrade
+* All Authority Masternodes Operator identities are strictly verified by the Foundation
 
 ## Governance
 The balance between decentralization and centralization ensures efficiency and transparency. Community-elected Steering Committee, as the governing body of the ecosystem, facilitates decision making and execution supported by the on-chain governance mechanism.

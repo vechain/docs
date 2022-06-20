@@ -9,7 +9,7 @@ tags:
     - sync
 ---
 
-## Intro
+# Intro
 This article is helping you to understand how to use `connex2` to build a Dapp and also how it interacts between the **user**,**application**, and **Sync2**. 
 
 > `connex` is the standard interface between VeChainThor and the user.
@@ -94,7 +94,7 @@ Transaction visitor is a bunch of APIs to get transaction details.
 Transaction receipt
 - **reverted**: Several reasons can cause the transaction to revert. It means that the transaction data is passed through to a virtual machine(aka. VM) but not able to process. The most common reasons are `insufficient balance` and smart contract `not able to execute data`.
 
-- **gasPayer**: the address which paid the transaction fee. It is an important factor to determine the transaction is whether using fee delegation or not. If the transaction is paid by another address, the `txOrgin` and `gasPayer` will be different..
+- **gasPayer**: the address which paid the transaction fee. It is an important factor to determine the transaction is whether using fee delegation or not. If the transaction is paid by another address, the `txOrigin` and `gasPayer` will be different..
  
 - **txOrigin**: the address which signed the transaction
 :::
