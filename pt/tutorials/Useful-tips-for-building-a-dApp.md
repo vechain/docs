@@ -95,7 +95,7 @@ Transaction visitor is a bunch of APIs to get transaction details.
 Transaction receipt
 - **reverted**: Several reasons can cause the transaction to revert. It means that the transaction data is passed through to a virtual machine(aka. VM) but not able to process. The most common reasons are `insufficient balance` and smart contract `not able to execute data`.
 
-- **gasPayer**: the address which paid the transaction fee. It is an important factor to determine the transaction is whether using fee delegation or not. If the transaction is paid by another address, the `txOrgin` and `gasPayer` will be different..
+- **gasPayer**: the address which paid the transaction fee. It is an important factor to determine the transaction is whether using fee delegation or not. If the transaction is paid by another address, the `txOrigin` and `gasPayer` will be different..
  
 - **txOrigin**: the address which signed the transaction
 :::
