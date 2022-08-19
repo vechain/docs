@@ -1,7 +1,7 @@
 ---
 sidebarDepth: 2
 ---
-# Thorest API <Badge text="1.3.2" type="tip"/>
+# Thorest API <Badge text="2.0.0" type="tip"/>
 RESTful API to access VeChain Thor Network
 
 
@@ -440,14 +440,14 @@ Access to blocks
 
 #### Summary:
 
-by ID or number, or 'best' for latest block. If `expanded` query option is true, all transactions along with their receipts will be embedded under `transactions` field instead of ids.
+by ID or number, or 'best' for latest block or 'finalized' for finalized block. If `expanded` query option is true, all transactions along with their receipts will be embedded under `transactions` field instead of ids.
 
 
 #### Parameters
 
 | Parameter | Type  |Required| Description |  Example |
 | ---- | ---------- | ----------- | -------- | ---- |
-|revision|string|required|block ID or number, or 'best' stands for latest block|`best` (latest block )<br> `3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
+|revision|string|required|<div style="width: 160pt"> **'best'** for latest block; **'finalized'** for finalized block;</div> **block ID** or **block number**|`best` (latest block )<br> `finalized` (finalized block)<br>`3877527` (block# 3877527) <br> `0x003b2a97095a93d92b8dd45db88f0f90beaec398717ffd1d356b519c35ead4d0` (block#3877527 ID)|
 expanded|boolean|optional|whether the returned block is expanded.|`true` or `false`|
 
 #### Responses
@@ -492,8 +492,10 @@ https://sync-testnet.vechain.org/blocks/best?expanded=true
   "txsFeatures": 0,
   "stateRoot": "0x86bcc6d214bc9d8d0dedba1012a63c8317d19ce97f60c8a2ef5c59bbd40d4261",
   "receiptsRoot": "0x15787e2533c470e8a688e6cd17a1ee12d8457778d5f82d2c109e2d6226d8e54e",
+  "com": true,
   "signer": "0xab7b27fc9e7d29f9f2e5bd361747a5515d0cc2d1",
   "isTrunk": true,
+  "isFinalized": false,
   "transactions": [
     "0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477"
   ]
@@ -793,6 +795,7 @@ subscribe interested subject
   "txsFeatures": 0,
   "stateRoot": "0x86bcc6d214bc9d8d0dedba1012a63c8317d19ce97f60c8a2ef5c59bbd40d4261",
   "receiptsRoot": "0x15787e2533c470e8a688e6cd17a1ee12d8457778d5f82d2c109e2d6226d8e54e",
+  "com": true,
   "signer": "0xab7b27fc9e7d29f9f2e5bd361747a5515d0cc2d1",
   "transactions": [
     "0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477"
@@ -1241,9 +1244,11 @@ Related Model :
 |txsFeatures|integer(uint32)|supported txs features bitset|0|
 |stateRoot|string(byte32)|root hash of accounts state|0x86bcc6d214bc9d8d0dedba1012a63c8317d19ce97f60c8a2ef5c59bbd40d4261|
 |receiptsRoot|string(byte32)|root hash of transaction receipts|0x15787e2533c470e8a688e6cd17a1ee12d8457778d5f82d2c109e2d6226d8e54e|
+|com <Badge text="2.0.0" type="tip"/>|boolean|whether the block signer voted COM(Commit) in BFT|`true` or `false`.|
 |signer|string(byte20)|the one who signed this block|0xab7b27fc9e7d29f9f2e5bd361747a5515d0cc2d1|
 |transactions|array|transaction IDs|[0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477]
 |isTrunk|boolean|whether the block is on the trunk| `true` or `false`. if it is `false`, the block is branch block |
+|isFinalized <Badge text="2.0.0" type="tip"/>|boolean|whether the block is finalized|`true` or `false`.|
 </details>
 :::
 
@@ -1424,6 +1429,7 @@ refers to the range from block 10 to block 1000.
 |txsFeatures|integer(uint32)|supported txs features bitset|0|
 |stateRoot|string(byte32)|root hash of accounts state|0x86bcc6d214bc9d8d0dedba1012a63c8317d19ce97f60c8a2ef5c59bbd40d4261|
 |receiptsRoot|string(byte32)|root hash of transaction receipts|0x15787e2533c470e8a688e6cd17a1ee12d8457778d5f82d2c109e2d6226d8e54e|
+|com <Badge text="2.0.0" type="tip"/>|boolean|whether the block signer voted COM(Commit) in BFT|`true` or `false`.|
 |signer|string(byte20)|the one who signed this block|0xab7b27fc9e7d29f9f2e5bd361747a5515d0cc2d1|
 |transactions|array|transaction IDs|[0x284bba50ef777889ff1a367ed0b38d5e5626714477c40de38d71cedd6f9fa477]
 |obsolete|boolean|indicates whether the block containing this data become branch block| `true` or `false`. if it is `false`, the block is branch block |

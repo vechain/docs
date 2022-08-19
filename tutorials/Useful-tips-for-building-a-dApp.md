@@ -9,7 +9,7 @@ tags:
     - sync
 ---
 
-# Intro
+# Useful tips for building a dApp by using Connex2
 This article is helping you to understand how to use `connex2` to build a Dapp and also how it interacts between the **user**,**application**, and **Sync2**. 
 
 > `connex` is the standard interface between VeChainThor and the user.

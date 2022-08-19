@@ -27,13 +27,13 @@ The purpose of this version is to allow developers and some users to preview upc
 #### Install Sync2 on Windows
 1. [Download the installation file](https://sync.vecha.in/)
 2. If prompted, click **Run** or **Save**.
-3. Open the file called "Sync.exe"
+3. Open the file called "Sync2-win-{VERSION}.exe"
 4. Follow the steps to install
 
 #### Install Sync2 on MacOS
 1. [Download the installation file](https://sync.vecha.in/)
-2. Open the file called "Sync.dmg"
-3. **Drag** Sync to the application folder 
+2. Open the file called "Sync2-mac-{Architecture}-{version}.dmg"
+3. **Drag** Sync2 application to the application folder 
 
 #### Install Sync2 on Linux
 1. [Download the installation file](https://sync.vecha.in/)
@@ -45,5 +45,5 @@ The purpose of this version is to allow developers and some users to preview upc
 7. AppImageLauncher will be launched and prompt *first run* configuration, Click **OK** 
 8. After the configuration, Click **Integrate and run**
 ### Mobile
-- **Android** : Download the latest **apk file** [here](https://github.com/vechain/sync2/releases/latest)
+- **Android** : Download the latest **apk file** [here](https://sync.vecha.in/) / [Github](https://github.com/vechain/sync2/releases/latest)
 - **iOS** : work in progress
