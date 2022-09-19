@@ -101,6 +101,12 @@ Public nodes allow you to test all the features without setting up your own node
 2. VeBlocks Public Nodes is a community project to support all developers and allow them everywhere-access to the blockchain, without the need to have a full node with them. For more information, please visit [VeBlocks Public Nodes](https://github.com/mirei83/VeChain-PublicNodes) 
 :::
 
+## Nodes Provider
+If you're looking for a Stellar node and don't want to spend engineering time maintaining and managing nodes yourself, the best alternative refers to a node provider.
+
+[NOWNodes](https://nownodes.io/nodes/stellar-xlm)
+Through the utilization of the blockchain-as-a-service provider such as NOWNodes, you can get easy access to data surrounding anything that happens on top of the network, 24/7.
+
 ## Online Support
 
 - [VeChain Official](https://t.me/vechain_official_english)
