@@ -1499,7 +1499,7 @@ refers to the range from block 10 to block 1000.
 
 | Name | Type  | Description | Example|
 | ---- | ----------- | -------- |  -------- |
-|name|string|name of tracer. Empty name stands for default struct logger tracer.|4byte, bigram, call, evmdis, noop, opcount, prestate, trigram, unigram |
+|name|string|name of tracer. Empty name stands for default struct logger tracer.|4byte, call, noop, prestate |
 |target|string|the unified path of target to be traced. Currently, only clause is supported. Format: `blockID`/ (`txIndex` or `txId`)/ `clauseIndex`|0x000dabb4d6f0a80ad7ad7cd0e07a1f20b546db0730d869d5ccb0dd2a16e7595b|
 </details>
 :::
