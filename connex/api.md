@@ -38,15 +38,16 @@ Returns [Thor.Status](#thor-status)
 console.log(connex.thor.status)
 
 >{
-    "progress": 1,
     "head": {
-        "id": "0x0016611b340204e5bd76a83f70eea4731575309f23a27e11011169c491359b7d",
-        "number": 1466651,
-        "timestamp": 1544688650,
-        "parentID": "0x0016611a3fc23044b8b4cbb27283b50f04deb4d132dfdd72342770f35206a8ad",
+        "id": "0x00d801f2b19ece57b722f5a45ee4d0569201e81d40c3efccbf911613be98c05f",
+        "number": 14156274,
+        "timestamp": 1671594090,
+        "parentID": "0x00d801f12541216d63e6e631ab4f2702b11463e649a33120e5a70ff101042e31",
         "txsFeatures": 1,
-        "gasLimit": 16000000
-    }
+        "gasLimit": 30000000
+    },
+    "progress": 1,
+    "finalized": "0x00d7ffdc678fb95d20f9484d9e45966a0db49a2d83222344e005963f3ed76faa"
 }
 ```
 
@@ -1116,6 +1117,7 @@ connex.vendor.sign('cert',{
     + `parentID` - `string`: ID of the parent block (bytes32)
     + `txFeatures` - `number`: Bitset of supported txs features
     + `gasLimit` - `number`: Block gaslimit
++ `finalized` - `string`: Identifier of the finalized block (bytes32)
 
 ### Thor.Block
 
