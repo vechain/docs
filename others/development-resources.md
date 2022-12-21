@@ -95,6 +95,9 @@ Public nodes allow you to test all the features without setting up your own node
   - [https://vethor-node-test.vechaindev.com](https://vethor-node-test.vechaindev.com/)- *provided by VeChain Foundation*
   - [VeBlocks Public Nodes](https://github.com/mirei83/VeChain-PublicNodes)- *provided by VeBlocks*
 
+## Full Nodes and Block Explorers provider:
+- [NOWNodes](https://nownodes.io) - provide access to VET full node and explorer. Get free API key to test blockchain-as-a-service solution.
+
 :::tip Note
 1. The public nodes are not designed for the production environment, and VeChain Foundation does not guarantee the reliability and availability.
 
