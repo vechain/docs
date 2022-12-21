@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Transaction Dependency | VeChain Docs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="VeChainThor provides a safety mechanism that allows users to force a TX to depend on the success of another TX.">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="keywords" content="vechain, documentation, docs, thor, connex, sync, official">
+    <meta name="google-site-verification" content="yvT2mNLTy-gN9NFUXxNNJR7zIsWLrEvcWNZg_m91pwA">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="preload" href="/assets/css/0.styles.3e4faf6e.css" as="style"><link rel="preload" href="/assets/js/app.f6ee0754.js" as="script"><link rel="preload" href="/assets/js/3.4d15505d.js" as="script"><link rel="preload" href="/assets/js/70.cf8b45c9.js" as="script"><link rel="preload" href="/assets/js/20.e801da5b.js" as="script"><link rel="prefetch" href="/assets/js/10.694ead51.js"><link rel="prefetch" href="/assets/js/100.69de5222.js"><link rel="prefetch" href="/assets/js/101.c112e028.js"><link rel="prefetch" href="/assets/js/102.1b158bf6.js"><link rel="prefetch" href="/assets/js/103.f6c70881.js"><link rel="prefetch" href="/assets/js/104.9deaead9.js"><link rel="prefetch" href="/assets/js/105.f779af09.js"><link rel="prefetch" href="/assets/js/106.8b3fad22.js"><link rel="prefetch" href="/assets/js/107.1ff5dc39.js"><link rel="prefetch" href="/assets/js/11.2529a28e.js"><link rel="prefetch" href="/assets/js/12.3fa1dc23.js"><link rel="prefetch" href="/assets/js/13.a59b6543.js"><link rel="prefetch" href="/assets/js/14.e3667f8b.js"><link rel="prefetch" href="/assets/js/15.66ef4414.js"><link rel="prefetch" href="/assets/js/16.cad6f982.js"><link rel="prefetch" href="/assets/js/17.544f97dc.js"><link rel="prefetch" href="/assets/js/18.585cf9e3.js"><link rel="prefetch" href="/assets/js/19.56051040.js"><link rel="prefetch" href="/assets/js/21.e55ea010.js"><link rel="prefetch" href="/assets/js/22.508702fa.js"><link rel="prefetch" href="/assets/js/23.2ce8eb40.js"><link rel="prefetch" href="/assets/js/24.501d283d.js"><link rel="prefetch" href="/assets/js/25.dbcd6f95.js"><link rel="prefetch" href="/assets/js/26.fb9e3edb.js"><link rel="prefetch" href="/assets/js/27.99b1fecb.js"><link rel="prefetch" href="/assets/js/28.69fad62f.js"><link rel="prefetch" href="/assets/js/29.347150de.js"><link rel="prefetch" href="/assets/js/30.b0ea5628.js"><link rel="prefetch" href="/assets/js/31.9cfbaae0.js"><link rel="prefetch" href="/assets/js/32.112eabdd.js"><link rel="prefetch" href="/assets/js/33.172a48e0.js"><link rel="prefetch" href="/assets/js/34.777c964e.js"><link rel="prefetch" href="/assets/js/35.fe719197.js"><link rel="prefetch" href="/assets/js/36.ae6e0c34.js"><link rel="prefetch" href="/assets/js/37.a6478f53.js"><link rel="prefetch" href="/assets/js/38.0ceb1eb9.js"><link rel="prefetch" href="/assets/js/39.f2a2ef74.js"><link rel="prefetch" href="/assets/js/4.45804240.js"><link rel="prefetch" href="/assets/js/40.a2db98a8.js"><link rel="prefetch" href="/assets/js/41.bf13ef19.js"><link rel="prefetch" href="/assets/js/42.2137bbba.js"><link rel="prefetch" href="/assets/js/43.acc3cc81.js"><link rel="prefetch" href="/assets/js/44.5419475b.js"><link rel="prefetch" href="/assets/js/45.1d1169d8.js"><link rel="prefetch" href="/assets/js/46.8fc4c13d.js"><link rel="prefetch" href="/assets/js/47.18e13c2e.js"><link rel="prefetch" href="/assets/js/48.8e52e794.js"><link rel="prefetch" href="/assets/js/49.f694ffb4.js"><link rel="prefetch" href="/assets/js/5.e43b6327.js"><link rel="prefetch" href="/assets/js/50.682abf64.js"><link rel="prefetch" href="/assets/js/51.edf1e039.js"><link rel="prefetch" href="/assets/js/52.1d36ffc0.js"><link rel="prefetch" href="/assets/js/53.7a1de32c.js"><link rel="prefetch" href="/assets/js/54.af3b3e82.js"><link rel="prefetch" href="/assets/js/55.379dbfae.js"><link rel="prefetch" href="/assets/js/56.f79c4db8.js"><link rel="prefetch" href="/assets/js/57.5937cc2e.js"><link rel="prefetch" href="/assets/js/58.39e4e0fc.js"><link rel="prefetch" href="/assets/js/59.7b54f7f4.js"><link rel="prefetch" href="/assets/js/6.f5ca39ac.js"><link rel="prefetch" href="/assets/js/60.42d518c5.js"><link rel="prefetch" href="/assets/js/61.ce2cd750.js"><link rel="prefetch" href="/assets/js/62.f56ccfc4.js"><link rel="prefetch" href="/assets/js/63.7ff3688d.js"><link rel="prefetch" href="/assets/js/64.e0ffbed9.js"><link rel="prefetch" href="/assets/js/65.b036c22f.js"><link rel="prefetch" href="/assets/js/66.187673b2.js"><link rel="prefetch" href="/assets/js/67.cef2ea87.js"><link rel="prefetch" href="/assets/js/68.67973f73.js"><link rel="prefetch" href="/assets/js/69.3c92b0ed.js"><link rel="prefetch" href="/assets/js/7.408a4531.js"><link rel="prefetch" href="/assets/js/71.cb63eb13.js"><link rel="prefetch" href="/assets/js/72.219193ea.js"><link rel="prefetch" href="/assets/js/73.16dfd38c.js"><link rel="prefetch" href="/assets/js/74.3307e1eb.js"><link rel="prefetch" href="/assets/js/75.09511393.js"><link rel="prefetch" href="/assets/js/76.dadd4e57.js"><link rel="prefetch" href="/assets/js/77.f0318240.js"><link rel="prefetch" href="/assets/js/78.14f0b327.js"><link rel="prefetch" href="/assets/js/79.e2eb56dc.js"><link rel="prefetch" href="/assets/js/8.ab6ca9a0.js"><link rel="prefetch" href="/assets/js/80.3157595b.js"><link rel="prefetch" href="/assets/js/81.271fd932.js"><link rel="prefetch" href="/assets/js/82.51731c48.js"><link rel="prefetch" href="/assets/js/83.99177532.js"><link rel="prefetch" href="/assets/js/84.94e04a72.js"><link rel="prefetch" href="/assets/js/85.1adb920f.js"><link rel="prefetch" href="/assets/js/86.fcea88f2.js"><link rel="prefetch" href="/assets/js/87.6130bf31.js"><link rel="prefetch" href="/assets/js/88.5adca661.js"><link rel="prefetch" href="/assets/js/89.4d7c5e9e.js"><link rel="prefetch" href="/assets/js/9.5145463a.js"><link rel="prefetch" href="/assets/js/90.8ceed48c.js"><link rel="prefetch" href="/assets/js/91.95568576.js"><link rel="prefetch" href="/assets/js/92.f6a0befa.js"><link rel="prefetch" href="/assets/js/93.1738a0fe.js"><link rel="prefetch" href="/assets/js/94.60238599.js"><link rel="prefetch" href="/assets/js/95.b840cd5e.js"><link rel="prefetch" href="/assets/js/96.9dc1dbc0.js"><link rel="prefetch" href="/assets/js/97.52b5bf25.js"><link rel="prefetch" href="/assets/js/98.928117ff.js"><link rel="prefetch" href="/assets/js/99.30d6a224.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.b15e65d3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3e4faf6e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/pt/" class="home-link router-link-active"><img src="/logo.png" alt="VeChain Docs" class="logo"> <span class="site-name can-hide">VeChain Docs</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thor" class="dropdown-title"><span class="title">Thor</span> <span class="arrow down"></span></button> <button type="button" aria-label="Thor" class="mobile-dropdown-title"><span class="title">Thor</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/thor/learn/" class="nav-link">
+  Aprenda
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/installation.html" class="nav-link">
+  Primerios Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/api.html" class="nav-link">
+  Thorest API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Connex" class="dropdown-title"><span class="title">Connex</span> <span class="arrow down"></span></button> <button type="button" aria-label="Connex" class="mobile-dropdown-title"><span class="title">Connex</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/connex/index.html" class="nav-link">
+  Primeiros Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/connex/api.html" class="nav-link">
+  Especificações da API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Sync" class="dropdown-title"><span class="title">Sync</span> <span class="arrow down"></span></button> <button type="button" aria-label="Sync" class="mobile-dropdown-title"><span class="title">Sync</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Sync2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync2/get-started.html" class="nav-link">
+  Obter Sync2
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/faq/" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Sync
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync/download-and-install.html" class="nav-link">
+  Download
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/faq.html" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Recursos" class="dropdown-title"><span class="title">Recursos</span> <span class="arrow down"></span></button> <button type="button" aria-label="Recursos" class="mobile-dropdown-title"><span class="title">Recursos</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://explore.vechain.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Explorador
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://apps.vechain.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  App-hub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/pt/others/miscellaneous.html" class="nav-link">
+  Outros
+</a></li><li class="dropdown-item"><!----> <a href="/pt/others/development-resources.html" class="nav-link">
+  Material Dev
+</a></li><li class="dropdown-item"><h4>
+          Suporte Online
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://t.me/vechain_official_english" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VeChain Oficial
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://t.me/VeChainDevCommunity" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Comunidade Dev
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/pt/tutorials/" class="nav-link router-link-active">
+  Tutoriais
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Idiomas" class="dropdown-title"><span class="title">🌍</span> <span class="arrow down"></span></button> <button type="button" aria-label="Idiomas" class="mobile-dropdown-title"><span class="title">🌍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tutorials/forcible-transaction-dependency.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/pt/tutorials/forcible-transaction-dependency.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Português
+</a></li></ul></div></div> <a href="https://github.com/vechain/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thor" class="dropdown-title"><span class="title">Thor</span> <span class="arrow down"></span></button> <button type="button" aria-label="Thor" class="mobile-dropdown-title"><span class="title">Thor</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/thor/learn/" class="nav-link">
+  Aprenda
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/installation.html" class="nav-link">
+  Primerios Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/api.html" class="nav-link">
+  Thorest API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Connex" class="dropdown-title"><span class="title">Connex</span> <span class="arrow down"></span></button> <button type="button" aria-label="Connex" class="mobile-dropdown-title"><span class="title">Connex</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/connex/index.html" class="nav-link">
+  Primeiros Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/connex/api.html" class="nav-link">
+  Especificações da API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Sync" class="dropdown-title"><span class="title">Sync</span> <span class="arrow down"></span></button> <button type="button" aria-label="Sync" class="mobile-dropdown-title"><span class="title">Sync</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Sync2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync2/get-started.html" class="nav-link">
+  Obter Sync2
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/faq/" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Sync
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync/download-and-install.html" class="nav-link">
+  Download
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/faq.html" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Recursos" class="dropdown-title"><span class="title">Recursos</span> <span class="arrow down"></span></button> <button type="button" aria-label="Recursos" class="mobile-dropdown-title"><span class="title">Recursos</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://explore.vechain.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Explorador
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://apps.vechain.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  App-hub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/pt/others/miscellaneous.html" class="nav-link">
+  Outros
+</a></li><li class="dropdown-item"><!----> <a href="/pt/others/development-resources.html" class="nav-link">
+  Material Dev
+</a></li><li class="dropdown-item"><h4>
+          Suporte Online
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://t.me/vechain_official_english" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VeChain Oficial
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://t.me/VeChainDevCommunity" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Comunidade Dev
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/pt/tutorials/" class="nav-link router-link-active">
+  Tutoriais
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Idiomas" class="dropdown-title"><span class="title">🌍</span> <span class="arrow down"></span></button> <button type="button" aria-label="Idiomas" class="mobile-dropdown-title"><span class="title">🌍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tutorials/forcible-transaction-dependency.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/pt/tutorials/forcible-transaction-dependency.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Português
+</a></li></ul></div></div> <a href="https://github.com/vechain/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="transaction-dependency"><a href="#transaction-dependency" class="header-anchor">#</a> Transaction Dependency</h1> <p>VeChainThor provides a safety mechanism that allows users to force a TX to depend on the success of another TX. In other words, if this feature is turned on, the system will check the status of the TX the current TX depends on. Only if the status says successful, then the current TX will be accepted for processing by the system.
+Here by successful, we mean two things:
+the TX has been included in the ledger, and
+it has been successfully executed, or not reverted in the blockchain language.
+The second requirement is particularly important since seeing a TX included in the ledger does not guarantee that it has been successfully executed. A TX can be included, but with a status “Reverted” which means that the system does not actually do what the TX asks it to do. In practice, a TX can be reverted due to the insufficient amount of gas provided by the sender. It can also be reverted by the smart-contract function it calls. For instance, a TX would be reverted by a token-transfer function if the sender did not have a larger enough token balance.
+Note that you can make your TX to depend on any TX as long as you provide its <em>TXID</em>. For the depended TX, there is no limitation on who sends it or when it is sent or what it is about. It offers developers a lot of flexibilities and we can only do that thanks to the design of the VeChainThor’s TXID.
+Let me explain how such a mechanism is implemented in VeChainThor.
+It has been done with the help of a field in the TX model, called <code>DependsOn</code> (see the <code>body</code> structure defined in <code>$THORDIR/tx/transaction.go</code>) as well as some extra validation logic implemented by the code below for validating TXs within a block (see function verifyBlock in <code>$THORDIR/consensus/validator.go</code>).</p> <div class="language- extra-class"><pre class="language-text"><code>// check depended tx 
+if dep := tx.DependsOn(); dep != nil { 
+  found, reverted, err := findTx(*dep) 
+  if err != nil { 
+    return nil, nil, err 
+  } 
+  if !found { 
+    return nil, nil, consensusError(&quot;tx dep broken&quot;) 
+  } 
+  if reverted { 
+    return nil, nil, consensusError(&quot;tx dep reverted&quot;) 
+  } 
+}
+</code></pre></div><p>Now let us have a close look at the code.
+According to its definition, <code>DependsOn</code> is a pointer pointing to the ID of the TX it depends on. The first thing the code does is to get the value of the current TX's <code>DependsOn</code> value via <code>dep := tx.DependsOn()</code>. If the field is set, it goes to check the status of the referred TX using its TXID through <code>found, reverted, err := findTx(*dep)</code>. The rest of code first checks whether the TX exists and then whether it's been reverted. It rejects the current TX if either check fails.
+Demo
+I made a little demo to demonstrate the effectiveness of the forcible-TX-dependency mechanism I just talked about. The demo code is written in TypeScript and can be found here. I used two newly developed tools connex-framework and connex.driver-nodejs in my code. Together, they provide a convenient way for developers to interact with VeChainThor through the Connex interface in a NodeJS environment.</p> <p>I hard coded two account addresses, named acc1 and acc2 and acc1's private key,</p> <div class="language- extra-class"><pre class="language-text"><code>const sk = '0x29a9...1a7'; 
+const acc1 = '0x858...2c4'; 
+const acc2 = '0x914...85d';
+</code></pre></div><p>and used the VeChain <a href="https://faucet.vecha.in/" target="_blank" rel="noopener noreferrer">TestNet Faucet<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> to acquire sufficient funds for running the demo on the VeChainThor testnet.
+What does the demo do?
+The demo does the following things:</p> <ol><li>It sends TX <code>TX1</code> that transfers 1 VET from <code>acc1</code> to <code>acc2</code>. <code>TX1</code> is given sufficient amount of gas to allow it be successfully executed;</li> <li>It sends TX <code>TX2</code> that transfers 1 VTHO from <code>acc1</code> to <code>acc2</code>. <code>TX2</code> is given insufficient amount of gas to make it reverted;</li> <li>It sends TX <code>TX3</code> that transfers 1 VET from <code>acc1</code> to <code>acc2</code> and depends on a TX not existing in the ledger;</li> <li>It sends TX <code>TX4</code> that transfers 1 VET from <code>acc1</code> to <code>acc2</code> and depends on <code>TX1</code>;</li> <li>It sends TX <code>TX5</code> that transfers 1 VET from <code>acc1</code> to <code>acc2</code> and depends on <code>TX2</code>;</li> <li>It then checks the status of the above five TXs whenever a new block is incoming within the period of five new blocks. It will show that <code>TX3</code> and <code>TX5</code> cannot be found since the TXs they depend on prevent them from being processed.
+Note that I constructed TXs depending on TXs sent from the same account just for convenience. In practice, you can make your TX to depend on any TX as long as you provide its TXID.
+Results
+Now let us have a look at what the demo outputs for my run.</li></ol> <div class="language- extra-class"><pre class="language-text"><code>Sent TX1 with ID = 0x6f7874438429ce31d89b68ceb1dacf3fba012149b57f9781f6d9b5c707eedde5
+... 
+Sent TX2 with ID = 0x9f8f9bec9593f74d9353ac7f1087afa32646638155e6a448dc35d60788d958b5 ... 
+Sent TX3 with ID = 0x319b70009a8234107a2d08c3dbf9e93396330892badb03b5c4cebac391d68c2d TX3 depends on an nonexisting TXID 
+... 
+Sent TX4 with ID = 0x1c30f07aae653711ab3284062afe557f1674c56d625114326230b041d79f9931 TX4 depends on TX1 
+... 
+Sent TX5 with ID = 0xd92e5ffcf3e9ff11f33c59b814869c23df75c7cc49773fcb95ccc8b9bd420a43 TX5 depends on TX2 ...
+</code></pre></div><p>The first few lines give me some information of the five TXs the demo just created and sent to the VeChainThor testnet. We can see their TXIDs as well as all the TX dependencies. Note that The demo deliberately sets the <code>DependsOn</code> value of <code>TX3</code> as <code>0x1</code>, which means that <code>TX3</code> depends on a TX with a TXID equal to 0x1. Such a TX has not been found by far.</p> <div class="language- extra-class"><pre class="language-text"><code>-------------------------- 
+Block Number = 3170840 
+-------------------------- 
+... 
+Checking TX1 with ID = 0x6f7874438429ce31d89b68ceb1dacf3fba012149b57f9781f6d9b5c707eedde5 ... 
+TX1 found! If reverted: false 
+... 
+Checking TX2 with ID = 0x9f8f9bec9593f74d9353ac7f1087afa32646638155e6a448dc35d60788d958b5 ... 
+TX2 found! If reverted: true 
+... 
+Checking TX3 with ID = 0x319b70009a8234107a2d08c3dbf9e93396330892badb03b5c4cebac391d68c2d ... 
+TX3 not found! 
+... 
+Checking TX4 with ID = 0x1c30f07aae653711ab3284062afe557f1674c56d625114326230b041d79f9931 ... 
+TX4 not found! 
+... 
+Checking TX5 with ID = 0xd92e5ffcf3e9ff11f33c59b814869c23df75c7cc49773fcb95ccc8b9bd420a43 ... 
+TX5 not found! 
+...After sending the TXs, the demo starts to check their status in the ledger every time it detects a new block, lasting for five consecutive blocks. At the time I ran the code, the first incoming new block was at the height of 3170840. The corresponding output shows that TX1 and TX2 were already included in the ledger. Moreover, we can see that TX2 was reverted by the system as what we wanted it to be.
+</code></pre></div><p>After sending the TXs, the demo starts to check their status in the ledger every time it detects a new block, lasting for five consecutive blocks. At the time I ran the code, the first incoming new block was at the height of 3170840. The corresponding output shows that TX1 and TX2 were already included in the ledger. Moreover, we can see that TX2 was reverted by the system as what we wanted it to be.</p> <div class="language- extra-class"><pre class="language-text"><code>-------------------------- 
+Block Number = 3170841 
+-------------------------- 
+... 
+Checking TX3 with ID = 0x319b70009a8234107a2d08c3dbf9e93396330892badb03b5c4cebac391d68c2d ... 
+TX3 not found! 
+... 
+Checking TX4 with ID = 0x1c30f07aae653711ab3284062afe557f1674c56d625114326230b041d79f9931 ... 
+TX4 found! If reverted: false 
+... 
+Checking TX5 with ID = 0xd92e5ffcf3e9ff11f33c59b814869c23df75c7cc49773fcb95ccc8b9bd420a43 ... 
+TX5 not found! 
+...
+At the next block height (3170841), TX4 was logged in the ledger, but not TX3 and TX5. As expected, they were not found in the ledger at the next three block heights.
+
+</code></pre></div><h2 id="conclusion"><a href="#conclusion" class="header-anchor">#</a> Conclusion</h2> <p>In this article, I have described and demonstrated one particular VeChainThor feature that allows users to force a transaction dependency. In particular, if a TX is made to depends on another TX, it would be accepted for processing only when the referred TX has existed in the ledger and not been reverted.</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/vechain/docs/edit/master/pt/tutorials/forcible-transaction-dependency.md" target="_blank" rel="noopener noreferrer">Nos ajude a melhorar essa página</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/21/2022, 4:00:57 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.f6ee0754.js" defer></script><script src="/assets/js/3.4d15505d.js" defer></script><script src="/assets/js/70.cf8b45c9.js" defer></script><script src="/assets/js/20.e801da5b.js" defer></script>
+  </body>
+</html>

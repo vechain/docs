@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Connex1 升级到 Connex2 | VeChain Docs</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="Code examples for upgrading Connex">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="keywords" content="vechain, documentation, docs, thor, connex, sync, official">
+    <meta name="google-site-verification" content="yvT2mNLTy-gN9NFUXxNNJR7zIsWLrEvcWNZg_m91pwA">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="preload" href="/assets/css/0.styles.3e4faf6e.css" as="style"><link rel="preload" href="/assets/js/app.f6ee0754.js" as="script"><link rel="preload" href="/assets/js/3.4d15505d.js" as="script"><link rel="preload" href="/assets/js/64.e0ffbed9.js" as="script"><link rel="preload" href="/assets/js/20.e801da5b.js" as="script"><link rel="prefetch" href="/assets/js/10.694ead51.js"><link rel="prefetch" href="/assets/js/100.69de5222.js"><link rel="prefetch" href="/assets/js/101.c112e028.js"><link rel="prefetch" href="/assets/js/102.1b158bf6.js"><link rel="prefetch" href="/assets/js/103.f6c70881.js"><link rel="prefetch" href="/assets/js/104.9deaead9.js"><link rel="prefetch" href="/assets/js/105.f779af09.js"><link rel="prefetch" href="/assets/js/106.8b3fad22.js"><link rel="prefetch" href="/assets/js/107.1ff5dc39.js"><link rel="prefetch" href="/assets/js/11.2529a28e.js"><link rel="prefetch" href="/assets/js/12.3fa1dc23.js"><link rel="prefetch" href="/assets/js/13.a59b6543.js"><link rel="prefetch" href="/assets/js/14.e3667f8b.js"><link rel="prefetch" href="/assets/js/15.66ef4414.js"><link rel="prefetch" href="/assets/js/16.cad6f982.js"><link rel="prefetch" href="/assets/js/17.544f97dc.js"><link rel="prefetch" href="/assets/js/18.585cf9e3.js"><link rel="prefetch" href="/assets/js/19.56051040.js"><link rel="prefetch" href="/assets/js/21.e55ea010.js"><link rel="prefetch" href="/assets/js/22.508702fa.js"><link rel="prefetch" href="/assets/js/23.2ce8eb40.js"><link rel="prefetch" href="/assets/js/24.501d283d.js"><link rel="prefetch" href="/assets/js/25.dbcd6f95.js"><link rel="prefetch" href="/assets/js/26.fb9e3edb.js"><link rel="prefetch" href="/assets/js/27.99b1fecb.js"><link rel="prefetch" href="/assets/js/28.69fad62f.js"><link rel="prefetch" href="/assets/js/29.347150de.js"><link rel="prefetch" href="/assets/js/30.b0ea5628.js"><link rel="prefetch" href="/assets/js/31.9cfbaae0.js"><link rel="prefetch" href="/assets/js/32.112eabdd.js"><link rel="prefetch" href="/assets/js/33.172a48e0.js"><link rel="prefetch" href="/assets/js/34.777c964e.js"><link rel="prefetch" href="/assets/js/35.fe719197.js"><link rel="prefetch" href="/assets/js/36.ae6e0c34.js"><link rel="prefetch" href="/assets/js/37.a6478f53.js"><link rel="prefetch" href="/assets/js/38.0ceb1eb9.js"><link rel="prefetch" href="/assets/js/39.f2a2ef74.js"><link rel="prefetch" href="/assets/js/4.45804240.js"><link rel="prefetch" href="/assets/js/40.a2db98a8.js"><link rel="prefetch" href="/assets/js/41.bf13ef19.js"><link rel="prefetch" href="/assets/js/42.2137bbba.js"><link rel="prefetch" href="/assets/js/43.acc3cc81.js"><link rel="prefetch" href="/assets/js/44.5419475b.js"><link rel="prefetch" href="/assets/js/45.1d1169d8.js"><link rel="prefetch" href="/assets/js/46.8fc4c13d.js"><link rel="prefetch" href="/assets/js/47.18e13c2e.js"><link rel="prefetch" href="/assets/js/48.8e52e794.js"><link rel="prefetch" href="/assets/js/49.f694ffb4.js"><link rel="prefetch" href="/assets/js/5.e43b6327.js"><link rel="prefetch" href="/assets/js/50.682abf64.js"><link rel="prefetch" href="/assets/js/51.edf1e039.js"><link rel="prefetch" href="/assets/js/52.1d36ffc0.js"><link rel="prefetch" href="/assets/js/53.7a1de32c.js"><link rel="prefetch" href="/assets/js/54.af3b3e82.js"><link rel="prefetch" href="/assets/js/55.379dbfae.js"><link rel="prefetch" href="/assets/js/56.f79c4db8.js"><link rel="prefetch" href="/assets/js/57.5937cc2e.js"><link rel="prefetch" href="/assets/js/58.39e4e0fc.js"><link rel="prefetch" href="/assets/js/59.7b54f7f4.js"><link rel="prefetch" href="/assets/js/6.f5ca39ac.js"><link rel="prefetch" href="/assets/js/60.42d518c5.js"><link rel="prefetch" href="/assets/js/61.ce2cd750.js"><link rel="prefetch" href="/assets/js/62.f56ccfc4.js"><link rel="prefetch" href="/assets/js/63.7ff3688d.js"><link rel="prefetch" href="/assets/js/65.b036c22f.js"><link rel="prefetch" href="/assets/js/66.187673b2.js"><link rel="prefetch" href="/assets/js/67.cef2ea87.js"><link rel="prefetch" href="/assets/js/68.67973f73.js"><link rel="prefetch" href="/assets/js/69.3c92b0ed.js"><link rel="prefetch" href="/assets/js/7.408a4531.js"><link rel="prefetch" href="/assets/js/70.cf8b45c9.js"><link rel="prefetch" href="/assets/js/71.cb63eb13.js"><link rel="prefetch" href="/assets/js/72.219193ea.js"><link rel="prefetch" href="/assets/js/73.16dfd38c.js"><link rel="prefetch" href="/assets/js/74.3307e1eb.js"><link rel="prefetch" href="/assets/js/75.09511393.js"><link rel="prefetch" href="/assets/js/76.dadd4e57.js"><link rel="prefetch" href="/assets/js/77.f0318240.js"><link rel="prefetch" href="/assets/js/78.14f0b327.js"><link rel="prefetch" href="/assets/js/79.e2eb56dc.js"><link rel="prefetch" href="/assets/js/8.ab6ca9a0.js"><link rel="prefetch" href="/assets/js/80.3157595b.js"><link rel="prefetch" href="/assets/js/81.271fd932.js"><link rel="prefetch" href="/assets/js/82.51731c48.js"><link rel="prefetch" href="/assets/js/83.99177532.js"><link rel="prefetch" href="/assets/js/84.94e04a72.js"><link rel="prefetch" href="/assets/js/85.1adb920f.js"><link rel="prefetch" href="/assets/js/86.fcea88f2.js"><link rel="prefetch" href="/assets/js/87.6130bf31.js"><link rel="prefetch" href="/assets/js/88.5adca661.js"><link rel="prefetch" href="/assets/js/89.4d7c5e9e.js"><link rel="prefetch" href="/assets/js/9.5145463a.js"><link rel="prefetch" href="/assets/js/90.8ceed48c.js"><link rel="prefetch" href="/assets/js/91.95568576.js"><link rel="prefetch" href="/assets/js/92.f6a0befa.js"><link rel="prefetch" href="/assets/js/93.1738a0fe.js"><link rel="prefetch" href="/assets/js/94.60238599.js"><link rel="prefetch" href="/assets/js/95.b840cd5e.js"><link rel="prefetch" href="/assets/js/96.9dc1dbc0.js"><link rel="prefetch" href="/assets/js/97.52b5bf25.js"><link rel="prefetch" href="/assets/js/98.928117ff.js"><link rel="prefetch" href="/assets/js/99.30d6a224.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.b15e65d3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3e4faf6e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/pt/" class="home-link router-link-active"><img src="/logo.png" alt="VeChain Docs" class="logo"> <span class="site-name can-hide">VeChain Docs</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thor" class="dropdown-title"><span class="title">Thor</span> <span class="arrow down"></span></button> <button type="button" aria-label="Thor" class="mobile-dropdown-title"><span class="title">Thor</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/thor/learn/" class="nav-link">
+  Aprenda
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/installation.html" class="nav-link">
+  Primerios Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/api.html" class="nav-link">
+  Thorest API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Connex" class="dropdown-title"><span class="title">Connex</span> <span class="arrow down"></span></button> <button type="button" aria-label="Connex" class="mobile-dropdown-title"><span class="title">Connex</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/connex/index.html" class="nav-link">
+  Primeiros Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/connex/api.html" class="nav-link">
+  Especificações da API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Sync" class="dropdown-title"><span class="title">Sync</span> <span class="arrow down"></span></button> <button type="button" aria-label="Sync" class="mobile-dropdown-title"><span class="title">Sync</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Sync2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync2/get-started.html" class="nav-link">
+  Obter Sync2
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/faq/" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Sync
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync/download-and-install.html" class="nav-link">
+  Download
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/faq.html" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Recursos" class="dropdown-title"><span class="title">Recursos</span> <span class="arrow down"></span></button> <button type="button" aria-label="Recursos" class="mobile-dropdown-title"><span class="title">Recursos</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://explore.vechain.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Explorador
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://apps.vechain.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  App-hub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/pt/others/miscellaneous.html" class="nav-link">
+  Outros
+</a></li><li class="dropdown-item"><!----> <a href="/pt/others/development-resources.html" class="nav-link">
+  Material Dev
+</a></li><li class="dropdown-item"><h4>
+          Suporte Online
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://t.me/vechain_official_english" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VeChain Oficial
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://t.me/VeChainDevCommunity" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Comunidade Dev
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/pt/tutorials/" class="nav-link router-link-active">
+  Tutoriais
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Idiomas" class="dropdown-title"><span class="title">🌍</span> <span class="arrow down"></span></button> <button type="button" aria-label="Idiomas" class="mobile-dropdown-title"><span class="title">🌍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tutorials/Connex-upgrade-Connex2.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/pt/tutorials/Connex-upgrade-Connex2.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Português
+</a></li></ul></div></div> <a href="https://github.com/vechain/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Thor" class="dropdown-title"><span class="title">Thor</span> <span class="arrow down"></span></button> <button type="button" aria-label="Thor" class="mobile-dropdown-title"><span class="title">Thor</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/thor/learn/" class="nav-link">
+  Aprenda
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/installation.html" class="nav-link">
+  Primerios Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/thor/get-started/api.html" class="nav-link">
+  Thorest API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Connex" class="dropdown-title"><span class="title">Connex</span> <span class="arrow down"></span></button> <button type="button" aria-label="Connex" class="mobile-dropdown-title"><span class="title">Connex</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pt/connex/index.html" class="nav-link">
+  Primeiros Passos
+</a></li><li class="dropdown-item"><!----> <a href="/pt/connex/api.html" class="nav-link">
+  Especificações da API
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Sync" class="dropdown-title"><span class="title">Sync</span> <span class="arrow down"></span></button> <button type="button" aria-label="Sync" class="mobile-dropdown-title"><span class="title">Sync</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Sync2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync2/get-started.html" class="nav-link">
+  Obter Sync2
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync2/faq/" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li><li class="dropdown-item"><h4>
+          Sync
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pt/sync/download-and-install.html" class="nav-link">
+  Download
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/user-guide/" class="nav-link">
+  Manual do Usuário
+</a></li><li class="dropdown-subitem"><a href="/pt/sync/faq.html" class="nav-link">
+  Perguntas Frequentes
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Recursos" class="dropdown-title"><span class="title">Recursos</span> <span class="arrow down"></span></button> <button type="button" aria-label="Recursos" class="mobile-dropdown-title"><span class="title">Recursos</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://explore.vechain.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Explorador
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://apps.vechain.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  App-hub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/pt/others/miscellaneous.html" class="nav-link">
+  Outros
+</a></li><li class="dropdown-item"><!----> <a href="/pt/others/development-resources.html" class="nav-link">
+  Material Dev
+</a></li><li class="dropdown-item"><h4>
+          Suporte Online
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://t.me/vechain_official_english" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VeChain Oficial
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://t.me/VeChainDevCommunity" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Comunidade Dev
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/pt/tutorials/" class="nav-link router-link-active">
+  Tutoriais
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Idiomas" class="dropdown-title"><span class="title">🌍</span> <span class="arrow down"></span></button> <button type="button" aria-label="Idiomas" class="mobile-dropdown-title"><span class="title">🌍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tutorials/Connex-upgrade-Connex2.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/pt/tutorials/Connex-upgrade-Connex2.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Português
+</a></li></ul></div></div> <a href="https://github.com/vechain/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="connex1-升级到-connex2"><a href="#connex1-升级到-connex2" class="header-anchor">#</a> Connex1 升级到 Connex2</h1> <p>Connex2 是一个独立的 npm package，让 DApp 与 Sync2 变得更加独立。
+Connex2 随着 Sync2 的上线一同发布。</p> <h2 id="connex1-与-2-区别概述"><a href="#connex1-与-2-区别概述" class="header-anchor">#</a> Connex1 与 2 区别概述</h2> <ul><li><p>Connex1 是内置于 Sync1 中的。基于 Connex1 的 DApp 强依赖于Sync1，需要在Sync1 中运行。DApp 使用 Connex1 的签名服务，且网络环境依赖于 Sync1。</p></li> <li><p>Connex2 是独立的开发包，需要 Dapp 直接引入使用，且自行初始化网络环境；Connex2 非必须在 Sync 中运行。</p></li></ul> <h2 id="兼容模式"><a href="#兼容模式" class="header-anchor">#</a> 兼容模式</h2> <p>基于 Connex2 编写的 Dapp 可以在 Sync1 中运行，但有如下的注意事项：</p> <ul><li>若 DApp 所期待的网络环境（例如初始化为连接主网的Dapp）与Sync1的环境不一致（例如 Sync1 运行于测试网），则 Sync1 环境失效，DApp会启动召唤 Sync2的流程；</li> <li>若 DApp 所期待的网络环境（例如初始化为连接主网的Dapp）与Sync1的环境一致，则 DApp 运行在兼容模式下(Compat Mode)，大部分API都可正常使用；</li> <li>兼容模式下，Connex2 独有的 API 将不能启用。</li></ul> <h2 id="connex2-相关变动"><a href="#connex2-相关变动" class="header-anchor">#</a> Connex2 相关变动</h2> <h3 id="安装-connex2"><a href="#安装-connex2" class="header-anchor">#</a> 安装 Connex2</h3> <ul><li>使用标签引入 Connex2</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- install the latest v2 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://unpkg.com/@vechain/connex@2<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre></div><ul><li>npm 安装</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm i @vechain/connex
+</code></pre></div><h3 id="创建-connex"><a href="#创建-connex" class="header-anchor">#</a> 创建 Connex</h3> <p>在 Sync1 中 connex 是内置于 window 上的且网络环境确定，但是 Connex2 是需要手动创建的并指定节点及网络。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// connex v2</span>
+<span class="token keyword">import</span> Connex <span class="token keyword">from</span> <span class="token string">'@vechain/connex'</span>
+<span class="token comment">// Create a Connex object connects to VeChain mainnet</span>
+<span class="token keyword">const</span> connex <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Connex</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    node<span class="token operator">:</span> <span class="token string">'https://mainnet.veblocks.net/'</span><span class="token punctuation">,</span> <span class="token comment">// veblocks public node, use your own if needed</span>
+    network<span class="token operator">:</span> <span class="token string">'main'</span> <span class="token comment">// defaults to mainnet, so it can be omitted here</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Connect to testnet</span>
+<span class="token keyword">const</span> connex <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Connex</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    node<span class="token operator">:</span> <span class="token string">'https://testnet.veblocks.net/'</span><span class="token punctuation">,</span>
+    network<span class="token operator">:</span> <span class="token string">'test'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Or connect to private network</span>
+<span class="token keyword">const</span> connex <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Connex</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    node<span class="token operator">:</span> <span class="token string">'&lt;the API url of your node&gt;'</span><span class="token punctuation">,</span>
+    <span class="token comment">// the genesis block of your private network</span>
+    network<span class="token operator">:</span> <span class="token punctuation">{</span>
+        id<span class="token operator">:</span> <span class="token string">'0x...'</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+</code></pre></div><h3 id="创建-thor-filter"><a href="#创建-thor-filter" class="header-anchor">#</a> 创建 Thor.Filter</h3> <p>Connex2 Thor.Filter 创建方式变化</p> <div class="language-diff extra-class"><pre class="language-diff"><code><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   const type: 'event' | 'transfer'
+</span><span class="token prefix unchanged"> </span><span class="token line">   const criteria: Connex.Thor.Criteria&lt;T extends 'event' | 'transfer'&gt;
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   // Connex v1
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   const filter = new connex.thor.filter(type)
+</span><span class="token prefix deleted">-</span><span class="token line">   filter.criteria(criteria).apply(offset, limit)
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   // Connex v2
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   const filter = new connex.thor.filter(type, criteria)
+</span><span class="token prefix inserted">+</span><span class="token line">   filter.apply(offset, limit)
+</span></span>
+</code></pre></div><h3 id="创建-signingservice"><a href="#创建-signingservice" class="header-anchor">#</a> 创建 SigningService</h3> <p>Connex2 SigningService 创建方式变化</p> <div class="language-diff extra-class"><pre class="language-diff"><code>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   const txMsg: Vendor.TxMessage
+</span><span class="token prefix unchanged"> </span><span class="token line">   const certMsg: Vendor.CertMessage
+</span><span class="token prefix unchanged"> </span><span class="token line">   // Connex v1
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   const txSigningSvc = new connex.vendor.sign('tx')
+</span><span class="token prefix deleted">-</span><span class="token line">   const certSigningSvc = new connex.vendor.sign('cert')
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   // Connex v2
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   const txSigningSvc = new connex.vendor.sign('tx', txMsg)
+</span><span class="token prefix inserted">+</span><span class="token line">   const certSigningSvc = new connex.vendor.sign('cert', certMsg)
+</span></span></code></pre></div><h3 id="tx-signingservice-delegate-参数变化"><a href="#tx-signingservice-delegate-参数变化" class="header-anchor">#</a> TX SigningService.delegate 参数变化</h3> <p><a href="/connex/api.html#transaction-signing-service">更多详情</a></p> <div class="language-diff extra-class"><pre class="language-diff"><code><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   const txMsg: Vendor.TxMessage
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   // Connex1
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   const txSigningSvc = new connex.vendor.sign('tx')
+</span><span class="token prefix deleted">-</span><span class="token line">   txSigningSvc.delegate( async (unsigned): Promise&lt;string&gt; =&gt; {})
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   // Connex2
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   const txSigningSvc = new connex.vendor.sign('tx', txMsg)
+</span><span class="token prefix inserted">+</span><span class="token line">   txSigningSvc.delegate(url, signer?)
+</span></span></code></pre></div><h2 id="connex2-新增的-api"><a href="#connex2-新增的-api" class="header-anchor">#</a> Connex2 新增的 api</h2> <p>新增 API 仅在非 Compat mode 时起效</p> <p><a href="/connex/api.html">更多</a></p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">const</span> address<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token keyword">const</span> abi<span class="token operator">:</span> Object
+<span class="token keyword">const</span> kind<span class="token operator">:</span> <span class="token string">'event'</span> <span class="token operator">|</span> <span class="token string">'transfer'</span>
+<span class="token keyword">const</span> criteria<span class="token operator">:</span> Thor<span class="token punctuation">.</span>Filter<span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token keyword">extends</span> <span class="token string">'event'</span> <span class="token operator">|</span> <span class="token string">'transfer'</span><span class="token operator">&gt;</span><span class="token punctuation">.</span>Criteria<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> clauses<span class="token operator">:</span> Thor<span class="token punctuation">.</span>Clause<span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+thor<span class="token punctuation">.</span><span class="token function">account</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span>abi<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gasPayer</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span>
+
+thor<span class="token punctuation">.</span><span class="token function">account</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">method</span><span class="token punctuation">(</span>abi<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">transact</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token comment">// ...args =&gt; abi inputs</span>
+
+thor<span class="token punctuation">.</span><span class="token function">account</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">event</span><span class="token punctuation">(</span>abi<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cache</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+thor<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>kind<span class="token punctuation">,</span> criteria<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cache</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+thor<span class="token punctuation">.</span><span class="token function">explain</span><span class="token punctuation">(</span>clauses<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">cache</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+thor<span class="token punctuation">.</span><span class="token function">explain</span><span class="token punctuation">(</span>clauses<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gasPayer</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span>
+
+vendor<span class="token punctuation">.</span>sign<span class="token punctuation">.</span><span class="token function">accepted</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/vechain/docs/edit/master/pt/tutorials/Connex-upgrade-Connex2.md" target="_blank" rel="noopener noreferrer">Nos ajude a melhorar essa página</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/21/2022, 4:00:57 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.f6ee0754.js" defer></script><script src="/assets/js/3.4d15505d.js" defer></script><script src="/assets/js/64.e0ffbed9.js" defer></script><script src="/assets/js/20.e801da5b.js" defer></script>
+  </body>
+</html>
